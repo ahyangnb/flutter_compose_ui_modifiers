@@ -1,3 +1,9 @@
+## 0.3.3
+* Update the dart and flutter version. 
+
+* ## 0.3.2
+* Optimize some code.
+
 ## 0.3.1
 
 **Extended existing modifier to support all Widgets**
