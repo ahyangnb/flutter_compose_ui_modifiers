@@ -9,6 +9,7 @@ export 'image.dart';
 export 'layout.dart';
 export 'inkwell.dart';
 export 'row.dart';
+export 'manager/modifer_manager.dart';
 
 /// Contains the modifier members of the [Widget] class.
 ///
