@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show BuildContext, ListView, ScrollConfiguration, Widget;
 
 extension FlutterUIModifiersListView on ListView {
   /// A modifier that sets its Text's style.

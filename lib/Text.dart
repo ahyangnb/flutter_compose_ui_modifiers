@@ -14,7 +14,7 @@ extension FlutterUIModifiersText on Text {
   ///     .bold();
   /// ```
   Text bold() {
-    return this.font(weight: FontWeight.bold);
+    return font(weight: FontWeight.bold);
   }
 
   /// A modifier that sets its Text's color.
@@ -26,7 +26,7 @@ extension FlutterUIModifiersText on Text {
   ///     .color(Colors.red);
   /// ```
   Text color(Color? color) {
-    return this._rebase(
+    return _rebase(
       style: FlutterUITextStyle.rebase(this.style, color: color),
     );
   }
@@ -60,7 +60,7 @@ extension FlutterUIModifiersText on Text {
     String? family,
     List<String>? familyFallback,
   }) {
-    return this._rebase(
+    return _rebase(
       style: FlutterUITextStyle.rebase(
         this.style,
         fontSize: size,
@@ -81,7 +81,7 @@ extension FlutterUIModifiersText on Text {
   ///     .multilineTextAlignment(TextAlign.start);
   /// ```
   Text multilineTextAlignment(TextAlign? alignment) {
-    return this._rebase(align: alignment);
+    return _rebase(align: alignment);
   }
 
   /// A modifier that sets its Text's style.
@@ -93,7 +93,7 @@ extension FlutterUIModifiersText on Text {
   ///     .style(TextStyle(color: Colors.blue));
   /// ```
   Text style(TextStyle? style) {
-    return this._rebase(style: style);
+    return _rebase(style: style);
   }
 
   /// Internal modifier for modifying final properties.
@@ -103,10 +103,10 @@ extension FlutterUIModifiersText on Text {
     TextStyle? style,
   }) {
     return Text(
-      this.data ?? '',
-      key: this.key,
-      textAlign: align ?? this.textAlign,
-      textDirection: direction ?? this.textDirection,
+      data ?? '',
+      key: key,
+      textAlign: align ?? textAlign,
+      textDirection: direction ?? textDirection,
       style: style ?? this.style,
     );
   }

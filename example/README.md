@@ -21,7 +21,7 @@ list.add(
 );
 ```
 
-With the `flutterui_modifiers` package installed you could transform the above code to a modifier-style equivalent which might look something like this:
+With the `flutter_compose_ui_modifiers` package installed you could transform the above code to a modifier-style equivalent which might look something like this:
 
 ```dart
 List<Widget> list = [];

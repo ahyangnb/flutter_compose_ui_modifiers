@@ -10,7 +10,7 @@ extension FlutterUIModifiersTextField on TextField {
   ///     .style(TextStyle(color: Colors.blue));
   /// ```
   TextField style(TextStyle? style) {
-    return this._rebase(style: style);
+    return _rebase(style: style);
   }
 
   /// Internal modifier for modifying final properties.
@@ -20,9 +20,9 @@ extension FlutterUIModifiersTextField on TextField {
     TextStyle? style,
   }) {
     return TextField(
-      key: this.key,
-      textAlign: align ?? this.textAlign,
-      textDirection: direction ?? this.textDirection,
+      key: key,
+      textAlign: align ?? textAlign,
+      textDirection: direction ?? textDirection,
       style: style ?? this.style,
     );
   }

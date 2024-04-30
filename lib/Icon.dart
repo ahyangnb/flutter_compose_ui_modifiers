@@ -59,8 +59,8 @@ extension FlutterUIModifiersIcon on Icon {
     TextDirection? textDirection,
   }) {
     return Icon(
-      this.icon,
-      key: this.key,
+      icon,
+      key: key,
       size: size ?? this.size,
       color: color ?? this.color,
       semanticLabel: semanticLabel ?? this.semanticLabel,

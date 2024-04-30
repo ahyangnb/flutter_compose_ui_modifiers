@@ -8,17 +8,18 @@ import 'package:flutter/material.dart';
 ///
 /// ignore: must_be_immutable
 class Button extends TextButton {
-  bool? _disabled;
   Button(
     Widget Function()? child, {
     Key? key,
   }) : super(
           key: key,
           onPressed: null,
-          child: child != null ? child() : SizedBox(),
+          child: child != null ? child() : const SizedBox(),
         ) {
     _disabled = false;
   }
+
+  bool? _disabled;
 
   Button._private({
     Key? key,
@@ -32,7 +33,7 @@ class Button extends TextButton {
     required Widget child,
   }) : super(
           key: key,
-          onPressed: disabled == true ? null : onPressed,
+          onPressed: true == disabled ? null : onPressed,
           onLongPress: onLongPress,
           style: style,
           focusNode: focusNode,
@@ -40,7 +41,7 @@ class Button extends TextButton {
           clipBehavior: clipBehavior,
           child: child,
         ) {
-    this._disabled = disabled ?? false;
+    _disabled = disabled ?? false;
   }
 
   /// A modifier that sets its Button's background color
@@ -54,7 +55,7 @@ class Button extends TextButton {
   Button backgroundColor(Color? color) {
     return _rebase(
       style: FlutterUIButtonStyle.rebase(
-        this.style,
+        style,
         backgroundColor: MaterialStateProperty.all(color),
       ),
     );
@@ -82,7 +83,7 @@ class Button extends TextButton {
   ///     .onLongTap(() => print("Tapped!"));
   /// ```
   Button onLongTap(VoidCallback perform) {
-    return this._rebase(onLongPress: perform);
+    return _rebase(onLongPress: perform);
   }
 
   /// A modifier that sets its Button's onPress handler.
@@ -94,7 +95,7 @@ class Button extends TextButton {
   ///     .onTap(() => print("Tapped!"));
   /// ```
   Button onTap(VoidCallback perform) {
-    return this._rebase(onPressed: perform);
+    return _rebase(onPressed: perform);
   }
 
   Button _rebase({
@@ -108,15 +109,15 @@ class Button extends TextButton {
     Widget? child,
   }) {
     return Button._private(
-      key: this.key,
-      disabled: disabled ?? this._disabled,
+      key: key,
+      disabled: disabled ?? _disabled,
       onPressed: onPressed ?? this.onPressed,
       onLongPress: onLongPress ?? this.onLongPress,
       style: style ?? this.style,
       focusNode: focusNode ?? this.focusNode,
       autofocus: autofocus ?? this.autofocus,
       clipBehavior: clipBehavior ?? this.clipBehavior,
-      child: child ?? this.child ?? SizedBox(),
+      child: child ?? this.child ?? const SizedBox(),
     );
   }
 }

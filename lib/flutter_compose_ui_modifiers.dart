@@ -1,5 +1,3 @@
-library flutterui_modifiers;
-
 import 'package:flutter/material.dart';
 
 export 'Button.dart';
