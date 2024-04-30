@@ -1,6 +1,6 @@
 # FlutterUI Modifiers
 
-use (flutterui_modifiers)[https://pub.dev/packages/flutterui_modifiers] change.
+use [https://pub.dev/packages/flutterui_modifiers](flutterui_modifiers) change.
 
 FlutterUI Modifiers is a collection of declarative widget modifiers to make your Flutter code
 shorter and linear.
