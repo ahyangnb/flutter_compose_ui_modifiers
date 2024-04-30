@@ -1,9 +1,6 @@
-[![Pub](https://img.shields.io/pub/v/flutter_compose_ui_modifiers)](https://pub.dev/packages/flutter_compose_ui_modifiers)
-[![GitHub](https://img.shields.io/github/license/FlutterUI/Modifiers)](
-
 # FlutterUI Modifiers
 
-use flutterui_modifiers change.
+use (flutterui_modifiers)[https://pub.dev/packages/flutterui_modifiers] change.
 
 FlutterUI Modifiers is a collection of declarative widget modifiers to make your Flutter code
 shorter and linear.
