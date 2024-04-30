@@ -31,6 +31,18 @@ extension FlutterUIModifiersText on Text {
     );
   }
 
+  Text fontSize(double fontSize) {
+    return _rebase(
+      style: FlutterUITextStyle.rebase(this.style, fontSize: fontSize),
+    );
+  }
+
+  Text heightSize(double lineHeight) {
+    return _rebase(
+      style: FlutterUITextStyle.rebase(this.style, height: lineHeight),
+    );
+  }
+
   /// A modifier that overrides its Text's layout direction.
   ///
   /// If set to `TextDirection.rtl` the leading side will be right instead of left.

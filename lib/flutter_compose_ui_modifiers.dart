@@ -5,6 +5,10 @@ export 'Icon.dart';
 export 'ListView.dart';
 export 'Text.dart';
 export 'TextField.dart';
+export 'image.dart';
+export 'layout.dart';
+export 'inkwell.dart';
+export 'row.dart';
 
 /// Contains the modifier members of the [Widget] class.
 ///
@@ -123,6 +127,10 @@ extension FlutterUIModifiersWidget on Widget {
     Clip behavior: Clip.hardEdge,
   }) {
     return ClipRect(child: this, clipper: clipper, clipBehavior: behavior);
+  }
+
+  Widget borderRadiusSet(double radius, {bool handover = true}) {
+    return corner(radius, handover: handover);
   }
 
   /// A modifier that clips its widget's corners to the specified radius.
@@ -486,10 +494,10 @@ extension FlutterUIModifiersContainer on Container {
   /// ```
   Container corner(double radius) {
     var border = BorderRadius.circular(radius);
-    var decoration = BoxDecoration(borderRadius: border);
+    var decoration = BoxDecoration(borderRadius: border, color: this.color);
     if (this.decoration is BoxDecoration) {
-      decoration =
-          (this.decoration as BoxDecoration).rebase(borderRadius: border);
+      decoration = (this.decoration as BoxDecoration)
+          .rebase(borderRadius: border, color: this.color);
     }
     return _rebase(
       decoration: decoration,
@@ -559,12 +567,17 @@ extension FlutterUIModifiersContainer on Container {
     AlignmentGeometry? transformAlignment,
     Clip? clipBehavior,
   }) {
+    final Decoration? decorationNew = decoration ?? this.decoration;
+    final colorNew = color ?? this.color;
+    if (decorationNew is BoxDecoration) {
+      decorationNew.copyWith(color: colorNew);
+    }
     return Container(
       key: this.key,
       alignment: alignment ?? this.alignment,
       padding: padding ?? this.padding,
-      color: color ?? this.color,
-      decoration: decoration ?? this.decoration,
+      color: decorationNew == null ? colorNew : null,
+      decoration: decorationNew,
       foregroundDecoration: foregroundDecoration ?? this.foregroundDecoration,
       width: width,
       height: height,
