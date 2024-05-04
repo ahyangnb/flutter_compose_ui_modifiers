@@ -18,14 +18,44 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 //     Text(e[2]).color(Colors.white).fontSize(18.px).heightSize(25.px / 18.px)
 //   ]);
 // }
-class Modifier extends StatelessWidget {
-  const Modifier({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
+// class MScaffoldModifier extends StatelessWidget {
+//   final MScaffold scaffold;
+//   final Widget modifier;
+//
+//   MScaffoldModifier({required this.scaffold, required this.modifier});
+//
+//   factory MScaffoldModifier.title(String title) {
+//     return MScaffoldModifier(
+//       scaffold: MScaffold(
+//         modifier: modifier,
+//         body: scaffold.body,
+//         appBar: AppBar(title: Text(title)),
+//         // include other properties as needed
+//       ),
+//       modifier: modifier,
+//     );
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return scaffold;
+//   }
+// }
+
+// Widget Modifier = Container();
+// class Modifier extends StatelessWidget {
+//   const Modifier({super.key});
+//
+//   Widget apply(Widget child) {
+//     return Container(child: child);
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
 
 extension FlutterUIModifiersRowForSet on Widget {
   Widget set(List<Widget> children) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/container.dart';
 
 export 'Button.dart';
 export 'Icon.dart';
@@ -8,7 +9,14 @@ export 'TextField.dart';
 export 'image.dart';
 export 'layout.dart';
 export 'inkwell.dart';
+export 'column.dart';
 export 'row.dart';
+export 'container.dart';
+export 'm/m_scaffold.dart';
+export 'm/m_appbar.dart';
+export 'm/m_general.dart';
+export 'm/m_listview.dart';
+export 'm/m_text.dart';
 export 'manager/modifer_manager.dart';
 
 /// Contains the modifier members of the [Widget] class.
@@ -229,7 +237,7 @@ extension FlutterUIModifiersWidget on Widget {
       vertical: vertical,
     );
     if (handover && this is Container) {
-      return (this as Container)._rebase(margin: insets);
+      return (this as Container).rebase(margin: insets);
     }
     return Container(child: this, margin: insets);
   }
@@ -269,7 +277,7 @@ extension FlutterUIModifiersWidget on Widget {
       vertical: vertical,
     );
     if (handover && this is Container) {
-      return (this as Container)._rebase(padding: insets);
+      return (this as Container).rebase(padding: insets);
     }
     return Padding(child: this, padding: insets);
   }
@@ -464,130 +472,6 @@ extension FlutterUIModifiersWidget on Widget {
       bottom: _bottom,
       left: _leading,
       right: _trailing,
-    );
-  }
-}
-
-/// Contains the modifier members of the [Container] class.
-///
-/// The reason that [FlutterUIModifiersContainer] resides inside this file is
-/// because it provides the `_rebase()` method of which is fileprivate.
-extension FlutterUIModifiersContainer on Container {
-  /// A modifier that sets its widget's background color
-  ///
-  /// ## Example:
-  ///
-  /// ```dart
-  /// Text('Black text')
-  ///     .backgroundColor(Colors.white)
-  ///```
-  Container backgroundColor(Color color) {
-    return _rebase(color: color);
-  }
-
-  /// A modifier that clips its widget's corners to the specified radius.
-  ///
-  /// ## Example:
-  ///
-  /// ```dart
-  /// Icon(Icons.person)
-  ///     .corner(12);
-  /// ```
-  Container corner(double radius) {
-    var border = BorderRadius.circular(radius);
-    var decoration = BoxDecoration(borderRadius: border, color: this.color);
-    if (this.decoration is BoxDecoration) {
-      decoration = (this.decoration as BoxDecoration)
-          .rebase(borderRadius: border, color: this.color);
-    }
-    return _rebase(
-      decoration: decoration,
-      clipBehavior: Clip.antiAliasWithSaveLayer,
-    );
-  }
-
-  /// A modifier that sets its widget's frame size.
-  ///
-  /// ## Example:
-  ///
-  /// ```dart
-  /// Icon(Icons.person)
-  ///     .frame(width: 50, height: 25);
-  /// ```
-  Container frame({double? width, double? height}) {
-    return _rebase(width: width, height: height);
-  }
-
-  /// A modifier that casts a box shadow under its widget.
-  ///
-  /// `.shadow()` can cast non-rectangular shadows if the box is non-rectangular
-  /// (e.g., has a border radius or a circular shape).
-  ///
-  /// This modifier is similar to CSS box-shadow.
-  ///
-  /// ## Example:
-  ///
-  /// ```dart
-  /// Icon(Icons.person)
-  ///     .shadow(4, blur: 40);
-  /// ```
-  Widget shadow(
-    double radius, {
-    Color color = const Color.fromRGBO(0, 0, 0, .5),
-    double blur = 25,
-    double x = 0,
-    double y = 0,
-  }) {
-    var shadow = BoxShadow(
-      color: color,
-      spreadRadius: radius,
-      blurRadius: blur,
-      offset: Offset(x, y),
-    );
-    var decoration = BoxDecoration(boxShadow: [shadow]);
-    if (this.decoration is BoxDecoration) {
-      decoration = (this.decoration as BoxDecoration).rebase(
-        boxShadow: [shadow],
-      );
-    }
-    return _rebase(decoration: decoration);
-  }
-
-  /// Internal modifier for modifying final properties.
-  Container _rebase({
-    AlignmentGeometry? alignment,
-    EdgeInsetsGeometry? padding,
-    Color? color,
-    Decoration? decoration,
-    Decoration? foregroundDecoration,
-    double? width,
-    double? height,
-    BoxConstraints? constraints,
-    EdgeInsetsGeometry? margin,
-    Matrix4? transform,
-    AlignmentGeometry? transformAlignment,
-    Clip? clipBehavior,
-  }) {
-    final Decoration? decorationNew = decoration ?? this.decoration;
-    final colorNew = color ?? this.color;
-    if (decorationNew is BoxDecoration) {
-      decorationNew.copyWith(color: colorNew);
-    }
-    return Container(
-      key: this.key,
-      alignment: alignment ?? this.alignment,
-      padding: padding ?? this.padding,
-      color: decorationNew == null ? colorNew : null,
-      decoration: decorationNew,
-      foregroundDecoration: foregroundDecoration ?? this.foregroundDecoration,
-      width: width,
-      height: height,
-      constraints: constraints ?? this.constraints,
-      margin: margin ?? this.margin,
-      transform: transform ?? this.transform,
-      transformAlignment: transformAlignment ?? this.transformAlignment,
-      child: this.child,
-      clipBehavior: clipBehavior ?? this.clipBehavior,
     );
   }
 }
