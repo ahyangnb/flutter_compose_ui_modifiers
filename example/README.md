@@ -35,3 +35,36 @@ Text('Hello, World! 🌍')
 ```
 
 More examples like this can be found in the in-code documentation.
+
+M widget 
+```dart
+class ContactCreateGroupPage extends StatelessWidget {
+  const ContactCreateGroupPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final logic = Get.put(ContactCreateGroupLogic());
+    final state = Get
+        .find<ContactCreateGroupLogic>()
+        .state;
+    return MScaffold(
+      modifier: MScaffoldModifier.setBackgroundColor(Colors.white)
+          .setResizeToAvoidBottomInset(false)
+          .setAppBar(const Q1AppBar(title: "Title")),
+      body: MListView(
+        modifier: MListViewModifier.setPadding(10.px)
+            .setReverse(true)
+            .setPhysics(const BouncingScrollPhysics()),
+        children: [
+          MText(
+            modifier: MTextModifier.setColor(Colors.red)
+                .setFontSize(20.px)
+                .setFontWeight(FontWeight.w600),
+            data: 'Hi',
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
