@@ -115,6 +115,40 @@ class MTextModifierDefine extends MGeneralModifier {
 }
 
 extension MTextModifierPropertys on MTextModifierDefine {
+  MTextModifierDefine color(Color color) {
+    return setColor(color);
+  }
+
+  MTextModifierDefine setColor(Color color) {
+    final newStyle = this.styleValue.copyWith(color: color);
+    final MTextModifierDefine newModifierValue =
+        this.copyWith(styleValue: newStyle);
+    return newModifierValue;
+  }
+
+  MTextModifierDefine fontSize(double fontSize) {
+    return setFontSize(fontSize);
+  }
+
+  MTextModifierDefine setFontSize(double fontSize) {
+    final newStyle = this.styleValue.copyWith(fontSize: fontSize);
+    final MTextModifierDefine newModifierValue =
+        this.copyWith(styleValue: newStyle);
+    return newModifierValue;
+  }
+
+  MTextModifierDefine fontWeight(FontWeight fontWeight) {
+    return setFontWeight(fontWeight);
+  }
+
+  MTextModifierDefine setFontWeight(FontWeight fontWeight) {
+    final newStyle = this.styleValue.copyWith(fontWeight: fontWeight);
+    final MTextModifierDefine newModifierValue =
+        this.copyWith(styleValue: newStyle);
+    return newModifierValue;
+  }
+
+  /// General============Start
   MTextModifierDefine paddingTop(double value) {
     return this.copyWith(
       paddingValue: (this.paddingValue ?? EdgeInsets.zero).copyWith(top: value),
@@ -185,36 +219,5 @@ extension MTextModifierPropertys on MTextModifierDefine {
     return this.copyWith(onTapValue: onTapValue);
   }
 
-  MTextModifierDefine color(Color color) {
-    return setColor(color);
-  }
-
-  MTextModifierDefine setColor(Color color) {
-    final newStyle = this.styleValue.copyWith(color: color);
-    final MTextModifierDefine newModifierValue =
-        this.copyWith(styleValue: newStyle);
-    return newModifierValue;
-  }
-
-  MTextModifierDefine fontSize(double fontSize) {
-    return setFontSize(fontSize);
-  }
-
-  MTextModifierDefine setFontSize(double fontSize) {
-    final newStyle = this.styleValue.copyWith(fontSize: fontSize);
-    final MTextModifierDefine newModifierValue =
-        this.copyWith(styleValue: newStyle);
-    return newModifierValue;
-  }
-
-  MTextModifierDefine fontWeight(FontWeight fontWeight) {
-    return setFontWeight(fontWeight);
-  }
-
-  MTextModifierDefine setFontWeight(FontWeight fontWeight) {
-    final newStyle = this.styleValue.copyWith(fontWeight: fontWeight);
-    final MTextModifierDefine newModifierValue =
-        this.copyWith(styleValue: newStyle);
-    return newModifierValue;
-  }
+  /// General============End
 }

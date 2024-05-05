@@ -88,13 +88,17 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         generalModifier?.borderRadiusValue != null ||
         generalModifier?.backgroundColorValue != null ||
         generalModifier?.widthValue != null ||
-        generalModifier?.heightValue != null) {
+        generalModifier?.heightValue != null ||
+        generalModifier?.shadowValue != null) {
       child = Container(
         width: generalModifier?.widthValue,
         height: generalModifier?.heightValue,
         decoration: BoxDecoration(
           color: generalModifier?.backgroundColorValue,
           borderRadius: generalModifier?.borderRadiusValue,
+          boxShadow: generalModifier?.shadowValue != null
+              ? [generalModifier!.shadowValue!]
+              : null,
         ),
         padding: ignoreList.contains(IgnoreModifierInGeneral.paddingValue)
             ? null

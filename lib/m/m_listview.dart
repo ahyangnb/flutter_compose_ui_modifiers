@@ -114,6 +114,23 @@ class MListViewModifierDefine extends MGeneralModifier {
 }
 
 extension MListViewModifierPropertys on MListViewModifierDefine {
+  MListViewModifierDefine reverse(bool value) {
+    return setReverse(value);
+  }
+
+  MListViewModifierDefine setReverse(bool value) {
+    return this.copyWith(reverseValue: value);
+  }
+
+  MListViewModifierDefine physics(ScrollPhysics physics) {
+    return setPhysics(physics);
+  }
+
+  MListViewModifierDefine setPhysics(ScrollPhysics physics) {
+    return this.copyWith(physicsValue: physics);
+  }
+
+  /// General============Start
   MListViewModifierDefine padding(EdgeInsets value) {
     return setPadding(value);
   }
@@ -156,19 +173,5 @@ extension MListViewModifierPropertys on MListViewModifierDefine {
     );
   }
 
-  MListViewModifierDefine reverse(bool value) {
-    return setReverse(value);
-  }
-
-  MListViewModifierDefine setReverse(bool value) {
-    return this.copyWith(reverseValue: value);
-  }
-
-  MListViewModifierDefine physics(ScrollPhysics physics) {
-    return setPhysics(physics);
-  }
-
-  MListViewModifierDefine setPhysics(ScrollPhysics physics) {
-    return this.copyWith(physicsValue: physics);
-  }
+  /// General============End
 }
