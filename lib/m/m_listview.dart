@@ -16,7 +16,7 @@ class MListView extends StatelessWidget {
       generalModifier: modifier,
 
       /// Padding will be use in ListView, so we need to ignore it.
-      ignoreList: [IgnoreModifierInGeneral.paddingValue],
+      ignoreList: [IgnoreModifierInGeneral.padding],
       child: ListView(
         padding: modifier?.paddingValue ?? EdgeInsets.zero,
         children: children ?? [],

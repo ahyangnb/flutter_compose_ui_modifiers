@@ -55,10 +55,9 @@ class MGeneralModifier {
 }
 
 /// if you want to ignore some modifier in general, you can add it here.
-enum IgnoreModifierInGeneral {
-  paddingValue,
-}
+enum IgnoreModifierInGeneral { padding, width, height, backgroundColor }
 
+/// [ignoreList]: ignore some modifier in general.
 class MGeneralLayoutModifierWidget extends StatelessWidget {
   final MGeneralModifier? generalModifier;
   final List<IgnoreModifierInGeneral> ignoreList;
@@ -91,16 +90,22 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         generalModifier?.heightValue != null ||
         generalModifier?.shadowValue != null) {
       child = Container(
-        width: generalModifier?.widthValue,
-        height: generalModifier?.heightValue,
+        width: ignoreList.contains(IgnoreModifierInGeneral.width)
+            ? null
+            : generalModifier?.widthValue,
+        height: ignoreList.contains(IgnoreModifierInGeneral.height)
+            ? null
+            : generalModifier?.heightValue,
         decoration: BoxDecoration(
-          color: generalModifier?.backgroundColorValue,
+          color: ignoreList.contains(IgnoreModifierInGeneral.backgroundColor)
+              ? null
+              : generalModifier?.backgroundColorValue,
           borderRadius: generalModifier?.borderRadiusValue,
           boxShadow: generalModifier?.shadowValue != null
               ? [generalModifier!.shadowValue!]
               : null,
         ),
-        padding: ignoreList.contains(IgnoreModifierInGeneral.paddingValue)
+        padding: ignoreList.contains(IgnoreModifierInGeneral.padding)
             ? null
             : generalModifier?.paddingValue,
         margin: generalModifier?.marginValue,
