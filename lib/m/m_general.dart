@@ -72,7 +72,6 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget child = this.child;
-    print("generalModifier::$generalModifier");
     if (generalModifier == null) {
       return child;
     }

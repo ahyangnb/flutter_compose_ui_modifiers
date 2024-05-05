@@ -13,7 +13,6 @@ class MColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final useContents = (children ?? [])..addAll(modifier?.children ?? []);
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
       child: Column(
@@ -21,7 +20,10 @@ class MColumn extends StatelessWidget {
             ModifierConfig.defColumnCrossAxisAlignment,
         mainAxisAlignment: modifier?.mainAxisAlignmentValue ??
             ModifierConfig.defColumnMainAxisAlignment,
-        children: useContents,
+        children: [
+          ...children ?? [],
+          ...modifier?.children ?? [],
+        ],
       ),
     );
   }
