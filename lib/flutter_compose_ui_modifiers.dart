@@ -174,7 +174,11 @@ extension FlutterUIModifiersWidget on Widget {
   /// Icon(Icons.person)
   ///     .flex(1);
   /// ```
-  Widget flex(int? flex) {
+  Widget flex([int? flex]) {
+    return Expanded(child: this, flex: flex ?? 1);
+  }
+
+  Widget expanded([int? flex]) {
     return Expanded(child: this, flex: flex ?? 1);
   }
 
