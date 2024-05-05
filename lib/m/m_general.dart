@@ -13,7 +13,6 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 class MGeneralModifier {
   final EdgeInsets? paddingValue;
@@ -55,11 +54,21 @@ class MGeneralModifier {
   });
 }
 
+/// if you want to ignore some modifier in general, you can add it here.
+enum IgnoreModifierInGeneral {
+  paddingValue,
+}
+
 class MGeneralLayoutModifierWidget extends StatelessWidget {
   final MGeneralModifier? generalModifier;
+  final List<IgnoreModifierInGeneral> ignoreList;
   final Widget child;
 
-  MGeneralLayoutModifierWidget({this.generalModifier, required this.child});
+  MGeneralLayoutModifierWidget({
+    this.generalModifier,
+    required this.child,
+    this.ignoreList = const [],
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +96,9 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
           color: generalModifier?.backgroundColorValue,
           borderRadius: generalModifier?.borderRadiusValue,
         ),
-        padding: generalModifier?.paddingValue,
+        padding: ignoreList.contains(IgnoreModifierInGeneral.paddingValue)
+            ? null
+            : generalModifier?.paddingValue,
         margin: generalModifier?.marginValue,
         child: child,
       );
