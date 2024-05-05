@@ -1,104 +1,220 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
+/// example:
+/// ```dart
+/// MText(
+//   modifier: MTextModifier.color(Colors.blue)
+//       .onClick(() => logger.d("hi"))
+//       .fontSize(50.px)
+//       .fontWeight(FontWeight.w200)
+//       .backgroundColor(Colors.red.withOpacity(0.3))
+//       .size(const Size(200, 300))
+//       .marginBottom(300.px)
+//       .paddingTop(50.px)
+//       .center(true),
+//   data: 'can click hhhhhh',
+// )
+/// ```
 class MText extends StatelessWidget {
-  final MText? modifier;
-  final String? data;
-  final MGeneralModifier? generalModifier;
-  final TextStyle? style;
+  final MTextModifierDefine modifier;
+  final String data;
 
   MText({
-    this.modifier,
-    this.data,
-    this.generalModifier,
-    this.style,
+    this.modifier = const MTextModifierDefine(),
+    required this.data,
   });
 
   @override
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
-      generalModifier: generalModifier ?? modifier?.generalModifier,
+      generalModifier: modifier,
       child: Text(
-        data ?? '',
+        data,
         style: TextStyle(
-          color: style?.color ?? modifier?.style?.color,
-          fontSize: style?.fontSize ?? modifier?.style?.fontSize,
-          fontWeight: style?.fontWeight ?? modifier?.style?.fontWeight,
+          color: modifier.styleValue.color ?? modifier.styleValue.color,
+          fontSize:
+              modifier.styleValue.fontSize ?? modifier.styleValue.fontSize,
+          fontWeight:
+              modifier.styleValue.fontWeight ?? modifier.styleValue.fontWeight,
         ),
       ),
     );
   }
+}
 
-  /// Create a copyWith().
-  MText copyWith({
-    MText? modifier,
-    String? data,
-    MGeneralModifier? generalModifier,
-    TextStyle? style,
+final MTextModifier = MTextModifierDefine();
+
+class MTextModifierDefine extends MGeneralModifier {
+  final TextStyle styleValue;
+
+  const MTextModifierDefine({
+    this.styleValue = const TextStyle(),
+    super.paddingValue,
+    super.marginValue,
+    super.onTapValue,
+    super.backgroundColorValue,
+    super.borderRadiusValue,
+    super.centerAlignValue,
+    super.widthValue,
+    super.heightValue,
+    super.shadowValue,
+    super.transformValue,
+    super.constraintsValue,
+    super.aspectRatioValue,
+    super.flexValue,
+    super.helpValue,
+    super.opacityValue,
+    super.rotateValue,
+    super.scaleValue,
+  });
+
+  MTextModifierDefine copyWith({
+    TextStyle? styleValue,
+
+    /// The following properties are inherited from MGeneralModifier.
+    EdgeInsets? paddingValue,
+    EdgeInsets? marginValue,
+    VoidCallback? onTapValue,
+    Color? backgroundColorValue,
+    BorderRadiusGeometry? borderRadiusValue,
+    bool? centerAlignValue,
+    double? widthValue,
+    double? heightValue,
+    BoxShadow? shadowValue,
+    Matrix4? transformValue,
+    BoxConstraints? constraintsValue,
+    double? aspectRatioValue,
+    int? flexValue,
+    String? helpValue,
+    double? opacityValue,
+    double? rotateValue,
+    double? scaleValue,
   }) {
-    return MText(
-      modifier: modifier ?? this.modifier,
-      data: data ?? this.data,
-      generalModifier: generalModifier ?? this.generalModifier,
-      style: style ?? this.style,
+    return MTextModifierDefine(
+      styleValue: styleValue ?? this.styleValue,
+      paddingValue: paddingValue ?? this.paddingValue,
+      marginValue: marginValue ?? this.marginValue,
+      onTapValue: onTapValue ?? this.onTapValue,
+      backgroundColorValue: backgroundColorValue ?? this.backgroundColorValue,
+      borderRadiusValue: borderRadiusValue ?? this.borderRadiusValue,
+      centerAlignValue: centerAlignValue ?? this.centerAlignValue,
+      widthValue: widthValue ?? this.widthValue,
+      heightValue: heightValue ?? this.heightValue,
+      shadowValue: shadowValue ?? this.shadowValue,
+      transformValue: transformValue ?? this.transformValue,
+      constraintsValue: constraintsValue ?? this.constraintsValue,
+      aspectRatioValue: aspectRatioValue ?? this.aspectRatioValue,
+      flexValue: flexValue ?? this.flexValue,
+      helpValue: helpValue ?? this.helpValue,
+      opacityValue: opacityValue ?? this.opacityValue,
+      rotateValue: rotateValue ?? this.rotateValue,
+      scaleValue: scaleValue ?? this.scaleValue,
     );
   }
 }
 
-final MTextModifier = MText(modifier: null, data: null);
-
-class MTextModifierDefine extends MGeneralModifier{
-
-
-}
-
-extension MTextModifierPropertys on MText {
-  MText onClick(VoidCallback onTap) {
-    final thisGeneralModifier = this.generalModifier ??
-        this.modifier?.generalModifier ??
-        MGeneralModifier();
-    print("generalModifier::new::onClick::${onTap}");
-    print("thisGeneralModifier::${thisGeneralModifier}");
-    final newGeneralModifier = thisGeneralModifier?.copyWith(onTap: onTap);
-    print("newGeneralModifier::$newGeneralModifier");
-    // return merge(MText(generalModifier: MGeneralModifier(onTap: onTap)));
-    final valueAfterCopyWith = copyWith(
-        generalModifier: newGeneralModifier,
-        modifier: this.modifier?.copyWith(generalModifier: newGeneralModifier));
-    print(
-        "valueAfterCopyWith.generalModifier::${valueAfterCopyWith.generalModifier}");
-    return valueAfterCopyWith;
-  }
-
-  MText setColor(Color color) {
-    return merge(
-        MText(style: (this.style ?? TextStyle()).copyWith(color: color)));
-  }
-
-  MText setFontSize(double fontSize) {
-    return merge(
-        MText(style: (this.style ?? TextStyle()).copyWith(fontSize: fontSize)));
-  }
-
-  MText setFontWeight(FontWeight fontWeight) {
-    return merge(MText(
-        style: (this.style ?? TextStyle()).copyWith(fontWeight: fontWeight)));
-  }
-
-  MText merge(MText modifier) {
-    final result = MText(
-      modifier: modifier.modifier ?? this.modifier,
-      generalModifier: modifier.generalModifier ?? this.generalModifier,
-      data: modifier.data ?? this.data,
-      style: TextStyle(
-        color: modifier.style?.color ?? this.style?.color,
-        fontSize: modifier.style?.fontSize ?? this.style?.fontSize,
-        fontWeight: modifier.style?.fontWeight ?? this.style?.fontWeight,
-      ),
+extension MTextModifierPropertys on MTextModifierDefine {
+  MTextModifierDefine paddingTop(double value) {
+    return this.copyWith(
+      paddingValue: (this.paddingValue ?? EdgeInsets.zero).copyWith(top: value),
     );
-    print("new modifier.generalModifier::${modifier.generalModifier}");
-    print(
-        "After merge ${result.generalModifier}, the modifier is ${modifier.style.toString()}, ${result.modifier.toString()}");
-    return result;
+  }
+
+  MTextModifierDefine paddingBottom(double value) {
+    return this.copyWith(
+      paddingValue:
+          (this.paddingValue ?? EdgeInsets.zero).copyWith(bottom: value),
+    );
+  }
+
+  MTextModifierDefine padding(EdgeInsets? paddingValue) {
+    return this.copyWith(paddingValue: paddingValue);
+  }
+
+  MTextModifierDefine marginTop(double value) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(top: value),
+    );
+  }
+
+  MTextModifierDefine marginBottom(double value) {
+    return this.copyWith(
+      marginValue:
+          (this.marginValue ?? EdgeInsets.zero).copyWith(bottom: value),
+    );
+  }
+
+  MTextModifierDefine margin(EdgeInsets? marginValue) {
+    return this.copyWith(marginValue: marginValue);
+  }
+
+  MTextModifierDefine backgroundColor(Color? value) {
+    return this.copyWith(backgroundColorValue: value);
+  }
+
+  MTextModifierDefine center(bool value) {
+    return this.copyWith(centerAlignValue: value);
+  }
+
+  MTextModifierDefine size(Size value) {
+    return this.copyWith(widthValue: value.width, heightValue: value.height);
+  }
+
+  MTextModifierDefine width(double? value) {
+    return this.copyWith(widthValue: value);
+  }
+
+  MTextModifierDefine height(double? value) {
+    return this.copyWith(heightValue: value);
+  }
+
+  MTextModifierDefine onTap(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  MTextModifierDefine onClick(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  MTextModifierDefine click(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  MTextModifierDefine setClick(VoidCallback onTapValue) {
+    return this.copyWith(onTapValue: onTapValue);
+  }
+
+  MTextModifierDefine color(Color color) {
+    return setColor(color);
+  }
+
+  MTextModifierDefine setColor(Color color) {
+    final newStyle = this.styleValue.copyWith(color: color);
+    final MTextModifierDefine newModifierValue =
+        this.copyWith(styleValue: newStyle);
+    return newModifierValue;
+  }
+
+  MTextModifierDefine fontSize(double fontSize) {
+    return setFontSize(fontSize);
+  }
+
+  MTextModifierDefine setFontSize(double fontSize) {
+    final newStyle = this.styleValue.copyWith(fontSize: fontSize);
+    final MTextModifierDefine newModifierValue =
+        this.copyWith(styleValue: newStyle);
+    return newModifierValue;
+  }
+
+  MTextModifierDefine fontWeight(FontWeight fontWeight) {
+    return setFontWeight(fontWeight);
+  }
+
+  MTextModifierDefine setFontWeight(FontWeight fontWeight) {
+    final newStyle = this.styleValue.copyWith(fontWeight: fontWeight);
+    final MTextModifierDefine newModifierValue =
+        this.copyWith(styleValue: newStyle);
+    return newModifierValue;
   }
 }

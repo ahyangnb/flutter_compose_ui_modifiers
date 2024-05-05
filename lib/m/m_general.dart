@@ -13,82 +13,46 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 class MGeneralModifier {
-  final EdgeInsets? padding;
-  final EdgeInsets? margin;
-  final VoidCallback? onTap;
-  final Color? backgroundColor;
-  final BorderRadiusGeometry? borderRadius;
-  final bool? centerAlign;
-  final Size? size;
-  final BoxShadow? shadow;
-  final Matrix4? transform;
-  final BoxConstraints? constraints;
-  final double? aspectRatio;
-  final int? flex;
-  final String? help;
-  final double? opacity;
-  final double? rotate;
-  final double? scale;
+  final EdgeInsets? paddingValue;
+  final EdgeInsets? marginValue;
+  final VoidCallback? onTapValue;
+  final Color? backgroundColorValue;
+  final BorderRadiusGeometry? borderRadiusValue;
+  final bool? centerAlignValue;
+  final double? widthValue;
+  final double? heightValue;
+  final BoxShadow? shadowValue;
+  final Matrix4? transformValue;
+  final BoxConstraints? constraintsValue;
+  final double? aspectRatioValue;
+  final int? flexValue;
+  final String? helpValue;
+  final double? opacityValue;
+  final double? rotateValue;
+  final double? scaleValue;
 
   const MGeneralModifier({
-    this.padding,
-    this.margin,
-    this.onTap,
-    this.backgroundColor,
-    this.borderRadius,
-    this.centerAlign,
-    this.size,
-    this.shadow,
-    this.transform,
-    this.constraints,
-    this.aspectRatio,
-    this.flex,
-    this.help,
-    this.opacity,
-    this.rotate,
-    this.scale,
+    this.paddingValue,
+    this.marginValue,
+    this.onTapValue,
+    this.backgroundColorValue,
+    this.borderRadiusValue,
+    this.centerAlignValue,
+    this.widthValue,
+    this.heightValue,
+    this.shadowValue,
+    this.transformValue,
+    this.constraintsValue,
+    this.aspectRatioValue,
+    this.flexValue,
+    this.helpValue,
+    this.opacityValue,
+    this.rotateValue,
+    this.scaleValue,
   });
-
-  /// Create a copyWith().
-  MGeneralModifier copyWith({
-    EdgeInsets? padding,
-    EdgeInsets? margin,
-    VoidCallback? onTap,
-    Color? backgroundColor,
-    BorderRadiusGeometry? borderRadius,
-    bool? centerAlign,
-    Size? size,
-    BoxShadow? shadow,
-    Matrix4? transform,
-    BoxConstraints? constraints,
-    double? aspectRatio,
-    int? flex,
-    String? help,
-    double? opacity,
-    double? rotate,
-    double? scale,
-  }) {
-    return MGeneralModifier(
-      padding: padding ?? this.padding,
-      margin: margin ?? this.margin,
-      onTap: onTap ?? this.onTap,
-      backgroundColor: backgroundColor ?? this.backgroundColor,
-      borderRadius: borderRadius ?? this.borderRadius,
-      centerAlign: centerAlign ?? this.centerAlign,
-      size: size ?? this.size,
-      shadow: shadow ?? this.shadow,
-      transform: transform ?? this.transform,
-      constraints: constraints ?? this.constraints,
-      aspectRatio: aspectRatio ?? this.aspectRatio,
-      flex: flex ?? this.flex,
-      help: help ?? this.help,
-      opacity: opacity ?? this.opacity,
-      rotate: rotate ?? this.rotate,
-      scale: scale ?? this.scale,
-    );
-  }
 }
 
 class MGeneralLayoutModifierWidget extends StatelessWidget {
@@ -104,11 +68,33 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     if (generalModifier == null) {
       return child;
     }
-    if (generalModifier?.onTap != null) {
+    if (generalModifier?.onTapValue != null) {
       child = InkWell(
-        onTap: generalModifier!.onTap,
+        onTap: generalModifier!.onTapValue,
         child: child,
       );
+    }
+    if (generalModifier?.paddingValue != null ||
+        generalModifier?.marginValue != null ||
+        generalModifier?.borderRadiusValue != null ||
+        generalModifier?.backgroundColorValue != null ||
+        generalModifier?.widthValue != null ||
+        generalModifier?.heightValue != null) {
+      child = Container(
+        width: generalModifier?.widthValue,
+        height: generalModifier?.heightValue,
+        decoration: BoxDecoration(
+          color: generalModifier?.backgroundColorValue,
+          borderRadius: generalModifier?.borderRadiusValue,
+        ),
+        padding: generalModifier?.paddingValue,
+        margin: generalModifier?.marginValue,
+        child: child,
+      );
+    }
+    if (generalModifier?.centerAlignValue != null &&
+        generalModifier!.centerAlignValue!) {
+      child = Center(child: child);
     }
     return child;
   }
