@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
+/// @todo HighlightNamesText function with MText.
+
 /// example:
 /// ```dart
 /// MText(
@@ -13,7 +15,7 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 //       .marginBottom(300.px)
 //       .paddingTop(50.px)
 //       .center(true),
-//   data: 'can click hhhhhh',
+//   data: 'can click me!',
 // )
 /// ```
 class MText extends StatelessWidget {
