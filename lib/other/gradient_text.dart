@@ -4,8 +4,9 @@ import 'dart:ui' as ui;
 class MGradientText extends StatefulWidget {
   final String text;
   final List<Color>? colors;
+  final TextStyle? style;
 
-  MGradientText(this.text, {this.colors});
+  MGradientText(this.text, {this.colors, this.style});
 
   @override
   State<MGradientText> createState() => _MGradientTextState();
@@ -42,12 +43,11 @@ class _MGradientTextState extends State<MGradientText> {
 
   @override
   Widget build(BuildContext context) {
-    final style = TextStyle(fontSize: 26);
+    final style = widget.style ?? TextStyle(fontSize: 26);
     final List<Color> colors = widget.colors ?? [Colors.red, Colors.yellow];
     return Text(
       widget.text,
-      style: TextStyle(
-        fontSize: style.fontSize,
+      style: style.copyWith(
         foreground: Paint()
           ..shader = ui.Gradient.linear(
             Offset(textOffset, 10),
