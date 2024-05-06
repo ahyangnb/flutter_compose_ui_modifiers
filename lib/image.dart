@@ -5,6 +5,14 @@ extension FlutterUIModifiersImage on Image {
     return _rebase(width: size, height: size);
   }
 
+  Image setWidth(double value) {
+    return _rebase(width: value);
+  }
+
+  Image setHeight(double value) {
+    return _rebase(height: value);
+  }
+
   Image setColor(Color? color) {
     return _rebase(color: color);
   }

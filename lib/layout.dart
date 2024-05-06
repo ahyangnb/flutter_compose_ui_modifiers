@@ -108,4 +108,12 @@ extension FlutterUIModifiersWidgetLayout on Widget {
     }
     return Container(width: value, child: this);
   }
+
+  SafeArea safeArea() {
+    return SafeArea(child: this);
+  }
+
+  Material material() {
+    return Material(child: this, type: MaterialType.transparency);
+  }
 }
