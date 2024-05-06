@@ -7,13 +7,13 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 /// ```dart
 /// MText(
 //   modifier: MTextModifier.color(Colors.blue)
-//       .onClick(() => logger.d("hi"))
-//       .fontSize(50.px)
+//       .onClick(() => print("hi"))
+//       .fontSize(50)
 //       .fontWeight(FontWeight.w200)
 //       .backgroundColor(Colors.red.withOpacity(0.3))
 //       .size(const Size(200, 300))
-//       .marginBottom(300.px)
-//       .paddingTop(50.px)
+//       .marginBottom(300)
+//       .paddingTop(50)
 //       .center(true),
 //   data: 'can click me!',
 // )
@@ -325,6 +325,42 @@ extension MTextModifierPropertys on DefineMTextModifier {
 
   DefineMTextModifier setClick(VoidCallback valueOnTap) {
     return this.copyWith(valueOnTap: valueOnTap);
+  }
+
+  DefineMTextModifier borderRadius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMTextModifier borderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueBorderRadius: value);
+  }
+
+  DefineMTextModifier borderRadiusVertical(double value) {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMTextModifier borderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMTextModifier borderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
   }
 
   DefineMTextModifier flex([int value = 1]) {

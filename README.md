@@ -36,47 +36,83 @@ This makes the code easyer to understand at a glance! 🎉
 With FlutterUI Modifiers, write this:
 
 ```dart
-
-List<Widget> list = [];
-
-Text
-('Hello, World!
-'
-) //
-.bold()
-    .font(size: 22)
-    .help('We love you 🌍')
-    .padding(all: 16)
-    .centered()
-    .assign(list
-);
+Widget newTextWidget() {
+  return MText(
+    modifier: MTextModifier.color(Colors.blue)
+        .onClick(() => print("hi"))
+        .fontSize(50)
+        .fontWeight(FontWeight.w200)
+        .backgroundColor(Colors.red.withOpacity(0.3))
+        .borderRadius(10)
+        .size(const Size(200, 300))
+        .marginBottom(300)
+        .paddingTop(50)
+        .center(true),
+    data: 'can click me!',
+  );
+}
 ```
 
 Instead of this:
 
 ```dart
+Widget beInsteadText() {
+  return InkWell(
+    onTap: () => print('hi'),
+    child: Container(
+      width: 200,
+      height: 300,
+      margin: EdgeInsets.only(bottom: 300),
+      padding: EdgeInsets.only(top: 50),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: Colors.red.withOpacity(0.3),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      child: Text(
+        'can click me!',
+        style: TextStyle(
+            color: Colors.blue, fontSize: 50, fontWeight: FontWeight.w200),
+      ),
+    ),
+  );
+}
+```
 
+
+or this :
+
+```dart
 List<Widget> list = [];
+Text('Hello, World!')
+    .bold()
+    .font(size: 22)
+    .help('We love you 🌍')
+    .padding(all: 16)
+    .centered()
+    .assign(list);
+```
 
-list.add
-(
-Center(
-child: Padding(
-padding: EdgeInsets.all(16.0),
-child: Tooltip(
-message: 'We love you 🌍',
-child: Text(
-'Hello, World!',
-style: TextStyle(
-fontWeight: FontWeight.bold,
-fontSize: 22,
-), // TextStyle
-), // Text
-)
-, // Tooltip
-) // Padding
-)
-, // Center
+Instead of this:
+
+```
+List<Widget> list = [];
+list.add(
+  Center(
+    child: Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Tooltip(
+        message: 'We love you 🌍',
+        child: Text(
+          'Hello, World!',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ), // TextStyle
+        ), // Text
+      ), // Tooltip
+    ),
+  ), // Center
 );
 ```
 
