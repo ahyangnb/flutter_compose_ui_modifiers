@@ -3,7 +3,7 @@ import 'package:flutter_compose_ui_modifiers/config/modifier_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 class MRow extends StatelessWidget {
-  final MRowModifierDefine? modifier;
+  final DefineMRowModifier? modifier;
   final List<Widget>? children;
 
   MRow({
@@ -29,9 +29,9 @@ class MRow extends StatelessWidget {
   }
 }
 
-final MRowModifier = MRowModifierDefine();
+final MRowModifier = DefineMRowModifier();
 
-class MRowModifierDefine extends MGeneralModifier {
+class DefineMRowModifier extends MGeneralModifier {
   final List<Widget>? children;
   final bool? valueReverse;
 
@@ -42,7 +42,7 @@ class MRowModifierDefine extends MGeneralModifier {
   final CrossAxisAlignment? valueCrossAxisAlignment;
   final MainAxisAlignment? valueMainAxisAlignment;
 
-  const MRowModifierDefine({
+  const DefineMRowModifier({
     this.children,
     this.valueReverse,
     this.valueAlignTop,
@@ -74,7 +74,7 @@ class MRowModifierDefine extends MGeneralModifier {
   });
 
   /// Create a copyWith().
-  MRowModifierDefine copyWith({
+  DefineMRowModifier copyWith({
     List<Widget>? children,
     bool? valueReverse,
     bool? valueAlignTop,
@@ -106,7 +106,7 @@ class MRowModifierDefine extends MGeneralModifier {
     double? valueTop,
     double? valueBottom,
   }) {
-    return MRowModifierDefine(
+    return DefineMRowModifier(
       children: children ?? this.children,
       valueReverse: valueReverse ?? this.valueReverse,
       valueAlignTop: valueAlignTop ?? this.valueAlignTop,
@@ -144,46 +144,46 @@ class MRowModifierDefine extends MGeneralModifier {
   }
 }
 
-extension MRowModifierPropertys on MRowModifierDefine {
-  MRowModifierDefine reverse(bool value) {
+extension MRowModifierPropertys on DefineMRowModifier {
+  DefineMRowModifier reverse(bool value) {
     return setReverse(value);
   }
 
-  MRowModifierDefine setReverse(bool value) {
+  DefineMRowModifier setReverse(bool value) {
     return this.copyWith(valueReverse: value);
   }
 
-  MRowModifierDefine physics(ScrollPhysics physics) {
+  DefineMRowModifier physics(ScrollPhysics physics) {
     return setPhysics(physics);
   }
 
-  MRowModifierDefine setPhysics(ScrollPhysics physics) {
+  DefineMRowModifier setPhysics(ScrollPhysics physics) {
     return this.copyWith(valuePhysics: physics);
   }
 
-  MRowModifierDefine add(Widget child) {
+  DefineMRowModifier add(Widget child) {
     return this.copyWith(children: (this.children ?? [])..add(child));
   }
 
-  MRowModifierDefine addList(List<Widget> value) {
+  DefineMRowModifier addList(List<Widget> value) {
     return this.copyWith(children: (this.children ?? [])..addAll(value));
   }
 
-  MRowModifierDefine crossAxisAlignment(CrossAxisAlignment value) {
+  DefineMRowModifier crossAxisAlignment(CrossAxisAlignment value) {
     return this.copyWith(valueCrossAxisAlignment: value);
   }
 
-  MRowModifierDefine mainAxisAlignment(MainAxisAlignment value) {
+  DefineMRowModifier mainAxisAlignment(MainAxisAlignment value) {
     return this.copyWith(valueMainAxisAlignment: value);
   }
 
   /// General============Start
   ///
-  MRowModifierDefine shadow(BoxShadow value) {
+  DefineMRowModifier shadow(BoxShadow value) {
     return this.copyWith(valueShadow: value);
   }
 
-  MRowModifierDefine shadowDef({Color? color}) {
+  DefineMRowModifier shadowDef({Color? color}) {
     final value = BoxShadow(
       color: color ?? Color(0xff000000).withOpacity(0.1),
       offset: const Offset(0, 2),
@@ -193,93 +193,93 @@ extension MRowModifierPropertys on MRowModifierDefine {
     return this.copyWith(valueShadow: value);
   }
 
-  MRowModifierDefine padding(double value) {
+  DefineMRowModifier padding(double value) {
     return setPaddingEdge(EdgeInsets.all(value));
   }
 
-  MRowModifierDefine paddingSet(EdgeInsets value) {
+  DefineMRowModifier paddingSet(EdgeInsets value) {
     return setPaddingEdge(value);
   }
 
-  MRowModifierDefine setPaddingEdge(EdgeInsets? value) {
+  DefineMRowModifier setPaddingEdge(EdgeInsets? value) {
     return this.copyWith(
       valuePadding: value ?? this.valuePadding ?? EdgeInsets.zero,
     );
   }
 
-  MRowModifierDefine paddingTop(double value) {
+  DefineMRowModifier paddingTop(double value) {
     return setPaddingTop(value);
   }
 
-  MRowModifierDefine setPaddingTop(double value) {
+  DefineMRowModifier setPaddingTop(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
-  MRowModifierDefine paddingHorizontal(double value) {
+  DefineMRowModifier paddingHorizontal(double value) {
     return setPaddingHorizontal(value);
   }
 
-  MRowModifierDefine setPaddingHorizontal(double value) {
+  DefineMRowModifier setPaddingHorizontal(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(left: value, right: value),
     );
   }
 
-  MRowModifierDefine paddingVertical(double value) {
+  DefineMRowModifier paddingVertical(double value) {
     return setPaddingVertical(value);
   }
 
-  MRowModifierDefine setPaddingVertical(double value) {
+  DefineMRowModifier setPaddingVertical(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(top: value, bottom: value),
     );
   }
 
-  MRowModifierDefine paddingBottom(double value) {
+  DefineMRowModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
           (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
-  MRowModifierDefine marginTop(double value) {
+  DefineMRowModifier marginTop(double value) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
-  MRowModifierDefine marginBottom(double value) {
+  DefineMRowModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
           (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
-  MRowModifierDefine marginLeft(double value) {
+  DefineMRowModifier marginLeft(double value) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(left: value),
     );
   }
 
-  MRowModifierDefine marginRight(double value) {
+  DefineMRowModifier marginRight(double value) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(right: value),
     );
   }
 
-  MRowModifierDefine marginHorizontal(double value) {
+  DefineMRowModifier marginHorizontal(double value) {
     return marginSymmetric(horizontal: value);
   }
 
-  MRowModifierDefine marginVertical(double value) {
+  DefineMRowModifier marginVertical(double value) {
     return marginSymmetric(vertical: value);
   }
 
-  MRowModifierDefine marginSymmetric({double? horizontal, double? vertical}) {
+  DefineMRowModifier marginSymmetric({double? horizontal, double? vertical}) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
         left: horizontal ?? this.valueMargin?.left,
@@ -290,7 +290,7 @@ extension MRowModifierPropertys on MRowModifierDefine {
     );
   }
 
-  MRowModifierDefine marginOnly({
+  DefineMRowModifier marginOnly({
     double? left,
     double? top,
     double? right,
@@ -306,65 +306,65 @@ extension MRowModifierPropertys on MRowModifierDefine {
     );
   }
 
-  MRowModifierDefine marginSet(EdgeInsets? value) {
+  DefineMRowModifier marginSet(EdgeInsets? value) {
     return this.copyWith(valueMargin: value);
   }
 
-  MRowModifierDefine margin(double? value) {
+  DefineMRowModifier margin(double? value) {
     return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
   }
 
-  MRowModifierDefine backgroundColor(Color? value) {
+  DefineMRowModifier backgroundColor(Color? value) {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  MRowModifierDefine center(bool value) {
+  DefineMRowModifier center(bool value) {
     return this.copyWith(valueCenterAlign: value);
   }
 
-  MRowModifierDefine size(Size value) {
+  DefineMRowModifier size(Size value) {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
-  MRowModifierDefine width(double? value) {
+  DefineMRowModifier width(double? value) {
     return this.copyWith(valueWidth: value);
   }
 
-  MRowModifierDefine height(double? value) {
+  DefineMRowModifier height(double? value) {
     return this.copyWith(valueHeight: value);
   }
 
-  MRowModifierDefine onTap(VoidCallback onTap) {
+  DefineMRowModifier onTap(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MRowModifierDefine onClick(VoidCallback onTap) {
+  DefineMRowModifier onClick(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MRowModifierDefine click(VoidCallback onTap) {
+  DefineMRowModifier click(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MRowModifierDefine setClick(VoidCallback valueOnTap) {
+  DefineMRowModifier setClick(VoidCallback valueOnTap) {
     return this.copyWith(valueOnTap: valueOnTap);
   }
 
-  MRowModifierDefine borderRadius(double value) {
+  DefineMRowModifier borderRadius(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
-  MRowModifierDefine borderRadiusSet(BorderRadius value) {
+  DefineMRowModifier borderRadiusSet(BorderRadius value) {
     return this.copyWith(valueBorderRadius: value);
   }
 
-  MRowModifierDefine borderRadiusVertical(double value) {
+  DefineMRowModifier borderRadiusVertical(double value) {
     return this.copyWith(
         valueBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
-  MRowModifierDefine borderRadiusOnly({
+  DefineMRowModifier borderRadiusOnly({
     double topLeft = 0,
     double topRight = 0,
     double bottomLeft = 0,
@@ -380,17 +380,17 @@ extension MRowModifierPropertys on MRowModifierDefine {
     );
   }
 
-  MRowModifierDefine borderRadiusHorizontal(double value) {
+  DefineMRowModifier borderRadiusHorizontal(double value) {
     return this.copyWith(
         valueBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
-  MRowModifierDefine flex([int value = 1]) {
+  DefineMRowModifier flex([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
 
-  MRowModifierDefine expanded([int value = 1]) {
+  DefineMRowModifier expanded([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
 

@@ -3,7 +3,7 @@ import 'package:flutter_compose_ui_modifiers/config/modifier_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 class MColumn extends StatelessWidget {
-  final MColumnModifierDefine? modifier;
+  final DefineMColumnModifier? modifier;
   final List<Widget>? children;
 
   MColumn({
@@ -29,9 +29,9 @@ class MColumn extends StatelessWidget {
   }
 }
 
-final MColumnModifier = MColumnModifierDefine();
+final MColumnModifier = DefineMColumnModifier();
 
-class MColumnModifierDefine extends MGeneralModifier {
+class DefineMColumnModifier extends MGeneralModifier {
   final List<Widget>? children;
   final bool? valueReverse;
 
@@ -42,7 +42,7 @@ class MColumnModifierDefine extends MGeneralModifier {
   final CrossAxisAlignment? valueCrossAxisAlignment;
   final MainAxisAlignment? valueMainAxisAlignment;
 
-  const MColumnModifierDefine({
+  const DefineMColumnModifier({
     this.children,
     this.valueReverse,
     this.valueAlignTop,
@@ -74,7 +74,7 @@ class MColumnModifierDefine extends MGeneralModifier {
   });
 
   /// Create a copyWith().
-  MColumnModifierDefine copyWith({
+  DefineMColumnModifier copyWith({
     List<Widget>? children,
     bool? valueReverse,
     bool? valueAlignTop,
@@ -106,7 +106,7 @@ class MColumnModifierDefine extends MGeneralModifier {
     double? valueTop,
     double? valueBottom,
   }) {
-    return MColumnModifierDefine(
+    return DefineMColumnModifier(
       children: children ?? this.children,
       valueReverse: valueReverse ?? this.valueReverse,
       valueAlignTop: valueAlignTop ?? this.valueAlignTop,
@@ -143,46 +143,46 @@ class MColumnModifierDefine extends MGeneralModifier {
   }
 }
 
-extension MColumnModifierPropertys on MColumnModifierDefine {
-  MColumnModifierDefine reverse(bool value) {
+extension MColumnModifierPropertys on DefineMColumnModifier {
+  DefineMColumnModifier reverse(bool value) {
     return setReverse(value);
   }
 
-  MColumnModifierDefine setReverse(bool value) {
+  DefineMColumnModifier setReverse(bool value) {
     return this.copyWith(valueReverse: value);
   }
 
-  MColumnModifierDefine physics(ScrollPhysics physics) {
+  DefineMColumnModifier physics(ScrollPhysics physics) {
     return setPhysics(physics);
   }
 
-  MColumnModifierDefine setPhysics(ScrollPhysics physics) {
+  DefineMColumnModifier setPhysics(ScrollPhysics physics) {
     return this.copyWith(valuePhysics: physics);
   }
 
-  MColumnModifierDefine add(Widget child) {
+  DefineMColumnModifier add(Widget child) {
     return this.copyWith(children: (this.children ?? [])..add(child));
   }
 
-  MColumnModifierDefine addList(List<Widget> value) {
+  DefineMColumnModifier addList(List<Widget> value) {
     return this.copyWith(children: (this.children ?? [])..addAll(value));
   }
 
-  MColumnModifierDefine crossAxisAlignment(CrossAxisAlignment value) {
+  DefineMColumnModifier crossAxisAlignment(CrossAxisAlignment value) {
     return this.copyWith(valueCrossAxisAlignment: value);
   }
 
-  MColumnModifierDefine mainAxisAlignment(MainAxisAlignment value) {
+  DefineMColumnModifier mainAxisAlignment(MainAxisAlignment value) {
     return this.copyWith(valueMainAxisAlignment: value);
   }
 
   /// General============Start
   ///
-  MColumnModifierDefine shadow(BoxShadow value) {
+  DefineMColumnModifier shadow(BoxShadow value) {
     return this.copyWith(valueShadow: value);
   }
 
-  MColumnModifierDefine shadowDef({Color? color}) {
+  DefineMColumnModifier shadowDef({Color? color}) {
     final value = BoxShadow(
       color: color ?? Color(0xff000000).withOpacity(0.1),
       offset: const Offset(0, 2),
@@ -192,93 +192,93 @@ extension MColumnModifierPropertys on MColumnModifierDefine {
     return this.copyWith(valueShadow: value);
   }
 
-  MColumnModifierDefine padding(double value) {
+  DefineMColumnModifier padding(double value) {
     return setPaddingEdge(EdgeInsets.all(value));
   }
 
-  MColumnModifierDefine paddingSet(EdgeInsets value) {
+  DefineMColumnModifier paddingSet(EdgeInsets value) {
     return setPaddingEdge(value);
   }
 
-  MColumnModifierDefine setPaddingEdge(EdgeInsets? value) {
+  DefineMColumnModifier setPaddingEdge(EdgeInsets? value) {
     return this.copyWith(
       valuePadding: value ?? this.valuePadding ?? EdgeInsets.zero,
     );
   }
 
-  MColumnModifierDefine paddingTop(double value) {
+  DefineMColumnModifier paddingTop(double value) {
     return setPaddingTop(value);
   }
 
-  MColumnModifierDefine setPaddingTop(double value) {
+  DefineMColumnModifier setPaddingTop(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
-  MColumnModifierDefine paddingHorizontal(double value) {
+  DefineMColumnModifier paddingHorizontal(double value) {
     return setPaddingHorizontal(value);
   }
 
-  MColumnModifierDefine setPaddingHorizontal(double value) {
+  DefineMColumnModifier setPaddingHorizontal(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(left: value, right: value),
     );
   }
 
-  MColumnModifierDefine paddingVertical(double value) {
+  DefineMColumnModifier paddingVertical(double value) {
     return setPaddingVertical(value);
   }
 
-  MColumnModifierDefine setPaddingVertical(double value) {
+  DefineMColumnModifier setPaddingVertical(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(top: value, bottom: value),
     );
   }
 
-  MColumnModifierDefine paddingBottom(double value) {
+  DefineMColumnModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
           (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
-  MColumnModifierDefine marginTop(double value) {
+  DefineMColumnModifier marginTop(double value) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
-  MColumnModifierDefine marginBottom(double value) {
+  DefineMColumnModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
           (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
-  MColumnModifierDefine marginLeft(double value) {
+  DefineMColumnModifier marginLeft(double value) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(left: value),
     );
   }
 
-  MColumnModifierDefine marginRight(double value) {
+  DefineMColumnModifier marginRight(double value) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(right: value),
     );
   }
 
-  MColumnModifierDefine marginHorizontal(double value) {
+  DefineMColumnModifier marginHorizontal(double value) {
     return marginSymmetric(horizontal: value);
   }
 
-  MColumnModifierDefine marginVertical(double value) {
+  DefineMColumnModifier marginVertical(double value) {
     return marginSymmetric(vertical: value);
   }
 
-  MColumnModifierDefine marginSymmetric(
+  DefineMColumnModifier marginSymmetric(
       {double? horizontal, double? vertical}) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
@@ -290,7 +290,7 @@ extension MColumnModifierPropertys on MColumnModifierDefine {
     );
   }
 
-  MColumnModifierDefine marginOnly({
+  DefineMColumnModifier marginOnly({
     double? left,
     double? top,
     double? right,
@@ -306,65 +306,65 @@ extension MColumnModifierPropertys on MColumnModifierDefine {
     );
   }
 
-  MColumnModifierDefine marginSet(EdgeInsets? value) {
+  DefineMColumnModifier marginSet(EdgeInsets? value) {
     return this.copyWith(valueMargin: value);
   }
 
-  MColumnModifierDefine margin(double? value) {
+  DefineMColumnModifier margin(double? value) {
     return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
   }
 
-  MColumnModifierDefine backgroundColor(Color? value) {
+  DefineMColumnModifier backgroundColor(Color? value) {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  MColumnModifierDefine center(bool value) {
+  DefineMColumnModifier center(bool value) {
     return this.copyWith(valueCenterAlign: value);
   }
 
-  MColumnModifierDefine size(Size value) {
+  DefineMColumnModifier size(Size value) {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
-  MColumnModifierDefine width(double? value) {
+  DefineMColumnModifier width(double? value) {
     return this.copyWith(valueWidth: value);
   }
 
-  MColumnModifierDefine height(double? value) {
+  DefineMColumnModifier height(double? value) {
     return this.copyWith(valueHeight: value);
   }
 
-  MColumnModifierDefine onTap(VoidCallback onTap) {
+  DefineMColumnModifier onTap(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MColumnModifierDefine onClick(VoidCallback onTap) {
+  DefineMColumnModifier onClick(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MColumnModifierDefine click(VoidCallback onTap) {
+  DefineMColumnModifier click(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MColumnModifierDefine setClick(VoidCallback valueOnTap) {
+  DefineMColumnModifier setClick(VoidCallback valueOnTap) {
     return this.copyWith(valueOnTap: valueOnTap);
   }
 
-  MColumnModifierDefine borderRadius(double value) {
+  DefineMColumnModifier borderRadius(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
-  MColumnModifierDefine borderRadiusSet(BorderRadius value) {
+  DefineMColumnModifier borderRadiusSet(BorderRadius value) {
     return this.copyWith(valueBorderRadius: value);
   }
 
-  MColumnModifierDefine borderRadiusVertical(double value) {
+  DefineMColumnModifier borderRadiusVertical(double value) {
     return this.copyWith(
         valueBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
-  MColumnModifierDefine borderRadiusOnly({
+  DefineMColumnModifier borderRadiusOnly({
     double topLeft = 0,
     double topRight = 0,
     double bottomLeft = 0,
@@ -380,17 +380,17 @@ extension MColumnModifierPropertys on MColumnModifierDefine {
     );
   }
 
-  MColumnModifierDefine borderRadiusHorizontal(double value) {
+  DefineMColumnModifier borderRadiusHorizontal(double value) {
     return this.copyWith(
         valueBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
-  MColumnModifierDefine flex([int value = 1]) {
+  DefineMColumnModifier flex([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
 
-  MColumnModifierDefine expanded([int value = 1]) {
+  DefineMColumnModifier expanded([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
 

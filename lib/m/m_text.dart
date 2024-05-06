@@ -19,11 +19,11 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 // )
 /// ```
 class MText extends StatelessWidget {
-  final MTextModifierDefine modifier;
+  final DefineMTextModifier modifier;
   final String data;
 
   MText({
-    this.modifier = const MTextModifierDefine(),
+    this.modifier = const DefineMTextModifier(),
     required this.data,
   });
 
@@ -46,13 +46,13 @@ class MText extends StatelessWidget {
   }
 }
 
-final MTextModifier = MTextModifierDefine();
+final MTextModifier = DefineMTextModifier();
 
-class MTextModifierDefine extends MGeneralModifier {
+class DefineMTextModifier extends MGeneralModifier {
   final TextStyle styleValue;
   final TextAlign? valueTextAlign;
 
-  const MTextModifierDefine({
+  const DefineMTextModifier({
     this.styleValue = const TextStyle(),
     this.valueTextAlign,
     super.valuePadding,
@@ -78,7 +78,7 @@ class MTextModifierDefine extends MGeneralModifier {
     super.valueBottom,
   });
 
-  MTextModifierDefine copyWith({
+  DefineMTextModifier copyWith({
     TextStyle? styleValue,
     TextAlign? valueTextAlign,
 
@@ -105,7 +105,7 @@ class MTextModifierDefine extends MGeneralModifier {
     double? valueTop,
     double? valueBottom,
   }) {
-    return MTextModifierDefine(
+    return DefineMTextModifier(
       styleValue: styleValue ?? this.styleValue,
       valueTextAlign: valueTextAlign ?? this.valueTextAlign,
       valuePadding: valuePadding ?? this.valuePadding,
@@ -133,126 +133,126 @@ class MTextModifierDefine extends MGeneralModifier {
   }
 }
 
-extension MTextModifierPropertys on MTextModifierDefine {
-  MTextModifierDefine color(Color color) {
+extension MTextModifierPropertys on DefineMTextModifier {
+  DefineMTextModifier color(Color color) {
     return setColor(color);
   }
 
-  MTextModifierDefine setColor(Color color) {
+  DefineMTextModifier setColor(Color color) {
     final newStyle = this.styleValue.copyWith(color: color);
-    final MTextModifierDefine newModifierValue =
+    final DefineMTextModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
-  MTextModifierDefine fontSize(double fontSize) {
+  DefineMTextModifier fontSize(double fontSize) {
     return setFontSize(fontSize);
   }
 
-  MTextModifierDefine setFontSize(double fontSize) {
+  DefineMTextModifier setFontSize(double fontSize) {
     final newStyle = this.styleValue.copyWith(fontSize: fontSize);
-    final MTextModifierDefine newModifierValue =
+    final DefineMTextModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
-  MTextModifierDefine letterSpacing(double value) {
+  DefineMTextModifier letterSpacing(double value) {
     final newStyle = this.styleValue.copyWith(letterSpacing: value);
-    final MTextModifierDefine newModifierValue =
+    final DefineMTextModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
-  MTextModifierDefine lineHeight(double value) {
+  DefineMTextModifier lineHeight(double value) {
     return heightLine(value);
   }
 
-  MTextModifierDefine heightLine(double value) {
+  DefineMTextModifier heightLine(double value) {
     final newStyle = this.styleValue.copyWith(height: value);
-    final MTextModifierDefine newModifierValue =
+    final DefineMTextModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
-  MTextModifierDefine textAlign(TextAlign value) {
-    final MTextModifierDefine newModifierValue =
+  DefineMTextModifier textAlign(TextAlign value) {
+    final DefineMTextModifier newModifierValue =
         this.copyWith(valueTextAlign: value);
     return newModifierValue;
   }
 
-  MTextModifierDefine fontWeight(FontWeight fontWeight) {
+  DefineMTextModifier fontWeight(FontWeight fontWeight) {
     return setFontWeight(fontWeight);
   }
 
-  MTextModifierDefine setFontWeight(FontWeight fontWeight) {
+  DefineMTextModifier setFontWeight(FontWeight fontWeight) {
     final newStyle = this.styleValue.copyWith(fontWeight: fontWeight);
-    final MTextModifierDefine newModifierValue =
+    final DefineMTextModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
   /// General============Start
-  MTextModifierDefine paddingTop(double value) {
+  DefineMTextModifier paddingTop(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
-  MTextModifierDefine paddingBottom(double value) {
+  DefineMTextModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
           (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
-  MTextModifierDefine padding(double value) {
+  DefineMTextModifier padding(double value) {
     return setPaddingEdge(EdgeInsets.all(value));
   }
 
-  MTextModifierDefine paddingSet(EdgeInsets value) {
+  DefineMTextModifier paddingSet(EdgeInsets value) {
     return setPaddingEdge(value);
   }
 
-  MTextModifierDefine setPaddingEdge(EdgeInsets? value) {
+  DefineMTextModifier setPaddingEdge(EdgeInsets? value) {
     return this.copyWith(
       valuePadding: value ?? this.valuePadding ?? EdgeInsets.zero,
     );
   }
 
-  MTextModifierDefine marginTop(double value) {
+  DefineMTextModifier marginTop(double value) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
-  MTextModifierDefine marginBottom(double value) {
+  DefineMTextModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
           (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
-  MTextModifierDefine marginLeft(double value) {
+  DefineMTextModifier marginLeft(double value) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(left: value),
     );
   }
 
-  MTextModifierDefine marginRight(double value) {
+  DefineMTextModifier marginRight(double value) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(right: value),
     );
   }
 
-  MTextModifierDefine marginHorizontal(double value) {
+  DefineMTextModifier marginHorizontal(double value) {
     return marginSymmetric(horizontal: value);
   }
 
-  MTextModifierDefine marginVertical(double value) {
+  DefineMTextModifier marginVertical(double value) {
     return marginSymmetric(vertical: value);
   }
 
-  MTextModifierDefine marginSymmetric({double? horizontal, double? vertical}) {
+  DefineMTextModifier marginSymmetric({double? horizontal, double? vertical}) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
         left: horizontal ?? this.valueMargin?.left,
@@ -263,7 +263,7 @@ extension MTextModifierPropertys on MTextModifierDefine {
     );
   }
 
-  MTextModifierDefine marginOnly({
+  DefineMTextModifier marginOnly({
     double? left,
     double? top,
     double? right,
@@ -279,55 +279,55 @@ extension MTextModifierPropertys on MTextModifierDefine {
     );
   }
 
-  MTextModifierDefine marginSet(EdgeInsets? value) {
+  DefineMTextModifier marginSet(EdgeInsets? value) {
     return this.copyWith(valueMargin: value);
   }
 
-  MTextModifierDefine margin(double? value) {
+  DefineMTextModifier margin(double? value) {
     return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
   }
 
-  MTextModifierDefine backgroundColor(Color? value) {
+  DefineMTextModifier backgroundColor(Color? value) {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  MTextModifierDefine center(bool value) {
+  DefineMTextModifier center(bool value) {
     return this.copyWith(valueCenterAlign: value);
   }
 
-  MTextModifierDefine size(Size value) {
+  DefineMTextModifier size(Size value) {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
-  MTextModifierDefine width(double? value) {
+  DefineMTextModifier width(double? value) {
     return this.copyWith(valueWidth: value);
   }
 
-  MTextModifierDefine height(double? value) {
+  DefineMTextModifier height(double? value) {
     return this.copyWith(valueHeight: value);
   }
 
-  MTextModifierDefine onTap(VoidCallback onTap) {
+  DefineMTextModifier onTap(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MTextModifierDefine onClick(VoidCallback onTap) {
+  DefineMTextModifier onClick(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MTextModifierDefine click(VoidCallback onTap) {
+  DefineMTextModifier click(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MTextModifierDefine setClick(VoidCallback valueOnTap) {
+  DefineMTextModifier setClick(VoidCallback valueOnTap) {
     return this.copyWith(valueOnTap: valueOnTap);
   }
 
-  MTextModifierDefine flex([int value = 1]) {
+  DefineMTextModifier flex([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
 
-  MTextModifierDefine expanded([int value = 1]) {
+  DefineMTextModifier expanded([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
 

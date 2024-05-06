@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 class MListView extends StatelessWidget {
-  final MListViewModifierDefine? modifier;
+  final DefineMListViewModifier? modifier;
   final List<Widget>? children;
 
   MListView({
@@ -25,9 +25,9 @@ class MListView extends StatelessWidget {
   }
 }
 
-final MListViewModifier = MListViewModifierDefine();
+final MListViewModifier = DefineMListViewModifier();
 
-class MListViewModifierDefine extends MGeneralModifier {
+class DefineMListViewModifier extends MGeneralModifier {
   final bool? valueReverse;
 
   /// Always align to Top even reverse.
@@ -35,7 +35,7 @@ class MListViewModifierDefine extends MGeneralModifier {
   final bool? valueShrinkWrap;
   final ScrollPhysics? valuePhysics;
 
-  const MListViewModifierDefine({
+  const DefineMListViewModifier({
     this.valueReverse,
     this.valueAlignTop,
     this.valueShrinkWrap,
@@ -64,7 +64,7 @@ class MListViewModifierDefine extends MGeneralModifier {
   });
 
   /// Create a copyWith().
-  MListViewModifierDefine copyWith({
+  DefineMListViewModifier copyWith({
     bool? valueReverse,
     bool? valueAlignTop,
     bool? valueShrinkWrap,
@@ -93,7 +93,7 @@ class MListViewModifierDefine extends MGeneralModifier {
     double? valueTop,
     double? valueBottom,
   }) {
-    return MListViewModifierDefine(
+    return DefineMListViewModifier(
       valueReverse: valueReverse ?? this.valueReverse,
       valueAlignTop: valueAlignTop ?? this.valueAlignTop,
       valueShrinkWrap: valueShrinkWrap ?? this.valueShrinkWrap,
@@ -126,65 +126,65 @@ class MListViewModifierDefine extends MGeneralModifier {
   }
 }
 
-extension MListViewModifierPropertys on MListViewModifierDefine {
-  MListViewModifierDefine reverse(bool value) {
+extension MListViewModifierPropertys on DefineMListViewModifier {
+  DefineMListViewModifier reverse(bool value) {
     return setReverse(value);
   }
 
-  MListViewModifierDefine setReverse(bool value) {
+  DefineMListViewModifier setReverse(bool value) {
     return this.copyWith(valueReverse: value);
   }
 
-  MListViewModifierDefine physics(ScrollPhysics physics) {
+  DefineMListViewModifier physics(ScrollPhysics physics) {
     return setPhysics(physics);
   }
 
-  MListViewModifierDefine setPhysics(ScrollPhysics physics) {
+  DefineMListViewModifier setPhysics(ScrollPhysics physics) {
     return this.copyWith(valuePhysics: physics);
   }
 
   /// General============Start
 
-  MListViewModifierDefine padding(double value) {
+  DefineMListViewModifier padding(double value) {
     return setPaddingEdge(EdgeInsets.all(value));
   }
 
-  MListViewModifierDefine paddingSet(EdgeInsets value) {
+  DefineMListViewModifier paddingSet(EdgeInsets value) {
     return setPaddingEdge(value);
   }
 
-  MListViewModifierDefine setPaddingEdge(EdgeInsets? value) {
+  DefineMListViewModifier setPaddingEdge(EdgeInsets? value) {
     return this.copyWith(
       valuePadding: value ?? this.valuePadding ?? EdgeInsets.zero,
     );
   }
 
-  MListViewModifierDefine paddingTop(double value) {
+  DefineMListViewModifier paddingTop(double value) {
     return setPaddingTop(value);
   }
 
-  MListViewModifierDefine setPaddingTop(double value) {
+  DefineMListViewModifier setPaddingTop(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
-  MListViewModifierDefine paddingHorizontal(double value) {
+  DefineMListViewModifier paddingHorizontal(double value) {
     return setPaddingHorizontal(value);
   }
 
-  MListViewModifierDefine setPaddingHorizontal(double value) {
+  DefineMListViewModifier setPaddingHorizontal(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(left: value, right: value),
     );
   }
 
-  MListViewModifierDefine paddingVertical(double value) {
+  DefineMListViewModifier paddingVertical(double value) {
     return setPaddingVertical(value);
   }
 
-  MListViewModifierDefine setPaddingVertical(double value) {
+  DefineMListViewModifier setPaddingVertical(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(top: value, bottom: value),

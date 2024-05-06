@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class MScaffold extends StatelessWidget {
-  final MScaffoldModifierDefine? modifier;
+  final DefineMScaffoldModifier? modifier;
   final Widget? body;
 
   MScaffold({this.modifier, this.body});
@@ -53,9 +53,9 @@ class MScaffold extends StatelessWidget {
   }
 }
 
-final MScaffoldModifier = MScaffoldModifierDefine();
+final MScaffoldModifier = DefineMScaffoldModifier();
 
-class MScaffoldModifierDefine {
+class DefineMScaffoldModifier {
   /// feature: Auto scaleless keyboard when click blank area.
   final bool autoHideKeyboardValue;
 
@@ -83,7 +83,7 @@ class MScaffoldModifierDefine {
   final DrawerCallback? onEndDrawerChangedValue;
   final String? restorationIdValue;
 
-  MScaffoldModifierDefine({
+  DefineMScaffoldModifier({
     this.autoHideKeyboardValue = true,
 
     /// ===================From flutter===================
@@ -112,7 +112,7 @@ class MScaffoldModifierDefine {
   });
 
   /// Create a copyWith().
-  MScaffoldModifierDefine copyWith({
+  DefineMScaffoldModifier copyWith({
     bool? autoHideKeyboardValue,
     PreferredSizeWidget? appBarValue,
     Color? valueBackgroundColor,
@@ -137,7 +137,7 @@ class MScaffoldModifierDefine {
     DrawerCallback? onEndDrawerChangedValue,
     String? restorationIdValue,
   }) {
-    return MScaffoldModifierDefine(
+    return DefineMScaffoldModifier(
       autoHideKeyboardValue:
           autoHideKeyboardValue ?? this.autoHideKeyboardValue,
 
@@ -182,29 +182,29 @@ class MScaffoldModifierDefine {
   }
 }
 
-extension MScaffoldModifierPropertys on MScaffoldModifierDefine {
-  MScaffoldModifierDefine autoHideKeyboard(bool value) {
+extension MScaffoldModifierPropertys on DefineMScaffoldModifier {
+  DefineMScaffoldModifier autoHideKeyboard(bool value) {
     return this.copyWith(autoHideKeyboardValue: value);
   }
 
-  MScaffoldModifierDefine title(String value) {
+  DefineMScaffoldModifier title(String value) {
     return this.copyWith(appBarValue: AppBar(title: Text(value)));
   }
 
   /// ================Flutter=========Start
-  MScaffoldModifierDefine appBar(PreferredSizeWidget value) {
+  DefineMScaffoldModifier appBar(PreferredSizeWidget value) {
     return this.copyWith(appBarValue: value);
   }
 
-  MScaffoldModifierDefine drawer(Widget value) {
+  DefineMScaffoldModifier drawer(Widget value) {
     return this.copyWith(drawerValue: value);
   }
 
-  MScaffoldModifierDefine backgroundColor(Color value) {
+  DefineMScaffoldModifier backgroundColor(Color value) {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  MScaffoldModifierDefine resizeToAvoidBottomInset(bool value) {
+  DefineMScaffoldModifier resizeToAvoidBottomInset(bool value) {
     return this.copyWith(resizeToAvoidBottomInsetValue: value);
   }
 
