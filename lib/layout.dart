@@ -59,4 +59,24 @@ extension FlutterUIModifiersWidgetLayout on Widget {
     }
     return Positioned(bottom: value, child: this);
   }
+
+  Positioned positioned({
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }) {
+    if (this is Positioned) {
+      final thisWidget = this as Positioned;
+      return Positioned(
+        child: thisWidget.child,
+        left: left ?? thisWidget.left,
+        right: right ?? thisWidget.right,
+        bottom: bottom ?? thisWidget.bottom,
+        top: top ?? thisWidget.top,
+      );
+    }
+    return Positioned(
+        left: left, top: top, right: right, bottom: bottom, child: this);
+  }
 }
