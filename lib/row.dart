@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+extension FlutterUIModifiersRowList on List {
+  Row get row {
+    return Row(children: <Widget>[...this]);
+  }
+}
+
 extension FlutterUIModifiersRow on Row {
   Row childrenSet(List<Widget> children) {
     return rebase(children: children);
@@ -9,12 +15,20 @@ extension FlutterUIModifiersRow on Row {
     return rebase(children: children);
   }
 
+  Row setMainAxisAlignment(MainAxisAlignment value) {
+    return rebase(mainAxisAlignment: value);
+  }
+
+  Row setCrossAxisAlignment(CrossAxisAlignment value) {
+    return rebase(crossAxisAlignment: value);
+  }
+
   /// Internal modifier for modifying final properties.
   Row rebase({
     MainAxisAlignment? mainAxisAlignment,
     MainAxisSize? mainAxisSize,
     CrossAxisAlignment? crossAxisAlignment,
-    List<Widget> children = const <Widget>[],
+    List<Widget>? children,
     TextDirection? textDirection,
     VerticalDirection? verticalDirection,
     TextBaseline? textBaseline,
@@ -27,7 +41,7 @@ extension FlutterUIModifiersRow on Row {
       textDirection: textDirection ?? this.textDirection,
       verticalDirection: verticalDirection ?? this.verticalDirection,
       textBaseline: textBaseline ?? this.textBaseline,
-      children: children,
+      children: children ?? this.children,
     );
   }
 }
