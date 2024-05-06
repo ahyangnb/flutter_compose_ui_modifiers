@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 extension FlutterUIModifiersImage on Image {
+  Image size(double size) {
+    return setSize(size);
+  }
+
   Image setSize(double size) {
     return _rebase(width: size, height: size);
   }
