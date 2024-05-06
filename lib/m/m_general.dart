@@ -115,6 +115,11 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         generalModifier!.valueCenterAlign!) {
       child = Center(child: child);
     }
+
+    /// Must use it in last one.
+    if (generalModifier?.valueFlex != null) {
+      child = Expanded(flex: generalModifier!.valueFlex!, child: child);
+    }
     return child;
   }
 }

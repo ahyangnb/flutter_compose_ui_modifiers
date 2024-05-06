@@ -374,5 +374,13 @@ extension MColumnModifierPropertys on MColumnModifierDefine {
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
+  MColumnModifierDefine flex([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
+  MColumnModifierDefine expanded([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
   /// General============End
 }

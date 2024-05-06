@@ -332,5 +332,13 @@ extension MAddButtonModifierPropertys on MAddButtonModifierDefine {
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
+  MAddButtonModifierDefine flex([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
+  MAddButtonModifierDefine expanded([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
   /// General============End
 }

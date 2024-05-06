@@ -373,5 +373,13 @@ extension MRowModifierPropertys on MRowModifierDefine {
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
+  MRowModifierDefine flex([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
+  MRowModifierDefine expanded([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
   /// General============End
 }

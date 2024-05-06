@@ -38,6 +38,7 @@ class MText extends StatelessWidget {
           fontWeight:
               modifier.styleValue.fontWeight ?? modifier.styleValue.fontWeight,
         ),
+        textAlign: modifier.valueTextAlign,
       ),
     );
   }
@@ -47,9 +48,11 @@ final MTextModifier = MTextModifierDefine();
 
 class MTextModifierDefine extends MGeneralModifier {
   final TextStyle styleValue;
+  final TextAlign? valueTextAlign;
 
   const MTextModifierDefine({
     this.styleValue = const TextStyle(),
+    this.valueTextAlign,
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -71,6 +74,7 @@ class MTextModifierDefine extends MGeneralModifier {
 
   MTextModifierDefine copyWith({
     TextStyle? styleValue,
+    TextAlign? valueTextAlign,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -93,6 +97,7 @@ class MTextModifierDefine extends MGeneralModifier {
   }) {
     return MTextModifierDefine(
       styleValue: styleValue ?? this.styleValue,
+      valueTextAlign: valueTextAlign ?? this.valueTextAlign,
       valuePadding: valuePadding ?? this.valuePadding,
       valueMargin: valueMargin ?? this.valueMargin,
       valueOnTap: valueOnTap ?? this.valueOnTap,
@@ -134,6 +139,30 @@ extension MTextModifierPropertys on MTextModifierDefine {
     final newStyle = this.styleValue.copyWith(fontSize: fontSize);
     final MTextModifierDefine newModifierValue =
         this.copyWith(styleValue: newStyle);
+    return newModifierValue;
+  }
+
+  MTextModifierDefine letterSpacing(double value) {
+    final newStyle = this.styleValue.copyWith(letterSpacing: value);
+    final MTextModifierDefine newModifierValue =
+        this.copyWith(styleValue: newStyle);
+    return newModifierValue;
+  }
+
+  MTextModifierDefine lineHeight(double value) {
+    return heightLine(value);
+  }
+
+  MTextModifierDefine heightLine(double value) {
+    final newStyle = this.styleValue.copyWith(height: value);
+    final MTextModifierDefine newModifierValue =
+        this.copyWith(styleValue: newStyle);
+    return newModifierValue;
+  }
+
+  MTextModifierDefine textAlign(TextAlign value) {
+    final MTextModifierDefine newModifierValue =
+        this.copyWith(valueTextAlign: value);
     return newModifierValue;
   }
 
