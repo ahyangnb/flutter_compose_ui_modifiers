@@ -33,6 +33,12 @@ class MGeneralModifier {
   final double? valueRotate;
   final double? valueScale;
 
+  /// Use the Positioned widget.
+  final double? valueLeft;
+  final double? valueRight;
+  final double? valueTop;
+  final double? valueBottom;
+
   const MGeneralModifier({
     this.valuePadding,
     this.valueMargin,
@@ -51,6 +57,12 @@ class MGeneralModifier {
     this.valueOpacity,
     this.valueRotate,
     this.valueScale,
+
+    /// Use the Positioned widget.
+    this.valueLeft,
+    this.valueRight,
+    this.valueTop,
+    this.valueBottom,
   });
 }
 
@@ -114,6 +126,19 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     if (generalModifier?.valueCenterAlign != null &&
         generalModifier!.valueCenterAlign!) {
       child = Center(child: child);
+    }
+
+    if (generalModifier?.valueLeft != null ||
+        generalModifier?.valueRight != null ||
+        generalModifier?.valueTop != null ||
+        generalModifier?.valueBottom != null) {
+      child = Positioned(
+        left: generalModifier?.valueLeft,
+        right: generalModifier?.valueRight,
+        top: generalModifier?.valueTop,
+        bottom: generalModifier?.valueBottom,
+        child: child,
+      );
     }
 
     /// Must use it in last one.

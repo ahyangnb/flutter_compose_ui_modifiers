@@ -72,6 +72,10 @@ class MTextModifierDefine extends MGeneralModifier {
     super.valueOpacity,
     super.valueRotate,
     super.valueScale,
+    super.valueLeft,
+    super.valueRight,
+    super.valueTop,
+    super.valueBottom,
   });
 
   MTextModifierDefine copyWith({
@@ -96,6 +100,10 @@ class MTextModifierDefine extends MGeneralModifier {
     double? valueOpacity,
     double? valueRotate,
     double? valueScale,
+    double? valueLeft,
+    double? valueRight,
+    double? valueTop,
+    double? valueBottom,
   }) {
     return MTextModifierDefine(
       styleValue: styleValue ?? this.styleValue,
@@ -117,6 +125,10 @@ class MTextModifierDefine extends MGeneralModifier {
       valueOpacity: valueOpacity ?? this.valueOpacity,
       valueRotate: valueRotate ?? this.valueRotate,
       valueScale: valueScale ?? this.valueScale,
+      valueLeft: valueLeft ?? this.valueLeft,
+      valueRight: valueRight ?? this.valueRight,
+      valueTop: valueTop ?? this.valueTop,
+      valueBottom: valueBottom ?? this.valueBottom,
     );
   }
 }
