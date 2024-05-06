@@ -168,8 +168,16 @@ extension MColumnModifierPropertys on DefineMColumnModifier {
     return this.copyWith(children: (this.children ?? [])..addAll(value));
   }
 
+  DefineMColumnModifier centerCross() {
+    return this.copyWith(valueCrossAxisAlignment: CrossAxisAlignment.center);
+  }
+
   DefineMColumnModifier crossAxisAlignment(CrossAxisAlignment value) {
     return this.copyWith(valueCrossAxisAlignment: value);
+  }
+
+  DefineMColumnModifier centerMain() {
+    return this.copyWith(valueMainAxisAlignment: MainAxisAlignment.center);
   }
 
   DefineMColumnModifier mainAxisAlignment(MainAxisAlignment value) {
