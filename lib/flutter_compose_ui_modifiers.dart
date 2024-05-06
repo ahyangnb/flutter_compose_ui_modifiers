@@ -12,6 +12,7 @@ export 'inkwell.dart';
 export 'column.dart';
 export 'row.dart';
 export 'container.dart';
+export 'space.dart';
 export 'm/m_scaffold.dart';
 export 'm/m_appbar.dart';
 export 'm/m_general.dart';
