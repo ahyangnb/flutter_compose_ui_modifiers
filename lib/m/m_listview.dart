@@ -131,11 +131,16 @@ extension MListViewModifierPropertys on MListViewModifierDefine {
   }
 
   /// General============Start
-  MListViewModifierDefine padding(EdgeInsets value) {
-    return setPadding(value);
+
+  MListViewModifierDefine padding(double value) {
+    return setPaddingEdge(EdgeInsets.all(value));
   }
 
-  MListViewModifierDefine setPadding(EdgeInsets? value) {
+  MListViewModifierDefine paddingSet(EdgeInsets value) {
+    return setPaddingEdge(value);
+  }
+
+  MListViewModifierDefine setPaddingEdge(EdgeInsets? value) {
     return this.copyWith(
       paddingValue: value ?? this.paddingValue ?? EdgeInsets.zero,
     );

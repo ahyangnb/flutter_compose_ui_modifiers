@@ -176,11 +176,15 @@ extension MColumnModifierPropertys on MColumnModifierDefine {
     return this.copyWith(shadowValue: value);
   }
 
-  MColumnModifierDefine padding(EdgeInsets value) {
-    return setPadding(value);
+  MColumnModifierDefine padding(double value) {
+    return setPaddingEdge(EdgeInsets.all(value));
   }
 
-  MColumnModifierDefine setPadding(EdgeInsets? value) {
+  MColumnModifierDefine paddingSet(EdgeInsets value) {
+    return setPaddingEdge(value);
+  }
+
+  MColumnModifierDefine setPaddingEdge(EdgeInsets? value) {
     return this.copyWith(
       paddingValue: value ?? this.paddingValue ?? EdgeInsets.zero,
     );
@@ -238,8 +242,60 @@ extension MColumnModifierPropertys on MColumnModifierDefine {
     );
   }
 
-  MColumnModifierDefine margin(EdgeInsets? marginValue) {
-    return this.copyWith(marginValue: marginValue);
+  MColumnModifierDefine marginLeft(double value) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(left: value),
+    );
+  }
+
+  MColumnModifierDefine marginRight(double value) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(right: value),
+    );
+  }
+
+  MColumnModifierDefine marginHorizontal(double value) {
+    return marginSymmetric(horizontal: value);
+  }
+
+  MColumnModifierDefine marginVertical(double value) {
+    return marginSymmetric(vertical: value);
+  }
+
+  MColumnModifierDefine marginSymmetric(
+      {double? horizontal, double? vertical}) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.marginValue?.left,
+        right: horizontal ?? this.marginValue?.right,
+        top: vertical ?? this.marginValue?.top,
+        bottom: vertical ?? this.marginValue?.bottom,
+      ),
+    );
+  }
+
+  MColumnModifierDefine marginOnly({
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(
+        left: left ?? this.marginValue?.left,
+        right: right ?? this.marginValue?.right,
+        top: top ?? this.marginValue?.top,
+        bottom: bottom ?? this.marginValue?.bottom,
+      ),
+    );
+  }
+
+  MColumnModifierDefine marginSet(EdgeInsets? value) {
+    return this.copyWith(marginValue: value);
+  }
+
+  MColumnModifierDefine margin(double? value) {
+    return this.copyWith(marginValue: EdgeInsets.all(value ?? 0));
   }
 
   MColumnModifierDefine backgroundColor(Color? value) {
@@ -282,10 +338,30 @@ extension MColumnModifierPropertys on MColumnModifierDefine {
     return this.copyWith(borderRadiusValue: BorderRadius.circular(value));
   }
 
+  MColumnModifierDefine borderRadiusSet(BorderRadius value) {
+    return this.copyWith(borderRadiusValue: value);
+  }
+
   MColumnModifierDefine borderRadiusVertical(double value) {
     return this.copyWith(
         borderRadiusValue: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  MColumnModifierDefine borderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      borderRadiusValue: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
   }
 
   MColumnModifierDefine borderRadiusHorizontal(double value) {

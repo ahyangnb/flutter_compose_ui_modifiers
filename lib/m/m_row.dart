@@ -1,11 +1,12 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/config/modifier_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
-class MAddButton extends StatelessWidget {
-  final MAddButtonModifierDefine? modifier;
+class MRow extends StatelessWidget {
+  final MRowModifierDefine? modifier;
   final List<Widget>? children;
 
-  MAddButton({
+  MRow({
     this.children,
     this.modifier,
   });
@@ -14,36 +15,41 @@ class MAddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
-      ignoreList: [
-        IgnoreModifierInGeneral.width,
-        IgnoreModifierInGeneral.height,
-        IgnoreModifierInGeneral.backgroundColor,
-      ],
-      child: Container(
-        width: modifier?.widthValue ?? 86,
-        height: modifier?.heightValue ?? 86,
-        decoration: BoxDecoration(
-          color: modifier?.backgroundColorValue ?? const Color(0xffF8F8F8),
-          borderRadius:
-              modifier?.borderRadiusValue ?? BorderRadius.circular(43),
-        ),
-        child: Icon(CupertinoIcons.add,
-            size: modifier?.iconSizeValue ?? 25,
-            color: modifier?.iconColorValue ?? const Color(0xff949494)),
+      child: Row(
+        crossAxisAlignment: modifier?.crossAxisAlignmentValue ??
+            ModifierConfig.defRowCrossAxisAlignment,
+        mainAxisAlignment: modifier?.mainAxisAlignmentValue ??
+            ModifierConfig.defRowMainAxisAlignment,
+        children: [
+          ...children ?? [],
+          ...modifier?.children ?? [],
+        ],
       ),
     );
   }
 }
 
-final MAddButtonModifier = MAddButtonModifierDefine();
+final MRowModifier = MRowModifierDefine();
 
-class MAddButtonModifierDefine extends MGeneralModifier {
-  final double? iconSizeValue;
-  final Color? iconColorValue;
+class MRowModifierDefine extends MGeneralModifier {
+  final List<Widget>? children;
+  final bool? reverseValue;
 
-  const MAddButtonModifierDefine({
-    this.iconSizeValue,
-    this.iconColorValue,
+  /// Always align to Top even reverse.
+  final bool? alignTopValue;
+  final bool? shrinkWrapValue;
+  final ScrollPhysics? physicsValue;
+  final CrossAxisAlignment? crossAxisAlignmentValue;
+  final MainAxisAlignment? mainAxisAlignmentValue;
+
+  const MRowModifierDefine({
+    this.children,
+    this.reverseValue,
+    this.alignTopValue,
+    this.shrinkWrapValue,
+    this.physicsValue,
+    this.crossAxisAlignmentValue,
+    this.mainAxisAlignmentValue,
     super.paddingValue,
     super.marginValue,
     super.onTapValue,
@@ -64,9 +70,14 @@ class MAddButtonModifierDefine extends MGeneralModifier {
   });
 
   /// Create a copyWith().
-  MAddButtonModifierDefine copyWith({
-    double? iconSizeValue,
-    Color? iconColorValue,
+  MRowModifierDefine copyWith({
+    List<Widget>? children,
+    bool? reverseValue,
+    bool? alignTopValue,
+    bool? shrinkWrapValue,
+    ScrollPhysics? physicsValue,
+    CrossAxisAlignment? crossAxisAlignmentValue,
+    MainAxisAlignment? mainAxisAlignmentValue,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? paddingValue,
@@ -87,9 +98,16 @@ class MAddButtonModifierDefine extends MGeneralModifier {
     double? rotateValue,
     double? scaleValue,
   }) {
-    return MAddButtonModifierDefine(
-      iconSizeValue: iconSizeValue ?? this.iconSizeValue,
-      iconColorValue: iconColorValue ?? this.iconColorValue,
+    return MRowModifierDefine(
+      children: children ?? this.children,
+      reverseValue: reverseValue ?? this.reverseValue,
+      alignTopValue: alignTopValue ?? this.alignTopValue,
+      shrinkWrapValue: shrinkWrapValue ?? this.shrinkWrapValue,
+      physicsValue: physicsValue ?? this.physicsValue,
+      crossAxisAlignmentValue:
+          crossAxisAlignmentValue ?? this.crossAxisAlignmentValue,
+      mainAxisAlignmentValue:
+          mainAxisAlignmentValue ?? this.mainAxisAlignmentValue,
 
       /// The following properties are inherited from MGeneralModifier.
       paddingValue: paddingValue ?? this.paddingValue,
@@ -113,22 +131,42 @@ class MAddButtonModifierDefine extends MGeneralModifier {
   }
 }
 
-extension MAddButtonModifierPropertys on MAddButtonModifierDefine {
-  MAddButtonModifierDefine iconSize(double value) {
-    return this.copyWith(iconSizeValue: value);
+extension MRowModifierPropertys on MRowModifierDefine {
+  MRowModifierDefine reverse(bool value) {
+    return setReverse(value);
   }
 
-  MAddButtonModifierDefine iconColor(Color value) {
-    return this.copyWith(iconColorValue: value);
+  MRowModifierDefine setReverse(bool value) {
+    return this.copyWith(reverseValue: value);
+  }
+
+  MRowModifierDefine physics(ScrollPhysics physics) {
+    return setPhysics(physics);
+  }
+
+  MRowModifierDefine setPhysics(ScrollPhysics physics) {
+    return this.copyWith(physicsValue: physics);
+  }
+
+  MRowModifierDefine add(Widget child) {
+    return this.copyWith(children: (this.children ?? [])..add(child));
+  }
+
+  MRowModifierDefine crossAxisAlignment(CrossAxisAlignment value) {
+    return this.copyWith(crossAxisAlignmentValue: value);
+  }
+
+  MRowModifierDefine mainAxisAlignment(MainAxisAlignment value) {
+    return this.copyWith(mainAxisAlignmentValue: value);
   }
 
   /// General============Start
   ///
-  MAddButtonModifierDefine shadow(BoxShadow value) {
+  MRowModifierDefine shadow(BoxShadow value) {
     return this.copyWith(shadowValue: value);
   }
 
-  MAddButtonModifierDefine shadowDef({Color? color}) {
+  MRowModifierDefine shadowDef({Color? color}) {
     final value = BoxShadow(
       color: color ?? Color(0xff000000).withOpacity(0.1),
       offset: const Offset(0, 2),
@@ -138,94 +176,93 @@ extension MAddButtonModifierPropertys on MAddButtonModifierDefine {
     return this.copyWith(shadowValue: value);
   }
 
-  MAddButtonModifierDefine padding(double value) {
+  MRowModifierDefine padding(double value) {
     return setPaddingEdge(EdgeInsets.all(value));
   }
 
-  MAddButtonModifierDefine paddingSet(EdgeInsets value) {
+  MRowModifierDefine paddingSet(EdgeInsets value) {
     return setPaddingEdge(value);
   }
 
-  MAddButtonModifierDefine setPaddingEdge(EdgeInsets? value) {
+  MRowModifierDefine setPaddingEdge(EdgeInsets? value) {
     return this.copyWith(
       paddingValue: value ?? this.paddingValue ?? EdgeInsets.zero,
     );
   }
 
-  MAddButtonModifierDefine paddingTop(double value) {
+  MRowModifierDefine paddingTop(double value) {
     return setPaddingTop(value);
   }
 
-  MAddButtonModifierDefine setPaddingTop(double value) {
+  MRowModifierDefine setPaddingTop(double value) {
     return this.copyWith(
       paddingValue: (this.paddingValue ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
-  MAddButtonModifierDefine paddingHorizontal(double value) {
+  MRowModifierDefine paddingHorizontal(double value) {
     return setPaddingHorizontal(value);
   }
 
-  MAddButtonModifierDefine setPaddingHorizontal(double value) {
+  MRowModifierDefine setPaddingHorizontal(double value) {
     return this.copyWith(
       paddingValue: (this.paddingValue ?? EdgeInsets.zero)
           .copyWith(left: value, right: value),
     );
   }
 
-  MAddButtonModifierDefine paddingVertical(double value) {
+  MRowModifierDefine paddingVertical(double value) {
     return setPaddingVertical(value);
   }
 
-  MAddButtonModifierDefine setPaddingVertical(double value) {
+  MRowModifierDefine setPaddingVertical(double value) {
     return this.copyWith(
       paddingValue: (this.paddingValue ?? EdgeInsets.zero)
           .copyWith(top: value, bottom: value),
     );
   }
 
-  MAddButtonModifierDefine paddingBottom(double value) {
+  MRowModifierDefine paddingBottom(double value) {
     return this.copyWith(
       paddingValue:
           (this.paddingValue ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
-  MAddButtonModifierDefine marginTop(double value) {
+  MRowModifierDefine marginTop(double value) {
     return this.copyWith(
       marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
-  MAddButtonModifierDefine marginBottom(double value) {
+  MRowModifierDefine marginBottom(double value) {
     return this.copyWith(
       marginValue:
           (this.marginValue ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
-  MAddButtonModifierDefine marginLeft(double value) {
+  MRowModifierDefine marginLeft(double value) {
     return this.copyWith(
       marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(left: value),
     );
   }
 
-  MAddButtonModifierDefine marginRight(double value) {
+  MRowModifierDefine marginRight(double value) {
     return this.copyWith(
       marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(right: value),
     );
   }
 
-  MAddButtonModifierDefine marginHorizontal(double value) {
+  MRowModifierDefine marginHorizontal(double value) {
     return marginSymmetric(horizontal: value);
   }
 
-  MAddButtonModifierDefine marginVertical(double value) {
+  MRowModifierDefine marginVertical(double value) {
     return marginSymmetric(vertical: value);
   }
 
-  MAddButtonModifierDefine marginSymmetric(
-      {double? horizontal, double? vertical}) {
+  MRowModifierDefine marginSymmetric({double? horizontal, double? vertical}) {
     return this.copyWith(
       marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(
         left: horizontal ?? this.marginValue?.left,
@@ -236,7 +273,7 @@ extension MAddButtonModifierPropertys on MAddButtonModifierDefine {
     );
   }
 
-  MAddButtonModifierDefine marginOnly({
+  MRowModifierDefine marginOnly({
     double? left,
     double? top,
     double? right,
@@ -252,65 +289,65 @@ extension MAddButtonModifierPropertys on MAddButtonModifierDefine {
     );
   }
 
-  MAddButtonModifierDefine marginSet(EdgeInsets? value) {
+  MRowModifierDefine marginSet(EdgeInsets? value) {
     return this.copyWith(marginValue: value);
   }
 
-  MAddButtonModifierDefine margin(double? value) {
+  MRowModifierDefine margin(double? value) {
     return this.copyWith(marginValue: EdgeInsets.all(value ?? 0));
   }
 
-  MAddButtonModifierDefine backgroundColor(Color? value) {
+  MRowModifierDefine backgroundColor(Color? value) {
     return this.copyWith(backgroundColorValue: value);
   }
 
-  MAddButtonModifierDefine center(bool value) {
+  MRowModifierDefine center(bool value) {
     return this.copyWith(centerAlignValue: value);
   }
 
-  MAddButtonModifierDefine size(Size value) {
+  MRowModifierDefine size(Size value) {
     return this.copyWith(widthValue: value.width, heightValue: value.height);
   }
 
-  MAddButtonModifierDefine width(double? value) {
+  MRowModifierDefine width(double? value) {
     return this.copyWith(widthValue: value);
   }
 
-  MAddButtonModifierDefine height(double? value) {
+  MRowModifierDefine height(double? value) {
     return this.copyWith(heightValue: value);
   }
 
-  MAddButtonModifierDefine onTap(VoidCallback onTap) {
+  MRowModifierDefine onTap(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MAddButtonModifierDefine onClick(VoidCallback onTap) {
+  MRowModifierDefine onClick(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MAddButtonModifierDefine click(VoidCallback onTap) {
+  MRowModifierDefine click(VoidCallback onTap) {
     return setClick(onTap);
   }
 
-  MAddButtonModifierDefine setClick(VoidCallback onTapValue) {
+  MRowModifierDefine setClick(VoidCallback onTapValue) {
     return this.copyWith(onTapValue: onTapValue);
   }
 
-  MAddButtonModifierDefine borderRadius(double value) {
+  MRowModifierDefine borderRadius(double value) {
     return this.copyWith(borderRadiusValue: BorderRadius.circular(value));
   }
 
-  MAddButtonModifierDefine borderRadiusSet(BorderRadius value) {
+  MRowModifierDefine borderRadiusSet(BorderRadius value) {
     return this.copyWith(borderRadiusValue: value);
   }
 
-  MAddButtonModifierDefine borderRadiusVertical(double value) {
+  MRowModifierDefine borderRadiusVertical(double value) {
     return this.copyWith(
         borderRadiusValue: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
-  MAddButtonModifierDefine borderRadiusOnly({
+  MRowModifierDefine borderRadiusOnly({
     double topLeft = 0,
     double topRight = 0,
     double bottomLeft = 0,
@@ -326,7 +363,7 @@ extension MAddButtonModifierPropertys on MAddButtonModifierDefine {
     );
   }
 
-  MAddButtonModifierDefine borderRadiusHorizontal(double value) {
+  MRowModifierDefine borderRadiusHorizontal(double value) {
     return this.copyWith(
         borderRadiusValue: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));

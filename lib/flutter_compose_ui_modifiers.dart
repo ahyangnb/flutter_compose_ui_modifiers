@@ -20,6 +20,7 @@ export 'm/m_text.dart';
 export 'm/m_column.dart';
 export 'm/m_add_button.dart';
 export 'm/m_text_field.dart';
+export 'm/m_row.dart';
 export 'manager/modifer_manager.dart';
 
 /// Contains the modifier members of the [Widget] class.

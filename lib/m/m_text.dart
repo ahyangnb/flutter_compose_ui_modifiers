@@ -162,8 +162,18 @@ extension MTextModifierPropertys on MTextModifierDefine {
     );
   }
 
-  MTextModifierDefine padding(EdgeInsets? paddingValue) {
-    return this.copyWith(paddingValue: paddingValue);
+  MTextModifierDefine padding(double value) {
+    return setPaddingEdge(EdgeInsets.all(value));
+  }
+
+  MTextModifierDefine paddingSet(EdgeInsets value) {
+    return setPaddingEdge(value);
+  }
+
+  MTextModifierDefine setPaddingEdge(EdgeInsets? value) {
+    return this.copyWith(
+      paddingValue: value ?? this.paddingValue ?? EdgeInsets.zero,
+    );
   }
 
   MTextModifierDefine marginTop(double value) {
@@ -179,8 +189,59 @@ extension MTextModifierPropertys on MTextModifierDefine {
     );
   }
 
-  MTextModifierDefine margin(EdgeInsets? marginValue) {
-    return this.copyWith(marginValue: marginValue);
+  MTextModifierDefine marginLeft(double value) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(left: value),
+    );
+  }
+
+  MTextModifierDefine marginRight(double value) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(right: value),
+    );
+  }
+
+  MTextModifierDefine marginHorizontal(double value) {
+    return marginSymmetric(horizontal: value);
+  }
+
+  MTextModifierDefine marginVertical(double value) {
+    return marginSymmetric(vertical: value);
+  }
+
+  MTextModifierDefine marginSymmetric({double? horizontal, double? vertical}) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.marginValue?.left,
+        right: horizontal ?? this.marginValue?.right,
+        top: vertical ?? this.marginValue?.top,
+        bottom: vertical ?? this.marginValue?.bottom,
+      ),
+    );
+  }
+
+  MTextModifierDefine marginOnly({
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(
+        left: left ?? this.marginValue?.left,
+        right: right ?? this.marginValue?.right,
+        top: top ?? this.marginValue?.top,
+        bottom: bottom ?? this.marginValue?.bottom,
+      ),
+    );
+  }
+
+  MTextModifierDefine marginSet(EdgeInsets? value) {
+    return this.copyWith(marginValue: value);
+  }
+
+  MTextModifierDefine margin(double? value) {
+    return this.copyWith(marginValue: EdgeInsets.all(value ?? 0));
   }
 
   MTextModifierDefine backgroundColor(Color? value) {

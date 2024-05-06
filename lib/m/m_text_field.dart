@@ -263,11 +263,15 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
     return this.copyWith(shadowValue: value);
   }
 
-  MTextFieldModifierDefine padding(EdgeInsets value) {
-    return setPadding(value);
+  MTextFieldModifierDefine padding(double value) {
+    return setPaddingEdge(EdgeInsets.all(value));
   }
 
-  MTextFieldModifierDefine setPadding(EdgeInsets? value) {
+  MTextFieldModifierDefine paddingSet(EdgeInsets value) {
+    return setPaddingEdge(value);
+  }
+
+  MTextFieldModifierDefine setPaddingEdge(EdgeInsets? value) {
     return this.copyWith(
       paddingValue: value ?? this.paddingValue ?? EdgeInsets.zero,
     );
@@ -325,8 +329,60 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
     );
   }
 
-  MTextFieldModifierDefine margin(EdgeInsets? marginValue) {
-    return this.copyWith(marginValue: marginValue);
+  MTextFieldModifierDefine marginLeft(double value) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(left: value),
+    );
+  }
+
+  MTextFieldModifierDefine marginRight(double value) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(right: value),
+    );
+  }
+
+  MTextFieldModifierDefine marginHorizontal(double value) {
+    return marginSymmetric(horizontal: value);
+  }
+
+  MTextFieldModifierDefine marginVertical(double value) {
+    return marginSymmetric(vertical: value);
+  }
+
+  MTextFieldModifierDefine marginSymmetric(
+      {double? horizontal, double? vertical}) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.marginValue?.left,
+        right: horizontal ?? this.marginValue?.right,
+        top: vertical ?? this.marginValue?.top,
+        bottom: vertical ?? this.marginValue?.bottom,
+      ),
+    );
+  }
+
+  MTextFieldModifierDefine marginOnly({
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }) {
+    return this.copyWith(
+      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(
+        left: left ?? this.marginValue?.left,
+        right: right ?? this.marginValue?.right,
+        top: top ?? this.marginValue?.top,
+        bottom: bottom ?? this.marginValue?.bottom,
+      ),
+    );
+  }
+
+  MTextFieldModifierDefine marginSet(EdgeInsets? value) {
+    return this.copyWith(marginValue: value);
+  }
+
+  MTextFieldModifierDefine margin(double? value) {
+    return this.copyWith(marginValue: EdgeInsets.all(value ?? 0));
   }
 
   MTextFieldModifierDefine backgroundColor(Color? value) {
@@ -369,10 +425,30 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
     return this.copyWith(borderRadiusValue: BorderRadius.circular(value));
   }
 
+  MTextFieldModifierDefine borderRadiusSet(BorderRadius value) {
+    return this.copyWith(borderRadiusValue: value);
+  }
+
   MTextFieldModifierDefine borderRadiusVertical(double value) {
     return this.copyWith(
         borderRadiusValue: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  MTextFieldModifierDefine borderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      borderRadiusValue: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
   }
 
   MTextFieldModifierDefine borderRadiusHorizontal(double value) {
