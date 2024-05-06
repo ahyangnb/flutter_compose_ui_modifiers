@@ -22,7 +22,7 @@ export 'm/m_column.dart';
 export 'm/m_add_button.dart';
 export 'm/m_text_field.dart';
 export 'm/m_row.dart';
-export 'other/gradient_text.dart';
+export 'other/m_gradient_text.dart';
 
 /// Contains the modifier members of the [Widget] class.
 ///
