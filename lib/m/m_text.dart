@@ -309,5 +309,13 @@ extension MTextModifierPropertys on MTextModifierDefine {
     return this.copyWith(valueOnTap: valueOnTap);
   }
 
+  MTextModifierDefine flex([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
+  MTextModifierDefine expanded([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
   /// General============End
 }
