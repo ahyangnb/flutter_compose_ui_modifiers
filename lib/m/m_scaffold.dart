@@ -12,7 +12,7 @@ class MScaffold extends StatelessWidget {
     final defScaffold = Scaffold();
     Widget scaffold = Scaffold(
       appBar: modifier?.appBarValue,
-      backgroundColor: modifier?.backgroundColorValue,
+      backgroundColor: modifier?.valueBackgroundColor,
       resizeToAvoidBottomInset: modifier?.resizeToAvoidBottomInsetValue ?? true,
       drawer: modifier?.drawerValue,
       drawerDragStartBehavior: modifier?.drawerDragStartBehaviorValue ??
@@ -61,7 +61,7 @@ class MScaffoldModifierDefine {
 
   /// ===================From flutter===================
   final PreferredSizeWidget? appBarValue;
-  final Color? backgroundColorValue;
+  final Color? valueBackgroundColor;
   final bool? resizeToAvoidBottomInsetValue;
   final Widget? drawerValue;
   final DragStartBehavior? drawerDragStartBehaviorValue;
@@ -88,7 +88,7 @@ class MScaffoldModifierDefine {
 
     /// ===================From flutter===================
     this.appBarValue,
-    this.backgroundColorValue,
+    this.valueBackgroundColor,
     this.resizeToAvoidBottomInsetValue,
     this.drawerValue,
     this.drawerDragStartBehaviorValue,
@@ -115,7 +115,7 @@ class MScaffoldModifierDefine {
   MScaffoldModifierDefine copyWith({
     bool? autoHideKeyboardValue,
     PreferredSizeWidget? appBarValue,
-    Color? backgroundColorValue,
+    Color? valueBackgroundColor,
     bool? resizeToAvoidBottomInsetValue,
     Widget? drawerValue,
     DragStartBehavior? drawerDragStartBehaviorValue,
@@ -143,7 +143,7 @@ class MScaffoldModifierDefine {
 
       /// ===================From flutter===================
       appBarValue: appBarValue ?? this.appBarValue,
-      backgroundColorValue: backgroundColorValue ?? this.backgroundColorValue,
+      valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
       resizeToAvoidBottomInsetValue:
           resizeToAvoidBottomInsetValue ?? this.resizeToAvoidBottomInsetValue,
       drawerValue: drawerValue ?? this.drawerValue,
@@ -201,7 +201,7 @@ extension MScaffoldModifierPropertys on MScaffoldModifierDefine {
   }
 
   MScaffoldModifierDefine backgroundColor(Color value) {
-    return this.copyWith(backgroundColorValue: value);
+    return this.copyWith(valueBackgroundColor: value);
   }
 
   MScaffoldModifierDefine resizeToAvoidBottomInset(bool value) {

@@ -40,23 +40,23 @@ class MTextFieldModifierDefine extends MGeneralModifier {
     this.styleValue,
     this.expandsValue,
     this.maxLinesValue,
-    super.paddingValue,
-    super.marginValue,
-    super.onTapValue,
-    super.backgroundColorValue,
-    super.borderRadiusValue,
-    super.centerAlignValue,
-    super.widthValue,
-    super.heightValue,
-    super.shadowValue,
-    super.transformValue,
-    super.constraintsValue,
-    super.aspectRatioValue,
-    super.flexValue,
-    super.helpValue,
-    super.opacityValue,
-    super.rotateValue,
-    super.scaleValue,
+    super.valuePadding,
+    super.valueMargin,
+    super.valueOnTap,
+    super.valueBackgroundColor,
+    super.valueBorderRadius,
+    super.valueCenterAlign,
+    super.valueWidth,
+    super.valueHeight,
+    super.valueShadow,
+    super.valueTransform,
+    super.valueConstraints,
+    super.valueAspectRatio,
+    super.valueFlex,
+    super.valueHelp,
+    super.valueOpacity,
+    super.valueRotate,
+    super.valueScale,
   });
 
   /// Create a copyWith().
@@ -67,23 +67,23 @@ class MTextFieldModifierDefine extends MGeneralModifier {
     final int? maxLinesValue,
 
     /// The following properties are inherited from MGeneralModifier.
-    EdgeInsets? paddingValue,
-    EdgeInsets? marginValue,
-    GestureTapCallback? onTapValue,
-    Color? backgroundColorValue,
-    BorderRadius? borderRadiusValue,
-    bool? centerAlignValue,
-    double? widthValue,
-    double? heightValue,
-    BoxShadow? shadowValue,
-    Matrix4? transformValue,
-    BoxConstraints? constraintsValue,
-    double? aspectRatioValue,
-    int? flexValue,
-    String? helpValue,
-    double? opacityValue,
-    double? rotateValue,
-    double? scaleValue,
+    EdgeInsets? valuePadding,
+    EdgeInsets? valueMargin,
+    GestureTapCallback? valueOnTap,
+    Color? valueBackgroundColor,
+    BorderRadius? valueBorderRadius,
+    bool? valueCenterAlign,
+    double? valueWidth,
+    double? valueHeight,
+    BoxShadow? valueShadow,
+    Matrix4? valueTransform,
+    BoxConstraints? valueConstraints,
+    double? valueAspectRatio,
+    int? valueFlex,
+    String? valueHelp,
+    double? valueOpacity,
+    double? valueRotate,
+    double? valueScale,
   }) {
     return MTextFieldModifierDefine(
       decorationValue: decorationValue ?? this.decorationValue,
@@ -92,23 +92,23 @@ class MTextFieldModifierDefine extends MGeneralModifier {
       maxLinesValue: maxLinesValue ?? this.maxLinesValue,
 
       /// The following properties are inherited from MGeneralModifier.
-      paddingValue: paddingValue ?? this.paddingValue,
-      marginValue: marginValue ?? this.marginValue,
-      onTapValue: onTapValue ?? this.onTapValue,
-      backgroundColorValue: backgroundColorValue ?? this.backgroundColorValue,
-      borderRadiusValue: borderRadiusValue ?? this.borderRadiusValue,
-      centerAlignValue: centerAlignValue ?? this.centerAlignValue,
-      widthValue: widthValue ?? this.widthValue,
-      heightValue: heightValue ?? this.heightValue,
-      shadowValue: shadowValue ?? this.shadowValue,
-      transformValue: transformValue ?? this.transformValue,
-      constraintsValue: constraintsValue ?? this.constraintsValue,
-      aspectRatioValue: aspectRatioValue ?? this.aspectRatioValue,
-      flexValue: flexValue ?? this.flexValue,
-      helpValue: helpValue ?? this.helpValue,
-      opacityValue: opacityValue ?? this.opacityValue,
-      rotateValue: rotateValue ?? this.rotateValue,
-      scaleValue: scaleValue ?? this.scaleValue,
+      valuePadding: valuePadding ?? this.valuePadding,
+      valueMargin: valueMargin ?? this.valueMargin,
+      valueOnTap: valueOnTap ?? this.valueOnTap,
+      valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
+      valueBorderRadius: valueBorderRadius ?? this.valueBorderRadius,
+      valueCenterAlign: valueCenterAlign ?? this.valueCenterAlign,
+      valueWidth: valueWidth ?? this.valueWidth,
+      valueHeight: valueHeight ?? this.valueHeight,
+      valueShadow: valueShadow ?? this.valueShadow,
+      valueTransform: valueTransform ?? this.valueTransform,
+      valueConstraints: valueConstraints ?? this.valueConstraints,
+      valueAspectRatio: valueAspectRatio ?? this.valueAspectRatio,
+      valueFlex: valueFlex ?? this.valueFlex,
+      valueHelp: valueHelp ?? this.valueHelp,
+      valueOpacity: valueOpacity ?? this.valueOpacity,
+      valueRotate: valueRotate ?? this.valueRotate,
+      valueScale: valueScale ?? this.valueScale,
     );
   }
 }
@@ -250,7 +250,7 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
   /// General============Start
   ///
   MTextFieldModifierDefine shadow(BoxShadow value) {
-    return this.copyWith(shadowValue: value);
+    return this.copyWith(valueShadow: value);
   }
 
   MTextFieldModifierDefine shadowDef({Color? color}) {
@@ -260,7 +260,7 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
       blurRadius: 4,
       spreadRadius: 0,
     );
-    return this.copyWith(shadowValue: value);
+    return this.copyWith(valueShadow: value);
   }
 
   MTextFieldModifierDefine padding(double value) {
@@ -273,7 +273,7 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
 
   MTextFieldModifierDefine setPaddingEdge(EdgeInsets? value) {
     return this.copyWith(
-      paddingValue: value ?? this.paddingValue ?? EdgeInsets.zero,
+      valuePadding: value ?? this.valuePadding ?? EdgeInsets.zero,
     );
   }
 
@@ -283,7 +283,7 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
 
   MTextFieldModifierDefine setPaddingTop(double value) {
     return this.copyWith(
-      paddingValue: (this.paddingValue ?? EdgeInsets.zero).copyWith(top: value),
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
@@ -293,7 +293,7 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
 
   MTextFieldModifierDefine setPaddingHorizontal(double value) {
     return this.copyWith(
-      paddingValue: (this.paddingValue ?? EdgeInsets.zero)
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(left: value, right: value),
     );
   }
@@ -304,40 +304,40 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
 
   MTextFieldModifierDefine setPaddingVertical(double value) {
     return this.copyWith(
-      paddingValue: (this.paddingValue ?? EdgeInsets.zero)
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(top: value, bottom: value),
     );
   }
 
   MTextFieldModifierDefine paddingBottom(double value) {
     return this.copyWith(
-      paddingValue:
-          (this.paddingValue ?? EdgeInsets.zero).copyWith(bottom: value),
+      valuePadding:
+          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
   MTextFieldModifierDefine marginTop(double value) {
     return this.copyWith(
-      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(top: value),
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
   MTextFieldModifierDefine marginBottom(double value) {
     return this.copyWith(
-      marginValue:
-          (this.marginValue ?? EdgeInsets.zero).copyWith(bottom: value),
+      valueMargin:
+          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
   MTextFieldModifierDefine marginLeft(double value) {
     return this.copyWith(
-      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(left: value),
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(left: value),
     );
   }
 
   MTextFieldModifierDefine marginRight(double value) {
     return this.copyWith(
-      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(right: value),
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(right: value),
     );
   }
 
@@ -352,11 +352,11 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
   MTextFieldModifierDefine marginSymmetric(
       {double? horizontal, double? vertical}) {
     return this.copyWith(
-      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(
-        left: horizontal ?? this.marginValue?.left,
-        right: horizontal ?? this.marginValue?.right,
-        top: vertical ?? this.marginValue?.top,
-        bottom: vertical ?? this.marginValue?.bottom,
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valueMargin?.left,
+        right: horizontal ?? this.valueMargin?.right,
+        top: vertical ?? this.valueMargin?.top,
+        bottom: vertical ?? this.valueMargin?.bottom,
       ),
     );
   }
@@ -368,41 +368,41 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
     double? bottom,
   }) {
     return this.copyWith(
-      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(
-        left: left ?? this.marginValue?.left,
-        right: right ?? this.marginValue?.right,
-        top: top ?? this.marginValue?.top,
-        bottom: bottom ?? this.marginValue?.bottom,
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: left ?? this.valueMargin?.left,
+        right: right ?? this.valueMargin?.right,
+        top: top ?? this.valueMargin?.top,
+        bottom: bottom ?? this.valueMargin?.bottom,
       ),
     );
   }
 
   MTextFieldModifierDefine marginSet(EdgeInsets? value) {
-    return this.copyWith(marginValue: value);
+    return this.copyWith(valueMargin: value);
   }
 
   MTextFieldModifierDefine margin(double? value) {
-    return this.copyWith(marginValue: EdgeInsets.all(value ?? 0));
+    return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
   }
 
   MTextFieldModifierDefine backgroundColor(Color? value) {
-    return this.copyWith(backgroundColorValue: value);
+    return this.copyWith(valueBackgroundColor: value);
   }
 
   MTextFieldModifierDefine center(bool value) {
-    return this.copyWith(centerAlignValue: value);
+    return this.copyWith(valueCenterAlign: value);
   }
 
   MTextFieldModifierDefine size(Size value) {
-    return this.copyWith(widthValue: value.width, heightValue: value.height);
+    return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
   MTextFieldModifierDefine width(double? value) {
-    return this.copyWith(widthValue: value);
+    return this.copyWith(valueWidth: value);
   }
 
   MTextFieldModifierDefine height(double? value) {
-    return this.copyWith(heightValue: value);
+    return this.copyWith(valueHeight: value);
   }
 
   MTextFieldModifierDefine onTap(VoidCallback onTap) {
@@ -417,21 +417,21 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
     return setClick(onTap);
   }
 
-  MTextFieldModifierDefine setClick(VoidCallback onTapValue) {
-    return this.copyWith(onTapValue: onTapValue);
+  MTextFieldModifierDefine setClick(VoidCallback valueOnTap) {
+    return this.copyWith(valueOnTap: valueOnTap);
   }
 
   MTextFieldModifierDefine borderRadius(double value) {
-    return this.copyWith(borderRadiusValue: BorderRadius.circular(value));
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
   MTextFieldModifierDefine borderRadiusSet(BorderRadius value) {
-    return this.copyWith(borderRadiusValue: value);
+    return this.copyWith(valueBorderRadius: value);
   }
 
   MTextFieldModifierDefine borderRadiusVertical(double value) {
     return this.copyWith(
-        borderRadiusValue: BorderRadius.vertical(
+        valueBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
@@ -442,7 +442,7 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
     double bottomRight = 0,
   }) {
     return this.copyWith(
-      borderRadiusValue: BorderRadius.only(
+      valueBorderRadius: BorderRadius.only(
         topLeft: Radius.circular(topLeft),
         topRight: Radius.circular(topRight),
         bottomLeft: Radius.circular(bottomLeft),
@@ -453,7 +453,7 @@ extension MTextFieldModifierPropertys on MTextFieldModifierDefine {
 
   MTextFieldModifierDefine borderRadiusHorizontal(double value) {
     return this.copyWith(
-        borderRadiusValue: BorderRadius.horizontal(
+        valueBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 

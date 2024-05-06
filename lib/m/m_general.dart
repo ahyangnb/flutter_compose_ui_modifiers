@@ -15,42 +15,42 @@
 import 'package:flutter/material.dart';
 
 class MGeneralModifier {
-  final EdgeInsets? paddingValue;
-  final EdgeInsets? marginValue;
-  final VoidCallback? onTapValue;
-  final Color? backgroundColorValue;
-  final BorderRadiusGeometry? borderRadiusValue;
-  final bool? centerAlignValue;
-  final double? widthValue;
-  final double? heightValue;
-  final BoxShadow? shadowValue;
-  final Matrix4? transformValue;
-  final BoxConstraints? constraintsValue;
-  final double? aspectRatioValue;
-  final int? flexValue;
-  final String? helpValue;
-  final double? opacityValue;
-  final double? rotateValue;
-  final double? scaleValue;
+  final EdgeInsets? valuePadding;
+  final EdgeInsets? valueMargin;
+  final VoidCallback? valueOnTap;
+  final Color? valueBackgroundColor;
+  final BorderRadiusGeometry? valueBorderRadius;
+  final bool? valueCenterAlign;
+  final double? valueWidth;
+  final double? valueHeight;
+  final BoxShadow? valueShadow;
+  final Matrix4? valueTransform;
+  final BoxConstraints? valueConstraints;
+  final double? valueAspectRatio;
+  final int? valueFlex;
+  final String? valueHelp;
+  final double? valueOpacity;
+  final double? valueRotate;
+  final double? valueScale;
 
   const MGeneralModifier({
-    this.paddingValue,
-    this.marginValue,
-    this.onTapValue,
-    this.backgroundColorValue,
-    this.borderRadiusValue,
-    this.centerAlignValue,
-    this.widthValue,
-    this.heightValue,
-    this.shadowValue,
-    this.transformValue,
-    this.constraintsValue,
-    this.aspectRatioValue,
-    this.flexValue,
-    this.helpValue,
-    this.opacityValue,
-    this.rotateValue,
-    this.scaleValue,
+    this.valuePadding,
+    this.valueMargin,
+    this.valueOnTap,
+    this.valueBackgroundColor,
+    this.valueBorderRadius,
+    this.valueCenterAlign,
+    this.valueWidth,
+    this.valueHeight,
+    this.valueShadow,
+    this.valueTransform,
+    this.valueConstraints,
+    this.valueAspectRatio,
+    this.valueFlex,
+    this.valueHelp,
+    this.valueOpacity,
+    this.valueRotate,
+    this.valueScale,
   });
 }
 
@@ -75,44 +75,44 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     if (generalModifier == null) {
       return child;
     }
-    if (generalModifier?.onTapValue != null) {
+    if (generalModifier?.valueOnTap != null) {
       child = InkWell(
-        onTap: generalModifier!.onTapValue,
+        onTap: generalModifier!.valueOnTap,
         child: child,
       );
     }
-    if (generalModifier?.paddingValue != null ||
-        generalModifier?.marginValue != null ||
-        generalModifier?.borderRadiusValue != null ||
-        generalModifier?.backgroundColorValue != null ||
-        generalModifier?.widthValue != null ||
-        generalModifier?.heightValue != null ||
-        generalModifier?.shadowValue != null) {
+    if (generalModifier?.valuePadding != null ||
+        generalModifier?.valueMargin != null ||
+        generalModifier?.valueBorderRadius != null ||
+        generalModifier?.valueBackgroundColor != null ||
+        generalModifier?.valueWidth != null ||
+        generalModifier?.valueHeight != null ||
+        generalModifier?.valueShadow != null) {
       child = Container(
         width: ignoreList.contains(IgnoreModifierInGeneral.width)
             ? null
-            : generalModifier?.widthValue,
+            : generalModifier?.valueWidth,
         height: ignoreList.contains(IgnoreModifierInGeneral.height)
             ? null
-            : generalModifier?.heightValue,
+            : generalModifier?.valueHeight,
         decoration: BoxDecoration(
           color: ignoreList.contains(IgnoreModifierInGeneral.backgroundColor)
               ? null
-              : generalModifier?.backgroundColorValue,
-          borderRadius: generalModifier?.borderRadiusValue,
-          boxShadow: generalModifier?.shadowValue != null
-              ? [generalModifier!.shadowValue!]
+              : generalModifier?.valueBackgroundColor,
+          borderRadius: generalModifier?.valueBorderRadius,
+          boxShadow: generalModifier?.valueShadow != null
+              ? [generalModifier!.valueShadow!]
               : null,
         ),
         padding: ignoreList.contains(IgnoreModifierInGeneral.padding)
             ? null
-            : generalModifier?.paddingValue,
-        margin: generalModifier?.marginValue,
+            : generalModifier?.valuePadding,
+        margin: generalModifier?.valueMargin,
         child: child,
       );
     }
-    if (generalModifier?.centerAlignValue != null &&
-        generalModifier!.centerAlignValue!) {
+    if (generalModifier?.valueCenterAlign != null &&
+        generalModifier!.valueCenterAlign!) {
       child = Center(child: child);
     }
     return child;

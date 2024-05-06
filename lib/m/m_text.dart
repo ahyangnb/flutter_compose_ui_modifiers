@@ -50,66 +50,66 @@ class MTextModifierDefine extends MGeneralModifier {
 
   const MTextModifierDefine({
     this.styleValue = const TextStyle(),
-    super.paddingValue,
-    super.marginValue,
-    super.onTapValue,
-    super.backgroundColorValue,
-    super.borderRadiusValue,
-    super.centerAlignValue,
-    super.widthValue,
-    super.heightValue,
-    super.shadowValue,
-    super.transformValue,
-    super.constraintsValue,
-    super.aspectRatioValue,
-    super.flexValue,
-    super.helpValue,
-    super.opacityValue,
-    super.rotateValue,
-    super.scaleValue,
+    super.valuePadding,
+    super.valueMargin,
+    super.valueOnTap,
+    super.valueBackgroundColor,
+    super.valueBorderRadius,
+    super.valueCenterAlign,
+    super.valueWidth,
+    super.valueHeight,
+    super.valueShadow,
+    super.valueTransform,
+    super.valueConstraints,
+    super.valueAspectRatio,
+    super.valueFlex,
+    super.valueHelp,
+    super.valueOpacity,
+    super.valueRotate,
+    super.valueScale,
   });
 
   MTextModifierDefine copyWith({
     TextStyle? styleValue,
 
     /// The following properties are inherited from MGeneralModifier.
-    EdgeInsets? paddingValue,
-    EdgeInsets? marginValue,
-    VoidCallback? onTapValue,
-    Color? backgroundColorValue,
-    BorderRadiusGeometry? borderRadiusValue,
-    bool? centerAlignValue,
-    double? widthValue,
-    double? heightValue,
-    BoxShadow? shadowValue,
-    Matrix4? transformValue,
-    BoxConstraints? constraintsValue,
-    double? aspectRatioValue,
-    int? flexValue,
-    String? helpValue,
-    double? opacityValue,
-    double? rotateValue,
-    double? scaleValue,
+    EdgeInsets? valuePadding,
+    EdgeInsets? valueMargin,
+    VoidCallback? valueOnTap,
+    Color? valueBackgroundColor,
+    BorderRadiusGeometry? valueBorderRadius,
+    bool? valueCenterAlign,
+    double? valueWidth,
+    double? valueHeight,
+    BoxShadow? valueShadow,
+    Matrix4? valueTransform,
+    BoxConstraints? valueConstraints,
+    double? valueAspectRatio,
+    int? valueFlex,
+    String? valueHelp,
+    double? valueOpacity,
+    double? valueRotate,
+    double? valueScale,
   }) {
     return MTextModifierDefine(
       styleValue: styleValue ?? this.styleValue,
-      paddingValue: paddingValue ?? this.paddingValue,
-      marginValue: marginValue ?? this.marginValue,
-      onTapValue: onTapValue ?? this.onTapValue,
-      backgroundColorValue: backgroundColorValue ?? this.backgroundColorValue,
-      borderRadiusValue: borderRadiusValue ?? this.borderRadiusValue,
-      centerAlignValue: centerAlignValue ?? this.centerAlignValue,
-      widthValue: widthValue ?? this.widthValue,
-      heightValue: heightValue ?? this.heightValue,
-      shadowValue: shadowValue ?? this.shadowValue,
-      transformValue: transformValue ?? this.transformValue,
-      constraintsValue: constraintsValue ?? this.constraintsValue,
-      aspectRatioValue: aspectRatioValue ?? this.aspectRatioValue,
-      flexValue: flexValue ?? this.flexValue,
-      helpValue: helpValue ?? this.helpValue,
-      opacityValue: opacityValue ?? this.opacityValue,
-      rotateValue: rotateValue ?? this.rotateValue,
-      scaleValue: scaleValue ?? this.scaleValue,
+      valuePadding: valuePadding ?? this.valuePadding,
+      valueMargin: valueMargin ?? this.valueMargin,
+      valueOnTap: valueOnTap ?? this.valueOnTap,
+      valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
+      valueBorderRadius: valueBorderRadius ?? this.valueBorderRadius,
+      valueCenterAlign: valueCenterAlign ?? this.valueCenterAlign,
+      valueWidth: valueWidth ?? this.valueWidth,
+      valueHeight: valueHeight ?? this.valueHeight,
+      valueShadow: valueShadow ?? this.valueShadow,
+      valueTransform: valueTransform ?? this.valueTransform,
+      valueConstraints: valueConstraints ?? this.valueConstraints,
+      valueAspectRatio: valueAspectRatio ?? this.valueAspectRatio,
+      valueFlex: valueFlex ?? this.valueFlex,
+      valueHelp: valueHelp ?? this.valueHelp,
+      valueOpacity: valueOpacity ?? this.valueOpacity,
+      valueRotate: valueRotate ?? this.valueRotate,
+      valueScale: valueScale ?? this.valueScale,
     );
   }
 }
@@ -151,14 +151,14 @@ extension MTextModifierPropertys on MTextModifierDefine {
   /// General============Start
   MTextModifierDefine paddingTop(double value) {
     return this.copyWith(
-      paddingValue: (this.paddingValue ?? EdgeInsets.zero).copyWith(top: value),
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
   MTextModifierDefine paddingBottom(double value) {
     return this.copyWith(
-      paddingValue:
-          (this.paddingValue ?? EdgeInsets.zero).copyWith(bottom: value),
+      valuePadding:
+          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -172,32 +172,32 @@ extension MTextModifierPropertys on MTextModifierDefine {
 
   MTextModifierDefine setPaddingEdge(EdgeInsets? value) {
     return this.copyWith(
-      paddingValue: value ?? this.paddingValue ?? EdgeInsets.zero,
+      valuePadding: value ?? this.valuePadding ?? EdgeInsets.zero,
     );
   }
 
   MTextModifierDefine marginTop(double value) {
     return this.copyWith(
-      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(top: value),
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
   MTextModifierDefine marginBottom(double value) {
     return this.copyWith(
-      marginValue:
-          (this.marginValue ?? EdgeInsets.zero).copyWith(bottom: value),
+      valueMargin:
+          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
   MTextModifierDefine marginLeft(double value) {
     return this.copyWith(
-      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(left: value),
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(left: value),
     );
   }
 
   MTextModifierDefine marginRight(double value) {
     return this.copyWith(
-      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(right: value),
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(right: value),
     );
   }
 
@@ -211,11 +211,11 @@ extension MTextModifierPropertys on MTextModifierDefine {
 
   MTextModifierDefine marginSymmetric({double? horizontal, double? vertical}) {
     return this.copyWith(
-      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(
-        left: horizontal ?? this.marginValue?.left,
-        right: horizontal ?? this.marginValue?.right,
-        top: vertical ?? this.marginValue?.top,
-        bottom: vertical ?? this.marginValue?.bottom,
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valueMargin?.left,
+        right: horizontal ?? this.valueMargin?.right,
+        top: vertical ?? this.valueMargin?.top,
+        bottom: vertical ?? this.valueMargin?.bottom,
       ),
     );
   }
@@ -227,41 +227,41 @@ extension MTextModifierPropertys on MTextModifierDefine {
     double? bottom,
   }) {
     return this.copyWith(
-      marginValue: (this.marginValue ?? EdgeInsets.zero).copyWith(
-        left: left ?? this.marginValue?.left,
-        right: right ?? this.marginValue?.right,
-        top: top ?? this.marginValue?.top,
-        bottom: bottom ?? this.marginValue?.bottom,
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: left ?? this.valueMargin?.left,
+        right: right ?? this.valueMargin?.right,
+        top: top ?? this.valueMargin?.top,
+        bottom: bottom ?? this.valueMargin?.bottom,
       ),
     );
   }
 
   MTextModifierDefine marginSet(EdgeInsets? value) {
-    return this.copyWith(marginValue: value);
+    return this.copyWith(valueMargin: value);
   }
 
   MTextModifierDefine margin(double? value) {
-    return this.copyWith(marginValue: EdgeInsets.all(value ?? 0));
+    return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
   }
 
   MTextModifierDefine backgroundColor(Color? value) {
-    return this.copyWith(backgroundColorValue: value);
+    return this.copyWith(valueBackgroundColor: value);
   }
 
   MTextModifierDefine center(bool value) {
-    return this.copyWith(centerAlignValue: value);
+    return this.copyWith(valueCenterAlign: value);
   }
 
   MTextModifierDefine size(Size value) {
-    return this.copyWith(widthValue: value.width, heightValue: value.height);
+    return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
   MTextModifierDefine width(double? value) {
-    return this.copyWith(widthValue: value);
+    return this.copyWith(valueWidth: value);
   }
 
   MTextModifierDefine height(double? value) {
-    return this.copyWith(heightValue: value);
+    return this.copyWith(valueHeight: value);
   }
 
   MTextModifierDefine onTap(VoidCallback onTap) {
@@ -276,8 +276,8 @@ extension MTextModifierPropertys on MTextModifierDefine {
     return setClick(onTap);
   }
 
-  MTextModifierDefine setClick(VoidCallback onTapValue) {
-    return this.copyWith(onTapValue: onTapValue);
+  MTextModifierDefine setClick(VoidCallback valueOnTap) {
+    return this.copyWith(valueOnTap: valueOnTap);
   }
 
   /// General============End
