@@ -152,6 +152,10 @@ extension MColumnModifierPropertys on MColumnModifierDefine {
     return this.copyWith(children: (this.children ?? [])..add(child));
   }
 
+  MColumnModifierDefine addList(List<Widget> value) {
+    return this.copyWith(children: (this.children ?? [])..addAll(value));
+  }
+
   MColumnModifierDefine crossAxisAlignment(CrossAxisAlignment value) {
     return this.copyWith(crossAxisAlignmentValue: value);
   }

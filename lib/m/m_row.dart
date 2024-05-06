@@ -152,6 +152,10 @@ extension MRowModifierPropertys on MRowModifierDefine {
     return this.copyWith(children: (this.children ?? [])..add(child));
   }
 
+  MRowModifierDefine addList(List<Widget> value) {
+    return this.copyWith(children: (this.children ?? [])..addAll(value));
+  }
+
   MRowModifierDefine crossAxisAlignment(CrossAxisAlignment value) {
     return this.copyWith(crossAxisAlignmentValue: value);
   }
