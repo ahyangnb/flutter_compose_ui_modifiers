@@ -167,6 +167,10 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return heightLine(value);
   }
 
+  DefineMTextModifier textHeight(double value) {
+    return heightLine(value);
+  }
+
   DefineMTextModifier heightLine(double value) {
     final newStyle = this.styleValue.copyWith(height: value);
     final DefineMTextModifier newModifierValue =

@@ -37,6 +37,10 @@ extension FlutterUIModifiersText on Text {
     );
   }
 
+  Text textHeight(double lineHeight) {
+    return heightSize(lineHeight);
+  }
+
   Text heightSize(double lineHeight) {
     return _rebase(
       style: FlutterUITextStyle.rebase(this.style, height: lineHeight),
