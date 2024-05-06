@@ -51,6 +51,14 @@ extension FlutterUIModifiersContainer on Container {
     return rebase(width: value);
   }
 
+  Container setHeight(double value) {
+    return rebase(width: value);
+  }
+
+  Container height(double value) {
+    return rebase(width: value);
+  }
+
   /// A modifier that sets its widget's background color
   ///
   /// ## Example:

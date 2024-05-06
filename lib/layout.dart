@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 extension FlutterUIModifiersWidgetLayout on Widget {
   Widget marginRight(double right) =>
@@ -78,5 +79,33 @@ extension FlutterUIModifiersWidgetLayout on Widget {
     }
     return Positioned(
         left: left, top: top, right: right, bottom: bottom, child: this);
+  }
+
+  Container heightSet(double value) => setHeight(value);
+
+  Container setHeight(double value) {
+    if (this is SizedBox) {
+      final thisWidget = this as SizedBox;
+      return Container(
+          child: thisWidget.child, width: thisWidget.width, height: value);
+    }
+    if (this is Container) {
+      return (this as Container).setHeight(value);
+    }
+    return Container(height: value, child: this);
+  }
+
+  Container widthSet(double value) => setWidth(value);
+
+  Container setWidth(double value) {
+    if (this is SizedBox) {
+      final thisWidget = this as SizedBox;
+      return Container(
+          child: thisWidget.child, width: value, height: thisWidget.height);
+    }
+    if (this is Container) {
+      return (this as Container).setWidth(value);
+    }
+    return Container(width: value, child: this);
   }
 }
