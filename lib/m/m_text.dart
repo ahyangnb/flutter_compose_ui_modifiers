@@ -138,6 +138,26 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return setColor(color);
   }
 
+  DefineMTextModifier colorStr(String value) {
+    return colorString(value);
+  }
+
+  DefineMTextModifier colorString(String value) {
+    final String head = "0xff";
+    final strFull =
+        (value.startsWith(head) ? value : "$head$value").replaceAll("#", '');
+    final colorValue = int.parse(strFull);
+    return setColor(Color(colorValue));
+  }
+
+  DefineMTextModifier colorHex(int color) {
+    return setColor(Color(color));
+  }
+
+  DefineMTextModifier colorValue(int color) {
+    return setColor(Color(color));
+  }
+
   DefineMTextModifier setColor(Color color) {
     final newStyle = this.styleValue.copyWith(color: color);
     final DefineMTextModifier newModifierValue =
