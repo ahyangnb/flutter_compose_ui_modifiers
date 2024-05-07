@@ -23,6 +23,9 @@ class MTextField extends StatelessWidget {
         style: modifier?.styleValue,
         expands: modifier?.expandsValue ?? false,
         maxLines: modifier?.maxLinesValue,
+        onSubmitted: modifier?.valueOnSubmitted,
+        keyboardType: modifier?.valueKeyboardType,
+        textInputAction: modifier?.valueTextInputAction,
       ),
     );
   }
@@ -36,6 +39,9 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   final bool? expandsValue;
   final int? maxLinesValue;
   final bool? valueAutoFocus;
+  final ValueChanged<String>? valueOnSubmitted;
+  final TextInputType? valueKeyboardType;
+  final TextInputAction? valueTextInputAction;
 
   const DefineMTextFieldModifier({
     this.decorationValue,
@@ -43,6 +49,9 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     this.expandsValue,
     this.maxLinesValue,
     this.valueAutoFocus,
+    this.valueOnSubmitted,
+    this.valueKeyboardType,
+    this.valueTextInputAction,
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -73,6 +82,9 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     final bool? expandsValue,
     final int? maxLinesValue,
     final bool? valueAutoFocus,
+    final ValueChanged<String>? valueOnSubmitted,
+    final TextInputType? valueKeyboardType,
+    final TextInputAction? valueTextInputAction,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -103,6 +115,9 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       expandsValue: expandsValue ?? this.expandsValue,
       maxLinesValue: maxLinesValue ?? this.maxLinesValue,
       valueAutoFocus: valueAutoFocus ?? this.valueAutoFocus,
+      valueOnSubmitted: valueOnSubmitted ?? this.valueOnSubmitted,
+      valueKeyboardType: valueKeyboardType ?? this.valueKeyboardType,
+      valueTextInputAction: valueTextInputAction ?? this.valueTextInputAction,
 
       /// The following properties are inherited from MGeneralModifier.
       valuePadding: valuePadding ?? this.valuePadding,
@@ -132,6 +147,18 @@ class DefineMTextFieldModifier extends MGeneralModifier {
 }
 
 extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
+  DefineMTextFieldModifier textInputAction(TextInputAction value) {
+    return this.copyWith(valueTextInputAction: value);
+  }
+
+  DefineMTextFieldModifier keyboardType(TextInputType value) {
+    return this.copyWith(valueKeyboardType: value);
+  }
+
+  DefineMTextFieldModifier onSubmitted(ValueChanged<String>? value) {
+    return this.copyWith(valueOnSubmitted: value);
+  }
+
   DefineMTextFieldModifier hintText(String value) {
     return this.copyWith(
       decorationValue:
