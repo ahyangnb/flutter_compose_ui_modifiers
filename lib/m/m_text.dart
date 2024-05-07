@@ -33,12 +33,7 @@ class MText extends StatelessWidget {
       generalModifier: modifier,
       child: Text(
         data,
-        style: TextStyle(
-          color: modifier?.styleValue.color,
-          fontSize: modifier?.styleValue.fontSize,
-          fontWeight: modifier?.styleValue.fontWeight,
-          fontFamily: modifier?.styleValue.fontFamily,
-        ),
+        style: modifier?.styleValue ?? TextStyle(),
         textAlign: modifier?.valueTextAlign,
       ),
     );
@@ -206,6 +201,12 @@ extension MTextModifierPropertys on DefineMTextModifier {
     final newStyle = this.styleValue.copyWith(fontWeight: fontWeight);
     final DefineMTextModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier style(TextStyle value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(styleValue: value);
     return newModifierValue;
   }
 
