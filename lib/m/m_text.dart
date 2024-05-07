@@ -37,6 +37,7 @@ class MText extends StatelessWidget {
           color: modifier?.styleValue.color,
           fontSize: modifier?.styleValue.fontSize,
           fontWeight: modifier?.styleValue.fontWeight,
+          fontFamily: modifier?.styleValue.fontFamily,
         ),
         textAlign: modifier?.valueTextAlign,
       ),
@@ -164,6 +165,13 @@ extension MTextModifierPropertys on DefineMTextModifier {
 
   DefineMTextModifier letterSpacing(double value) {
     final newStyle = this.styleValue.copyWith(letterSpacing: value);
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(styleValue: newStyle);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier fontFamily(String value) {
+    final newStyle = this.styleValue.copyWith(fontFamily: value);
     final DefineMTextModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
