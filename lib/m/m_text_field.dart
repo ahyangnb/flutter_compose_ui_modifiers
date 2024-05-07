@@ -17,6 +17,7 @@ class MTextField extends StatelessWidget {
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
       child: TextField(
+        autofocus: modifier?.valueAutoFocus ?? false,
         controller: controller ?? TextEditingController(),
         decoration: modifier?.decorationValue,
         style: modifier?.styleValue,
@@ -34,12 +35,14 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   final TextStyle? styleValue;
   final bool? expandsValue;
   final int? maxLinesValue;
+  final bool? valueAutoFocus;
 
   const DefineMTextFieldModifier({
     this.decorationValue,
     this.styleValue,
     this.expandsValue,
     this.maxLinesValue,
+    this.valueAutoFocus,
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -69,6 +72,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     final TextStyle? styleValue,
     final bool? expandsValue,
     final int? maxLinesValue,
+    final bool? valueAutoFocus,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -98,6 +102,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       styleValue: styleValue ?? this.styleValue,
       expandsValue: expandsValue ?? this.expandsValue,
       maxLinesValue: maxLinesValue ?? this.maxLinesValue,
+      valueAutoFocus: valueAutoFocus ?? this.valueAutoFocus,
 
       /// The following properties are inherited from MGeneralModifier.
       valuePadding: valuePadding ?? this.valuePadding,
@@ -163,6 +168,17 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
           hintStyle: (this.decorationValue?.hintStyle ?? TextStyle())
               .copyWith(fontWeight: value)),
     );
+  }
+
+  DefineMTextFieldModifier border(InputBorder value) {
+    return this.copyWith(
+      decorationValue:
+          (this.decorationValue ?? InputDecoration()).copyWith(border: value),
+    );
+  }
+
+  DefineMTextFieldModifier autoFocus(bool value) {
+    return this.copyWith(valueAutoFocus: value);
   }
 
   DefineMTextFieldModifier noneBorder() {
