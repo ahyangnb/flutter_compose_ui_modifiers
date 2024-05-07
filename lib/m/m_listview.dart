@@ -191,5 +191,13 @@ extension MListViewModifierPropertys on DefineMListViewModifier {
     );
   }
 
+  DefineMListViewModifier flex([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
+  DefineMListViewModifier expanded([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
   /// General============End
 }
