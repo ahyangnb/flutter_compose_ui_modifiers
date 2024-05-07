@@ -36,9 +36,9 @@ class MText extends StatelessWidget {
         style: TextStyle(
           color: modifier.styleValue.color ?? modifier.styleValue.color,
           fontSize:
-              modifier.styleValue.fontSize ?? modifier.styleValue.fontSize,
+          modifier.styleValue.fontSize ?? modifier.styleValue.fontSize,
           fontWeight:
-              modifier.styleValue.fontWeight ?? modifier.styleValue.fontWeight,
+          modifier.styleValue.fontWeight ?? modifier.styleValue.fontWeight,
         ),
         textAlign: modifier.valueTextAlign,
       ),
@@ -138,18 +138,6 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return setColor(color);
   }
 
-  DefineMTextModifier colorStr(String value) {
-    return colorString(value);
-  }
-
-  DefineMTextModifier colorString(String value) {
-    final String head = "0xff";
-    final strFull =
-        (value.startsWith(head) ? value : "$head$value").replaceAll("#", '');
-    final colorValue = int.parse(strFull);
-    return setColor(Color(colorValue));
-  }
-
   DefineMTextModifier colorHex(int color) {
     return setColor(Color(color));
   }
@@ -158,10 +146,14 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return setColor(Color(color));
   }
 
+  DefineMTextModifier colorInt(int color) {
+    return setColor(Color(0xff + color));
+  }
+
   DefineMTextModifier setColor(Color color) {
     final newStyle = this.styleValue.copyWith(color: color);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+    this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
@@ -172,14 +164,14 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier setFontSize(double fontSize) {
     final newStyle = this.styleValue.copyWith(fontSize: fontSize);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+    this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
   DefineMTextModifier letterSpacing(double value) {
     final newStyle = this.styleValue.copyWith(letterSpacing: value);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+    this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
@@ -194,13 +186,13 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier heightLine(double value) {
     final newStyle = this.styleValue.copyWith(height: value);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+    this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
   DefineMTextModifier textAlign(TextAlign value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueTextAlign: value);
+    this.copyWith(valueTextAlign: value);
     return newModifierValue;
   }
 
@@ -211,7 +203,7 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier setFontWeight(FontWeight fontWeight) {
     final newStyle = this.styleValue.copyWith(fontWeight: fontWeight);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+    this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
@@ -225,7 +217,7 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -252,7 +244,7 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
-          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -391,5 +383,5 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return this.copyWith(valueFlex: value);
   }
 
-  /// General============End
+/// General============End
 }

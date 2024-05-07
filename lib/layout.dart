@@ -113,6 +113,13 @@ extension FlutterUIModifiersWidgetLayout on Widget {
     return SafeArea(child: this);
   }
 
+  GestureDetector autoHideKeyboard(BuildContext context) {
+    return GestureDetector(
+      child: this,
+      onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+    );
+  }
+
   Material material() {
     return Material(child: this, type: MaterialType.transparency);
   }

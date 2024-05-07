@@ -323,6 +323,27 @@ extension FlutterUIModifiersWidget on Widget {
   ///     .onTap(() {}));
   /// ```
   Widget onTap(void Function() event, {bool handover = true}) {
+    if (this is Positioned) {
+      final positioned = this as Positioned;
+      return Positioned(
+        child: InkWell(child: positioned.child, onTap: event),
+        top: positioned.top,
+        bottom: positioned.bottom,
+        left: positioned.left,
+        right: positioned.right,
+        width: positioned.width,
+        height: positioned.height,
+        key: positioned.key,
+      );
+    }
+    if (this is PositionedTransition) {
+      final positionedTransition = this as PositionedTransition;
+      return PositionedTransition(
+        child: InkWell(child: positionedTransition.child, onTap: event),
+        key: positionedTransition.key,
+        rect: positionedTransition.rect,
+      );
+    }
     if (handover && this is InkWell) {
       return (this as InkWell).rebase(onTap: event);
     }
