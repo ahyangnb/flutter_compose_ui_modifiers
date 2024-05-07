@@ -148,3 +148,16 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     return child;
   }
 }
+
+// extension TestMGeneralModifierExtension<T extends MGeneralModifier> on T {
+//   test() {
+//     print('the Current runtimeType is: ${this.runtimeType}');
+//     return this;
+//   }
+//
+//   expanded([int value = 1]) {
+//     this.valueFlex = value;
+//     return this;
+//     // return this.copyWith(valueFlex: value);
+//   }
+// }
