@@ -87,12 +87,6 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     if (generalModifier == null) {
       return child;
     }
-    if (generalModifier?.valueOnTap != null) {
-      child = InkWell(
-        onTap: generalModifier!.valueOnTap,
-        child: child,
-      );
-    }
     if (generalModifier?.valuePadding != null ||
         generalModifier?.valueMargin != null ||
         generalModifier?.valueBorderRadius != null ||
@@ -141,6 +135,15 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
       );
     }
 
+    /// Must use the InkWell in before last one.
+    /// otherwise the event will not be triggered in some area such as margin.
+    if (generalModifier?.valueOnTap != null) {
+      child = InkWell(
+        onTap: generalModifier!.valueOnTap,
+        child: child,
+      );
+    }
+
     /// Must use it in last one.
     if (generalModifier?.valueFlex != null) {
       child = Expanded(flex: generalModifier!.valueFlex!, child: child);
@@ -148,16 +151,3 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     return child;
   }
 }
-
-// extension TestMGeneralModifierExtension<T extends MGeneralModifier> on T {
-//   test() {
-//     print('the Current runtimeType is: ${this.runtimeType}');
-//     return this;
-//   }
-//
-//   expanded([int value = 1]) {
-//     this.valueFlex = value;
-//     return this;
-//     // return this.copyWith(valueFlex: value);
-//   }
-// }
