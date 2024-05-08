@@ -19,7 +19,10 @@ class MListView extends StatelessWidget {
       ignoreList: [IgnoreModifierInGeneral.padding],
       child: ListView(
         padding: modifier?.valuePadding ?? EdgeInsets.zero,
+        reverse: modifier?.valueReverse ?? false,
         children: children ?? [],
+        shrinkWrap: modifier?.valueShrinkWrap ?? false,
+        physics: modifier?.valuePhysics,
       ),
     );
   }
@@ -142,62 +145,4 @@ extension MListViewModifierPropertys on DefineMListViewModifier {
   DefineMListViewModifier setPhysics(ScrollPhysics physics) {
     return this.copyWith(valuePhysics: physics);
   }
-
-  /// General============Start
-
-  DefineMListViewModifier padding(double value) {
-    return setPaddingEdge(EdgeInsets.all(value));
-  }
-
-  DefineMListViewModifier paddingSet(EdgeInsets value) {
-    return setPaddingEdge(value);
-  }
-
-  DefineMListViewModifier setPaddingEdge(EdgeInsets? value) {
-    return this.copyWith(
-      valuePadding: value ?? this.valuePadding ?? EdgeInsets.zero,
-    );
-  }
-
-  DefineMListViewModifier paddingTop(double value) {
-    return setPaddingTop(value);
-  }
-
-  DefineMListViewModifier setPaddingTop(double value) {
-    return this.copyWith(
-      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
-    );
-  }
-
-  DefineMListViewModifier paddingHorizontal(double value) {
-    return setPaddingHorizontal(value);
-  }
-
-  DefineMListViewModifier setPaddingHorizontal(double value) {
-    return this.copyWith(
-      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
-          .copyWith(left: value, right: value),
-    );
-  }
-
-  DefineMListViewModifier paddingVertical(double value) {
-    return setPaddingVertical(value);
-  }
-
-  DefineMListViewModifier setPaddingVertical(double value) {
-    return this.copyWith(
-      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
-          .copyWith(top: value, bottom: value),
-    );
-  }
-
-  DefineMListViewModifier flex([int value = 1]) {
-    return this.copyWith(valueFlex: value);
-  }
-
-  DefineMListViewModifier expanded([int value = 1]) {
-    return this.copyWith(valueFlex: value);
-  }
-
-  /// General============End
 }

@@ -93,6 +93,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         generalModifier?.valueBackgroundColor != null ||
         generalModifier?.valueWidth != null ||
         generalModifier?.valueHeight != null ||
+        generalModifier?.valueTransform != null ||
         generalModifier?.valueShadow != null) {
       child = Container(
         width: ignoreList.contains(IgnoreModifierInGeneral.width)
@@ -101,6 +102,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         height: ignoreList.contains(IgnoreModifierInGeneral.height)
             ? null
             : generalModifier?.valueHeight,
+        transform: generalModifier?.valueTransform,
         decoration: BoxDecoration(
           color: ignoreList.contains(IgnoreModifierInGeneral.backgroundColor)
               ? null
@@ -122,6 +124,15 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
       child = Center(child: child);
     }
 
+    /// Must use the InkWell in before last one.
+    /// otherwise the event will not be triggered in some area such as margin.
+    if (generalModifier?.valueOnTap != null) {
+      child = InkWell(
+        onTap: generalModifier!.valueOnTap,
+        child: child,
+      );
+    }
+
     if (generalModifier?.valueLeft != null ||
         generalModifier?.valueRight != null ||
         generalModifier?.valueTop != null ||
@@ -135,17 +146,11 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
       );
     }
 
-    /// Must use the InkWell in before last one.
-    /// otherwise the event will not be triggered in some area such as margin.
-    if (generalModifier?.valueOnTap != null) {
-      child = InkWell(
-        onTap: generalModifier!.valueOnTap,
-        child: child,
-      );
-    }
-
     /// Must use it in last one.
     if (generalModifier?.valueFlex != null) {
+      if (child is Positioned) {
+        throw Exception('The Positioned widget can not use Expanded widget');
+      }
       child = Expanded(flex: generalModifier!.valueFlex!, child: child);
     }
     return child;
