@@ -1,3 +1,6 @@
+## 0.3.6
+* Optimize the Modifier widgets. 
+
 ## 0.3.5
 * Add Modifier widget. 
  
