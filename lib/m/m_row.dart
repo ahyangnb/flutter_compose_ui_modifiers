@@ -13,7 +13,7 @@ class MRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final valueChildrenResult = [
+    final List<Widget> valueChildrenResult = <Widget>[
       ...children ?? [],
       ...modifier?.children ?? [],
     ];
