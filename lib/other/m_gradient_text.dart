@@ -19,10 +19,14 @@ class _MGradientTextState extends State<MGradientText> {
   void initState() {
     WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {
       if (!mounted) return;
-      textOffset = (context.findRenderObject() as RenderBox?)
+      final textOffsetNew = (context.findRenderObject() as RenderBox?)
               ?.localToGlobal(Offset.zero)
               .dx ??
           0;
+      if (textOffsetNew == textOffset) {
+        return;
+      }
+      textOffset = textOffsetNew;
       setState(() {});
     });
     super.initState();
