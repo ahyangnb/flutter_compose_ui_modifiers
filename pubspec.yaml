@@ -1,6 +1,6 @@
 name: flutter_compose_ui_modifiers
 description: Flutter UI Modifiers is a collection of declarative widget modifiers to make your Flutter code shorter and linear.
-version: 0.3.6
+version: 0.3.7
 homepage: https://github.com/ahyangnb/flutter_compose_ui_modifiers
 
 environment:

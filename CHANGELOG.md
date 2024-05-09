@@ -1,3 +1,6 @@
+## 0.3.7
+* MGradientText optimize the profomance.
+
 ## 0.3.6
 * Optimize the Modifier widgets. 
 
