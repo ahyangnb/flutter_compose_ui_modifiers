@@ -60,6 +60,9 @@ class DefineMListViewModifier extends MGeneralModifier {
     super.valueOpacity,
     super.valueRotate,
     super.valueScale,
+    super.valueGradient,
+
+    /// Position Widget
     super.valueLeft,
     super.valueRight,
     super.valueTop,
@@ -91,6 +94,9 @@ class DefineMListViewModifier extends MGeneralModifier {
     double? valueOpacity,
     double? valueRotate,
     double? valueScale,
+    Gradient? valueGradient,
+
+    /// Position Widget
     double? valueLeft,
     double? valueRight,
     double? valueTop,

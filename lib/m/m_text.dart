@@ -66,6 +66,9 @@ class DefineMTextModifier extends MGeneralModifier {
     super.valueOpacity,
     super.valueRotate,
     super.valueScale,
+    super.valueGradient,
+
+    /// Position Widget
     super.valueLeft,
     super.valueRight,
     super.valueTop,
@@ -94,6 +97,9 @@ class DefineMTextModifier extends MGeneralModifier {
     double? valueOpacity,
     double? valueRotate,
     double? valueScale,
+    Gradient? valueGradient,
+
+    /// Position Widget
     double? valueLeft,
     double? valueRight,
     double? valueTop,
@@ -119,6 +125,9 @@ class DefineMTextModifier extends MGeneralModifier {
       valueOpacity: valueOpacity ?? this.valueOpacity,
       valueRotate: valueRotate ?? this.valueRotate,
       valueScale: valueScale ?? this.valueScale,
+      valueGradient: valueGradient ?? this.valueGradient,
+
+      /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
       valueRight: valueRight ?? this.valueRight,
       valueTop: valueTop ?? this.valueTop,

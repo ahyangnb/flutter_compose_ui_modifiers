@@ -217,6 +217,20 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier expanded([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
+
+  DefineMTextFieldModifier gradient([Gradient? value]) {
+    return this.copyWith(valueGradient: value);
+  }
+
+  DefineMTextFieldModifier gradientDef([Color? color]) {
+    return this.copyWith(
+        valueGradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [(color ?? Colors.blue), Colors.white],
+      stops: [0, 0.3],
+    ));
+  }
 }
 
 extension MTextGeneralGenerator on DefineMTextModifier {
@@ -393,6 +407,20 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier expanded([int? value = 1]) {
     return this.copyWith(valueFlex: value);
+  }
+
+  DefineMTextModifier gradient([Gradient? value]) {
+    return this.copyWith(valueGradient: value);
+  }
+
+  DefineMTextModifier gradientDef([Color? color]) {
+    return this.copyWith(
+        valueGradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [(color ?? Colors.blue), Colors.white],
+      stops: [0, 0.3],
+    ));
   }
 }
 
@@ -611,6 +639,20 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier expanded([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
+
+  DefineMRowModifier gradient([Gradient? value]) {
+    return this.copyWith(valueGradient: value);
+  }
+
+  DefineMRowModifier gradientDef([Color? color]) {
+    return this.copyWith(
+        valueGradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [(color ?? Colors.blue), Colors.white],
+      stops: [0, 0.3],
+    ));
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
@@ -666,6 +708,20 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier expanded([int value = 1]) {
     return this.copyWith(valueFlex: value);
+  }
+
+  DefineMListViewModifier gradient([Gradient? value]) {
+    return this.copyWith(valueGradient: value);
+  }
+
+  DefineMListViewModifier gradientDef([Color? color]) {
+    return this.copyWith(
+        valueGradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [(color ?? Colors.blue), Colors.white],
+      stops: [0, 0.3],
+    ));
   }
 }
 
@@ -885,6 +941,20 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier expanded([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
+
+  DefineMColumnModifier gradient([Gradient? value]) {
+    return this.copyWith(valueGradient: value);
+  }
+
+  DefineMColumnModifier gradientDef([Color? color]) {
+    return this.copyWith(
+        valueGradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [(color ?? Colors.blue), Colors.white],
+      stops: [0, 0.3],
+    ));
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
@@ -1102,5 +1172,19 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier expanded([int value = 1]) {
     return this.copyWith(valueFlex: value);
+  }
+
+  DefineMAddButtonModifier gradient([Gradient? value]) {
+    return this.copyWith(valueGradient: value);
+  }
+
+  DefineMAddButtonModifier gradientDef([Color? color]) {
+    return this.copyWith(
+        valueGradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [(color ?? Colors.blue), Colors.white],
+      stops: [0, 0.3],
+    ));
   }
 }
