@@ -23,6 +23,7 @@ export 'm/m_add_button.dart';
 export 'm/m_text_field.dart';
 export 'm/m_row.dart';
 export 'm/m_stack.dart';
+export 'm/m_image.dart';
 export 'm/m.g.dart';
 export 'other/m_gradient_text.dart';
 

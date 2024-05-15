@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/m/m_image.dart';
 import 'package:flutter_compose_ui_modifiers/m/m_stack.dart';
 
 extension MTextFiledGenerator on DefineMTextFieldModifier {
@@ -1831,6 +1832,291 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   }
 
   DefineMStackModifier position({
+    double? top,
+    double? bottom,
+    double? left,
+    double? right,
+  }) {
+    return this.copyWith(
+      valueTop: top,
+      valueBottom: bottom,
+      valueLeft: left,
+      valueRight: right,
+    );
+  }
+}
+
+extension MImageGeneralGenerator on DefineMImageModifier {
+  DefineMImageModifier shadow(BoxShadow value) {
+    return this.copyWith(valueShadow: value);
+  }
+
+  DefineMImageModifier shadowDef({Color? color}) {
+    final value = BoxShadow(
+      color: color ?? Color(0xff000000).withOpacity(0.1),
+      offset: const Offset(0, 2),
+      blurRadius: 4,
+      spreadRadius: 0,
+    );
+    return this.copyWith(valueShadow: value);
+  }
+
+  DefineMImageModifier padding(double value) {
+    return setPaddingEdge(EdgeInsets.all(value));
+  }
+
+  DefineMImageModifier paddingSet(EdgeInsets value) {
+    return setPaddingEdge(value);
+  }
+
+  DefineMImageModifier setPaddingEdge(EdgeInsets? value) {
+    return this.copyWith(
+      valuePadding: value ?? this.valuePadding ?? EdgeInsets.zero,
+    );
+  }
+
+  DefineMImageModifier paddingTop(double value) {
+    return setPaddingTop(value);
+  }
+
+  DefineMImageModifier setPaddingTop(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
+    );
+  }
+
+  DefineMImageModifier paddingHorizontal(double value) {
+    return setPaddingHorizontal(value);
+  }
+
+  DefineMImageModifier setPaddingHorizontal(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
+          .copyWith(left: value, right: value),
+    );
+  }
+
+  DefineMImageModifier paddingVertical(double value) {
+    return setPaddingVertical(value);
+  }
+
+  DefineMImageModifier setPaddingVertical(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
+          .copyWith(top: value, bottom: value),
+    );
+  }
+
+  DefineMImageModifier paddingBottom(double value) {
+    return this.copyWith(
+      valuePadding:
+          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+    );
+  }
+
+  DefineMImageModifier marginTop(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(top: value),
+    );
+  }
+
+  DefineMImageModifier marginBottom(double value) {
+    return this.copyWith(
+      valueMargin:
+          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+    );
+  }
+
+  DefineMImageModifier marginLeft(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(left: value),
+    );
+  }
+
+  DefineMImageModifier marginRight(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(right: value),
+    );
+  }
+
+  DefineMImageModifier marginHorizontal(double value) {
+    return marginSymmetric(horizontal: value);
+  }
+
+  DefineMImageModifier marginVertical(double value) {
+    return marginSymmetric(vertical: value);
+  }
+
+  DefineMImageModifier marginSymmetric({double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valueMargin?.left,
+        right: horizontal ?? this.valueMargin?.right,
+        top: vertical ?? this.valueMargin?.top,
+        bottom: vertical ?? this.valueMargin?.bottom,
+      ),
+    );
+  }
+
+  DefineMImageModifier marginOnly({
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: left ?? this.valueMargin?.left,
+        right: right ?? this.valueMargin?.right,
+        top: top ?? this.valueMargin?.top,
+        bottom: bottom ?? this.valueMargin?.bottom,
+      ),
+    );
+  }
+
+  DefineMImageModifier marginSet(EdgeInsets? value) {
+    return this.copyWith(valueMargin: value);
+  }
+
+  DefineMImageModifier margin(double? value) {
+    return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
+  }
+
+  DefineMImageModifier backgroundColor(Color? value) {
+    return this.copyWith(valueBackgroundColor: value);
+  }
+
+  DefineMImageModifier center(bool value) {
+    return this.copyWith(valueCenterAlign: value);
+  }
+
+  DefineMImageModifier centered() {
+    return this.copyWith(valueCenterAlign: true);
+  }
+
+  DefineMImageModifier size(Size value) {
+    return this.copyWith(valueWidth: value.width, valueHeight: value.height);
+  }
+
+  DefineMImageModifier width(double? value) {
+    return this.copyWith(valueWidth: value);
+  }
+
+  DefineMImageModifier height(double? value) {
+    return this.copyWith(valueHeight: value);
+  }
+
+  DefineMImageModifier onTap(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMImageModifier onClick(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMImageModifier click(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMImageModifier setClick(VoidCallback valueOnTap) {
+    return this.copyWith(valueOnTap: valueOnTap);
+  }
+
+  DefineMImageModifier borderRadius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMImageModifier borderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueBorderRadius: value);
+  }
+
+  DefineMImageModifier borderRadiusVertical(double value) {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMImageModifier borderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMImageModifier borderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
+  DefineMImageModifier border(Border value) {
+    return this.copyWith(valueBorder: value);
+  }
+
+  DefineMImageModifier flex([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
+  DefineMImageModifier expanded([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
+  DefineMImageModifier gradient([Gradient? value]) {
+    return this.copyWith(valueGradient: value);
+  }
+
+  DefineMImageModifier gradientDef([Color? color]) {
+    return this.copyWith(
+        valueGradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [(color ?? Colors.blue), Colors.white],
+      stops: [0, 0.3],
+    ));
+  }
+
+  DefineMImageModifier top(double value) {
+    return this.copyWith(valueTop: value);
+  }
+
+  DefineMImageModifier bottom(double value) {
+    return this.copyWith(valueBottom: value);
+  }
+
+  DefineMImageModifier left(double value) {
+    return this.copyWith(valueLeft: value);
+  }
+
+  DefineMImageModifier right(double value) {
+    return this.copyWith(valueRight: value);
+  }
+
+  DefineMImageModifier topPosition(double value) {
+    return this.copyWith(valueTop: value);
+  }
+
+  DefineMImageModifier bottomPosition(double value) {
+    return this.copyWith(valueBottom: value);
+  }
+
+  DefineMImageModifier leftPosition(double value) {
+    return this.copyWith(valueLeft: value);
+  }
+
+  DefineMImageModifier rightPosition(double value) {
+    return this.copyWith(valueRight: value);
+  }
+
+  DefineMImageModifier position({
     double? top,
     double? bottom,
     double? left,
