@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:get/get.dart';
 
 class MImage extends StatelessWidget {
   final DefineMImageModifier? modifier;
@@ -16,6 +17,14 @@ class MImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // int? cacheWidth = modifier?.valueWidth?.toInt() == null
+    //     ? null
+    //     : (modifier!.valueWidth!.toInt() * Get.mediaQuery.devicePixelRatio * 2)
+    //         .toInt();
+    // int? cacheHeight = modifier?.valueHeight?.toInt() == null
+    //     ? null
+    //     : (modifier!.valueHeight!.toInt() * Get.mediaQuery.devicePixelRatio * 2)
+    //         .toInt();
     Widget imgWidget;
     if (data.startsWith('http')) {
       imgWidget = ExtendedImage.network(
@@ -31,16 +40,16 @@ class MImage extends StatelessWidget {
         width: modifier?.valueWidth,
         height: modifier?.valueHeight,
         fit: modifier?.valueFit,
-        cacheWidth: modifier?.valueWidth?.toInt(),
-        cacheHeight: modifier?.valueHeight?.toInt(),
+        // cacheWidth: cacheWidth,
+        // cacheHeight: cacheHeight,
       );
     } else if (File(data).existsSync()) {
       imgWidget = Image.file(
         File(data),
         width: modifier?.valueWidth,
         height: modifier?.valueHeight,
-        cacheWidth: modifier?.valueWidth?.toInt(),
-        cacheHeight: modifier?.valueHeight?.toInt(),
+        // cacheWidth: cacheWidth,
+        // cacheHeight: cacheHeight,
         fit: modifier?.valueFit,
       );
     } else {
@@ -49,8 +58,8 @@ class MImage extends StatelessWidget {
         width: modifier?.valueWidth,
         height: modifier?.valueHeight,
         fit: modifier?.valueFit,
-        cacheWidth: modifier?.valueWidth?.toInt(),
-        cacheHeight: modifier?.valueHeight?.toInt(),
+        // cacheWidth: cacheWidth,
+        // cacheHeight: cacheHeight,
       );
     }
     if (modifier?.valueBorderRadius != null) {
@@ -65,16 +74,17 @@ class MImage extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Container(
-            width: modifier?.valueWidth,
-            height: modifier?.valueHeight,
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: modifier?.valueBorderRadius,
-              border: modifier?.valueBorder,
-              shape: modifier?.valueShape ?? BoxShape.rectangle,
+          if (data.isURL)
+            Container(
+              width: modifier?.valueWidth,
+              height: modifier?.valueHeight,
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: modifier?.valueBorderRadius,
+                border: modifier?.valueBorder,
+                shape: modifier?.valueShape ?? BoxShape.rectangle,
+              ),
             ),
-          ),
           ClipRRect(
             borderRadius: modifier?.valueShape == BoxShape.circle &&
                     modifier?.valueWidth != null

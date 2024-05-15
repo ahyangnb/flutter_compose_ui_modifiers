@@ -14,7 +14,12 @@ class MStack extends StatelessWidget {
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
+      ignoreList: [IgnoreModifierInGeneral.alignment],
       child: Stack(
+        alignment: modifier?.valueAlignment ?? AlignmentDirectional.topStart,
+        textDirection: modifier?.valueTextDirection,
+        fit: modifier?.valueFit ?? StackFit.loose,
+        clipBehavior: modifier?.valueClipBehavior ?? Clip.hardEdge,
         children: children ?? <Widget>[],
       ),
     );
