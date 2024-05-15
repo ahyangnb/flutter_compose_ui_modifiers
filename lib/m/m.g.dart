@@ -316,6 +316,34 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     );
   }
 
+  DefineMTextModifier setPaddingTop(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
+    );
+  }
+
+  DefineMTextModifier paddingHorizontal(double value) {
+    return setPaddingHorizontal(value);
+  }
+
+  DefineMTextModifier setPaddingHorizontal(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
+          .copyWith(left: value, right: value),
+    );
+  }
+
+  DefineMTextModifier paddingVertical(double value) {
+    return setPaddingVertical(value);
+  }
+
+  DefineMTextModifier setPaddingVertical(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
+          .copyWith(top: value, bottom: value),
+    );
+  }
+
   DefineMTextModifier marginTop(double value) {
     return this.copyWith(
       valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(top: value),
