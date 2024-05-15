@@ -34,6 +34,7 @@ class MGeneralModifier {
   final double? valueScale;
   final Gradient? valueGradient;
   final Border? valueBorder;
+  final BoxShape? valueShape;
 
   /// Use the Positioned widget.
   final double? valueLeft;
@@ -61,6 +62,7 @@ class MGeneralModifier {
     this.valueScale,
     this.valueGradient,
     this.valueBorder,
+    this.valueShape,
 
     /// Use the Positioned widget.
     this.valueLeft,
@@ -100,7 +102,8 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         generalModifier?.valueTransform != null ||
         generalModifier?.valueShadow != null ||
         generalModifier?.valueGradient != null ||
-        generalModifier?.valueBorder != null) {
+        generalModifier?.valueBorder != null ||
+        generalModifier?.valueShape != null) {
       child = Container(
         width: ignoreList.contains(IgnoreModifierInGeneral.width)
             ? null
@@ -119,6 +122,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
               : null,
           gradient: generalModifier?.valueGradient,
           border: generalModifier?.valueBorder,
+          shape: generalModifier?.valueShape ?? BoxShape.rectangle,
         ),
         padding: ignoreList.contains(IgnoreModifierInGeneral.padding)
             ? null

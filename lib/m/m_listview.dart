@@ -65,6 +65,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     super.valueScale,
     super.valueGradient,
     super.valueBorder,
+    super.valueShape,
 
     /// Position Widget
     super.valueLeft,
@@ -101,6 +102,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     double? valueScale,
     Gradient? valueGradient,
     Border? valueBorder,
+    BoxShape? valueShape,
 
     /// Position Widget
     double? valueLeft,
@@ -135,6 +137,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       valueScale: valueScale ?? this.valueScale,
       valueGradient: valueGradient ?? this.valueGradient,
       valueBorder: valueBorder ?? this.valueBorder,
+      valueShape: valueShape ?? this.valueShape,
 
       valueLeft: valueLeft ?? this.valueLeft,
       valueRight: valueRight ?? this.valueRight,

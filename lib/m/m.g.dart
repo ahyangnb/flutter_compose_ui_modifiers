@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
-import 'package:flutter_compose_ui_modifiers/m/m_image.dart';
-import 'package:flutter_compose_ui_modifiers/m/m_stack.dart';
 
 extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier shadow(BoxShadow value) {
@@ -156,6 +154,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
+  DefineMTextFieldModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
   DefineMTextFieldModifier width(double? value) {
     return this.copyWith(valueWidth: value);
   }
@@ -286,6 +288,14 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
       valueLeft: left,
       valueRight: right,
     );
+  }
+
+  DefineMTextFieldModifier shapeCircle() {
+    return this.copyWith(valueShape: BoxShape.circle);
+  }
+
+  DefineMTextFieldModifier shape(BoxShape value) {
+    return this.copyWith(valueShape: value);
   }
 }
 
@@ -429,6 +439,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
+  DefineMTextModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
   DefineMTextModifier width(double? value) {
     return this.copyWith(valueWidth: value);
   }
@@ -559,6 +573,14 @@ extension MTextGeneralGenerator on DefineMTextModifier {
       valueLeft: left,
       valueRight: right,
     );
+  }
+
+  DefineMTextModifier shapeCircle() {
+    return this.copyWith(valueShape: BoxShape.circle);
+  }
+
+  DefineMTextModifier shape(BoxShape value) {
+    return this.copyWith(valueShape: value);
   }
 }
 
@@ -736,6 +758,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
+  DefineMRowModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
   DefineMRowModifier width(double? value) {
     return this.copyWith(valueWidth: value);
   }
@@ -867,6 +893,14 @@ extension MRowGeneralGenerator on DefineMRowModifier {
       valueRight: right,
     );
   }
+
+  DefineMRowModifier shapeCircle() {
+    return this.copyWith(valueShape: BoxShape.circle);
+  }
+
+  DefineMRowModifier shape(BoxShape value) {
+    return this.copyWith(valueShape: value);
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
@@ -986,6 +1020,14 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
       valueLeft: left,
       valueRight: right,
     );
+  }
+
+  DefineMListViewModifier shapeCircle() {
+    return this.copyWith(valueShape: BoxShape.circle);
+  }
+
+  DefineMListViewModifier shape(BoxShape value) {
+    return this.copyWith(valueShape: value);
   }
 }
 
@@ -1142,6 +1184,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
+  DefineMColumnModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
   DefineMColumnModifier width(double? value) {
     return this.copyWith(valueWidth: value);
   }
@@ -1272,6 +1318,14 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
       valueLeft: left,
       valueRight: right,
     );
+  }
+
+  DefineMColumnModifier shapeCircle() {
+    return this.copyWith(valueShape: BoxShape.circle);
+  }
+
+  DefineMColumnModifier shape(BoxShape value) {
+    return this.copyWith(valueShape: value);
   }
 }
 
@@ -1428,6 +1482,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
+  DefineMAddButtonModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
   DefineMAddButtonModifier width(double? value) {
     return this.copyWith(valueWidth: value);
   }
@@ -1558,6 +1616,14 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
       valueLeft: left,
       valueRight: right,
     );
+  }
+
+  DefineMAddButtonModifier shapeCircle() {
+    return this.copyWith(valueShape: BoxShape.circle);
+  }
+
+  DefineMAddButtonModifier shape(BoxShape value) {
+    return this.copyWith(valueShape: value);
   }
 }
 
@@ -1713,6 +1779,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
+  DefineMStackModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
   DefineMStackModifier width(double? value) {
     return this.copyWith(valueWidth: value);
   }
@@ -1843,6 +1913,14 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
       valueLeft: left,
       valueRight: right,
     );
+  }
+
+  DefineMStackModifier shapeCircle() {
+    return this.copyWith(valueShape: BoxShape.circle);
+  }
+
+  DefineMStackModifier shape(BoxShape value) {
+    return this.copyWith(valueShape: value);
   }
 }
 
@@ -1998,6 +2076,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
+  DefineMImageModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
   DefineMImageModifier width(double? value) {
     return this.copyWith(valueWidth: value);
   }
@@ -2128,5 +2210,13 @@ extension MImageGeneralGenerator on DefineMImageModifier {
       valueLeft: left,
       valueRight: right,
     );
+  }
+
+  DefineMImageModifier shapeCircle() {
+    return this.copyWith(valueShape: BoxShape.circle);
+  }
+
+  DefineMImageModifier shape(BoxShape value) {
+    return this.copyWith(valueShape: value);
   }
 }

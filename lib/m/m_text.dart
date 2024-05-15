@@ -68,6 +68,7 @@ class DefineMTextModifier extends MGeneralModifier {
     super.valueScale,
     super.valueGradient,
     super.valueBorder,
+    super.valueShape,
 
     /// Position Widget
     super.valueLeft,
@@ -100,6 +101,7 @@ class DefineMTextModifier extends MGeneralModifier {
     double? valueScale,
     Gradient? valueGradient,
     Border? valueBorder,
+    BoxShape? valueShape,
 
     /// Position Widget
     double? valueLeft,
@@ -129,6 +131,7 @@ class DefineMTextModifier extends MGeneralModifier {
       valueScale: valueScale ?? this.valueScale,
       valueGradient: valueGradient ?? this.valueGradient,
       valueBorder: valueBorder ?? this.valueBorder,
+      valueShape: valueShape ?? this.valueShape,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,

@@ -72,6 +72,7 @@ class MImage extends StatelessWidget {
               color: Colors.grey[200],
               borderRadius: modifier?.valueBorderRadius,
               border: modifier?.valueBorder,
+              shape: modifier?.valueShape ?? BoxShape.rectangle,
             ),
           ),
           imgWidget,
@@ -107,6 +108,7 @@ class DefineMImageModifier extends MGeneralModifier {
     super.valueScale,
     super.valueGradient,
     super.valueBorder,
+    super.valueShape,
 
     /// Position Widget
     super.valueLeft,
@@ -138,6 +140,7 @@ class DefineMImageModifier extends MGeneralModifier {
     double? valueScale,
     Gradient? valueGradient,
     Border? valueBorder,
+    BoxShape? valueShape,
 
     /// Position Widget
     double? valueLeft,
@@ -168,6 +171,7 @@ class DefineMImageModifier extends MGeneralModifier {
       valueScale: valueScale ?? this.valueScale,
       valueGradient: valueGradient ?? this.valueGradient,
       valueBorder: valueBorder ?? this.valueBorder,
+      valueShape: valueShape ?? this.valueShape,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
