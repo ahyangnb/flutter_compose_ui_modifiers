@@ -75,7 +75,14 @@ class MImage extends StatelessWidget {
               shape: modifier?.valueShape ?? BoxShape.rectangle,
             ),
           ),
-          imgWidget,
+          ClipRRect(
+            borderRadius: modifier?.valueShape == BoxShape.circle &&
+                    modifier?.valueWidth != null
+                ? BorderRadius.all(Radius.circular((modifier!.valueWidth!) / 2))
+                : modifier?.valueBorderRadius ??
+                    BorderRadius.all(Radius.circular(0)),
+            child: imgWidget,
+          ),
         ],
       ),
     );
