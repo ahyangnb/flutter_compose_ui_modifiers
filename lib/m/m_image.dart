@@ -61,7 +61,23 @@ class MImage extends StatelessWidget {
     }
 
     return MGeneralLayoutModifierWidget(
-        generalModifier: modifier, child: imgWidget);
+      generalModifier: modifier,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            width: modifier?.valueWidth,
+            height: modifier?.valueHeight,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: modifier?.valueBorderRadius,
+              border: modifier?.valueBorder,
+            ),
+          ),
+          imgWidget,
+        ],
+      ),
+    );
   }
 }
 
