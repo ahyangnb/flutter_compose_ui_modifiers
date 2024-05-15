@@ -67,6 +67,7 @@ class DefineMTextModifier extends MGeneralModifier {
     super.valueRotate,
     super.valueScale,
     super.valueGradient,
+    super.valueBorder,
 
     /// Position Widget
     super.valueLeft,
@@ -98,6 +99,7 @@ class DefineMTextModifier extends MGeneralModifier {
     double? valueRotate,
     double? valueScale,
     Gradient? valueGradient,
+    Border? valueBorder,
 
     /// Position Widget
     double? valueLeft,
@@ -126,6 +128,7 @@ class DefineMTextModifier extends MGeneralModifier {
       valueRotate: valueRotate ?? this.valueRotate,
       valueScale: valueScale ?? this.valueScale,
       valueGradient: valueGradient ?? this.valueGradient,
+      valueBorder: valueBorder ?? this.valueBorder,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -184,6 +187,11 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier lineHeight(double value) {
     return heightLine(value);
   }
+
+  /// The line height, not container size Height.
+  // DefineMTextModifier height(double value) {
+  //   return heightLine(value);
+  // }
 
   DefineMTextModifier textHeight(double value) {
     return heightLine(value);

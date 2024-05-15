@@ -23,6 +23,7 @@ class MListView extends StatelessWidget {
         children: children ?? [],
         shrinkWrap: modifier?.valueShrinkWrap ?? false,
         physics: modifier?.valuePhysics,
+        controller: modifier?.valueController,
       ),
     );
   }
@@ -37,12 +38,14 @@ class DefineMListViewModifier extends MGeneralModifier {
   final bool? valueAlignTop;
   final bool? valueShrinkWrap;
   final ScrollPhysics? valuePhysics;
+  final ScrollController? valueController;
 
   const DefineMListViewModifier({
     this.valueReverse,
     this.valueAlignTop,
     this.valueShrinkWrap,
     this.valuePhysics,
+    this.valueController,
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -61,6 +64,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     super.valueRotate,
     super.valueScale,
     super.valueGradient,
+    super.valueBorder,
 
     /// Position Widget
     super.valueLeft,
@@ -75,6 +79,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     bool? valueAlignTop,
     bool? valueShrinkWrap,
     ScrollPhysics? valuePhysics,
+    ScrollController? valueController,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -95,6 +100,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     double? valueRotate,
     double? valueScale,
     Gradient? valueGradient,
+    Border? valueBorder,
 
     /// Position Widget
     double? valueLeft,
@@ -107,6 +113,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       valueAlignTop: valueAlignTop ?? this.valueAlignTop,
       valueShrinkWrap: valueShrinkWrap ?? this.valueShrinkWrap,
       valuePhysics: valuePhysics ?? this.valuePhysics,
+      valueController: valueController ?? this.valueController,
 
       /// The following properties are inherited from MGeneralModifier.
       valuePadding: valuePadding ?? this.valuePadding,
@@ -126,6 +133,8 @@ class DefineMListViewModifier extends MGeneralModifier {
       valueOpacity: valueOpacity ?? this.valueOpacity,
       valueRotate: valueRotate ?? this.valueRotate,
       valueScale: valueScale ?? this.valueScale,
+      valueGradient: valueGradient ?? this.valueGradient,
+      valueBorder: valueBorder ?? this.valueBorder,
 
       valueLeft: valueLeft ?? this.valueLeft,
       valueRight: valueRight ?? this.valueRight,
@@ -150,5 +159,13 @@ extension MListViewModifierPropertys on DefineMListViewModifier {
 
   DefineMListViewModifier setPhysics(ScrollPhysics physics) {
     return this.copyWith(valuePhysics: physics);
+  }
+
+  DefineMListViewModifier controller(ScrollController value) {
+    return this.copyWith(valueController: value);
+  }
+
+  DefineMListViewModifier scrollController(ScrollController value) {
+    return this.copyWith(valueController: value);
   }
 }

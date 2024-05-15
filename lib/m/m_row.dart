@@ -64,6 +64,7 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueRotate,
     super.valueScale,
     super.valueGradient,
+    super.valueBorder,
 
     /// Position Widget
     super.valueLeft,
@@ -98,6 +99,7 @@ class DefineMRowModifier extends MGeneralModifier {
     double? valueRotate,
     double? valueScale,
     Gradient? valueGradient,
+    Border? valueBorder,
 
     /// Position Widget
     double? valueLeft,
@@ -132,6 +134,7 @@ class DefineMRowModifier extends MGeneralModifier {
       valueRotate: valueRotate ?? this.valueRotate,
       valueScale: valueScale ?? this.valueScale,
       valueGradient: valueGradient ?? this.valueGradient,
+      valueBorder: valueBorder ?? this.valueBorder,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,

@@ -109,8 +109,23 @@ extension FlutterUIModifiersWidgetLayout on Widget {
     return Container(width: value, child: this);
   }
 
-  SafeArea safeArea() {
-    return SafeArea(child: this);
+  SafeArea safeArea({
+    final bool left = true,
+    final bool top = true,
+    final bool right = true,
+    final bool bottom = true,
+    final EdgeInsets minimum = EdgeInsets.zero,
+    final bool maintainBottomViewPadding = false,
+  }) {
+    return SafeArea(
+      child: this,
+      left: left,
+      top: top,
+      right: right,
+      bottom: bottom,
+      minimum: minimum,
+      maintainBottomViewPadding: maintainBottomViewPadding,
+    );
   }
 
   GestureDetector autoHideKeyboard(BuildContext context) {
