@@ -342,6 +342,15 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier shape(BoxShape value) {
     return this.copyWith(valueShape: value);
   }
+
+  DefineMTextFieldModifier onLongPressMoveUpdate(
+      GestureLongPressMoveUpdateCallback value) {
+    return this.copyWith(valueOnLongPressMoveUpdate: value);
+  }
+
+  DefineMTextFieldModifier onLongPress(GestureLongPressCallback value) {
+    return this.copyWith(valueOnLongPress: value);
+  }
 }
 
 extension MTextGeneralGenerator on DefineMTextModifier {
@@ -670,6 +679,15 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier shape(BoxShape value) {
     return this.copyWith(valueShape: value);
+  }
+
+  DefineMTextModifier onLongPressMoveUpdate(
+      GestureLongPressMoveUpdateCallback value) {
+    return this.copyWith(valueOnLongPressMoveUpdate: value);
+  }
+
+  DefineMTextModifier onLongPress(GestureLongPressCallback value) {
+    return this.copyWith(valueOnLongPress: value);
   }
 }
 
@@ -1034,6 +1052,15 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier shape(BoxShape value) {
     return this.copyWith(valueShape: value);
   }
+
+  DefineMRowModifier onLongPressMoveUpdate(
+      GestureLongPressMoveUpdateCallback value) {
+    return this.copyWith(valueOnLongPressMoveUpdate: value);
+  }
+
+  DefineMRowModifier onLongPress(GestureLongPressCallback value) {
+    return this.copyWith(valueOnLongPress: value);
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
@@ -1228,6 +1255,15 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier shape(BoxShape value) {
     return this.copyWith(valueShape: value);
+  }
+
+  DefineMListViewModifier onLongPressMoveUpdate(
+      GestureLongPressMoveUpdateCallback value) {
+    return this.copyWith(valueOnLongPressMoveUpdate: value);
+  }
+
+  DefineMListViewModifier onLongPress(GestureLongPressCallback value) {
+    return this.copyWith(valueOnLongPress: value);
   }
 }
 
@@ -1571,6 +1607,15 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier shape(BoxShape value) {
     return this.copyWith(valueShape: value);
   }
+
+  DefineMColumnModifier onLongPressMoveUpdate(
+      GestureLongPressMoveUpdateCallback value) {
+    return this.copyWith(valueOnLongPressMoveUpdate: value);
+  }
+
+  DefineMColumnModifier onLongPress(GestureLongPressCallback value) {
+    return this.copyWith(valueOnLongPress: value);
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
@@ -1912,6 +1957,15 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier shape(BoxShape value) {
     return this.copyWith(valueShape: value);
+  }
+
+  DefineMAddButtonModifier onLongPressMoveUpdate(
+      GestureLongPressMoveUpdateCallback value) {
+    return this.copyWith(valueOnLongPressMoveUpdate: value);
+  }
+
+  DefineMAddButtonModifier onLongPress(GestureLongPressCallback value) {
+    return this.copyWith(valueOnLongPress: value);
   }
 }
 
@@ -2258,6 +2312,15 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
+
+  DefineMStackModifier onLongPressMoveUpdate(
+      GestureLongPressMoveUpdateCallback value) {
+    return this.copyWith(valueOnLongPressMoveUpdate: value);
+  }
+
+  DefineMStackModifier onLongPress(GestureLongPressCallback value) {
+    return this.copyWith(valueOnLongPress: value);
+  }
 }
 
 extension MImageGeneralGenerator on DefineMImageModifier {
@@ -2598,5 +2661,14 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier shape(BoxShape value) {
     return this.copyWith(valueShape: value);
+  }
+
+  DefineMImageModifier onLongPressMoveUpdate(
+      GestureLongPressMoveUpdateCallback value) {
+    return this.copyWith(valueOnLongPressMoveUpdate: value);
+  }
+
+  DefineMImageModifier onLongPress(GestureLongPressCallback value) {
+    return this.copyWith(valueOnLongPress: value);
   }
 }

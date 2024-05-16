@@ -18,6 +18,8 @@ class MGeneralModifier {
   final EdgeInsets? valuePadding;
   final EdgeInsets? valueMargin;
   final VoidCallback? valueOnTap;
+  final GestureLongPressCallback? valueOnLongPress;
+  final GestureLongPressMoveUpdateCallback? valueOnLongPressMoveUpdate;
   final Color? valueBackgroundColor;
   final BorderRadiusGeometry? valueBorderRadius;
   final bool? valueCenterAlign;
@@ -49,6 +51,8 @@ class MGeneralModifier {
     this.valuePadding,
     this.valueMargin,
     this.valueOnTap,
+    this.valueOnLongPress,
+    this.valueOnLongPressMoveUpdate,
     this.valueBackgroundColor,
     this.valueBorderRadius,
     this.valueCenterAlign,
@@ -154,9 +158,14 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
 
     /// Must use the InkWell in before last one.
     /// otherwise the event will not be triggered in some area such as margin.
-    if (generalModifier?.valueOnTap != null) {
-      child = InkWell(
-        onTap: generalModifier!.valueOnTap,
+    if (generalModifier?.valueOnTap != null ||
+        generalModifier?.valueOnLongPress != null ||
+        generalModifier?.valueOnLongPressMoveUpdate != null) {
+      child = GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: generalModifier?.valueOnTap,
+        onLongPress: generalModifier?.valueOnLongPress,
+        onLongPressMoveUpdate: generalModifier?.valueOnLongPressMoveUpdate,
         child: child,
       );
     }
