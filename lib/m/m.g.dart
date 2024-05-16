@@ -1083,6 +1083,35 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     );
   }
 
+  DefineMListViewModifier paddingLeft(double value) {
+    return setPaddingLeft(value);
+  }
+
+  DefineMListViewModifier setPaddingLeft(double value) {
+    return this.copyWith(
+      valuePadding:
+          (this.valuePadding ?? EdgeInsets.zero).copyWith(left: value),
+    );
+  }
+
+  DefineMListViewModifier paddingRight(double value) {
+    return setPaddingRight(value);
+  }
+
+  DefineMListViewModifier setPaddingRight(double value) {
+    return this.copyWith(
+      valuePadding:
+          (this.valuePadding ?? EdgeInsets.zero).copyWith(right: value),
+    );
+  }
+
+  DefineMListViewModifier paddingBottom(double value) {
+    return this.copyWith(
+      valuePadding:
+          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+    );
+  }
+
   DefineMListViewModifier borderAll({Color? color, double? width}) {
     return this.copyWith(
       valueBorder: Border.all(color: color ?? Colors.white, width: width ?? 1),
