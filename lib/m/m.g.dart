@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'dart:math' as math;
 
 extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier shadow(BoxShadow value) {
@@ -182,6 +183,12 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueOnTap: valueOnTap);
   }
 
+  DefineMTextFieldModifier clipCircle() {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.circular(
+            math.max(valueWidth ?? 0, valueHeight ?? 0) / 2));
+  }
+
   DefineMTextFieldModifier borderRadius(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
@@ -282,35 +289,35 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     ));
   }
 
-  DefineMTextFieldModifier top(double value) {
+  DefineMTextFieldModifier top(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMTextFieldModifier bottom(double value) {
+  DefineMTextFieldModifier bottom(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMTextFieldModifier left(double value) {
+  DefineMTextFieldModifier left(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMTextFieldModifier right(double value) {
+  DefineMTextFieldModifier right(double? value) {
     return this.copyWith(valueRight: value);
   }
 
-  DefineMTextFieldModifier topPosition(double value) {
+  DefineMTextFieldModifier topPosition(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMTextFieldModifier bottomPosition(double value) {
+  DefineMTextFieldModifier bottomPosition(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMTextFieldModifier leftPosition(double value) {
+  DefineMTextFieldModifier leftPosition(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMTextFieldModifier rightPosition(double value) {
+  DefineMTextFieldModifier rightPosition(double? value) {
     return this.copyWith(valueRight: value);
   }
 
@@ -505,6 +512,12 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     return this.copyWith(valueOnTap: valueOnTap);
   }
 
+  DefineMTextModifier clipCircle() {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.circular(
+            math.max(valueWidth ?? 0, valueHeight ?? 0) / 2));
+  }
+
   DefineMTextModifier borderRadius(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
@@ -605,35 +618,35 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     ));
   }
 
-  DefineMTextModifier top(double value) {
+  DefineMTextModifier top(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMTextModifier bottom(double value) {
+  DefineMTextModifier bottom(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMTextModifier left(double value) {
+  DefineMTextModifier left(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMTextModifier right(double value) {
+  DefineMTextModifier right(double? value) {
     return this.copyWith(valueRight: value);
   }
 
-  DefineMTextModifier topPosition(double value) {
+  DefineMTextModifier topPosition(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMTextModifier bottomPosition(double value) {
+  DefineMTextModifier bottomPosition(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMTextModifier leftPosition(double value) {
+  DefineMTextModifier leftPosition(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMTextModifier rightPosition(double value) {
+  DefineMTextModifier rightPosition(double? value) {
     return this.copyWith(valueRight: value);
   }
 
@@ -862,6 +875,12 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueOnTap: valueOnTap);
   }
 
+  DefineMRowModifier clipCircle() {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.circular(
+            math.max(valueWidth ?? 0, valueHeight ?? 0) / 2));
+  }
+
   DefineMRowModifier borderRadius(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
@@ -962,35 +981,35 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     ));
   }
 
-  DefineMRowModifier top(double value) {
+  DefineMRowModifier top(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMRowModifier bottom(double value) {
+  DefineMRowModifier bottom(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMRowModifier left(double value) {
+  DefineMRowModifier left(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMRowModifier right(double value) {
+  DefineMRowModifier right(double? value) {
     return this.copyWith(valueRight: value);
   }
 
-  DefineMRowModifier topPosition(double value) {
+  DefineMRowModifier topPosition(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMRowModifier bottomPosition(double value) {
+  DefineMRowModifier bottomPosition(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMRowModifier leftPosition(double value) {
+  DefineMRowModifier leftPosition(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMRowModifier rightPosition(double value) {
+  DefineMRowModifier rightPosition(double? value) {
     return this.copyWith(valueRight: value);
   }
 
@@ -1128,35 +1147,35 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     ));
   }
 
-  DefineMListViewModifier top(double value) {
+  DefineMListViewModifier top(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMListViewModifier bottom(double value) {
+  DefineMListViewModifier bottom(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMListViewModifier left(double value) {
+  DefineMListViewModifier left(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMListViewModifier right(double value) {
+  DefineMListViewModifier right(double? value) {
     return this.copyWith(valueRight: value);
   }
 
-  DefineMListViewModifier topPosition(double value) {
+  DefineMListViewModifier topPosition(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMListViewModifier bottomPosition(double value) {
+  DefineMListViewModifier bottomPosition(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMListViewModifier leftPosition(double value) {
+  DefineMListViewModifier leftPosition(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMListViewModifier rightPosition(double value) {
+  DefineMListViewModifier rightPosition(double? value) {
     return this.copyWith(valueRight: value);
   }
 
@@ -1364,6 +1383,12 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueOnTap: valueOnTap);
   }
 
+  DefineMColumnModifier clipCircle() {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.circular(
+            math.max(valueWidth ?? 0, valueHeight ?? 0) / 2));
+  }
+
   DefineMColumnModifier borderRadius(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
@@ -1464,35 +1489,35 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     ));
   }
 
-  DefineMColumnModifier top(double value) {
+  DefineMColumnModifier top(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMColumnModifier bottom(double value) {
+  DefineMColumnModifier bottom(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMColumnModifier left(double value) {
+  DefineMColumnModifier left(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMColumnModifier right(double value) {
+  DefineMColumnModifier right(double? value) {
     return this.copyWith(valueRight: value);
   }
 
-  DefineMColumnModifier topPosition(double value) {
+  DefineMColumnModifier topPosition(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMColumnModifier bottomPosition(double value) {
+  DefineMColumnModifier bottomPosition(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMColumnModifier leftPosition(double value) {
+  DefineMColumnModifier leftPosition(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMColumnModifier rightPosition(double value) {
+  DefineMColumnModifier rightPosition(double? value) {
     return this.copyWith(valueRight: value);
   }
 
@@ -1700,6 +1725,12 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueOnTap: valueOnTap);
   }
 
+  DefineMAddButtonModifier clipCircle() {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.circular(
+            math.max(valueWidth ?? 0, valueHeight ?? 0) / 2));
+  }
+
   DefineMAddButtonModifier borderRadius(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
@@ -1800,35 +1831,35 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     ));
   }
 
-  DefineMAddButtonModifier top(double value) {
+  DefineMAddButtonModifier top(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMAddButtonModifier bottom(double value) {
+  DefineMAddButtonModifier bottom(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMAddButtonModifier left(double value) {
+  DefineMAddButtonModifier left(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMAddButtonModifier right(double value) {
+  DefineMAddButtonModifier right(double? value) {
     return this.copyWith(valueRight: value);
   }
 
-  DefineMAddButtonModifier topPosition(double value) {
+  DefineMAddButtonModifier topPosition(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMAddButtonModifier bottomPosition(double value) {
+  DefineMAddButtonModifier bottomPosition(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMAddButtonModifier leftPosition(double value) {
+  DefineMAddButtonModifier leftPosition(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMAddButtonModifier rightPosition(double value) {
+  DefineMAddButtonModifier rightPosition(double? value) {
     return this.copyWith(valueRight: value);
   }
 
@@ -2035,6 +2066,12 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(valueOnTap: valueOnTap);
   }
 
+  DefineMStackModifier clipCircle() {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.circular(
+            math.max(valueWidth ?? 0, valueHeight ?? 0) / 2));
+  }
+
   DefineMStackModifier borderRadius(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
@@ -2135,35 +2172,35 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     ));
   }
 
-  DefineMStackModifier top(double value) {
+  DefineMStackModifier top(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMStackModifier bottom(double value) {
+  DefineMStackModifier bottom(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMStackModifier left(double value) {
+  DefineMStackModifier left(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMStackModifier right(double value) {
+  DefineMStackModifier right(double? value) {
     return this.copyWith(valueRight: value);
   }
 
-  DefineMStackModifier topPosition(double value) {
+  DefineMStackModifier topPosition(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMStackModifier bottomPosition(double value) {
+  DefineMStackModifier bottomPosition(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMStackModifier leftPosition(double value) {
+  DefineMStackModifier leftPosition(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMStackModifier rightPosition(double value) {
+  DefineMStackModifier rightPosition(double? value) {
     return this.copyWith(valueRight: value);
   }
 
@@ -2370,6 +2407,12 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueOnTap: valueOnTap);
   }
 
+  DefineMImageModifier clipCircle() {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.circular(
+            math.max(valueWidth ?? 0, valueHeight ?? 0) / 2));
+  }
+
   DefineMImageModifier borderRadius(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
@@ -2470,35 +2513,35 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     ));
   }
 
-  DefineMImageModifier top(double value) {
+  DefineMImageModifier top(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMImageModifier bottom(double value) {
+  DefineMImageModifier bottom(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMImageModifier left(double value) {
+  DefineMImageModifier left(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMImageModifier right(double value) {
+  DefineMImageModifier right(double? value) {
     return this.copyWith(valueRight: value);
   }
 
-  DefineMImageModifier topPosition(double value) {
+  DefineMImageModifier topPosition(double? value) {
     return this.copyWith(valueTop: value);
   }
 
-  DefineMImageModifier bottomPosition(double value) {
+  DefineMImageModifier bottomPosition(double? value) {
     return this.copyWith(valueBottom: value);
   }
 
-  DefineMImageModifier leftPosition(double value) {
+  DefineMImageModifier leftPosition(double? value) {
     return this.copyWith(valueLeft: value);
   }
 
-  DefineMImageModifier rightPosition(double value) {
+  DefineMImageModifier rightPosition(double? value) {
     return this.copyWith(valueRight: value);
   }
 

@@ -143,6 +143,14 @@ extension MStackModifierPropertys on DefineMStackModifier {
     return this.copyWith(valueAlignment: value);
   }
 
+  DefineMStackModifier centerAlignStack() {
+    return this.copyWith(valueAlignment: Alignment.center);
+  }
+
+  DefineMStackModifier alignCenterStack() {
+    return this.copyWith(valueAlignment: Alignment.center);
+  }
+
   DefineMStackModifier textDirection(TextDirection value) {
     return this.copyWith(valueTextDirection: value);
   }

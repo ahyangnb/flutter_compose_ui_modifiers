@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -202,5 +203,19 @@ class DefineMImageModifier extends MGeneralModifier {
 extension MImageModifierPropertys on DefineMImageModifier {
   DefineMImageModifier fit(BoxFit value) {
     return this.copyWith(valueFit: value);
+  }
+
+  DefineMImageModifier avatar({
+    double? size,
+    double? radius,
+  }) {
+    final radiusUse =
+        radius ?? (this.valueBorderRadius as BorderRadius?)?.topLeft.x;
+    return this.copyWith(
+      valueWidth: size,
+      valueHeight: size,
+      valueBorderRadius: BorderRadius.circular(radiusUse ??
+          (size ?? math.max(this.valueWidth ?? 0, this.valueHeight ?? 0)) / 2),
+    );
   }
 }

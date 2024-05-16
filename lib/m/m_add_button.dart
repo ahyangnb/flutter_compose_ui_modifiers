@@ -108,7 +108,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     return DefineMAddButtonModifier(
       iconSizeValue: iconSizeValue ?? this.iconSizeValue,
       iconColorValue: iconColorValue ?? this.iconColorValue,
-
+/**/
       /// The following properties are inherited from MGeneralModifier.
       valuePadding: valuePadding ?? this.valuePadding,
       valueMargin: valueMargin ?? this.valueMargin,
