@@ -2225,6 +2225,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier shape(BoxShape value) {
     return this.copyWith(valueShape: value);
   }
+
+  DefineMStackModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
 }
 
 extension MImageGeneralGenerator on DefineMImageModifier {

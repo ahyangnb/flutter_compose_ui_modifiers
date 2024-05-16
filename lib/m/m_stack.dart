@@ -65,6 +65,9 @@ class DefineMStackModifier extends MGeneralModifier {
     super.valueRight,
     super.valueTop,
     super.valueBottom,
+
+    /// Scroll
+    super.valueScrollable,
   });
 
   DefineMStackModifier copyWith({
@@ -100,6 +103,9 @@ class DefineMStackModifier extends MGeneralModifier {
     double? valueRight,
     double? valueTop,
     double? valueBottom,
+
+    /// Scroll
+    bool? valueScrollable,
   }) {
     return DefineMStackModifier(
       valueAlignment: valueAlignment ?? this.valueAlignment,
@@ -134,6 +140,9 @@ class DefineMStackModifier extends MGeneralModifier {
       valueRight: valueRight ?? this.valueRight,
       valueTop: valueTop ?? this.valueTop,
       valueBottom: valueBottom ?? this.valueBottom,
+
+      /// Scroll
+      valueScrollable: valueScrollable ?? this.valueScrollable,
     );
   }
 }

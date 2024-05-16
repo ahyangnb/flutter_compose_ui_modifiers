@@ -42,6 +42,9 @@ class MGeneralModifier {
   final double? valueTop;
   final double? valueBottom;
 
+  /// Scroll.
+  final bool? valueScrollable;
+
   const MGeneralModifier({
     this.valuePadding,
     this.valueMargin,
@@ -69,6 +72,9 @@ class MGeneralModifier {
     this.valueRight,
     this.valueTop,
     this.valueBottom,
+
+    /// Scroll.
+    this.valueScrollable,
   });
 }
 
@@ -153,6 +159,10 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         onTap: generalModifier!.valueOnTap,
         child: child,
       );
+    }
+
+    if (generalModifier?.valueScrollable ?? false) {
+      child = SingleChildScrollView(child: child);
     }
 
     if (generalModifier?.valueLeft != null ||
