@@ -2321,6 +2321,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier onLongPress(GestureLongPressCallback value) {
     return this.copyWith(valueOnLongPress: value);
   }
+
+  DefineMStackModifier onLongPressUp(GestureLongPressUpCallback value) {
+    return this.copyWith(valueOnLongPressUp: value);
+  }
 }
 
 extension MImageGeneralGenerator on DefineMImageModifier {

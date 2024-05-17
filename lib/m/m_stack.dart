@@ -44,6 +44,7 @@ class DefineMStackModifier extends MGeneralModifier {
     super.valueOnTap,
     super.valueOnLongPress,
     super.valueOnLongPressMoveUpdate,
+    super.valueOnLongPressUp,
     super.valueBackgroundColor,
     super.valueBorderRadius,
     super.valueCenterAlign,
@@ -84,6 +85,7 @@ class DefineMStackModifier extends MGeneralModifier {
     VoidCallback? valueOnTap,
     GestureLongPressCallback? valueOnLongPress,
     GestureLongPressMoveUpdateCallback? valueOnLongPressMoveUpdate,
+    GestureLongPressUpCallback? valueOnLongPressUp,
     Color? valueBackgroundColor,
     BorderRadiusGeometry? valueBorderRadius,
     bool? valueCenterAlign,
@@ -124,6 +126,7 @@ class DefineMStackModifier extends MGeneralModifier {
       valueOnLongPress: valueOnLongPress ?? this.valueOnLongPress,
       valueOnLongPressMoveUpdate:
           valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
+      valueOnLongPressUp: valueOnLongPressUp ?? this.valueOnLongPressUp,
       valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
       valueBorderRadius: valueBorderRadius ?? this.valueBorderRadius,
       valueCenterAlign: valueCenterAlign ?? this.valueCenterAlign,

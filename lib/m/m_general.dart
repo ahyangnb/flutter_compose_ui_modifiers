@@ -20,6 +20,7 @@ class MGeneralModifier {
   final VoidCallback? valueOnTap;
   final GestureLongPressCallback? valueOnLongPress;
   final GestureLongPressMoveUpdateCallback? valueOnLongPressMoveUpdate;
+  final GestureLongPressUpCallback? valueOnLongPressUp;
   final Color? valueBackgroundColor;
   final BorderRadiusGeometry? valueBorderRadius;
   final bool? valueCenterAlign;
@@ -53,6 +54,7 @@ class MGeneralModifier {
     this.valueOnTap,
     this.valueOnLongPress,
     this.valueOnLongPressMoveUpdate,
+    this.valueOnLongPressUp,
     this.valueBackgroundColor,
     this.valueBorderRadius,
     this.valueCenterAlign,
@@ -160,12 +162,14 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     /// otherwise the event will not be triggered in some area such as margin.
     if (generalModifier?.valueOnTap != null ||
         generalModifier?.valueOnLongPress != null ||
-        generalModifier?.valueOnLongPressMoveUpdate != null) {
+        generalModifier?.valueOnLongPressMoveUpdate != null ||
+        generalModifier?.valueOnLongPressUp != null) {
       child = GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: generalModifier?.valueOnTap,
         onLongPress: generalModifier?.valueOnLongPress,
         onLongPressMoveUpdate: generalModifier?.valueOnLongPressMoveUpdate,
+        onLongPressUp: generalModifier?.valueOnLongPressUp,
         child: child,
       );
     }
