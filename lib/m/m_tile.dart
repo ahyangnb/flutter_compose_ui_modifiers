@@ -1,54 +1,65 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:get/get.dart';
 
-/// @todo HighlightNamesText function with MText.
+class MTile extends StatelessWidget {
+  final DefineMTileModifier? modifier;
+  final String? label;
 
-/// example:
-/// ```dart
-/// MText(
-//   modifier: MTextModifier.color(Colors.blue)
-//       .onClick(() => print("hi"))
-//       .fontSize(50)
-//       .fontWeight(FontWeight.w200)
-//       .backgroundColor(Colors.red.withOpacity(0.3))
-//       .size(const Size(200, 300))
-//       .marginBottom(300)
-//       .paddingTop(50)
-//       .center(true),
-//   data: 'can click me!',
-// )
-/// ```
-class MText extends StatelessWidget {
-  final DefineMTextModifier? modifier;
-  final String data;
-
-  MText({
+  MTile({
     this.modifier,
-    required this.data,
+    this.label,
   });
 
   @override
   Widget build(BuildContext context) {
+    final fontSize = modifier?.styleValue.fontSize ?? 18.px;
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
-      child: Text(
-        data,
-        style: modifier?.styleValue ?? TextStyle(),
-        textAlign: modifier?.valueTextAlign,
+      child: MRow(
+        modifier: MRowModifier.mainAxisAlignment(MainAxisAlignment.start)
+            .crossAxisAlignment(CrossAxisAlignment.center)
+            .paddingHorizontal(16.px)
+            .height(54.px)
+            .backgroundColor(MThemeConfig.bgWhite22)
+            .borderRadiusSet(
+              (modifier?.valueBorderRadius as BorderRadius?) ??
+                  BorderRadius.all(Radius.circular(8.px)),
+            )
+            .marginHorizontal(16.px),
+        children: [
+          if (modifier?.valueIcon != null)
+            Image.asset(modifier!.valueIcon!).setSize(30.px).marginRight(10.px),
+          Text(label ?? "Label")
+              .color(Colors.white)
+              .fontSize(fontSize)
+
+              /// If use it will not center of the item.
+              // .heightSize(modifier?.styleValue.height ?? (25.px / fontSize))
+              .expanded(),
+          if (modifier?.valueWidgetRight != null) modifier!.valueWidgetRight!,
+        ],
       ),
     );
   }
 }
 
-final MTextModifier = DefineMTextModifier();
+final MTileModifier = DefineMTileModifier();
 
-class DefineMTextModifier extends MGeneralModifier {
+class DefineMTileModifier extends MGeneralModifier {
   final TextStyle styleValue;
   final TextAlign? valueTextAlign;
+  final String? valueIcon;
+  final Widget? valueWidgetRight;
 
-  const DefineMTextModifier({
+  const DefineMTileModifier({
     this.styleValue = const TextStyle(),
     this.valueTextAlign,
+    this.valueIcon,
+    this.valueWidgetRight,
 
     /// Container
     super.valuePadding,
@@ -81,9 +92,11 @@ class DefineMTextModifier extends MGeneralModifier {
     super.valueBottom,
   });
 
-  DefineMTextModifier copyWith({
+  DefineMTileModifier copyWith({
     TextStyle? styleValue,
     TextAlign? valueTextAlign,
+    String? valueIcon,
+    Widget? valueWidgetRight,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -115,9 +128,11 @@ class DefineMTextModifier extends MGeneralModifier {
     double? valueTop,
     double? valueBottom,
   }) {
-    return DefineMTextModifier(
+    return DefineMTileModifier(
       styleValue: styleValue ?? this.styleValue,
       valueTextAlign: valueTextAlign ?? this.valueTextAlign,
+      valueIcon: valueIcon ?? this.valueIcon,
+      valueWidgetRight: valueWidgetRight ?? this.valueWidgetRight,
 
       /// Container
       valuePadding: valuePadding ?? this.valuePadding,
@@ -153,91 +168,152 @@ class DefineMTextModifier extends MGeneralModifier {
   }
 }
 
-extension MTextModifierPropertys on DefineMTextModifier {
-  DefineMTextModifier color(Color color) {
+extension MTileModifierPropertys on DefineMTileModifier {
+  DefineMTileModifier color(Color color) {
     return setColor(color);
   }
 
-  DefineMTextModifier colorHex(int color) {
+  DefineMTileModifier colorHex(int color) {
     return setColor(Color(color));
   }
 
-  DefineMTextModifier colorValue(int color) {
+  DefineMTileModifier colorValue(int color) {
     return setColor(Color(color));
   }
 
-  DefineMTextModifier setColor(Color color) {
+  DefineMTileModifier setColor(Color color) {
     final newStyle = this.styleValue.copyWith(color: color);
-    final DefineMTextModifier newModifierValue =
+    final DefineMTileModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
-  DefineMTextModifier fontSize(double fontSize) {
+  DefineMTileModifier fontSize(double fontSize) {
     return setFontSize(fontSize);
   }
 
-  DefineMTextModifier setFontSize(double fontSize) {
+  DefineMTileModifier setFontSize(double fontSize) {
     final newStyle = this.styleValue.copyWith(fontSize: fontSize);
-    final DefineMTextModifier newModifierValue =
+    final DefineMTileModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
-  DefineMTextModifier letterSpacing(double value) {
+  DefineMTileModifier letterSpacing(double value) {
     final newStyle = this.styleValue.copyWith(letterSpacing: value);
-    final DefineMTextModifier newModifierValue =
+    final DefineMTileModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
-  DefineMTextModifier fontFamily(String value) {
+  DefineMTileModifier fontFamily(String value) {
     final newStyle = this.styleValue.copyWith(fontFamily: value);
-    final DefineMTextModifier newModifierValue =
+    final DefineMTileModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
-  DefineMTextModifier lineHeight(double value) {
+  DefineMTileModifier lineHeight(double value) {
     return heightLine(value);
   }
 
   /// The line height, not container size Height.
-  // DefineMTextModifier height(double value) {
+  // DefineMTileModifier height(double value) {
   //   return heightLine(value);
   // }
 
-  DefineMTextModifier textHeight(double value) {
+  DefineMTileModifier textHeight(double value) {
     return heightLine(value);
   }
 
-  DefineMTextModifier heightLine(double value) {
+  DefineMTileModifier heightLine(double value) {
     final newStyle = this.styleValue.copyWith(height: value);
-    final DefineMTextModifier newModifierValue =
+    final DefineMTileModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
-  DefineMTextModifier textAlign(TextAlign value) {
-    final DefineMTextModifier newModifierValue =
+  DefineMTileModifier textAlign(TextAlign value) {
+    final DefineMTileModifier newModifierValue =
         this.copyWith(valueTextAlign: value);
     return newModifierValue;
   }
 
-  DefineMTextModifier fontWeight(FontWeight fontWeight) {
+  DefineMTileModifier fontWeight(FontWeight fontWeight) {
     return setFontWeight(fontWeight);
   }
 
-  DefineMTextModifier setFontWeight(FontWeight fontWeight) {
+  DefineMTileModifier setFontWeight(FontWeight fontWeight) {
     final newStyle = this.styleValue.copyWith(fontWeight: fontWeight);
-    final DefineMTextModifier newModifierValue =
+    final DefineMTileModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
     return newModifierValue;
   }
 
-  DefineMTextModifier style(TextStyle value) {
-    final DefineMTextModifier newModifierValue =
+  DefineMTileModifier style(TextStyle value) {
+    final DefineMTileModifier newModifierValue =
         this.copyWith(styleValue: value);
+    return newModifierValue;
+  }
+
+  DefineMTileModifier icon(String? value) {
+    final DefineMTileModifier newModifierValue =
+        this.copyWith(valueIcon: value);
+    return newModifierValue;
+  }
+
+  DefineMTileModifier widgetRight([Widget? value]) {
+    final DefineMTileModifier newModifierValue =
+        this.copyWith(valueWidgetRight: value);
+    return newModifierValue;
+  }
+
+  DefineMTileModifier copyButton({
+    String? buttonText,
+    String? copyContent,
+    double? width,
+    double? height,
+    double? radius,
+    VoidCallback? onCopy,
+  }) {
+    final heightResult = height ?? 32.px;
+    final DefineMTileModifier newModifierValue = this.copyWith(
+      valueWidgetRight: MButton(
+        text: buttonText ?? "Copy",
+        fontSize: 16.px,
+        width: width ?? 66.px,
+        height: heightResult,
+        maxHeight: heightResult,
+        padding: EdgeInsets.zero,
+        borderRadius: BorderRadius.all(Radius.circular(radius ?? 16.px)),
+        onTap: () async {
+          await Clipboard.setData(ClipboardData(text: copyContent ?? ""));
+          if (onCopy != null) onCopy();
+        },
+      ),
+    );
+    return newModifierValue;
+  }
+
+  DefineMTileModifier switchButton({
+    required RxBool value,
+    final ValueChanged<bool>? onChanged,
+  }) {
+    final DefineMTileModifier newModifierValue = this.copyWith(
+      valueWidgetRight: Obx(
+        () {
+          return CupertinoSwitch(
+            value: value.value,
+            onChanged: (v) {
+              value.value = v;
+              if (onChanged != null) onChanged(v);
+            },
+            activeColor: Color(0xffFD211E),
+            trackColor: Colors.white.withOpacity(0.3),
+          );
+        },
+      ),
+    );
     return newModifierValue;
   }
 }

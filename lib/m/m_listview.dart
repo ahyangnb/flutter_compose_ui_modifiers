@@ -178,4 +178,8 @@ extension MListViewModifierPropertys on DefineMListViewModifier {
   DefineMListViewModifier scrollController(ScrollController value) {
     return this.copyWith(valueController: value);
   }
+
+  DefineMListViewModifier paddingZero() {
+    return this.copyWith(valuePadding: EdgeInsets.zero);
+  }
 }

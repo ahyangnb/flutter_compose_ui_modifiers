@@ -2704,3 +2704,357 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueOnLongPress: value);
   }
 }
+
+extension MTileGeneralGenerator on DefineMTileModifier {
+  DefineMTileModifier shadow(BoxShadow value) {
+    return this.copyWith(valueShadow: value);
+  }
+
+  DefineMTileModifier shadowDef({Color? color}) {
+    final value = BoxShadow(
+      color: color ?? Color(0xff000000).withOpacity(0.1),
+      offset: const Offset(0, 2),
+      blurRadius: 4,
+      spreadRadius: 0,
+    );
+    return this.copyWith(valueShadow: value);
+  }
+
+  DefineMTileModifier padding(double value) {
+    return setPaddingEdge(EdgeInsets.all(value));
+  }
+
+  DefineMTileModifier paddingSet(EdgeInsets value) {
+    return setPaddingEdge(value);
+  }
+
+  DefineMTileModifier setPaddingEdge(EdgeInsets? value) {
+    return this.copyWith(
+      valuePadding: value ?? this.valuePadding ?? EdgeInsets.zero,
+    );
+  }
+
+  DefineMTileModifier paddingTop(double value) {
+    return setPaddingTop(value);
+  }
+
+  DefineMTileModifier setPaddingTop(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
+    );
+  }
+
+  DefineMTileModifier paddingHorizontal(double value) {
+    return setPaddingHorizontal(value);
+  }
+
+  DefineMTileModifier setPaddingHorizontal(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
+          .copyWith(left: value, right: value),
+    );
+  }
+
+  DefineMTileModifier paddingVertical(double value) {
+    return setPaddingVertical(value);
+  }
+
+  DefineMTileModifier setPaddingVertical(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
+          .copyWith(top: value, bottom: value),
+    );
+  }
+
+  DefineMTileModifier paddingBottom(double value) {
+    return this.copyWith(
+      valuePadding:
+          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+    );
+  }
+
+  DefineMTileModifier marginTop(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(top: value),
+    );
+  }
+
+  DefineMTileModifier marginBottom(double value) {
+    return this.copyWith(
+      valueMargin:
+          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+    );
+  }
+
+  DefineMTileModifier marginLeft(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(left: value),
+    );
+  }
+
+  DefineMTileModifier marginRight(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(right: value),
+    );
+  }
+
+  DefineMTileModifier marginHorizontal(double value) {
+    return marginSymmetric(horizontal: value);
+  }
+
+  DefineMTileModifier marginVertical(double value) {
+    return marginSymmetric(vertical: value);
+  }
+
+  DefineMTileModifier marginSymmetric({double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valueMargin?.left,
+        right: horizontal ?? this.valueMargin?.right,
+        top: vertical ?? this.valueMargin?.top,
+        bottom: vertical ?? this.valueMargin?.bottom,
+      ),
+    );
+  }
+
+  DefineMTileModifier marginOnly({
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: left ?? this.valueMargin?.left,
+        right: right ?? this.valueMargin?.right,
+        top: top ?? this.valueMargin?.top,
+        bottom: bottom ?? this.valueMargin?.bottom,
+      ),
+    );
+  }
+
+  DefineMTileModifier marginSet(EdgeInsets? value) {
+    return this.copyWith(valueMargin: value);
+  }
+
+  DefineMTileModifier margin(double? value) {
+    return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
+  }
+
+  DefineMTileModifier backgroundColor(Color? value) {
+    return this.copyWith(valueBackgroundColor: value);
+  }
+
+  DefineMTileModifier center(bool value) {
+    return this.copyWith(valueCenterAlign: value);
+  }
+
+  DefineMTileModifier centered() {
+    return this.copyWith(valueCenterAlign: true);
+  }
+
+  DefineMTileModifier sizeSet(Size value) {
+    return this.copyWith(valueWidth: value.width, valueHeight: value.height);
+  }
+
+  DefineMTileModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMTileModifier size(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMTileModifier width(double? value) {
+    return this.copyWith(valueWidth: value);
+  }
+
+  DefineMTileModifier height(double? value) {
+    return this.copyWith(valueHeight: value);
+  }
+
+  DefineMTileModifier onTap(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMTileModifier onClick(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMTileModifier click(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMTileModifier setClick(VoidCallback valueOnTap) {
+    return this.copyWith(valueOnTap: valueOnTap);
+  }
+
+  DefineMTileModifier clipCircle() {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.circular(
+            math.max(valueWidth ?? 0, valueHeight ?? 0) / 2));
+  }
+
+  DefineMTileModifier borderRadius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMTileModifier borderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueBorderRadius: value);
+  }
+
+  DefineMTileModifier borderRadiusVertical(double value) {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMTileModifier borderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMTileModifier borderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
+  DefineMTileModifier borderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueBorder: Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMTileModifier borderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMTileModifier borderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMTileModifier borderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMTileModifier borderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMTileModifier border(Border value) {
+    return this.copyWith(valueBorder: value);
+  }
+
+  DefineMTileModifier flex([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
+  DefineMTileModifier expanded([int value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
+  DefineMTileModifier gradient([Gradient? value]) {
+    return this.copyWith(valueGradient: value);
+  }
+
+  DefineMTileModifier gradientDef([Color? color]) {
+    return this.copyWith(
+        valueGradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [(color ?? Colors.blue), Colors.white],
+      stops: [0, 0.3],
+    ));
+  }
+
+  DefineMTileModifier top(double? value) {
+    return this.copyWith(valueTop: value);
+  }
+
+  DefineMTileModifier bottom(double? value) {
+    return this.copyWith(valueBottom: value);
+  }
+
+  DefineMTileModifier left(double? value) {
+    return this.copyWith(valueLeft: value);
+  }
+
+  DefineMTileModifier right(double? value) {
+    return this.copyWith(valueRight: value);
+  }
+
+  DefineMTileModifier topPosition(double? value) {
+    return this.copyWith(valueTop: value);
+  }
+
+  DefineMTileModifier bottomPosition(double? value) {
+    return this.copyWith(valueBottom: value);
+  }
+
+  DefineMTileModifier leftPosition(double? value) {
+    return this.copyWith(valueLeft: value);
+  }
+
+  DefineMTileModifier rightPosition(double? value) {
+    return this.copyWith(valueRight: value);
+  }
+
+  DefineMTileModifier position({
+    double? top,
+    double? bottom,
+    double? left,
+    double? right,
+  }) {
+    return this.copyWith(
+      valueTop: top,
+      valueBottom: bottom,
+      valueLeft: left,
+      valueRight: right,
+    );
+  }
+
+  DefineMTileModifier shapeCircle() {
+    return this.copyWith(valueShape: BoxShape.circle);
+  }
+
+  DefineMTileModifier shape(BoxShape value) {
+    return this.copyWith(valueShape: value);
+  }
+
+  DefineMTileModifier onLongPressMoveUpdate(
+      GestureLongPressMoveUpdateCallback value) {
+    return this.copyWith(valueOnLongPressMoveUpdate: value);
+  }
+
+  DefineMTileModifier onLongPress(GestureLongPressCallback value) {
+    return this.copyWith(valueOnLongPress: value);
+  }
+}
