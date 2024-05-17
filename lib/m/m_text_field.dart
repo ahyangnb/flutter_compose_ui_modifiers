@@ -27,6 +27,8 @@ class MTextField extends StatelessWidget {
         onSubmitted: modifier?.valueOnSubmitted,
         keyboardType: modifier?.valueKeyboardType,
         textInputAction: modifier?.valueTextInputAction,
+        onEditingComplete: modifier?.valueOnEditingComplete,
+        textAlign: modifier?.valueTextAlign ?? TextAlign.start,
       ),
     );
   }
@@ -43,6 +45,9 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   final ValueChanged<String>? valueOnSubmitted;
   final TextInputType? valueKeyboardType;
   final TextInputAction? valueTextInputAction;
+  final FocusNode? valueFocusNode;
+  final VoidCallback? valueOnEditingComplete;
+  final TextAlign? valueTextAlign;
 
   const DefineMTextFieldModifier({
     this.decorationValue,
@@ -53,6 +58,9 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     this.valueOnSubmitted,
     this.valueKeyboardType,
     this.valueTextInputAction,
+    this.valueFocusNode,
+    this.valueOnEditingComplete,
+    this.valueTextAlign,
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -93,6 +101,9 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     final ValueChanged<String>? valueOnSubmitted,
     final TextInputType? valueKeyboardType,
     final TextInputAction? valueTextInputAction,
+    final FocusNode? valueFocusNode,
+    final VoidCallback? valueOnEditingComplete,
+    final TextAlign? valueTextAlign,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -133,6 +144,10 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueOnSubmitted: valueOnSubmitted ?? this.valueOnSubmitted,
       valueKeyboardType: valueKeyboardType ?? this.valueKeyboardType,
       valueTextInputAction: valueTextInputAction ?? this.valueTextInputAction,
+      valueFocusNode: valueFocusNode ?? this.valueFocusNode,
+      valueOnEditingComplete:
+          valueOnEditingComplete ?? this.valueOnEditingComplete,
+      valueTextAlign: valueTextAlign ?? this.valueTextAlign,
 
       /// The following properties are inherited from MGeneralModifier.
       valuePadding: valuePadding ?? this.valuePadding,
@@ -252,6 +267,13 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
     );
   }
 
+  DefineMTextFieldModifier contentPaddingZero() {
+    return this.copyWith(
+      decorationValue: (this.decorationValue ?? InputDecoration())
+          .copyWith(contentPadding: EdgeInsets.zero),
+    );
+  }
+
   EdgeInsets? get thisPadding =>
       (this.decorationValue?.contentPadding is EdgeInsets? &&
               this.decorationValue?.contentPadding != null)
@@ -335,5 +357,27 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
       valueBorderRadius: BorderRadius.circular(8),
       valueHeight: 52,
     );
+  }
+
+  DefineMTextFieldModifier focusNode([FocusNode? value]) {
+    return this.copyWith(valueFocusNode: value);
+  }
+
+  DefineMTextFieldModifier onEditingComplete([VoidCallback? value]) {
+    return this.copyWith(valueOnEditingComplete: value);
+  }
+
+  DefineMTextFieldModifier color([Color? value]) {
+    return this.copyWith(
+        styleValue: (this.styleValue ?? TextStyle()).copyWith(color: value));
+  }
+
+  DefineMTextFieldModifier fontSize([double? value]) {
+    return this.copyWith(
+        styleValue: (this.styleValue ?? TextStyle()).copyWith(fontSize: value));
+  }
+
+  DefineMTextFieldModifier textAlign([TextAlign? value]) {
+    return this.copyWith(valueTextAlign: value);
   }
 }
