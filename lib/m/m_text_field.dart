@@ -1,6 +1,7 @@
 /// todo feature: Auto jump to next line when click enter key.
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 class MTextField extends StatelessWidget {
@@ -322,5 +323,17 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
     return this.copyWith(
         styleValue:
             (this.styleValue ?? TextStyle()).copyWith(fontWeight: value));
+  }
+
+  DefineMTextFieldModifier styleWhiteOpacity1({String? hintText}) {
+    return this.copyWith(
+      decorationValue: (this.decorationValue ?? InputDecoration()).copyWith(
+          hintText: hintText ?? 'Please enter your name...',
+          hintStyle: MThemeConfig.textFieldHintStyle),
+      styleValue: MThemeConfig.textFieldStyle,
+      valueBackgroundColor: MThemeConfig.bgWhite22,
+      valueBorderRadius: BorderRadius.circular(8),
+      valueHeight: 52,
+    );
   }
 }
