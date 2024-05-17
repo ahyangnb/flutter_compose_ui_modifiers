@@ -22,14 +22,21 @@ class MAddButton extends StatelessWidget {
       child: Container(
         width: modifier?.valueWidth ?? 86,
         height: modifier?.valueHeight ?? 86,
+        alignment: Alignment.center,
         decoration: BoxDecoration(
           color: modifier?.valueBackgroundColor ?? const Color(0xffF8F8F8),
           borderRadius:
               modifier?.valueBorderRadius ?? BorderRadius.circular(43),
         ),
-        child: Icon(CupertinoIcons.add,
-            size: modifier?.iconSizeValue ?? 25,
-            color: modifier?.iconColorValue ?? const Color(0xff949494)),
+        child: modifier?.valueImageIcon != null
+            ? MImage(
+                data: modifier!.valueImageIcon!,
+                modifier: MImageModifier.width(modifier?.valueImageWidth)
+                    .height(modifier?.valueImageHeight),
+              )
+            : Icon(CupertinoIcons.add,
+                size: modifier?.iconSizeValue ?? 25,
+                color: modifier?.iconColorValue ?? const Color(0xff949494)),
       ),
     );
   }
@@ -40,10 +47,16 @@ final MAddButtonModifier = DefineMAddButtonModifier();
 class DefineMAddButtonModifier extends MGeneralModifier {
   final double? iconSizeValue;
   final Color? iconColorValue;
+  final String? valueImageIcon;
+  final double? valueImageWidth;
+  final double? valueImageHeight;
 
   const DefineMAddButtonModifier({
     this.iconSizeValue,
     this.iconColorValue,
+    this.valueImageIcon,
+    this.valueImageWidth,
+    this.valueImageHeight,
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -78,6 +91,9 @@ class DefineMAddButtonModifier extends MGeneralModifier {
   DefineMAddButtonModifier copyWith({
     double? iconSizeValue,
     Color? iconColorValue,
+    String? valueImageIcon,
+    double? valueImageWidth,
+    double? valueImageHeight,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -112,7 +128,10 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     return DefineMAddButtonModifier(
       iconSizeValue: iconSizeValue ?? this.iconSizeValue,
       iconColorValue: iconColorValue ?? this.iconColorValue,
-/**/
+      valueImageIcon: valueImageIcon ?? this.valueImageIcon,
+      valueImageWidth: valueImageWidth ?? this.valueImageWidth,
+      valueImageHeight: valueImageHeight ?? this.valueImageHeight,
+
       /// The following properties are inherited from MGeneralModifier.
       valuePadding: valuePadding ?? this.valuePadding,
       valueMargin: valueMargin ?? this.valueMargin,
@@ -154,5 +173,21 @@ extension MAddButtonModifierPropertys on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier iconColor(Color value) {
     return this.copyWith(iconColorValue: value);
+  }
+
+  DefineMAddButtonModifier imageIcon(String value) {
+    return this.copyWith(valueImageIcon: value);
+  }
+
+  DefineMAddButtonModifier imageSize(double? value) {
+    return this.copyWith(valueImageWidth: value, valueImageHeight: value);
+  }
+
+  DefineMAddButtonModifier imageWidth(double? value) {
+    return this.copyWith(valueImageWidth: value);
+  }
+
+  DefineMAddButtonModifier imageHeight(double? value) {
+    return this.copyWith(valueImageHeight: value);
   }
 }
