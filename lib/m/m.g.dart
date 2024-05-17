@@ -151,11 +151,15 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueCenterAlign: true);
   }
 
-  DefineMTextFieldModifier size(Size value) {
+  DefineMTextFieldModifier sizeSet(Size value) {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
   DefineMTextFieldModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMTextFieldModifier size(double value) {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
@@ -489,11 +493,15 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     return this.copyWith(valueCenterAlign: true);
   }
 
-  DefineMTextModifier size(Size value) {
+  DefineMTextModifier sizeSet(Size value) {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
   DefineMTextModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMTextModifier size(double value) {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
@@ -861,11 +869,15 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueCenterAlign: true);
   }
 
-  DefineMRowModifier size(Size value) {
+  DefineMRowModifier sizeSet(Size value) {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
   DefineMRowModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMRowModifier size(double value) {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
@@ -1416,11 +1428,15 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueCenterAlign: true);
   }
 
-  DefineMColumnModifier size(Size value) {
+  DefineMColumnModifier sizeSet(Size value) {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
   DefineMColumnModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMColumnModifier size(double value) {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
@@ -1767,11 +1783,15 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueCenterAlign: true);
   }
 
-  DefineMAddButtonModifier size(Size value) {
+  DefineMAddButtonModifier sizeSet(Size value) {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
   DefineMAddButtonModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMAddButtonModifier size(double value) {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
@@ -2117,11 +2137,15 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(valueCenterAlign: true);
   }
 
-  DefineMStackModifier size(Size value) {
+  DefineMStackModifier sizeSet(Size value) {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
   DefineMStackModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMStackModifier size(double value) {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
@@ -2475,11 +2499,15 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueCenterAlign: true);
   }
 
-  DefineMImageModifier size(Size value) {
+  DefineMImageModifier sizeSet(Size value) {
     return this.copyWith(valueWidth: value.width, valueHeight: value.height);
   }
 
   DefineMImageModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMImageModifier size(double value) {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
