@@ -171,10 +171,6 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         child: child,
       );
     }
-    if (generalModifier?.valueCenterAlign != null &&
-        generalModifier!.valueCenterAlign!) {
-      child = Center(child: child);
-    }
 
     /// Must use the InkWell in before last one.
     /// otherwise the event will not be triggered in some area such as margin.
@@ -214,6 +210,11 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         elevation: generalModifier?.valueMaterialElevation ?? 0,
         child: child,
       );
+    }
+
+    if (generalModifier?.valueCenterAlign != null &&
+        generalModifier!.valueCenterAlign!) {
+      child = Center(child: child);
     }
 
     if (generalModifier?.valueScrollable ?? false) {

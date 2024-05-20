@@ -143,7 +143,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  DefineMTextFieldModifier center(bool value) {
+  DefineMTextFieldModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
 
@@ -585,7 +585,7 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  DefineMTextModifier center(bool value) {
+  DefineMTextModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
 
@@ -1061,7 +1061,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  DefineMRowModifier center(bool value) {
+  DefineMRowModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
 
@@ -1820,7 +1820,7 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  DefineMColumnModifier center(bool value) {
+  DefineMColumnModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
 
@@ -2284,7 +2284,7 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  DefineMAddButtonModifier center(bool value) {
+  DefineMAddButtonModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
 
@@ -2738,7 +2738,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  DefineMStackModifier center(bool value) {
+  DefineMStackModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
 
@@ -3196,7 +3196,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  DefineMImageModifier center(bool value) {
+  DefineMImageModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
 
@@ -3650,7 +3650,7 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
-  DefineMTileModifier center(bool value) {
+  DefineMTileModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
 
