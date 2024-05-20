@@ -29,13 +29,44 @@ class MText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String text = data;
+    final useStyle = modifier?.styleValue ?? TextStyle();
+    Widget textWidget = Text(
+      text,
+      style: useStyle,
+      textAlign: modifier?.valueTextAlign,
+    );
+
+    if (modifier?.valueHighlightRegExp != null) {
+      List<TextSpan> textSpans = [];
+
+      text.splitMapJoin(
+        modifier!.valueHighlightRegExp!,
+        onMatch: (m) {
+          textSpans.add(
+            TextSpan(
+              text: m.group(0),
+              style: modifier?.valueHighlightStyle != null
+                  ? modifier?.valueHighlightStyle
+                  : useStyle.copyWith(color: Colors.red),
+            ),
+          );
+          return m.group(0)!;
+        },
+        onNonMatch: (n) {
+          textSpans.add(TextSpan(text: n));
+          return n;
+        },
+      );
+
+      textWidget = RichText(
+        text: TextSpan(style: useStyle, children: textSpans),
+      );
+    }
+
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
-      child: Text(
-        data,
-        style: modifier?.styleValue ?? TextStyle(),
-        textAlign: modifier?.valueTextAlign,
-      ),
+      child: textWidget,
     );
   }
 }
@@ -44,11 +75,15 @@ final MTextModifier = DefineMTextModifier();
 
 class DefineMTextModifier extends MGeneralModifier {
   final TextStyle styleValue;
+  final TextStyle? valueHighlightStyle;
   final TextAlign? valueTextAlign;
+  final RegExp? valueHighlightRegExp;
 
   const DefineMTextModifier({
     this.styleValue = const TextStyle(),
+    this.valueHighlightStyle,
     this.valueTextAlign,
+    this.valueHighlightRegExp,
 
     /// Container
     super.valuePadding,
@@ -88,7 +123,9 @@ class DefineMTextModifier extends MGeneralModifier {
 
   DefineMTextModifier copyWith({
     TextStyle? styleValue,
+    TextStyle? valueHighlightStyle,
     TextAlign? valueTextAlign,
+    RegExp? valueHighlightRegExp,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -127,7 +164,9 @@ class DefineMTextModifier extends MGeneralModifier {
   }) {
     return DefineMTextModifier(
       styleValue: styleValue ?? this.styleValue,
+      valueHighlightStyle: valueHighlightStyle ?? this.valueHighlightStyle,
       valueTextAlign: valueTextAlign ?? this.valueTextAlign,
+      valueHighlightRegExp: valueHighlightRegExp ?? this.valueHighlightRegExp,
 
       /// Container
       valuePadding: valuePadding ?? this.valuePadding,
@@ -217,11 +256,6 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return heightLine(value);
   }
 
-  /// The line height, not container size Height.
-  // DefineMTextModifier height(double value) {
-  //   return heightLine(value);
-  // }
-
   DefineMTextModifier textHeight(double value) {
     return heightLine(value);
   }
@@ -274,6 +308,32 @@ extension MTextModifierPropertys on DefineMTextModifier {
     final DefineMTextModifier newModifierValue = this.copyWith(
         styleValue:
             this.styleValue.copyWith(decoration: TextDecoration.lineThrough));
+    return newModifierValue;
+  }
+
+  /// High light
+  DefineMTextModifier styleHighlight(TextStyle value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueHighlightStyle: value);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier highLightColor(Color value) {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        valueHighlightStyle:
+            (this.valueHighlightStyle ?? TextStyle()).copyWith(color: value));
+    return newModifierValue;
+  }
+
+  DefineMTextModifier highlightRegExp(RegExp value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueHighlightRegExp: value);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier highlightText(List<String> value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueHighlightRegExp: RegExp(value.join("|")));
     return newModifierValue;
   }
 }
