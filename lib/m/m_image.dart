@@ -257,3 +257,30 @@ extension MImageModifierPropertys on DefineMImageModifier {
     );
   }
 }
+
+ImageProvider mGetImageProvider(String data) {
+  ImageProvider imgWidget;
+  if (data.startsWith('http')) {
+    imgWidget = ExtendedNetworkImageProvider(
+      data,
+      cache: true,
+    );
+  } else if (data.startsWith("assets/")) {
+    imgWidget = AssetImage(
+      data,
+      // cacheWidth: cacheWidth,
+      // cacheHeight: cacheHeight,
+    );
+  } else if (File(data).existsSync()) {
+    imgWidget = FileImage(
+      File(data),
+    );
+  } else {
+    imgWidget = MemoryImage(
+      Uint8List.fromList(data.codeUnits.toList()),
+      // cacheWidth: cacheWidth,
+      // cacheHeight: cacheHeight,
+    );
+  }
+  return imgWidget;
+}

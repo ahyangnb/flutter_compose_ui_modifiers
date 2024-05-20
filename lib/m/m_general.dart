@@ -15,6 +15,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 enum MGravity { top, center, bottom }
 
@@ -42,6 +43,8 @@ class MGeneralModifier {
   final Gradient? valueGradient;
   final Border? valueBorder;
   final BoxShape? valueShape;
+  final String? valueBackgroundImage;
+  final BoxFit? valueBackgroundImageFit;
   final MGravity? valueGravity;
 
   /// Use the Positioned widget.
@@ -85,6 +88,8 @@ class MGeneralModifier {
     this.valueGradient,
     this.valueBorder,
     this.valueShape,
+    this.valueBackgroundImage,
+    this.valueBackgroundImageFit,
     this.valueGravity,
 
     /// Use the Positioned widget.
@@ -144,7 +149,8 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         generalModifier?.valueGradient != null ||
         generalModifier?.valueBorder != null ||
         // generalModifier?.valueAlignment != null ||
-        generalModifier?.valueShape != null) {
+        generalModifier?.valueShape != null ||
+        generalModifier?.valueBackgroundImage != null) {
       child = Container(
         width: ignoreList.contains(IgnoreModifierInGeneral.width)
             ? null
@@ -167,6 +173,13 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
           gradient: generalModifier?.valueGradient,
           border: generalModifier?.valueBorder,
           shape: generalModifier?.valueShape ?? BoxShape.rectangle,
+          image: generalModifier?.valueBackgroundImage != null
+              ? DecorationImage(
+                  image:
+                      mGetImageProvider(generalModifier!.valueBackgroundImage!),
+                  fit: generalModifier?.valueBackgroundImageFit,
+                )
+              : null,
         ),
         padding: ignoreList.contains(IgnoreModifierInGeneral.padding)
             ? null

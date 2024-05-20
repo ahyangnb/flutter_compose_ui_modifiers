@@ -1474,6 +1474,14 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
   }
+
+  DefineMRowModifier backgroundImageFit(BoxFit value) {
+    return this.copyWith(valueBackgroundImageFit: value);
+  }
+
+  DefineMRowModifier backgroundImage(String value) {
+    return this.copyWith(valueBackgroundImage: value);
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
