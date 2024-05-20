@@ -2141,6 +2141,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier elevation([double value = 10.0]) {
     return this.copyWith(valueMaterialElevation: value);
   }
+
+  DefineMColumnModifier outSideCenter() {
+    return this.copyWith(valueOutSideCenter: true);
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {

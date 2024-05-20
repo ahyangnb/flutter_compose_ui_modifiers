@@ -40,6 +40,7 @@ class MGeneralModifier {
   final Gradient? valueGradient;
   final Border? valueBorder;
   final BoxShape? valueShape;
+  final bool? valueOutSideCenter;
 
   /// Use the Positioned widget.
   final double? valueLeft;
@@ -82,6 +83,7 @@ class MGeneralModifier {
     this.valueGradient,
     this.valueBorder,
     this.valueShape,
+    this.valueOutSideCenter,
 
     /// Use the Positioned widget.
     this.valueLeft,
@@ -215,6 +217,12 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     if (generalModifier?.valueCenterAlign != null &&
         generalModifier!.valueCenterAlign!) {
       child = Center(child: child);
+    }
+
+    if (generalModifier?.valueOutSideCenter != null &&
+        generalModifier!.valueOutSideCenter!) {
+      child = Column(
+          mainAxisAlignment: MainAxisAlignment.center, children: [child]);
     }
 
     if (generalModifier?.valueScrollable ?? false) {

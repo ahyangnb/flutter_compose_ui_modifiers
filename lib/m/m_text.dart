@@ -61,6 +61,7 @@ class MText extends StatelessWidget {
 
       textWidget = RichText(
         text: TextSpan(style: useStyle, children: textSpans),
+        textAlign: modifier?.valueTextAlign ?? TextAlign.start,
       );
     }
 
@@ -109,6 +110,7 @@ class DefineMTextModifier extends MGeneralModifier {
     super.valueGradient,
     super.valueBorder,
     super.valueShape,
+    super.valueOutSideCenter,
 
     /// Position Widget
     super.valueLeft,
@@ -151,6 +153,7 @@ class DefineMTextModifier extends MGeneralModifier {
     Gradient? valueGradient,
     Border? valueBorder,
     BoxShape? valueShape,
+    bool? valueOutSideCenter,
 
     /// Position Widget
     double? valueLeft,
@@ -193,6 +196,7 @@ class DefineMTextModifier extends MGeneralModifier {
       valueGradient: valueGradient ?? this.valueGradient,
       valueBorder: valueBorder ?? this.valueBorder,
       valueShape: valueShape ?? this.valueShape,
+      valueOutSideCenter: valueOutSideCenter ?? this.valueOutSideCenter,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -273,6 +277,24 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return newModifierValue;
   }
 
+  DefineMTextModifier centerText() {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueTextAlign: TextAlign.center);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier alignCenter() {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueTextAlign: TextAlign.center);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier textCenter() {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueTextAlign: TextAlign.center);
+    return newModifierValue;
+  }
+
   DefineMTextModifier fontWeight(FontWeight fontWeight) {
     return setFontWeight(fontWeight);
   }
@@ -308,6 +330,20 @@ extension MTextModifierPropertys on DefineMTextModifier {
     final DefineMTextModifier newModifierValue = this.copyWith(
         styleValue:
             this.styleValue.copyWith(decoration: TextDecoration.lineThrough));
+    return newModifierValue;
+  }
+
+  DefineMTextModifier underLine() {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        styleValue:
+            this.styleValue.copyWith(decoration: TextDecoration.underline));
+    return newModifierValue;
+  }
+
+  DefineMTextModifier under() {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        styleValue:
+            this.styleValue.copyWith(decoration: TextDecoration.underline));
     return newModifierValue;
   }
 
