@@ -35,6 +35,7 @@ class MTipRow extends StatelessWidget {
               .expanded(),
           data: tipText,
         ),
+        2.px.space,
         MButtonMini(
           "Turn on",
           onTap: () {},

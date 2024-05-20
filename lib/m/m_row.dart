@@ -221,4 +221,8 @@ extension MRowModifierPropertys on DefineMRowModifier {
   DefineMRowModifier crossAxisEnd() {
     return this.copyWith(valueCrossAxisAlignment: CrossAxisAlignment.end);
   }
+
+  DefineMRowModifier crossStart() {
+    return this.copyWith(valueCrossAxisAlignment: CrossAxisAlignment.start);
+  }
 }

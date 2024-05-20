@@ -361,6 +361,13 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return newModifierValue;
   }
 
+  DefineMTextModifier highLightColorHex(int value) {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        valueHighlightStyle: (this.valueHighlightStyle ?? TextStyle())
+            .copyWith(color: Color(value)));
+    return newModifierValue;
+  }
+
   DefineMTextModifier highlightRegExp(RegExp value) {
     final DefineMTextModifier newModifierValue =
         this.copyWith(valueHighlightRegExp: value);
