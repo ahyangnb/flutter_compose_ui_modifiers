@@ -71,6 +71,10 @@ class DefineMStackModifier extends MGeneralModifier {
 
     /// Scroll
     super.valueScrollable,
+
+    // Blur
+    super.valueSigmaX,
+    super.valueSigmaY,
   });
 
   DefineMStackModifier copyWith({
@@ -112,6 +116,10 @@ class DefineMStackModifier extends MGeneralModifier {
 
     /// Scroll
     bool? valueScrollable,
+
+    /// Blur
+    double? valueSigmaX,
+    double? valueSigmaY,
   }) {
     return DefineMStackModifier(
       valueAlignment: valueAlignment ?? this.valueAlignment,
@@ -153,6 +161,10 @@ class DefineMStackModifier extends MGeneralModifier {
 
       /// Scroll
       valueScrollable: valueScrollable ?? this.valueScrollable,
+
+      // Blur
+      valueSigmaX: valueSigmaX ?? this.valueSigmaX,
+      valueSigmaY: valueSigmaY ?? this.valueSigmaY,
     );
   }
 }

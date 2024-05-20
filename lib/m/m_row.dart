@@ -51,6 +51,7 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueOnTap,
     super.valueOnLongPress,
     super.valueOnLongPressMoveUpdate,
+    super.valueOnLongPressUp,
     super.valueBackgroundColor,
     super.valueBorderRadius,
     super.valueCenterAlign,
@@ -74,6 +75,10 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueRight,
     super.valueTop,
     super.valueBottom,
+
+    // Blur
+    super.valueSigmaX,
+    super.valueSigmaY,
   });
 
   /// Create a copyWith().
@@ -89,6 +94,7 @@ class DefineMRowModifier extends MGeneralModifier {
     GestureTapCallback? valueOnTap,
     GestureLongPressCallback? valueOnLongPress,
     GestureLongPressMoveUpdateCallback? valueOnLongPressMoveUpdate,
+    GestureLongPressUpCallback? valueOnLongPressUp,
     Color? valueBackgroundColor,
     BorderRadius? valueBorderRadius,
     bool? valueCenterAlign,
@@ -112,6 +118,10 @@ class DefineMRowModifier extends MGeneralModifier {
     double? valueRight,
     double? valueTop,
     double? valueBottom,
+
+    /// Blur
+    double? valueSigmaX,
+    double? valueSigmaY,
   }) {
     return DefineMRowModifier(
       children: children ?? this.children,
@@ -128,6 +138,7 @@ class DefineMRowModifier extends MGeneralModifier {
       valueOnLongPress: valueOnLongPress ?? this.valueOnLongPress,
       valueOnLongPressMoveUpdate:
           valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
+      valueOnLongPressUp: valueOnLongPressUp ?? this.valueOnLongPressUp,
       valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
       valueBorderRadius: valueBorderRadius ?? this.valueBorderRadius,
       valueCenterAlign: valueCenterAlign ?? this.valueCenterAlign,
@@ -151,6 +162,10 @@ class DefineMRowModifier extends MGeneralModifier {
       valueRight: valueRight ?? this.valueRight,
       valueTop: valueTop ?? this.valueTop,
       valueBottom: valueBottom ?? this.valueBottom,
+
+      // Blur
+      valueSigmaX: valueSigmaX ?? this.valueSigmaX,
+      valueSigmaY: valueSigmaY ?? this.valueSigmaY,
     );
   }
 }

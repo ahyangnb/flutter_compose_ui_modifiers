@@ -355,6 +355,106 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier onLongPress(GestureLongPressCallback value) {
     return this.copyWith(valueOnLongPress: value);
   }
+
+  DefineMTextFieldModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMTextFieldModifier radiusTop(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextFieldModifier radiusBottom(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextFieldModifier radiusLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextFieldModifier radiusRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextFieldModifier radiusTopLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextFieldModifier radiusTopRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextFieldModifier radiusBottomLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextFieldModifier radiusBottomRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextFieldModifier opacity(double value) {
+    return this.copyWith(valueOpacity: value);
+  }
+
+  DefineMTextFieldModifier blur({double sigmaX = 10.0, double sigmaY = 10.0}) {
+    return this.copyWith(valueSigmaX: sigmaX, valueSigmaY: sigmaY);
+  }
+
+  DefineMTextFieldModifier onLongPressUp(GestureLongPressUpCallback value) {
+    return this.copyWith(valueOnLongPressUp: value);
+  }
 }
 
 extension MTextGeneralGenerator on DefineMTextModifier {
@@ -696,6 +796,106 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier onLongPress(GestureLongPressCallback value) {
     return this.copyWith(valueOnLongPress: value);
+  }
+
+  DefineMTextModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMTextModifier radiusTop(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextModifier radiusBottom(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextModifier radiusLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextModifier radiusRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextModifier radiusTopLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextModifier radiusTopRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextModifier radiusBottomLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextModifier radiusBottomRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTextModifier opacity(double value) {
+    return this.copyWith(valueOpacity: value);
+  }
+
+  DefineMTextModifier blur({double sigmaX = 10.0, double sigmaY = 10.0}) {
+    return this.copyWith(valueSigmaX: sigmaX, valueSigmaY: sigmaY);
+  }
+
+  DefineMTextModifier onLongPressUp(GestureLongPressUpCallback value) {
+    return this.copyWith(valueOnLongPressUp: value);
   }
 }
 
@@ -1073,6 +1273,106 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier onLongPress(GestureLongPressCallback value) {
     return this.copyWith(valueOnLongPress: value);
   }
+
+  DefineMRowModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMRowModifier radiusTop(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMRowModifier radiusBottom(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMRowModifier radiusLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMRowModifier radiusRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMRowModifier radiusTopLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMRowModifier radiusTopRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMRowModifier radiusBottomLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMRowModifier radiusBottomRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMRowModifier opacity(double value) {
+    return this.copyWith(valueOpacity: value);
+  }
+
+  DefineMRowModifier blur({double sigmaX = 10.0, double sigmaY = 10.0}) {
+    return this.copyWith(valueSigmaX: sigmaX, valueSigmaY: sigmaY);
+  }
+
+  DefineMRowModifier onLongPressUp(GestureLongPressUpCallback value) {
+    return this.copyWith(valueOnLongPressUp: value);
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
@@ -1276,6 +1576,106 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier onLongPress(GestureLongPressCallback value) {
     return this.copyWith(valueOnLongPress: value);
+  }
+
+  DefineMListViewModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMListViewModifier radiusTop(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMListViewModifier radiusBottom(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMListViewModifier radiusLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMListViewModifier radiusRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMListViewModifier radiusTopLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMListViewModifier radiusTopRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMListViewModifier radiusBottomLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMListViewModifier radiusBottomRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMListViewModifier opacity(double value) {
+    return this.copyWith(valueOpacity: value);
+  }
+
+  DefineMListViewModifier blur({double sigmaX = 10.0, double sigmaY = 10.0}) {
+    return this.copyWith(valueSigmaX: sigmaX, valueSigmaY: sigmaY);
+  }
+
+  DefineMListViewModifier onLongPressUp(GestureLongPressUpCallback value) {
+    return this.copyWith(valueOnLongPressUp: value);
   }
 }
 
@@ -1728,6 +2128,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier blur({double sigmaX = 10.0, double sigmaY = 10.0}) {
     return this.copyWith(valueSigmaX: sigmaX, valueSigmaY: sigmaY);
   }
+
+  DefineMColumnModifier onLongPressUp(GestureLongPressUpCallback value) {
+    return this.copyWith(valueOnLongPressUp: value);
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
@@ -2082,6 +2486,106 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier onLongPress(GestureLongPressCallback value) {
     return this.copyWith(valueOnLongPress: value);
+  }
+
+  DefineMAddButtonModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMAddButtonModifier radiusTop(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMAddButtonModifier radiusBottom(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMAddButtonModifier radiusLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMAddButtonModifier radiusRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMAddButtonModifier radiusTopLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMAddButtonModifier radiusTopRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMAddButtonModifier radiusBottomLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMAddButtonModifier radiusBottomRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMAddButtonModifier opacity(double value) {
+    return this.copyWith(valueOpacity: value);
+  }
+
+  DefineMAddButtonModifier blur({double sigmaX = 10.0, double sigmaY = 10.0}) {
+    return this.copyWith(valueSigmaX: sigmaX, valueSigmaY: sigmaY);
+  }
+
+  DefineMAddButtonModifier onLongPressUp(GestureLongPressUpCallback value) {
+    return this.copyWith(valueOnLongPressUp: value);
   }
 }
 
@@ -2442,6 +2946,102 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(valueOnLongPress: value);
   }
 
+  DefineMStackModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMStackModifier radiusTop(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMStackModifier radiusBottom(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMStackModifier radiusLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMStackModifier radiusRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMStackModifier radiusTopLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMStackModifier radiusTopRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMStackModifier radiusBottomLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMStackModifier radiusBottomRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMStackModifier opacity(double value) {
+    return this.copyWith(valueOpacity: value);
+  }
+
+  DefineMStackModifier blur({double sigmaX = 10.0, double sigmaY = 10.0}) {
+    return this.copyWith(valueSigmaX: sigmaX, valueSigmaY: sigmaY);
+  }
+
   DefineMStackModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
   }
@@ -2799,6 +3399,106 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier onLongPress(GestureLongPressCallback value) {
     return this.copyWith(valueOnLongPress: value);
   }
+
+  DefineMImageModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMImageModifier radiusTop(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMImageModifier radiusBottom(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMImageModifier radiusLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMImageModifier radiusRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMImageModifier radiusTopLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMImageModifier radiusTopRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMImageModifier radiusBottomLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMImageModifier radiusBottomRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMImageModifier opacity(double value) {
+    return this.copyWith(valueOpacity: value);
+  }
+
+  DefineMImageModifier blur({double sigmaX = 10.0, double sigmaY = 10.0}) {
+    return this.copyWith(valueSigmaX: sigmaX, valueSigmaY: sigmaY);
+  }
+
+  DefineMImageModifier onLongPressUp(GestureLongPressUpCallback value) {
+    return this.copyWith(valueOnLongPressUp: value);
+  }
 }
 
 extension MTileGeneralGenerator on DefineMTileModifier {
@@ -3152,5 +3852,105 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier onLongPress(GestureLongPressCallback value) {
     return this.copyWith(valueOnLongPress: value);
+  }
+
+  DefineMTileModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMTileModifier radiusTop(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTileModifier radiusBottom(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTileModifier radiusLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTileModifier radiusRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTileModifier radiusTopLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTileModifier radiusTopRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTileModifier radiusBottomLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTileModifier radiusBottomRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMTileModifier opacity(double value) {
+    return this.copyWith(valueOpacity: value);
+  }
+
+  DefineMTileModifier blur({double sigmaX = 10.0, double sigmaY = 10.0}) {
+    return this.copyWith(valueSigmaX: sigmaX, valueSigmaY: sigmaY);
+  }
+
+  DefineMTileModifier onLongPressUp(GestureLongPressUpCallback value) {
+    return this.copyWith(valueOnLongPressUp: value);
   }
 }

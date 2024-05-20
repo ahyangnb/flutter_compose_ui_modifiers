@@ -50,6 +50,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     super.valueOnTap,
     super.valueOnLongPress,
     super.valueOnLongPressMoveUpdate,
+    super.valueOnLongPressUp,
     super.valueBackgroundColor,
     super.valueBorderRadius,
     super.valueCenterAlign,
@@ -92,6 +93,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     GestureTapCallback? valueOnTap,
     GestureLongPressCallback? valueOnLongPress,
     GestureLongPressMoveUpdateCallback? valueOnLongPressMoveUpdate,
+    GestureLongPressUpCallback? valueOnLongPressUp,
     Color? valueBackgroundColor,
     BorderRadius? valueBorderRadius,
     bool? valueCenterAlign,
@@ -135,6 +137,7 @@ class DefineMColumnModifier extends MGeneralModifier {
       valueOnLongPress: valueOnLongPress ?? this.valueOnLongPress,
       valueOnLongPressMoveUpdate:
           valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
+      valueOnLongPressUp: valueOnLongPressUp ?? this.valueOnLongPressUp,
       valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
       valueBorderRadius: valueBorderRadius ?? this.valueBorderRadius,
       valueCenterAlign: valueCenterAlign ?? this.valueCenterAlign,
