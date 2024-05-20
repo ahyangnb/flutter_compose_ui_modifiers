@@ -73,6 +73,10 @@ class DefineMColumnModifier extends MGeneralModifier {
     super.valueRight,
     super.valueTop,
     super.valueBottom,
+
+    // Blur
+    super.valueSigmaX,
+    super.valueSigmaY,
   });
 
   /// Create a copyWith().
@@ -111,6 +115,10 @@ class DefineMColumnModifier extends MGeneralModifier {
     double? valueRight,
     double? valueTop,
     double? valueBottom,
+
+    /// Blur
+    double? valueSigmaX,
+    double? valueSigmaY,
   }) {
     return DefineMColumnModifier(
       children: children ?? this.children,
@@ -150,6 +158,10 @@ class DefineMColumnModifier extends MGeneralModifier {
       valueRight: valueRight ?? this.valueRight,
       valueTop: valueTop ?? this.valueTop,
       valueBottom: valueBottom ?? this.valueBottom,
+
+      // Blur
+      valueSigmaX: valueSigmaX ?? this.valueSigmaX,
+      valueSigmaY: valueSigmaY ?? this.valueSigmaY,
     );
   }
 }

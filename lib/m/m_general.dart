@@ -12,6 +12,8 @@
 //   }
 // }
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class MGeneralModifier {
@@ -48,6 +50,10 @@ class MGeneralModifier {
   /// Scroll.
   final bool? valueScrollable;
 
+  /// Blur
+  final double? valueSigmaX;
+  final double? valueSigmaY;
+
   const MGeneralModifier({
     this.valuePadding,
     this.valueMargin,
@@ -81,6 +87,10 @@ class MGeneralModifier {
 
     /// Scroll.
     this.valueScrollable,
+
+    /// Blur.
+    this.valueSigmaX,
+    this.valueSigmaY,
   });
 }
 
@@ -170,6 +180,21 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         onLongPress: generalModifier?.valueOnLongPress,
         onLongPressMoveUpdate: generalModifier?.valueOnLongPressMoveUpdate,
         onLongPressUp: generalModifier?.valueOnLongPressUp,
+        child: child,
+      );
+    }
+
+    if (generalModifier?.valueOpacity != null) {
+      child = Opacity(opacity: generalModifier!.valueOpacity!, child: child);
+    }
+
+    if (generalModifier?.valueSigmaX != null ||
+        generalModifier?.valueSigmaY != null) {
+      child = BackdropFilter(
+        filter: ImageFilter.blur(
+          sigmaX: generalModifier?.valueSigmaX ?? 0,
+          sigmaY: generalModifier?.valueSigmaY ?? 0,
+        ),
         child: child,
       );
     }

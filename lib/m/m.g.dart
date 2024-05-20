@@ -1632,6 +1632,102 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier onLongPress(GestureLongPressCallback value) {
     return this.copyWith(valueOnLongPress: value);
   }
+
+  DefineMColumnModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMColumnModifier radiusTop(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMColumnModifier radiusBottom(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMColumnModifier radiusLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMColumnModifier radiusRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMColumnModifier radiusTopLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMColumnModifier radiusTopRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMColumnModifier radiusBottomLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMColumnModifier radiusBottomRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMColumnModifier opacity(double value) {
+    return this.copyWith(valueOpacity: value);
+  }
+
+  DefineMColumnModifier blur({double sigmaX = 10.0, double sigmaY = 10.0}) {
+    return this.copyWith(valueSigmaX: sigmaX, valueSigmaY: sigmaY);
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
