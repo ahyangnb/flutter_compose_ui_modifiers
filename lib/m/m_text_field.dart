@@ -70,6 +70,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     super.valueOnLongPress,
     super.valueOnLongPressMoveUpdate,
     super.valueOnLongPressUp,
+    super.valueDragOutToStatusBar,
     super.valueBackgroundColor,
     super.valueBorderRadius,
     super.valueCenterAlign,
@@ -126,6 +127,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     GestureLongPressCallback? valueOnLongPress,
     GestureLongPressMoveUpdateCallback? valueOnLongPressMoveUpdate,
     GestureLongPressUpCallback? valueOnLongPressUp,
+    VoidCallback? valueDragOutToStatusBar,
     Color? valueBackgroundColor,
     BorderRadius? valueBorderRadius,
     bool? valueCenterAlign,
@@ -182,6 +184,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueOnLongPressMoveUpdate:
           valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
       valueOnLongPressUp: valueOnLongPressUp ?? this.valueOnLongPressUp,
+      valueDragOutToStatusBar:
+          valueDragOutToStatusBar ?? this.valueDragOutToStatusBar,
       valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
       valueBorderRadius: valueBorderRadius ?? this.valueBorderRadius,
       valueCenterAlign: valueCenterAlign ?? this.valueCenterAlign,

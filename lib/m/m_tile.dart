@@ -68,6 +68,7 @@ class DefineMTileModifier extends MGeneralModifier {
     super.valueOnLongPress,
     super.valueOnLongPressMoveUpdate,
     super.valueOnLongPressUp,
+    super.valueDragOutToStatusBar,
     super.valueBackgroundColor,
     super.valueBorderRadius,
     super.valueCenterAlign,
@@ -115,6 +116,7 @@ class DefineMTileModifier extends MGeneralModifier {
     GestureLongPressCallback? valueOnLongPress,
     GestureLongPressMoveUpdateCallback? valueOnLongPressMoveUpdate,
     GestureLongPressUpCallback? valueOnLongPressUp,
+    VoidCallback? valueDragOutToStatusBar,
     Color? valueBackgroundColor,
     BorderRadiusGeometry? valueBorderRadius,
     bool? valueCenterAlign,
@@ -162,6 +164,8 @@ class DefineMTileModifier extends MGeneralModifier {
       valueOnLongPressMoveUpdate:
           valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
       valueOnLongPressUp: valueOnLongPressUp ?? this.valueOnLongPressUp,
+      valueDragOutToStatusBar:
+          valueDragOutToStatusBar ?? this.valueDragOutToStatusBar,
       valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
       valueBorderRadius: valueBorderRadius ?? this.valueBorderRadius,
       valueCenterAlign: valueCenterAlign ?? this.valueCenterAlign,
