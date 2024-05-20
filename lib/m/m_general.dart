@@ -16,6 +16,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+enum MGravity { top, center, bottom }
+
 class MGeneralModifier {
   final EdgeInsets? valuePadding;
   final EdgeInsets? valueMargin;
@@ -40,7 +42,7 @@ class MGeneralModifier {
   final Gradient? valueGradient;
   final Border? valueBorder;
   final BoxShape? valueShape;
-  final bool? valueOutSideCenter;
+  final MGravity? valueGravity;
 
   /// Use the Positioned widget.
   final double? valueLeft;
@@ -83,7 +85,7 @@ class MGeneralModifier {
     this.valueGradient,
     this.valueBorder,
     this.valueShape,
-    this.valueOutSideCenter,
+    this.valueGravity,
 
     /// Use the Positioned widget.
     this.valueLeft,
@@ -219,10 +221,13 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
       child = Center(child: child);
     }
 
-    if (generalModifier?.valueOutSideCenter != null &&
-        generalModifier!.valueOutSideCenter!) {
-      child = Column(
-          mainAxisAlignment: MainAxisAlignment.center, children: [child]);
+    if (generalModifier?.valueGravity != null) {
+      final gravityValue = generalModifier!.valueGravity == MGravity.center
+          ? MainAxisAlignment.center
+          : generalModifier!.valueGravity == MGravity.top
+              ? MainAxisAlignment.start
+              : MainAxisAlignment.end;
+      child = Column(mainAxisAlignment: gravityValue, children: [child]);
     }
 
     if (generalModifier?.valueScrollable ?? false) {

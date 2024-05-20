@@ -468,7 +468,27 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   }
 
   DefineMTextFieldModifier outSideCenter() {
-    return this.copyWith(valueOutSideCenter: true);
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMTextFieldModifier outSideTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMTextFieldModifier gravityTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMTextFieldModifier gravityBottom() {
+    return this.copyWith(valueGravity: MGravity.bottom);
+  }
+
+  DefineMTextFieldModifier gravityCenter() {
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMTextFieldModifier gravity(MGravity value) {
+    return this.copyWith(valueGravity: value);
   }
 }
 
@@ -923,7 +943,27 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   }
 
   DefineMTextModifier outSideCenter() {
-    return this.copyWith(valueOutSideCenter: true);
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMTextModifier outSideTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMTextModifier gravityTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMTextModifier gravityBottom() {
+    return this.copyWith(valueGravity: MGravity.bottom);
+  }
+
+  DefineMTextModifier gravityCenter() {
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMTextModifier gravity(MGravity value) {
+    return this.copyWith(valueGravity: value);
   }
 }
 
@@ -1412,7 +1452,27 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   }
 
   DefineMRowModifier outSideCenter() {
-    return this.copyWith(valueOutSideCenter: true);
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMRowModifier outSideTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMRowModifier gravityTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMRowModifier gravityBottom() {
+    return this.copyWith(valueGravity: MGravity.bottom);
+  }
+
+  DefineMRowModifier gravityCenter() {
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMRowModifier gravity(MGravity value) {
+    return this.copyWith(valueGravity: value);
   }
 }
 
@@ -1729,7 +1789,27 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   }
 
   DefineMListViewModifier outSideCenter() {
-    return this.copyWith(valueOutSideCenter: true);
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMListViewModifier outSideTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMListViewModifier gravityTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMListViewModifier gravityBottom() {
+    return this.copyWith(valueGravity: MGravity.bottom);
+  }
+
+  DefineMListViewModifier gravityCenter() {
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMListViewModifier gravity(MGravity value) {
+    return this.copyWith(valueGravity: value);
   }
 }
 
@@ -2197,7 +2277,27 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   }
 
   DefineMColumnModifier outSideCenter() {
-    return this.copyWith(valueOutSideCenter: true);
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMColumnModifier outSideTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMColumnModifier gravityTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMColumnModifier gravityBottom() {
+    return this.copyWith(valueGravity: MGravity.bottom);
+  }
+
+  DefineMColumnModifier gravityCenter() {
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMColumnModifier gravity(MGravity value) {
+    return this.copyWith(valueGravity: value);
   }
 }
 
@@ -2665,7 +2765,27 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   }
 
   DefineMAddButtonModifier outSideCenter() {
-    return this.copyWith(valueOutSideCenter: true);
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMAddButtonModifier outSideTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMAddButtonModifier gravityTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMAddButtonModifier gravityBottom() {
+    return this.copyWith(valueGravity: MGravity.bottom);
+  }
+
+  DefineMAddButtonModifier gravityCenter() {
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMAddButtonModifier gravity(MGravity value) {
+    return this.copyWith(valueGravity: value);
   }
 }
 
@@ -3136,7 +3256,27 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   }
 
   DefineMStackModifier outSideCenter() {
-    return this.copyWith(valueOutSideCenter: true);
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMStackModifier outSideTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMStackModifier gravityTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMStackModifier gravityBottom() {
+    return this.copyWith(valueGravity: MGravity.bottom);
+  }
+
+  DefineMStackModifier gravityCenter() {
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMStackModifier gravity(MGravity value) {
+    return this.copyWith(valueGravity: value);
   }
 }
 
@@ -3603,7 +3743,27 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   }
 
   DefineMImageModifier outSideCenter() {
-    return this.copyWith(valueOutSideCenter: true);
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMImageModifier outSideTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMImageModifier gravityTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMImageModifier gravityBottom() {
+    return this.copyWith(valueGravity: MGravity.bottom);
+  }
+
+  DefineMImageModifier gravityCenter() {
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMImageModifier gravity(MGravity value) {
+    return this.copyWith(valueGravity: value);
   }
 }
 
@@ -4070,7 +4230,27 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   }
 
   DefineMTileModifier outSideCenter() {
-    return this.copyWith(valueOutSideCenter: true);
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMTileModifier outSideTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMTileModifier gravityTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMTileModifier gravityBottom() {
+    return this.copyWith(valueGravity: MGravity.bottom);
+  }
+
+  DefineMTileModifier gravityCenter() {
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMTileModifier gravity(MGravity value) {
+    return this.copyWith(valueGravity: value);
   }
 }
 
@@ -4526,6 +4706,26 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   }
 
   DefineMContainerModifier outSideCenter() {
-    return this.copyWith(valueOutSideCenter: true);
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMContainerModifier outSideTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMContainerModifier gravityTop() {
+    return this.copyWith(valueGravity: MGravity.top);
+  }
+
+  DefineMContainerModifier gravityBottom() {
+    return this.copyWith(valueGravity: MGravity.bottom);
+  }
+
+  DefineMContainerModifier gravityCenter() {
+    return this.copyWith(valueGravity: MGravity.center);
+  }
+
+  DefineMContainerModifier gravity(MGravity value) {
+    return this.copyWith(valueGravity: value);
   }
 }

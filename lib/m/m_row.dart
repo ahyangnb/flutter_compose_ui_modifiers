@@ -69,7 +69,7 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueGradient,
     super.valueBorder,
     super.valueShape,
-    super.valueOutSideCenter,
+    super.valueGravity,
 
     /// Position Widget
     super.valueLeft,
@@ -117,7 +117,7 @@ class DefineMRowModifier extends MGeneralModifier {
     Gradient? valueGradient,
     Border? valueBorder,
     BoxShape? valueShape,
-    bool? valueOutSideCenter,
+    MGravity? valueGravity,
 
     /// Position Widget
     double? valueLeft,
@@ -166,7 +166,7 @@ class DefineMRowModifier extends MGeneralModifier {
       valueGradient: valueGradient ?? this.valueGradient,
       valueBorder: valueBorder ?? this.valueBorder,
       valueShape: valueShape ?? this.valueShape,
-      valueOutSideCenter: valueOutSideCenter ?? this.valueOutSideCenter,
+      valueGravity: valueGravity ?? this.valueGravity,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -181,7 +181,7 @@ class DefineMRowModifier extends MGeneralModifier {
       // Material
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
       valueMaterialElevation:
-      valueMaterialElevation ?? this.valueMaterialElevation,
+          valueMaterialElevation ?? this.valueMaterialElevation,
     );
   }
 }

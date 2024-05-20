@@ -69,7 +69,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     super.valueGradient,
     super.valueBorder,
     super.valueShape,
-    super.valueOutSideCenter,
+    super.valueGravity,
 
     /// Position Widget
     super.valueLeft,
@@ -118,7 +118,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     Gradient? valueGradient,
     Border? valueBorder,
     BoxShape? valueShape,
-    bool? valueOutSideCenter,
+    MGravity? valueGravity,
 
     /// Position Widget
     double? valueLeft,
@@ -166,7 +166,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       valueGradient: valueGradient ?? this.valueGradient,
       valueBorder: valueBorder ?? this.valueBorder,
       valueShape: valueShape ?? this.valueShape,
-      valueOutSideCenter: valueOutSideCenter ?? this.valueOutSideCenter,
+      valueGravity: valueGravity ?? this.valueGravity,
 
       valueLeft: valueLeft ?? this.valueLeft,
       valueRight: valueRight ?? this.valueRight,
@@ -180,7 +180,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       // Material
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
       valueMaterialElevation:
-      valueMaterialElevation ?? this.valueMaterialElevation,
+          valueMaterialElevation ?? this.valueMaterialElevation,
     );
   }
 }
