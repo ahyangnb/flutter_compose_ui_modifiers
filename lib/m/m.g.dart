@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'dart:math' as math;
 
+import 'package:flutter_compose_ui_modifiers/m/m_container.dart';
+
 extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier shadow(BoxShadow value) {
     return this.copyWith(valueShadow: value);
@@ -3964,6 +3966,449 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   }
 
   DefineMTileModifier onLongPressUp(GestureLongPressUpCallback value) {
+    return this.copyWith(valueOnLongPressUp: value);
+  }
+}
+
+extension MContainerGeneralGenerator on DefineMContainerModifier {
+  DefineMContainerModifier paddingTop(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
+    );
+  }
+
+  DefineMContainerModifier paddingBottom(double value) {
+    return this.copyWith(
+      valuePadding:
+          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+    );
+  }
+
+  DefineMContainerModifier padding(double value) {
+    return setPaddingEdge(EdgeInsets.all(value));
+  }
+
+  DefineMContainerModifier paddingSet(EdgeInsets value) {
+    return setPaddingEdge(value);
+  }
+
+  DefineMContainerModifier setPaddingEdge(EdgeInsets? value) {
+    return this.copyWith(
+      valuePadding: value ?? this.valuePadding ?? EdgeInsets.zero,
+    );
+  }
+
+  DefineMContainerModifier setPaddingTop(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
+    );
+  }
+
+  DefineMContainerModifier paddingHorizontal(double value) {
+    return setPaddingHorizontal(value);
+  }
+
+  DefineMContainerModifier setPaddingHorizontal(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
+          .copyWith(left: value, right: value),
+    );
+  }
+
+  DefineMContainerModifier paddingVertical(double value) {
+    return setPaddingVertical(value);
+  }
+
+  DefineMContainerModifier setPaddingVertical(double value) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero)
+          .copyWith(top: value, bottom: value),
+    );
+  }
+
+  DefineMContainerModifier marginTop(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(top: value),
+    );
+  }
+
+  DefineMContainerModifier marginBottom(double value) {
+    return this.copyWith(
+      valueMargin:
+          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+    );
+  }
+
+  DefineMContainerModifier marginLeft(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(left: value),
+    );
+  }
+
+  DefineMContainerModifier marginRight(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(right: value),
+    );
+  }
+
+  DefineMContainerModifier marginHorizontal(double value) {
+    return marginSymmetric(horizontal: value);
+  }
+
+  DefineMContainerModifier marginVertical(double value) {
+    return marginSymmetric(vertical: value);
+  }
+
+  DefineMContainerModifier marginSymmetric(
+      {double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valueMargin?.left,
+        right: horizontal ?? this.valueMargin?.right,
+        top: vertical ?? this.valueMargin?.top,
+        bottom: vertical ?? this.valueMargin?.bottom,
+      ),
+    );
+  }
+
+  DefineMContainerModifier marginOnly({
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: left ?? this.valueMargin?.left,
+        right: right ?? this.valueMargin?.right,
+        top: top ?? this.valueMargin?.top,
+        bottom: bottom ?? this.valueMargin?.bottom,
+      ),
+    );
+  }
+
+  DefineMContainerModifier marginSet(EdgeInsets? value) {
+    return this.copyWith(valueMargin: value);
+  }
+
+  DefineMContainerModifier margin(double? value) {
+    return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
+  }
+
+  DefineMContainerModifier backgroundColor(Color? value) {
+    return this.copyWith(valueBackgroundColor: value);
+  }
+
+  DefineMContainerModifier center([bool value = true]) {
+    return this.copyWith(valueCenterAlign: value);
+  }
+
+  DefineMContainerModifier centered() {
+    return this.copyWith(valueCenterAlign: true);
+  }
+
+  DefineMContainerModifier sizeSet(Size value) {
+    return this.copyWith(valueWidth: value.width, valueHeight: value.height);
+  }
+
+  DefineMContainerModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMContainerModifier size(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMContainerModifier width(double? value) {
+    return this.copyWith(valueWidth: value);
+  }
+
+  DefineMContainerModifier heightSize(double? value) {
+    return this.copyWith(valueHeight: value);
+  }
+
+  DefineMContainerModifier onTap(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMContainerModifier onClick(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMContainerModifier click(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMContainerModifier setClick(VoidCallback valueOnTap) {
+    return this.copyWith(valueOnTap: valueOnTap);
+  }
+
+  DefineMContainerModifier clipCircle() {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.circular(
+            math.max(valueWidth ?? 0, valueHeight ?? 0) / 2));
+  }
+
+  DefineMContainerModifier borderRadius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMContainerModifier borderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueBorderRadius: value);
+  }
+
+  DefineMContainerModifier borderRadiusVertical(double value) {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMContainerModifier borderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMContainerModifier borderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
+  DefineMContainerModifier borderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueBorder: Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMContainerModifier borderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMContainerModifier borderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMContainerModifier borderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMContainerModifier borderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMContainerModifier border(Border value) {
+    return this.copyWith(valueBorder: value);
+  }
+
+  DefineMContainerModifier flex([int? value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
+  DefineMContainerModifier expanded([int? value = 1]) {
+    return this.copyWith(valueFlex: value);
+  }
+
+  DefineMContainerModifier gradient([Gradient? value]) {
+    return this.copyWith(valueGradient: value);
+  }
+
+  DefineMContainerModifier gradientDef([Color? color]) {
+    return this.copyWith(
+        valueGradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [(color ?? Colors.blue), Colors.white],
+      stops: [0, 0.3],
+    ));
+  }
+
+  DefineMContainerModifier top(double? value) {
+    return this.copyWith(valueTop: value);
+  }
+
+  DefineMContainerModifier bottom(double? value) {
+    return this.copyWith(valueBottom: value);
+  }
+
+  DefineMContainerModifier left(double? value) {
+    return this.copyWith(valueLeft: value);
+  }
+
+  DefineMContainerModifier right(double? value) {
+    return this.copyWith(valueRight: value);
+  }
+
+  DefineMContainerModifier topPosition(double? value) {
+    return this.copyWith(valueTop: value);
+  }
+
+  DefineMContainerModifier bottomPosition(double? value) {
+    return this.copyWith(valueBottom: value);
+  }
+
+  DefineMContainerModifier leftPosition(double? value) {
+    return this.copyWith(valueLeft: value);
+  }
+
+  DefineMContainerModifier rightPosition(double? value) {
+    return this.copyWith(valueRight: value);
+  }
+
+  DefineMContainerModifier position({
+    double? top,
+    double? bottom,
+    double? left,
+    double? right,
+  }) {
+    return this.copyWith(
+      valueTop: top,
+      valueBottom: bottom,
+      valueLeft: left,
+      valueRight: right,
+    );
+  }
+
+  DefineMContainerModifier shapeCircle() {
+    return this.copyWith(valueShape: BoxShape.circle);
+  }
+
+  DefineMContainerModifier shape(BoxShape value) {
+    return this.copyWith(valueShape: value);
+  }
+
+  DefineMContainerModifier onLongPressMoveUpdate(
+      GestureLongPressMoveUpdateCallback value) {
+    return this.copyWith(valueOnLongPressMoveUpdate: value);
+  }
+
+  DefineMContainerModifier onLongPress(GestureLongPressCallback value) {
+    return this.copyWith(valueOnLongPress: value);
+  }
+
+  DefineMContainerModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMContainerModifier radiusTop(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMContainerModifier radiusBottom(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMContainerModifier radiusLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMContainerModifier radiusRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMContainerModifier radiusTopLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMContainerModifier radiusTopRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        topRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMContainerModifier radiusBottomLeft(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomLeft: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMContainerModifier radiusBottomRight(double value) {
+    return this.copyWith(
+      valueBorderRadius:
+          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+              .copyWith(
+        bottomRight: Radius.circular(value),
+      ),
+    );
+  }
+
+  DefineMContainerModifier opacity(double value) {
+    return this.copyWith(valueOpacity: value);
+  }
+
+  DefineMContainerModifier blur({double sigmaX = 10.0, double sigmaY = 10.0}) {
+    return this.copyWith(valueSigmaX: sigmaX, valueSigmaY: sigmaY);
+  }
+
+  DefineMContainerModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
   }
 }
