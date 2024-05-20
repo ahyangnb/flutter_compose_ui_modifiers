@@ -29,6 +29,7 @@ export 'm/m.g.dart';
 export 'other/m_gradient_text.dart';
 export 'other/m_white_select_tile.dart';
 export 'other/m_button.dart';
+export 'other/m_tip_row.dart';
 export 'util/screen_fit.dart';
 
 /// Contains the modifier members of the [Widget] class.
