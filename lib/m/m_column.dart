@@ -214,4 +214,20 @@ extension MColumnModifierPropertys on DefineMColumnModifier {
   DefineMColumnModifier mainAxisAlignment(MainAxisAlignment value) {
     return this.copyWith(valueMainAxisAlignment: value);
   }
+
+  DefineMColumnModifier mainAxisCenter() {
+    return this.copyWith(valueMainAxisAlignment: MainAxisAlignment.center);
+  }
+
+  DefineMColumnModifier mainAxisEnd() {
+    return this.copyWith(valueMainAxisAlignment: MainAxisAlignment.end);
+  }
+
+  DefineMColumnModifier crossAxisCenter() {
+    return this.copyWith(valueCrossAxisAlignment: CrossAxisAlignment.center);
+  }
+
+  DefineMColumnModifier crossAxisEnd() {
+    return this.copyWith(valueCrossAxisAlignment: CrossAxisAlignment.end);
+  }
 }
