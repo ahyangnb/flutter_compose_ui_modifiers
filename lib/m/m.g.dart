@@ -1482,6 +1482,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier backgroundImage(String value) {
     return this.copyWith(valueBackgroundImage: value);
   }
+
+  DefineMRowModifier dragOutToStatusBar(VoidCallback value) {
+    return this.copyWith(valueDragOutToStatusBar: value);
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {

@@ -15,6 +15,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/assistant/m_dragble.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 enum MGravity { top, center, bottom }
@@ -26,6 +27,7 @@ class MGeneralModifier {
   final GestureLongPressCallback? valueOnLongPress;
   final GestureLongPressMoveUpdateCallback? valueOnLongPressMoveUpdate;
   final GestureLongPressUpCallback? valueOnLongPressUp;
+  final VoidCallback? valueDragOutToStatusBar;
   final Color? valueBackgroundColor;
   final BorderRadiusGeometry? valueBorderRadius;
   final bool? valueCenterAlign;
@@ -71,6 +73,7 @@ class MGeneralModifier {
     this.valueOnLongPress,
     this.valueOnLongPressMoveUpdate,
     this.valueOnLongPressUp,
+    this.valueDragOutToStatusBar,
     this.valueBackgroundColor,
     this.valueBorderRadius,
     this.valueCenterAlign,
@@ -241,6 +244,17 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
               ? MainAxisAlignment.start
               : MainAxisAlignment.end;
       child = Column(mainAxisAlignment: gravityValue, children: [child]);
+    }
+
+    if (generalModifier?.valueDragOutToStatusBar != null) {
+      if (generalModifier?.valueHeight == null) {
+        throw Exception("generalModifier?.valueHeight must not be null.");
+      }
+      child = MDragOut(
+        height: generalModifier!.valueHeight!,
+        child: child,
+        onDismiss: generalModifier!.valueDragOutToStatusBar!,
+      );
     }
 
     if (generalModifier?.valueScrollable ?? false) {
