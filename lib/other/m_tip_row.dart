@@ -30,9 +30,16 @@ class MTipRow extends StatelessWidget {
           modifier: MTextModifier.colorHex(0xffFFFFFF)
               .fontSize(12.px)
               .highlightText(highLightText ?? [])
-              .highLightColor(Color(0xffFFBB03)),
+              .highLightColor(Color(0xffFFBB03))
+              .fontWeight(FontWeight.w600)
+              .expanded(),
           data: tipText,
         ),
+        MButtonMini(
+          "Turn on",
+          onTap: () {},
+        ),
+        8.px.space,
       ],
     );
   }

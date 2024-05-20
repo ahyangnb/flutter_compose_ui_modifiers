@@ -23,6 +23,25 @@ class MButtonGrey extends StatelessWidget {
   }
 }
 
+class MButtonMini extends StatelessWidget {
+  final String text;
+  final void Function()? onTap;
+
+  const MButtonMini(this.text, {this.onTap, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MButton(
+      text: text,
+      textStyle: TextStyle(color: Colors.white, fontSize: 12.px),
+      width: 64.px,
+      height: 25.px,
+      borderRadius: BorderRadius.all(Radius.circular(17.px)),
+      onTap: onTap,
+    );
+  }
+}
+
 class MButton extends StatelessWidget {
   const MButton({
     super.key,

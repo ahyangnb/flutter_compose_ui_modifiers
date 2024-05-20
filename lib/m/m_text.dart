@@ -54,7 +54,7 @@ class MText extends StatelessWidget {
           return m.group(0)!;
         },
         onNonMatch: (n) {
-          textSpans.add(TextSpan(text: n));
+          textSpans.add(TextSpan(text: n, style: useStyle));
           return n;
         },
       );
