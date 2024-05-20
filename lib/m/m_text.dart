@@ -240,4 +240,25 @@ extension MTextModifierPropertys on DefineMTextModifier {
         this.copyWith(styleValue: value);
     return newModifierValue;
   }
+
+  DefineMTextModifier deleteLine() {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        styleValue:
+            this.styleValue.copyWith(decoration: TextDecoration.lineThrough));
+    return newModifierValue;
+  }
+
+  DefineMTextModifier lineThrough() {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        styleValue:
+            this.styleValue.copyWith(decoration: TextDecoration.lineThrough));
+    return newModifierValue;
+  }
+
+  DefineMTextModifier throughLine() {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        styleValue:
+            this.styleValue.copyWith(decoration: TextDecoration.lineThrough));
+    return newModifierValue;
+  }
 }
