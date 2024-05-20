@@ -2132,6 +2132,15 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
   }
+
+  DefineMColumnModifier material(
+      [MaterialType value = MaterialType.transparency]) {
+    return this.copyWith(valueMaterialType: value);
+  }
+
+  DefineMColumnModifier elevation([double value = 10.0]) {
+    return this.copyWith(valueMaterialElevation: value);
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {

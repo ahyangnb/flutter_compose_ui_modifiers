@@ -54,6 +54,10 @@ class MGeneralModifier {
   final double? valueSigmaX;
   final double? valueSigmaY;
 
+  /// Material
+  final MaterialType? valueMaterialType;
+  final double? valueMaterialElevation;
+
   const MGeneralModifier({
     this.valuePadding,
     this.valueMargin,
@@ -91,6 +95,10 @@ class MGeneralModifier {
     /// Blur.
     this.valueSigmaX,
     this.valueSigmaY,
+
+    /// Material
+    this.valueMaterialType,
+    this.valueMaterialElevation,
   });
 }
 
@@ -195,6 +203,15 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
           sigmaX: generalModifier?.valueSigmaX ?? 0,
           sigmaY: generalModifier?.valueSigmaY ?? 0,
         ),
+        child: child,
+      );
+    }
+
+    if (generalModifier?.valueMaterialType != null ||
+        generalModifier?.valueMaterialElevation != null) {
+      child = Material(
+        type: generalModifier?.valueMaterialType ?? MaterialType.transparency,
+        elevation: generalModifier?.valueMaterialElevation ?? 0,
         child: child,
       );
     }
