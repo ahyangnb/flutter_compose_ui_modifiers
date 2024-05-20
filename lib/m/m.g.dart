@@ -457,6 +457,19 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
   }
+
+  DefineMTextFieldModifier material(
+      [MaterialType value = MaterialType.transparency]) {
+    return this.copyWith(valueMaterialType: value);
+  }
+
+  DefineMTextFieldModifier elevation([double value = 10.0]) {
+    return this.copyWith(valueMaterialElevation: value);
+  }
+
+  DefineMTextFieldModifier outSideCenter() {
+    return this.copyWith(valueOutSideCenter: true);
+  }
 }
 
 extension MTextGeneralGenerator on DefineMTextModifier {
@@ -898,6 +911,19 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
+  }
+
+  DefineMTextModifier material(
+      [MaterialType value = MaterialType.transparency]) {
+    return this.copyWith(valueMaterialType: value);
+  }
+
+  DefineMTextModifier elevation([double value = 10.0]) {
+    return this.copyWith(valueMaterialElevation: value);
+  }
+
+  DefineMTextModifier outSideCenter() {
+    return this.copyWith(valueOutSideCenter: true);
   }
 }
 
@@ -1375,6 +1401,19 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
   }
+
+  DefineMRowModifier material(
+      [MaterialType value = MaterialType.transparency]) {
+    return this.copyWith(valueMaterialType: value);
+  }
+
+  DefineMRowModifier elevation([double value = 10.0]) {
+    return this.copyWith(valueMaterialElevation: value);
+  }
+
+  DefineMRowModifier outSideCenter() {
+    return this.copyWith(valueOutSideCenter: true);
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
@@ -1678,6 +1717,19 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
+  }
+
+  DefineMListViewModifier material(
+      [MaterialType value = MaterialType.transparency]) {
+    return this.copyWith(valueMaterialType: value);
+  }
+
+  DefineMListViewModifier elevation([double value = 10.0]) {
+    return this.copyWith(valueMaterialElevation: value);
+  }
+
+  DefineMListViewModifier outSideCenter() {
+    return this.copyWith(valueOutSideCenter: true);
   }
 }
 
@@ -2602,6 +2654,19 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
   }
+
+  DefineMAddButtonModifier material(
+      [MaterialType value = MaterialType.transparency]) {
+    return this.copyWith(valueMaterialType: value);
+  }
+
+  DefineMAddButtonModifier elevation([double value = 10.0]) {
+    return this.copyWith(valueMaterialElevation: value);
+  }
+
+  DefineMAddButtonModifier outSideCenter() {
+    return this.copyWith(valueOutSideCenter: true);
+  }
 }
 
 extension MAddStackGeneralGenerator on DefineMStackModifier {
@@ -3060,6 +3125,19 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
   }
+
+  DefineMStackModifier material(
+      [MaterialType value = MaterialType.transparency]) {
+    return this.copyWith(valueMaterialType: value);
+  }
+
+  DefineMStackModifier elevation([double value = 10.0]) {
+    return this.copyWith(valueMaterialElevation: value);
+  }
+
+  DefineMStackModifier outSideCenter() {
+    return this.copyWith(valueOutSideCenter: true);
+  }
 }
 
 extension MImageGeneralGenerator on DefineMImageModifier {
@@ -3513,6 +3591,19 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
+  }
+
+  DefineMImageModifier material(
+      [MaterialType value = MaterialType.transparency]) {
+    return this.copyWith(valueMaterialType: value);
+  }
+
+  DefineMImageModifier elevation([double value = 10.0]) {
+    return this.copyWith(valueMaterialElevation: value);
+  }
+
+  DefineMImageModifier outSideCenter() {
+    return this.copyWith(valueOutSideCenter: true);
   }
 }
 
@@ -3968,6 +4059,19 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
   }
+
+  DefineMTileModifier material(
+      [MaterialType value = MaterialType.transparency]) {
+    return this.copyWith(valueMaterialType: value);
+  }
+
+  DefineMTileModifier elevation([double value = 10.0]) {
+    return this.copyWith(valueMaterialElevation: value);
+  }
+
+  DefineMTileModifier outSideCenter() {
+    return this.copyWith(valueOutSideCenter: true);
+  }
 }
 
 extension MContainerGeneralGenerator on DefineMContainerModifier {
@@ -4410,5 +4514,18 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier onLongPressUp(GestureLongPressUpCallback value) {
     return this.copyWith(valueOnLongPressUp: value);
+  }
+
+  DefineMContainerModifier material(
+      [MaterialType value = MaterialType.transparency]) {
+    return this.copyWith(valueMaterialType: value);
+  }
+
+  DefineMContainerModifier elevation([double value = 10.0]) {
+    return this.copyWith(valueMaterialElevation: value);
+  }
+
+  DefineMContainerModifier outSideCenter() {
+    return this.copyWith(valueOutSideCenter: true);
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 class MAddButton extends StatelessWidget {
@@ -87,9 +88,14 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     super.valueRight,
     super.valueTop,
     super.valueBottom,
+
     // Blur
     super.valueSigmaX,
     super.valueSigmaY,
+
+    /// Material
+    super.valueMaterialType,
+    super.valueMaterialElevation,
   });
 
   /// Create a copyWith().
@@ -135,6 +141,10 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     /// Blur
     double? valueSigmaX,
     double? valueSigmaY,
+
+    /// Material
+    MaterialType? valueMaterialType,
+    double? valueMaterialElevation,
   }) {
     return DefineMAddButtonModifier(
       iconSizeValue: iconSizeValue ?? this.iconSizeValue,
@@ -179,6 +189,11 @@ class DefineMAddButtonModifier extends MGeneralModifier {
       // Blur
       valueSigmaX: valueSigmaX ?? this.valueSigmaX,
       valueSigmaY: valueSigmaY ?? this.valueSigmaY,
+
+      // Material
+      valueMaterialType: valueMaterialType ?? this.valueMaterialType,
+      valueMaterialElevation:
+          valueMaterialElevation ?? this.valueMaterialElevation,
     );
   }
 }

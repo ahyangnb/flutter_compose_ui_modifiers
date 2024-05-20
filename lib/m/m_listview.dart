@@ -80,6 +80,10 @@ class DefineMListViewModifier extends MGeneralModifier {
     // Blur
     super.valueSigmaX,
     super.valueSigmaY,
+
+    /// Material
+    super.valueMaterialType,
+    super.valueMaterialElevation,
   });
 
   /// Create a copyWith().
@@ -125,6 +129,10 @@ class DefineMListViewModifier extends MGeneralModifier {
     /// Blur
     double? valueSigmaX,
     double? valueSigmaY,
+
+    /// Material
+    MaterialType? valueMaterialType,
+    double? valueMaterialElevation,
   }) {
     return DefineMListViewModifier(
       valueReverse: valueReverse ?? this.valueReverse,
@@ -168,6 +176,11 @@ class DefineMListViewModifier extends MGeneralModifier {
       // Blur
       valueSigmaX: valueSigmaX ?? this.valueSigmaX,
       valueSigmaY: valueSigmaY ?? this.valueSigmaY,
+
+      // Material
+      valueMaterialType: valueMaterialType ?? this.valueMaterialType,
+      valueMaterialElevation:
+      valueMaterialElevation ?? this.valueMaterialElevation,
     );
   }
 }

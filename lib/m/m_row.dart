@@ -80,6 +80,10 @@ class DefineMRowModifier extends MGeneralModifier {
     // Blur
     super.valueSigmaX,
     super.valueSigmaY,
+
+    /// Material
+    super.valueMaterialType,
+    super.valueMaterialElevation,
   });
 
   /// Create a copyWith().
@@ -124,6 +128,10 @@ class DefineMRowModifier extends MGeneralModifier {
     /// Blur
     double? valueSigmaX,
     double? valueSigmaY,
+
+    /// Material
+    MaterialType? valueMaterialType,
+    double? valueMaterialElevation,
   }) {
     return DefineMRowModifier(
       children: children ?? this.children,
@@ -169,6 +177,11 @@ class DefineMRowModifier extends MGeneralModifier {
       // Blur
       valueSigmaX: valueSigmaX ?? this.valueSigmaX,
       valueSigmaY: valueSigmaY ?? this.valueSigmaY,
+
+      // Material
+      valueMaterialType: valueMaterialType ?? this.valueMaterialType,
+      valueMaterialElevation:
+      valueMaterialElevation ?? this.valueMaterialElevation,
     );
   }
 }
