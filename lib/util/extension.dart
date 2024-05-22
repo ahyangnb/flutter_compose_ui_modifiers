@@ -19,6 +19,10 @@ mixin class WorkManager {
   }
 }
 
+/// You must `extends GetxControllerWithWorks` if use it.
+mixin MGetxControllerMixin on GetxControllerWithWorks {}
+
+/// Just extends and use.
 class MGetxController extends GetxControllerWithWorks {}
 
 class GetxControllerWithWorks extends GetxController with WorkManager {

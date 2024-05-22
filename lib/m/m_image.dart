@@ -27,20 +27,22 @@ class MImage extends StatelessWidget {
     //     ? null
     //     : (modifier!.valueHeight!.toInt() * Get.mediaQuery.devicePixelRatio * 2)
     //         .toInt();
+    final useImageWidth = modifier?.valueImageWidth;
+    final useImageHeight = modifier?.valueImageHeight;
     Widget imgWidget;
     if (data.startsWith('http')) {
       imgWidget = ExtendedImage.network(
         data,
-        width: modifier?.valueWidth,
-        height: modifier?.valueHeight,
+        width: useImageWidth,
+        height: useImageHeight,
         fit: fitUse,
         cache: true,
       );
     } else if (data.startsWith("assets/")) {
       imgWidget = Image.asset(
         data,
-        width: modifier?.valueWidth,
-        height: modifier?.valueHeight,
+        width: useImageWidth,
+        height: useImageHeight,
         fit: fitUse,
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
@@ -48,8 +50,8 @@ class MImage extends StatelessWidget {
     } else if (File(data).existsSync()) {
       imgWidget = Image.file(
         File(data),
-        width: modifier?.valueWidth,
-        height: modifier?.valueHeight,
+        width: useImageWidth,
+        height: useImageHeight,
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
         fit: fitUse,
@@ -57,8 +59,8 @@ class MImage extends StatelessWidget {
     } else {
       imgWidget = Image.memory(
         Uint8List.fromList(data.codeUnits.toList()),
-        width: modifier?.valueWidth,
-        height: modifier?.valueHeight,
+        width: useImageWidth,
+        height: useImageHeight,
         fit: fitUse,
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
@@ -71,6 +73,7 @@ class MImage extends StatelessWidget {
       );
     }
 
+    final containerWidth = modifier?.valueWidth ?? useImageWidth;
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
       child: Stack(
@@ -78,8 +81,8 @@ class MImage extends StatelessWidget {
         children: [
           if (data.isURL)
             Container(
-              width: modifier?.valueWidth,
-              height: modifier?.valueHeight,
+              width: containerWidth,
+              height: modifier?.valueHeight ?? useImageWidth,
               decoration: BoxDecoration(
                 color: Colors.grey[200],
                 borderRadius: modifier?.valueBorderRadius,
@@ -89,8 +92,8 @@ class MImage extends StatelessWidget {
             ),
           ClipRRect(
             borderRadius: modifier?.valueShape == BoxShape.circle &&
-                    modifier?.valueWidth != null
-                ? BorderRadius.all(Radius.circular((modifier!.valueWidth!) / 2))
+                    containerWidth != null
+                ? BorderRadius.all(Radius.circular((containerWidth) / 2))
                 : modifier?.valueBorderRadius ??
                     BorderRadius.all(Radius.circular(0)),
             child: imgWidget,
@@ -105,9 +108,13 @@ final MImageModifier = DefineMImageModifier();
 
 class DefineMImageModifier extends MGeneralModifier {
   final BoxFit? valueFit;
+  final double? valueImageWidth;
+  final double? valueImageHeight;
 
   const DefineMImageModifier({
     this.valueFit,
+    this.valueImageWidth,
+    this.valueImageHeight,
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -152,6 +159,8 @@ class DefineMImageModifier extends MGeneralModifier {
 
   DefineMImageModifier copyWith({
     BoxFit? valueFit,
+    double? valueImageWidth,
+    double? valueImageHeight,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -197,6 +206,8 @@ class DefineMImageModifier extends MGeneralModifier {
   }) {
     return DefineMImageModifier(
       valueFit: valueFit ?? this.valueFit,
+      valueImageWidth: valueImageWidth ?? this.valueImageWidth,
+      valueImageHeight: valueImageWidth ?? this.valueImageHeight,
 
       /// Container
       valuePadding: valuePadding ?? this.valuePadding,
@@ -263,6 +274,48 @@ extension MImageModifierPropertys on DefineMImageModifier {
       valueBorderRadius: BorderRadius.circular(radiusUse ??
           (size ?? math.max(this.valueWidth ?? 0, this.valueHeight ?? 0)) / 2),
     );
+  }
+
+  DefineMImageModifier sizeImageSet(Size value) {
+    return this
+        .copyWith(valueImageWidth: value.width, valueImageHeight: value.height);
+  }
+
+  DefineMImageModifier sizeImageAll(double value) {
+    return this.copyWith(valueImageWidth: value, valueImageHeight: value);
+  }
+
+  DefineMImageModifier sizeImage(double value) {
+    return this.copyWith(valueImageWidth: value, valueImageHeight: value);
+  }
+
+  DefineMImageModifier widthImage(double? value) {
+    return this.copyWith(valueImageWidth: value);
+  }
+
+  DefineMImageModifier heightImage(double? value) {
+    return this.copyWith(valueImageHeight: value);
+  }
+
+  DefineMImageModifier imageSizeSet(Size value) {
+    return this
+        .copyWith(valueImageWidth: value.width, valueImageHeight: value.height);
+  }
+
+  DefineMImageModifier imageSizeAll(double value) {
+    return this.copyWith(valueImageWidth: value, valueImageHeight: value);
+  }
+
+  DefineMImageModifier imageSize(double value) {
+    return this.copyWith(valueImageWidth: value, valueImageHeight: value);
+  }
+
+  DefineMImageModifier imageWidth(double? value) {
+    return this.copyWith(valueImageWidth: value);
+  }
+
+  DefineMImageModifier imageHeight(double? value) {
+    return this.copyWith(valueImageHeight: value);
   }
 }
 
