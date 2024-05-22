@@ -490,6 +490,11 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
   }
+
+  DefineMTextFieldModifier maskColor([Color? value]) {
+    return this
+        .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
+  }
 }
 
 extension MTextGeneralGenerator on DefineMTextModifier {
@@ -964,6 +969,11 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
+  }
+
+  DefineMTextModifier maskColor([Color? value]) {
+    return this
+        .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
 }
 
@@ -1486,6 +1496,11 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier dragOutToStatusBar(VoidCallback value) {
     return this.copyWith(valueDragOutToStatusBar: value);
   }
+
+  DefineMRowModifier maskColor([Color? value]) {
+    return this
+        .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
@@ -1822,6 +1837,11 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
+  }
+
+  DefineMListViewModifier maskColor([Color? value]) {
+    return this
+        .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
 }
 
@@ -2311,6 +2331,11 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
   }
+
+  DefineMColumnModifier maskColor([Color? value]) {
+    return this
+        .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
@@ -2798,6 +2823,11 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
+  }
+
+  DefineMAddButtonModifier maskColor([Color? value]) {
+    return this
+        .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
 }
 
@@ -3290,6 +3320,11 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
   }
+
+  DefineMStackModifier maskColor([Color? value]) {
+    return this
+        .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
+  }
 }
 
 extension MImageGeneralGenerator on DefineMImageModifier {
@@ -3776,6 +3811,11 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
+  }
+
+  DefineMImageModifier maskColor([Color? value]) {
+    return this
+        .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
 }
 
@@ -4264,6 +4304,11 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
   }
+
+  DefineMTileModifier maskColor([Color? value]) {
+    return this
+        .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
+  }
 }
 
 extension MContainerGeneralGenerator on DefineMContainerModifier {
@@ -4739,5 +4784,10 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
+  }
+
+  DefineMContainerModifier maskColor([Color? value]) {
+    return this
+        .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
 }

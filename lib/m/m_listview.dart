@@ -81,6 +81,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     // Blur
     super.valueSigmaX,
     super.valueSigmaY,
+    super.valueMaskColor,
 
     /// Material
     super.valueMaterialType,
@@ -131,6 +132,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     /// Blur
     double? valueSigmaX,
     double? valueSigmaY,
+    Color? valueMaskColor,
 
     /// Material
     MaterialType? valueMaterialType,
@@ -180,6 +182,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       // Blur
       valueSigmaX: valueSigmaX ?? this.valueSigmaX,
       valueSigmaY: valueSigmaY ?? this.valueSigmaY,
+      valueMaskColor: valueMaskColor ?? this.valueMaskColor,
 
       // Material
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
