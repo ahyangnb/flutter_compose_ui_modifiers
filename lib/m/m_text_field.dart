@@ -363,15 +363,67 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
       right: value,
     );
     return this.copyWith(
-      decorationValue: (this.decorationValue ?? InputDecoration()).copyWith(
-        contentPadding: newPadding,
-      ),
+      decorationValue: (this.decorationValue ?? InputDecoration())
+          .copyWith(contentPadding: newPadding),
     );
   }
 
   DefineMTextFieldModifier contentPaddingVertical(double value) {
     final newPadding = EdgeInsets.only(
       top: value,
+      bottom: value,
+      left: thisPadding?.left ?? 0,
+      right: thisPadding?.right ?? 0,
+    );
+    return this.copyWith(
+      decorationValue: (this.decorationValue ?? InputDecoration())
+          .copyWith(contentPadding: newPadding),
+    );
+  }
+
+  DefineMTextFieldModifier contentPaddingLeft(double value) {
+    final newPadding = EdgeInsets.only(
+      top: thisPadding?.top ?? 0,
+      bottom: thisPadding?.bottom ?? 0,
+      left: value,
+      right: thisPadding?.right ?? 0,
+    );
+    return this.copyWith(
+      decorationValue: (this.decorationValue ?? InputDecoration())
+          .copyWith(contentPadding: newPadding),
+    );
+  }
+
+  DefineMTextFieldModifier contentPaddingRight(double value) {
+    final newPadding = EdgeInsets.only(
+      top: thisPadding?.top ?? 0,
+      bottom: thisPadding?.bottom ?? 0,
+      left: thisPadding?.left ?? 0,
+      right: value,
+    );
+    return this.copyWith(
+      decorationValue: (this.decorationValue ?? InputDecoration())
+          .copyWith(contentPadding: newPadding),
+    );
+  }
+
+  DefineMTextFieldModifier contentPaddingTop(double value) {
+    final newPadding = EdgeInsets.only(
+      top: value,
+      bottom: thisPadding?.bottom ?? 0,
+      left: thisPadding?.left ?? 0,
+      right: thisPadding?.right ?? 0,
+    );
+    return this.copyWith(
+      decorationValue: (this.decorationValue ?? InputDecoration()).copyWith(
+        contentPadding: newPadding,
+      ),
+    );
+  }
+
+  DefineMTextFieldModifier contentPaddingBottom(double value) {
+    final newPadding = EdgeInsets.only(
+      top: thisPadding?.top ?? 0,
       bottom: value,
       left: thisPadding?.left ?? 0,
       right: thisPadding?.right ?? 0,
