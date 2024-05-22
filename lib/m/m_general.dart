@@ -218,27 +218,31 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     if (generalModifier?.valueSigmaX != null ||
         generalModifier?.valueSigmaY != null) {
       if (generalModifier is DefineMImageModifier) {
-        child = ImageFiltered(
-          imageFilter: ImageFilter.compose(
-            // Blur.
-            // 模糊
-            outer: ImageFilter.blur(
+        child = ClipRect(
+          child: ImageFiltered(
+            imageFilter: ImageFilter.compose(
+              // Blur.
+              // 模糊
+              outer: ImageFilter.blur(
+                sigmaX: generalModifier?.valueSigmaX ?? 0,
+                sigmaY: generalModifier?.valueSigmaY ?? 0,
+              ),
+              // tilt
+              // 倾斜
+              inner: ImageFilter.matrix(Matrix4.skewY(0).storage),
+            ),
+            child: child,
+          ),
+        );
+      } else {
+        child = ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(
               sigmaX: generalModifier?.valueSigmaX ?? 0,
               sigmaY: generalModifier?.valueSigmaY ?? 0,
             ),
-            // tilt
-            // 倾斜
-            inner: ImageFilter.matrix(Matrix4.skewY(0).storage),
+            child: child,
           ),
-          child: child,
-        );
-      } else {
-        child = BackdropFilter(
-          filter: ImageFilter.blur(
-            sigmaX: generalModifier?.valueSigmaX ?? 0,
-            sigmaY: generalModifier?.valueSigmaY ?? 0,
-          ),
-          child: child,
         );
       }
     }
