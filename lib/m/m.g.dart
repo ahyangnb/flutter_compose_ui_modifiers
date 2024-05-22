@@ -495,6 +495,21 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
+
+  DefineMTextFieldModifier constraints({
+    double minWidth = 0.0,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double maxHeight = double.infinity,
+  }) {
+    final useValue = BoxConstraints(
+      minWidth: minWidth,
+      maxWidth: maxWidth,
+      minHeight: minHeight,
+      maxHeight: maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
 }
 
 extension MTextGeneralGenerator on DefineMTextModifier {
@@ -974,6 +989,21 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier maskColor([Color? value]) {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
+  }
+
+  DefineMTextModifier constraints({
+    double minWidth = 0.0,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double maxHeight = double.infinity,
+  }) {
+    final useValue = BoxConstraints(
+      minWidth: minWidth,
+      maxWidth: maxWidth,
+      minHeight: minHeight,
+      maxHeight: maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
   }
 }
 
@@ -1501,6 +1531,21 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
+
+  DefineMRowModifier constraints({
+    double minWidth = 0.0,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double maxHeight = double.infinity,
+  }) {
+    final useValue = BoxConstraints(
+      minWidth: minWidth,
+      maxWidth: maxWidth,
+      minHeight: minHeight,
+      maxHeight: maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
@@ -1842,6 +1887,21 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier maskColor([Color? value]) {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
+  }
+
+  DefineMListViewModifier constraints({
+    double minWidth = 0.0,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double maxHeight = double.infinity,
+  }) {
+    final useValue = BoxConstraints(
+      minWidth: minWidth,
+      maxWidth: maxWidth,
+      minHeight: minHeight,
+      maxHeight: maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
   }
 }
 
@@ -2336,6 +2396,21 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
+
+  DefineMColumnModifier constraints({
+    double minWidth = 0.0,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double maxHeight = double.infinity,
+  }) {
+    final useValue = BoxConstraints(
+      minWidth: minWidth,
+      maxWidth: maxWidth,
+      minHeight: minHeight,
+      maxHeight: maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
@@ -2828,6 +2903,21 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier maskColor([Color? value]) {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
+  }
+
+  DefineMAddButtonModifier constraints({
+    double minWidth = 0.0,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double maxHeight = double.infinity,
+  }) {
+    final useValue = BoxConstraints(
+      minWidth: minWidth,
+      maxWidth: maxWidth,
+      minHeight: minHeight,
+      maxHeight: maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
   }
 }
 
@@ -3325,6 +3415,21 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
+
+  DefineMStackModifier constraints({
+    double minWidth = 0.0,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double maxHeight = double.infinity,
+  }) {
+    final useValue = BoxConstraints(
+      minWidth: minWidth,
+      maxWidth: maxWidth,
+      minHeight: minHeight,
+      maxHeight: maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
 }
 
 extension MImageGeneralGenerator on DefineMImageModifier {
@@ -3816,6 +3921,21 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier maskColor([Color? value]) {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
+  }
+
+  DefineMImageModifier constraints({
+    double minWidth = 0.0,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double maxHeight = double.infinity,
+  }) {
+    final useValue = BoxConstraints(
+      minWidth: minWidth,
+      maxWidth: maxWidth,
+      minHeight: minHeight,
+      maxHeight: maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
   }
 }
 
@@ -4309,6 +4429,21 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
+
+  DefineMTileModifier constraints({
+    double minWidth = 0.0,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double maxHeight = double.infinity,
+  }) {
+    final useValue = BoxConstraints(
+      minWidth: minWidth,
+      maxWidth: maxWidth,
+      minHeight: minHeight,
+      maxHeight: maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
 }
 
 extension MContainerGeneralGenerator on DefineMContainerModifier {
@@ -4793,5 +4928,20 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier maskColor([Color? value]) {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
+  }
+
+  DefineMContainerModifier constraints({
+    double minWidth = 0.0,
+    double maxWidth = double.infinity,
+    double minHeight = 0.0,
+    double maxHeight = double.infinity,
+  }) {
+    final useValue = BoxConstraints(
+      minWidth: minWidth,
+      maxWidth: maxWidth,
+      minHeight: minHeight,
+      maxHeight: maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
   }
 }

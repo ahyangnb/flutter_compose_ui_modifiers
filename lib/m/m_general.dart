@@ -164,6 +164,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
             ? null
             : generalModifier?.valueHeight,
         transform: generalModifier?.valueTransform,
+        constraints: generalModifier?.valueConstraints,
         // alignment: ignoreList.contains(IgnoreModifierInGeneral.alignment)
         //     ? null
         //     : generalModifier.valueAlignment,
