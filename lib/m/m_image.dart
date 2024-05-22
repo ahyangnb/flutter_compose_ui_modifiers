@@ -66,12 +66,6 @@ class MImage extends StatelessWidget {
         // cacheHeight: cacheHeight,
       );
     }
-    if (modifier?.valueBorderRadius != null) {
-      imgWidget = ClipRRect(
-        borderRadius: modifier!.valueBorderRadius!,
-        child: imgWidget,
-      );
-    }
 
     final containerWidth = modifier?.valueWidth ?? useImageWidth;
     return MGeneralLayoutModifierWidget(
@@ -96,7 +90,11 @@ class MImage extends StatelessWidget {
                 ? BorderRadius.all(Radius.circular((containerWidth) / 2))
                 : modifier?.valueBorderRadius ??
                     BorderRadius.all(Radius.circular(0)),
-            child: imgWidget,
+            child: SizedBox(
+              width: modifier?.valueWidth,
+              height: modifier?.valueHeight,
+              child: imgWidget,
+            ),
           ),
         ],
       ),
