@@ -4464,6 +4464,10 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
     return this.copyWith(valueWidth: value);
   }
 
+  DefineMContainerModifier height(double? value) {
+    return this.copyWith(valueHeight: value);
+  }
+
   DefineMContainerModifier heightSize(double? value) {
     return this.copyWith(valueHeight: value);
   }

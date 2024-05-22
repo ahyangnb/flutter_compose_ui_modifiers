@@ -31,6 +31,7 @@ export 'other/m_white_select_tile.dart';
 export 'other/m_button.dart';
 export 'other/m_tip_row.dart';
 export 'util/screen_fit.dart';
+export 'util/extension.dart';
 
 /// Contains the modifier members of the [Widget] class.
 ///
