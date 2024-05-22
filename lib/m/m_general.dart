@@ -61,6 +61,7 @@ class MGeneralModifier {
   /// Blur
   final double? valueSigmaX;
   final double? valueSigmaY;
+  final Color? valueMaskColor;
 
   /// Material
   final MaterialType? valueMaterialType;
@@ -107,6 +108,7 @@ class MGeneralModifier {
     /// Blur.
     this.valueSigmaX,
     this.valueSigmaY,
+    this.valueMaskColor,
 
     /// Material
     this.valueMaterialType,
@@ -238,6 +240,15 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
           child: child,
         );
       }
+    }
+
+    if (generalModifier?.valueMaskColor != null) {
+      child = Stack(
+        children: [
+          child,
+          Container(color: generalModifier!.valueMaskColor!),
+        ],
+      );
     }
 
     if (generalModifier?.valueMaterialType != null ||
