@@ -15,12 +15,26 @@ class MTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    InputDecoration inputDecoration =
+        modifier?.decorationValue ?? InputDecoration();
+    if (modifier?.valueFilled != null) {
+      inputDecoration = inputDecoration.copyWith(filled: modifier?.valueFilled);
+    }
+    if (modifier?.valueFillColor != null) {
+      inputDecoration =
+          inputDecoration.copyWith(fillColor: modifier?.valueFillColor);
+    }
+    if (modifier?.valueInputBorder != null) {
+      inputDecoration =
+          inputDecoration.copyWith(border: modifier?.valueInputBorder);
+    }
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
       child: TextField(
         autofocus: modifier?.valueAutoFocus ?? false,
         controller: controller ?? TextEditingController(),
-        decoration: modifier?.decorationValue,
+        focusNode: modifier?.valueFocusNode ?? FocusNode(),
+        decoration: inputDecoration,
         style: modifier?.styleValue,
         expands: modifier?.expandsValue ?? false,
         maxLines: modifier?.maxLinesValue,
@@ -30,6 +44,8 @@ class MTextField extends StatelessWidget {
         onEditingComplete: modifier?.valueOnEditingComplete,
         textAlign: modifier?.valueTextAlign ?? TextAlign.start,
         enabled: modifier?.valueEnable ?? true,
+        scrollPadding:
+            modifier?.valueScrollPadding ?? const EdgeInsets.all(20.0),
       ),
     );
   }
@@ -50,6 +66,10 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   final VoidCallback? valueOnEditingComplete;
   final TextAlign? valueTextAlign;
   final bool? valueEnable;
+  final bool? valueFilled;
+  final Color? valueFillColor;
+  final EdgeInsets? valueScrollPadding;
+  final InputBorder? valueInputBorder;
 
   const DefineMTextFieldModifier({
     this.decorationValue,
@@ -64,6 +84,10 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     this.valueOnEditingComplete,
     this.valueTextAlign,
     this.valueEnable,
+    this.valueFilled,
+    this.valueFillColor,
+    this.valueScrollPadding,
+    this.valueInputBorder,
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -120,6 +144,10 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     final VoidCallback? valueOnEditingComplete,
     final TextAlign? valueTextAlign,
     final bool? valueEnable,
+    final bool? valueFilled,
+    final Color? valueFillColor,
+    final EdgeInsets? valueScrollPadding,
+    final InputBorder? valueInputBorder,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -177,6 +205,10 @@ class DefineMTextFieldModifier extends MGeneralModifier {
           valueOnEditingComplete ?? this.valueOnEditingComplete,
       valueTextAlign: valueTextAlign ?? this.valueTextAlign,
       valueEnable: valueEnable ?? this.valueEnable,
+      valueFilled: valueFilled ?? this.valueFilled,
+      valueFillColor: valueFillColor ?? this.valueFillColor,
+      valueScrollPadding: valueScrollPadding ?? this.valueScrollPadding,
+      valueInputBorder: valueInputBorder ?? this.valueInputBorder,
 
       /// The following properties are inherited from MGeneralModifier.
       valuePadding: valuePadding ?? this.valuePadding,
@@ -362,6 +394,14 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
     return this.copyWith(decorationValue: value);
   }
 
+  DefineMTextFieldModifier borderInput(InputBorder value) {
+    return this.copyWith(valueInputBorder: value);
+  }
+
+  DefineMTextFieldModifier inputBorder(InputBorder value) {
+    return this.copyWith(valueInputBorder: value);
+  }
+
   DefineMTextFieldModifier style(TextStyle value) {
     return this.copyWith(styleValue: value);
   }
@@ -426,5 +466,17 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier enable(bool? value) {
     return this.copyWith(valueEnable: value ?? true);
+  }
+
+  DefineMTextFieldModifier filled(bool? value) {
+    return this.copyWith(valueFilled: value ?? true);
+  }
+
+  DefineMTextFieldModifier fillColor(Color? value) {
+    return this.copyWith(valueFillColor: value);
+  }
+
+  DefineMTextFieldModifier scrollPadding(EdgeInsets? value) {
+    return this.copyWith(valueScrollPadding: value);
   }
 }
