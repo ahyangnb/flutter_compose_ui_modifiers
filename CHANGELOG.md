@@ -1,3 +1,6 @@
+## 0.3.8
+* Add so many function.
+
 ## 0.3.7
 * MGradientText optimize the profomance.
 
