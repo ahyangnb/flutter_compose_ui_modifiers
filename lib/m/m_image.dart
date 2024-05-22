@@ -18,6 +18,7 @@ class MImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final fitUse = modifier?.valueFit ?? BoxFit.cover;
     // int? cacheWidth = modifier?.valueWidth?.toInt() == null
     //     ? null
     //     : (modifier!.valueWidth!.toInt() * Get.mediaQuery.devicePixelRatio * 2)
@@ -32,7 +33,7 @@ class MImage extends StatelessWidget {
         data,
         width: modifier?.valueWidth,
         height: modifier?.valueHeight,
-        fit: modifier?.valueFit,
+        fit: fitUse,
         cache: true,
       );
     } else if (data.startsWith("assets/")) {
@@ -40,7 +41,7 @@ class MImage extends StatelessWidget {
         data,
         width: modifier?.valueWidth,
         height: modifier?.valueHeight,
-        fit: modifier?.valueFit,
+        fit: fitUse,
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
       );
@@ -51,14 +52,14 @@ class MImage extends StatelessWidget {
         height: modifier?.valueHeight,
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
-        fit: modifier?.valueFit,
+        fit: fitUse,
       );
     } else {
       imgWidget = Image.memory(
         Uint8List.fromList(data.codeUnits.toList()),
         width: modifier?.valueWidth,
         height: modifier?.valueHeight,
-        fit: modifier?.valueFit,
+        fit: fitUse,
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
       );

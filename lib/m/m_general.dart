@@ -214,13 +214,30 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
 
     if (generalModifier?.valueSigmaX != null ||
         generalModifier?.valueSigmaY != null) {
-      child = BackdropFilter(
-        filter: ImageFilter.blur(
-          sigmaX: generalModifier?.valueSigmaX ?? 0,
-          sigmaY: generalModifier?.valueSigmaY ?? 0,
-        ),
-        child: child,
-      );
+      if (generalModifier is DefineMImageModifier) {
+        child = ImageFiltered(
+          imageFilter: ImageFilter.compose(
+            // Blur.
+            // 模糊
+            outer: ImageFilter.blur(
+              sigmaX: generalModifier?.valueSigmaX ?? 0,
+              sigmaY: generalModifier?.valueSigmaY ?? 0,
+            ),
+            // tilt
+            // 倾斜
+            inner: ImageFilter.matrix(Matrix4.skewY(0).storage),
+          ),
+          child: child,
+        );
+      } else {
+        child = BackdropFilter(
+          filter: ImageFilter.blur(
+            sigmaX: generalModifier?.valueSigmaX ?? 0,
+            sigmaY: generalModifier?.valueSigmaY ?? 0,
+          ),
+          child: child,
+        );
+      }
     }
 
     if (generalModifier?.valueMaterialType != null ||
