@@ -116,7 +116,7 @@ extension FlutterUIModifiersWidget on Widget {
   /// ```
   Widget clipOval({
     CustomClipper<Rect>? clipper,
-    Clip behavior: Clip.antiAlias,
+    Clip behavior = Clip.antiAlias,
   }) {
     return ClipOval(child: this, clipper: clipper, clipBehavior: behavior);
   }
@@ -131,7 +131,7 @@ extension FlutterUIModifiersWidget on Widget {
   /// ```
   Widget clipPath({
     CustomClipper<Path>? clipper,
-    Clip behavior: Clip.antiAlias,
+    Clip behavior = Clip.antiAlias,
   }) {
     return ClipPath(child: this, clipper: clipper, clipBehavior: behavior);
   }
@@ -146,7 +146,7 @@ extension FlutterUIModifiersWidget on Widget {
   /// ```
   Widget clipRect({
     CustomClipper<Rect>? clipper,
-    Clip behavior: Clip.hardEdge,
+    Clip behavior = Clip.hardEdge,
   }) {
     return ClipRect(child: this, clipper: clipper, clipBehavior: behavior);
   }
@@ -444,7 +444,7 @@ extension FlutterUIModifiersWidget on Widget {
     Matrix4 transform, {
     Offset? origin,
     AlignmentGeometry? alignment,
-    bool transformHitTests: true,
+    bool transformHitTests = true,
   }) {
     return Transform(
       child: this,
