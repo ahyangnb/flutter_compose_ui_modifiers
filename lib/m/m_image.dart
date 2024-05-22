@@ -91,8 +91,12 @@ class MImage extends StatelessWidget {
                 : modifier?.valueBorderRadius ??
                     BorderRadius.all(Radius.circular(0)),
             child: SizedBox(
-              width: modifier?.valueWidth,
-              height: modifier?.valueHeight,
+              width: modifier?.valueImageWidth == null
+                  ? modifier?.valueWidth
+                  : null,
+              height: modifier?.valueImageHeight == null
+                  ? modifier?.valueHeight
+                  : null,
               child: imgWidget,
             ),
           ),
