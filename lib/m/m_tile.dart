@@ -87,6 +87,10 @@ class DefineMTileModifier extends MGeneralModifier {
     super.valueBorder,
     super.valueShape,
     super.valueGravity,
+    super.valueGradientBorder,
+    super.valueGradientBorderSize,
+    super.valueFullWidth,
+    super.valueFullHeight,
 
     /// Position Widget
     super.valueLeft,
@@ -136,6 +140,9 @@ class DefineMTileModifier extends MGeneralModifier {
     Border? valueBorder,
     BoxShape? valueShape,
     MGravity? valueGravity,
+    Gradient? valueGradientBorder,
+    double? valueFullWidth,
+    double? valueFullHeight,
 
     /// Position Widget
     double? valueLeft,
@@ -186,6 +193,9 @@ class DefineMTileModifier extends MGeneralModifier {
       valueBorder: valueBorder ?? this.valueBorder,
       valueShape: valueShape ?? this.valueShape,
       valueGravity: valueGravity ?? this.valueGravity,
+      valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
+      valueFullWidth: valueFullWidth ?? this.valueFullWidth,
+      valueFullHeight: valueFullHeight ?? this.valueFullHeight,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,

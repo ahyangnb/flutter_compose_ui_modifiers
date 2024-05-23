@@ -50,7 +50,7 @@ class MGeneralModifier {
   final BoxFit? valueBackgroundImageFit;
   final MGravity? valueGravity;
 
-  // If it doesn't work, wrap a SizeBox around it and set the width and height.
+  // If it doesn't work, set the fullWidth or fullHeight.
   final Gradient? valueGradientBorder;
   final double? valueGradientBorderSize;
   final double? valueFullWidth;

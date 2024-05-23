@@ -515,6 +515,30 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     );
     return this.copyWith(valueConstraints: useValue);
   }
+
+  // If it doesn't work, set the fullWidth or fullHeight.
+  DefineMTextFieldModifier gradientBorder({
+    Gradient? value,
+    double width = 1.0,
+  }) {
+    return this.copyWith(
+      valueGradientBorder:
+          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      valueWidth: width,
+    );
+  }
+
+  DefineMTextFieldModifier fullSize([double? value]) {
+    return this.copyWith(valueFullWidth: value, valueFullHeight: value);
+  }
+
+  DefineMTextFieldModifier fullWidth([double? value]) {
+    return this.copyWith(valueFullWidth: value);
+  }
+
+  DefineMTextFieldModifier fullHeight([double? value]) {
+    return this.copyWith(valueFullHeight: value);
+  }
 }
 
 extension MTextGeneralGenerator on DefineMTextModifier {
@@ -1014,6 +1038,30 @@ extension MTextGeneralGenerator on DefineMTextModifier {
       maxHeight: maxHeight,
     );
     return this.copyWith(valueConstraints: useValue);
+  }
+
+  // If it doesn't work, set the fullWidth or fullHeight.
+  DefineMTextModifier gradientBorder({
+    Gradient? value,
+    double width = 1.0,
+  }) {
+    return this.copyWith(
+      valueGradientBorder:
+          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      valueWidth: width,
+    );
+  }
+
+  DefineMTextModifier fullSize([double? value]) {
+    return this.copyWith(valueFullWidth: value, valueFullHeight: value);
+  }
+
+  DefineMTextModifier fullWidth([double? value]) {
+    return this.copyWith(valueFullWidth: value);
+  }
+
+  DefineMTextModifier fullHeight([double? value]) {
+    return this.copyWith(valueFullHeight: value);
   }
 }
 
@@ -1947,6 +1995,30 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     );
     return this.copyWith(valueConstraints: useValue);
   }
+
+  // If it doesn't work, set the fullWidth or fullHeight.
+  DefineMListViewModifier gradientBorder({
+    Gradient? value,
+    double width = 1.0,
+  }) {
+    return this.copyWith(
+      valueGradientBorder:
+          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      valueWidth: width,
+    );
+  }
+
+  DefineMListViewModifier fullSize([double? value]) {
+    return this.copyWith(valueFullWidth: value, valueFullHeight: value);
+  }
+
+  DefineMListViewModifier fullWidth([double? value]) {
+    return this.copyWith(valueFullWidth: value);
+  }
+
+  DefineMListViewModifier fullHeight([double? value]) {
+    return this.copyWith(valueFullHeight: value);
+  }
 }
 
 extension MColumnGeneralGenerator on DefineMColumnModifier {
@@ -2460,6 +2532,30 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     );
     return this.copyWith(valueConstraints: useValue);
   }
+
+  // If it doesn't work, set the fullWidth or fullHeight.
+  DefineMColumnModifier gradientBorder({
+    Gradient? value,
+    double width = 1.0,
+  }) {
+    return this.copyWith(
+      valueGradientBorder:
+          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      valueWidth: width,
+    );
+  }
+
+  DefineMColumnModifier fullSize([double? value]) {
+    return this.copyWith(valueFullWidth: value, valueFullHeight: value);
+  }
+
+  DefineMColumnModifier fullWidth([double? value]) {
+    return this.copyWith(valueFullWidth: value);
+  }
+
+  DefineMColumnModifier fullHeight([double? value]) {
+    return this.copyWith(valueFullHeight: value);
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
@@ -2972,6 +3068,30 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
       maxHeight: maxHeight,
     );
     return this.copyWith(valueConstraints: useValue);
+  }
+
+  // If it doesn't work, set the fullWidth or fullHeight.
+  DefineMAddButtonModifier gradientBorder({
+    Gradient? value,
+    double width = 1.0,
+  }) {
+    return this.copyWith(
+      valueGradientBorder:
+          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      valueWidth: width,
+    );
+  }
+
+  DefineMAddButtonModifier fullSize([double? value]) {
+    return this.copyWith(valueFullWidth: value, valueFullHeight: value);
+  }
+
+  DefineMAddButtonModifier fullWidth([double? value]) {
+    return this.copyWith(valueFullWidth: value);
+  }
+
+  DefineMAddButtonModifier fullHeight([double? value]) {
+    return this.copyWith(valueFullHeight: value);
   }
 }
 
@@ -3489,6 +3609,30 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     );
     return this.copyWith(valueConstraints: useValue);
   }
+
+  // If it doesn't work, set the fullWidth or fullHeight.
+  DefineMStackModifier gradientBorder({
+    Gradient? value,
+    double width = 1.0,
+  }) {
+    return this.copyWith(
+      valueGradientBorder:
+          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      valueWidth: width,
+    );
+  }
+
+  DefineMStackModifier fullSize([double? value]) {
+    return this.copyWith(valueFullWidth: value, valueFullHeight: value);
+  }
+
+  DefineMStackModifier fullWidth([double? value]) {
+    return this.copyWith(valueFullWidth: value);
+  }
+
+  DefineMStackModifier fullHeight([double? value]) {
+    return this.copyWith(valueFullHeight: value);
+  }
 }
 
 extension MImageGeneralGenerator on DefineMImageModifier {
@@ -4000,6 +4144,30 @@ extension MImageGeneralGenerator on DefineMImageModifier {
       maxHeight: maxHeight,
     );
     return this.copyWith(valueConstraints: useValue);
+  }
+
+  // If it doesn't work, set the fullWidth or fullHeight.
+  DefineMImageModifier gradientBorder({
+    Gradient? value,
+    double width = 1.0,
+  }) {
+    return this.copyWith(
+      valueGradientBorder:
+          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      valueWidth: width,
+    );
+  }
+
+  DefineMImageModifier fullSize([double? value]) {
+    return this.copyWith(valueFullWidth: value, valueFullHeight: value);
+  }
+
+  DefineMImageModifier fullWidth([double? value]) {
+    return this.copyWith(valueFullWidth: value);
+  }
+
+  DefineMImageModifier fullHeight([double? value]) {
+    return this.copyWith(valueFullHeight: value);
   }
 }
 
@@ -4513,6 +4681,30 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     );
     return this.copyWith(valueConstraints: useValue);
   }
+
+  // If it doesn't work, set the fullWidth or fullHeight.
+  DefineMTileModifier gradientBorder({
+    Gradient? value,
+    double width = 1.0,
+  }) {
+    return this.copyWith(
+      valueGradientBorder:
+          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      valueWidth: width,
+    );
+  }
+
+  DefineMTileModifier fullSize([double? value]) {
+    return this.copyWith(valueFullWidth: value, valueFullHeight: value);
+  }
+
+  DefineMTileModifier fullWidth([double? value]) {
+    return this.copyWith(valueFullWidth: value);
+  }
+
+  DefineMTileModifier fullHeight([double? value]) {
+    return this.copyWith(valueFullHeight: value);
+  }
 }
 
 extension MContainerGeneralGenerator on DefineMContainerModifier {
@@ -5017,5 +5209,29 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
       maxHeight: maxHeight,
     );
     return this.copyWith(valueConstraints: useValue);
+  }
+
+  // If it doesn't work, set the fullWidth or fullHeight.
+  DefineMContainerModifier gradientBorder({
+    Gradient? value,
+    double width = 1.0,
+  }) {
+    return this.copyWith(
+      valueGradientBorder:
+          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      valueWidth: width,
+    );
+  }
+
+  DefineMContainerModifier fullSize([double? value]) {
+    return this.copyWith(valueFullWidth: value, valueFullHeight: value);
+  }
+
+  DefineMContainerModifier fullWidth([double? value]) {
+    return this.copyWith(valueFullWidth: value);
+  }
+
+  DefineMContainerModifier fullHeight([double? value]) {
+    return this.copyWith(valueFullHeight: value);
   }
 }
