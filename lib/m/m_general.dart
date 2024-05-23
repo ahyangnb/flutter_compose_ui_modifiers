@@ -16,6 +16,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/assistant/m_dragble.dart';
+import 'package:flutter_compose_ui_modifiers/custom/gradient_box_border.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 enum MGravity { top, center, bottom }
@@ -48,6 +49,10 @@ class MGeneralModifier {
   final String? valueBackgroundImage;
   final BoxFit? valueBackgroundImageFit;
   final MGravity? valueGravity;
+
+  // If it doesn't work, wrap a SizeBox around it and set the width and height.
+  final Gradient? valueGradientBorder;
+  final double? valueGradientBorderSize;
 
   /// Use the Positioned widget.
   final double? valueLeft;
@@ -95,6 +100,8 @@ class MGeneralModifier {
     this.valueBackgroundImage,
     this.valueBackgroundImageFit,
     this.valueGravity,
+    this.valueGradientBorder,
+    this.valueGradientBorderSize,
 
     /// Use the Positioned widget.
     this.valueLeft,
@@ -152,6 +159,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         generalModifier?.valueTransform != null ||
         generalModifier?.valueShadow != null ||
         generalModifier?.valueGradient != null ||
+        generalModifier?.valueGradientBorder != null ||
         generalModifier?.valueBorder != null ||
         // generalModifier?.valueAlignment != null ||
         generalModifier?.valueShape != null ||
@@ -177,7 +185,11 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
               ? [generalModifier!.valueShadow!]
               : null,
           gradient: generalModifier?.valueGradient,
-          border: generalModifier?.valueBorder,
+          border: generalModifier?.valueGradientBorder != null
+              ? GradientBoxBorder(
+                  gradient: generalModifier!.valueGradientBorder!,
+                  width: generalModifier?.valueGradientBorderSize ?? 1.0)
+              : generalModifier?.valueBorder,
           shape: generalModifier?.valueShape ?? BoxShape.rectangle,
           image: generalModifier?.valueBackgroundImage != null
               ? DecorationImage(

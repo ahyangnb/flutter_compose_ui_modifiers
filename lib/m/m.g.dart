@@ -1561,6 +1561,18 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     );
     return this.copyWith(valueConstraints: useValue);
   }
+
+  // If it doesn't work, wrap a SizeBox around it and set the width and height.
+  DefineMRowModifier gradientBorder({
+    Gradient? value,
+    double width = 1.0,
+  }) {
+    return this.copyWith(
+      valueGradientBorder:
+          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      valueWidth: width,
+    );
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {

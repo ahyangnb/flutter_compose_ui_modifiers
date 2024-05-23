@@ -73,6 +73,7 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueBackgroundImage,
     super.valueBackgroundImageFit,
     super.valueGravity,
+    super.valueGradientBorder,
 
     /// Position Widget
     super.valueLeft,
@@ -125,6 +126,7 @@ class DefineMRowModifier extends MGeneralModifier {
     String? valueBackgroundImage,
     BoxFit? valueBackgroundImageFit,
     MGravity? valueGravity,
+    Gradient? valueGradientBorder,
 
     /// Position Widget
     double? valueLeft,
@@ -180,6 +182,7 @@ class DefineMRowModifier extends MGeneralModifier {
       valueBackgroundImageFit:
           valueBackgroundImageFit ?? this.valueBackgroundImageFit,
       valueGravity: valueGravity ?? this.valueGravity,
+      valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
