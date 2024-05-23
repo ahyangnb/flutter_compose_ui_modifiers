@@ -27,21 +27,3 @@ class _ButtonColor {
 
   Color get textColor => Colors.white;
 }
-
-class ColorUtil {
-  static Color? broadcasterStatusColor(String status) {
-    if (status == 'Busy') {
-      return const Color(0xffFFA000);
-    }
-    if (status == "Online" || status == "Available" || status == "Live") {
-      return const Color(0xff2CD101);
-    }
-    if (status == 'Offline' || status == "Not available") {
-      return const Color(0xff747474);
-    }
-    if (status == 'InCall') {
-      return Colors.red;
-    }
-    return const Color(0xff747474);
-  }
-}

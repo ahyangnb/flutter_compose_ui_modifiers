@@ -269,8 +269,13 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     );
   }
 
-  DefineMTextFieldModifier border(Border value) {
+  DefineMTextFieldModifier border(Border? value) {
     return this.copyWith(valueBorder: value);
+  }
+
+  DefineMTextFieldModifier borderWhite() {
+    return this
+        .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
   DefineMTextFieldModifier flex([int value = 1]) {
@@ -764,8 +769,13 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     );
   }
 
-  DefineMTextModifier border(Border value) {
+  DefineMTextModifier border(Border? value) {
     return this.copyWith(valueBorder: value);
+  }
+
+  DefineMTextModifier borderWhite() {
+    return this
+        .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
   DefineMTextModifier flex([int? value = 1]) {
@@ -1293,8 +1303,13 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     );
   }
 
-  DefineMRowModifier border(Border value) {
+  DefineMRowModifier border(Border? value) {
     return this.copyWith(valueBorder: value);
+  }
+
+  DefineMRowModifier borderWhite() {
+    return this
+        .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
   DefineMRowModifier flex([int value = 1]) {
@@ -1662,8 +1677,13 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     );
   }
 
-  DefineMListViewModifier border(Border value) {
+  DefineMListViewModifier border(Border? value) {
     return this.copyWith(valueBorder: value);
+  }
+
+  DefineMListViewModifier borderWhite() {
+    return this
+        .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
   DefineMListViewModifier flex([int value = 1]) {
@@ -2170,8 +2190,13 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     );
   }
 
-  DefineMColumnModifier border(Border value) {
+  DefineMColumnModifier border(Border? value) {
     return this.copyWith(valueBorder: value);
+  }
+
+  DefineMColumnModifier borderWhite() {
+    return this
+        .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
   DefineMColumnModifier flex([int value = 1]) {
@@ -2678,8 +2703,13 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     );
   }
 
-  DefineMAddButtonModifier border(Border value) {
+  DefineMAddButtonModifier border(Border? value) {
     return this.copyWith(valueBorder: value);
+  }
+
+  DefineMAddButtonModifier borderWhite() {
+    return this
+        .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
   DefineMAddButtonModifier flex([int value = 1]) {
@@ -3185,8 +3215,13 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     );
   }
 
-  DefineMStackModifier border(Border value) {
+  DefineMStackModifier border(Border? value) {
     return this.copyWith(valueBorder: value);
+  }
+
+  DefineMStackModifier borderWhite() {
+    return this
+        .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
   DefineMStackModifier flex([int value = 1]) {
@@ -3696,8 +3731,13 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     );
   }
 
-  DefineMImageModifier border(Border value) {
+  DefineMImageModifier border(Border? value) {
     return this.copyWith(valueBorder: value);
+  }
+
+  DefineMImageModifier borderWhite() {
+    return this
+        .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
   DefineMImageModifier flex([int value = 1]) {
@@ -4203,8 +4243,13 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     );
   }
 
-  DefineMTileModifier border(Border value) {
+  DefineMTileModifier border(Border? value) {
     return this.copyWith(valueBorder: value);
+  }
+
+  DefineMTileModifier borderWhite() {
+    return this
+        .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
   DefineMTileModifier flex([int value = 1]) {
@@ -4703,8 +4748,13 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
     );
   }
 
-  DefineMContainerModifier border(Border value) {
+  DefineMContainerModifier border(Border? value) {
     return this.copyWith(valueBorder: value);
+  }
+
+  DefineMContainerModifier borderWhite() {
+    return this
+        .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
   DefineMContainerModifier flex([int? value = 1]) {

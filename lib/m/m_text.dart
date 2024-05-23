@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 /// @todo HighlightNamesText function with MText.
@@ -398,5 +399,30 @@ extension MTextModifierPropertys on DefineMTextModifier {
     final DefineMTextModifier newModifierValue =
         this.copyWith(valueHighlightRegExp: RegExp(value.join("|")));
     return newModifierValue;
+  }
+
+  DefineMTextModifier chipWhite() {
+    final borderWidth = 1.px;
+    final DefineMTextModifier newModifierValue = this.copyWith(
+      styleValue: (this.styleValue).copyWith(
+        color: Colors.white,
+        fontSize: 12.px,
+      ),
+      valueBorder: Border.all(color: Colors.white, width: borderWidth),
+      valueBorderRadius: BorderRadius.all(Radius.circular(17.px)),
+      valuePadding: EdgeInsets.symmetric(
+          horizontal: 10.px - borderWidth, vertical: 5.px - borderWidth),
+      valueBackgroundColor: Colors.white.withOpacity(0.2),
+      valueMargin: EdgeInsets.only(right: 10.px, bottom: 10.px),
+    );
+    return newModifierValue;
+  }
+
+  DefineMTextModifier chipGradient() {
+    final borderWidth = 1.px;
+    return chipWhite()
+        .backgroundColor(Colors.black)
+        .border(Border.all(color: Colors.transparent, width: borderWidth))
+        .gradient(MColor.button.primaryBackgroundGradient);
   }
 }
