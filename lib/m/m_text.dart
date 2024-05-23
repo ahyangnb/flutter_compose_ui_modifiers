@@ -401,6 +401,34 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return newModifierValue;
   }
 
+  DefineMTextModifier styleLight(TextStyle value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueHighlightStyle: value);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier lightColor(Color value) {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        valueHighlightStyle:
+            (this.valueHighlightStyle ?? TextStyle()).copyWith(color: value));
+    return newModifierValue;
+  }
+
+  DefineMTextModifier lightColorHex(int value) {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        valueHighlightStyle: (this.valueHighlightStyle ?? TextStyle())
+            .copyWith(color: Color(value)));
+    return newModifierValue;
+  }
+
+  DefineMTextModifier lightRegExp(RegExp value) {
+    return highlightRegExp(value);
+  }
+
+  DefineMTextModifier lightText(List<String> value) {
+    return highlightText(value);
+  }
+
   DefineMTextModifier chipWhite() {
     final borderWidth = 1.px;
     final DefineMTextModifier newModifierValue = this.copyWith(
