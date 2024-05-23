@@ -1562,7 +1562,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueConstraints: useValue);
   }
 
-  // If it doesn't work, wrap a SizeBox around it and set the width and height.
+  // If it doesn't work, set the fullWidth or fullHeight.
   DefineMRowModifier gradientBorder({
     Gradient? value,
     double width = 1.0,
@@ -1572,6 +1572,18 @@ extension MRowGeneralGenerator on DefineMRowModifier {
           value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
       valueWidth: width,
     );
+  }
+
+  DefineMRowModifier fullSize([double? value]) {
+    return this.copyWith(valueFullWidth: value, valueFullHeight: value);
+  }
+
+  DefineMRowModifier fullWidth([double? value]) {
+    return this.copyWith(valueFullWidth: value);
+  }
+
+  DefineMRowModifier fullHeight([double? value]) {
+    return this.copyWith(valueFullHeight: value);
   }
 }
 

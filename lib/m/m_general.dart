@@ -53,6 +53,8 @@ class MGeneralModifier {
   // If it doesn't work, wrap a SizeBox around it and set the width and height.
   final Gradient? valueGradientBorder;
   final double? valueGradientBorderSize;
+  final double? valueFullWidth;
+  final double? valueFullHeight;
 
   /// Use the Positioned widget.
   final double? valueLeft;
@@ -102,6 +104,8 @@ class MGeneralModifier {
     this.valueGravity,
     this.valueGradientBorder,
     this.valueGradientBorderSize,
+    this.valueFullWidth,
+    this.valueFullHeight,
 
     /// Use the Positioned widget.
     this.valueLeft,
@@ -203,6 +207,15 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
             ? null
             : generalModifier?.valuePadding,
         margin: generalModifier?.valueMargin,
+        child: child,
+      );
+    }
+
+    if (generalModifier?.valueFullWidth != null ||
+        generalModifier?.valueFullHeight != null) {
+      child = SizedBox(
+        width: generalModifier?.valueFullWidth,
+        height: generalModifier?.valueFullHeight,
         child: child,
       );
     }

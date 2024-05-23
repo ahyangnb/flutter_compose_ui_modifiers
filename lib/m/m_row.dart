@@ -74,6 +74,8 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueBackgroundImageFit,
     super.valueGravity,
     super.valueGradientBorder,
+    super.valueFullWidth,
+    super.valueFullHeight,
 
     /// Position Widget
     super.valueLeft,
@@ -127,6 +129,8 @@ class DefineMRowModifier extends MGeneralModifier {
     BoxFit? valueBackgroundImageFit,
     MGravity? valueGravity,
     Gradient? valueGradientBorder,
+    double? valueFullWidth,
+    double? valueFullHeight,
 
     /// Position Widget
     double? valueLeft,
@@ -183,6 +187,8 @@ class DefineMRowModifier extends MGeneralModifier {
           valueBackgroundImageFit ?? this.valueBackgroundImageFit,
       valueGravity: valueGravity ?? this.valueGravity,
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
+      valueFullWidth: valueFullWidth ?? this.valueFullWidth,
+      valueFullHeight: valueFullHeight ?? this.valueFullHeight,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
