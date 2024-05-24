@@ -24,7 +24,7 @@ class MTile extends StatelessWidget {
             .crossAxisAlignment(CrossAxisAlignment.center)
             .paddingHorizontal(16.px)
             .height(54.px)
-            .backgroundColor(MThemeConfig.bgWhite22)
+            .backgroundColor(MConfig.bgWhite22)
             .borderRadiusSet(
               (modifier?.valueBorderRadius as BorderRadius?) ??
                   BorderRadius.all(Radius.circular(8.px)),
