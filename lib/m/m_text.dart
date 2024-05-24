@@ -36,6 +36,8 @@ class MText extends StatelessWidget {
       text,
       style: useStyle,
       textAlign: modifier?.valueTextAlign,
+      maxLines: modifier?.valueMaxLines,
+      overflow: modifier?.valueOverflow,
     );
 
     if (modifier?.valueHighlightRegExp != null) {
@@ -63,6 +65,9 @@ class MText extends StatelessWidget {
       textWidget = RichText(
         text: TextSpan(style: useStyle, children: textSpans),
         textAlign: modifier?.valueTextAlign ?? TextAlign.start,
+        maxLines: modifier?.valueMaxLines,
+        overflow:
+            modifier?.valueOverflow ?? RichText(text: TextSpan()).overflow,
       );
     }
 
@@ -80,12 +85,16 @@ class DefineMTextModifier extends MGeneralModifier {
   final TextStyle? valueHighlightStyle;
   final TextAlign? valueTextAlign;
   final RegExp? valueHighlightRegExp;
+  final int? valueMaxLines;
+  final TextOverflow? valueOverflow;
 
   const DefineMTextModifier({
     this.styleValue = const TextStyle(),
     this.valueHighlightStyle,
     this.valueTextAlign,
     this.valueHighlightRegExp,
+    this.valueMaxLines,
+    this.valueOverflow,
 
     /// Container
     super.valuePadding,
@@ -139,6 +148,8 @@ class DefineMTextModifier extends MGeneralModifier {
     TextStyle? valueHighlightStyle,
     TextAlign? valueTextAlign,
     RegExp? valueHighlightRegExp,
+    final int? valueMaxLines,
+    final TextOverflow? valueOverflow,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -190,6 +201,8 @@ class DefineMTextModifier extends MGeneralModifier {
       valueHighlightStyle: valueHighlightStyle ?? this.valueHighlightStyle,
       valueTextAlign: valueTextAlign ?? this.valueTextAlign,
       valueHighlightRegExp: valueHighlightRegExp ?? this.valueHighlightRegExp,
+      valueMaxLines: valueMaxLines ?? this.valueMaxLines,
+      valueOverflow: valueOverflow ?? this.valueOverflow,
 
       /// Container
       valuePadding: valuePadding ?? this.valuePadding,
@@ -462,5 +475,47 @@ extension MTextModifierPropertys on DefineMTextModifier {
         .backgroundColor(Colors.black)
         .border(Border.all(color: Colors.transparent, width: borderWidth))
         .gradient(MColor.button.primaryBackgroundGradient);
+  }
+
+  DefineMTextModifier maxLines(int value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueMaxLines: value);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier overflow(TextOverflow value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueOverflow: value);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier overflowEllipsis() {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueOverflow: TextOverflow.ellipsis);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier overflowClip() {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueOverflow: TextOverflow.clip);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier textOverflow(TextOverflow value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueOverflow: value);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier textOverflowEllipsis() {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueOverflow: TextOverflow.ellipsis);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier textOverflowClip() {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueOverflow: TextOverflow.clip);
+    return newModifierValue;
   }
 }
