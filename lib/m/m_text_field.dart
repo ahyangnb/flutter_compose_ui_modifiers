@@ -319,12 +319,13 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
     );
   }
 
-  DefineMTextFieldModifier border(InputBorder value) {
-    return this.copyWith(
-      decorationValue:
-          (this.decorationValue ?? InputDecoration()).copyWith(border: value),
-    );
-  }
+  // The border is repeat with generate border of container.
+  // DefineMTextFieldModifier border(InputBorder value) {
+  //   return this.copyWith(
+  //     decorationValue:
+  //         (this.decorationValue ?? InputDecoration()).copyWith(border: value),
+  //   );
+  // }
 
   DefineMTextFieldModifier autoFocus(bool value) {
     return this.copyWith(valueAutoFocus: value);
