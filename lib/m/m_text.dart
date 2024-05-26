@@ -259,6 +259,11 @@ class DefineMTextModifier extends MGeneralModifier {
   }
 }
 
+class MFontWeight {
+  static const FontWeight medium = FontWeight.w500;
+  static const FontWeight bold = FontWeight.w600;
+}
+
 extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier color(Color color) {
     return setColor(color);

@@ -14,7 +14,7 @@ class MContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
-      child: child ?? Container(),
+      child: child ?? modifier?.valueChild ?? Container(),
     );
   }
 }
@@ -22,8 +22,11 @@ class MContainer extends StatelessWidget {
 final MContainerModifier = DefineMContainerModifier();
 
 class DefineMContainerModifier extends MGeneralModifier {
+  final Widget? valueChild;
+
   const DefineMContainerModifier({
     /// Container
+    this.valueChild,
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -72,6 +75,7 @@ class DefineMContainerModifier extends MGeneralModifier {
 
   DefineMContainerModifier copyWith({
     /// The following properties are inherited from MGeneralModifier.
+    Widget? valueChild,
     EdgeInsets? valuePadding,
     EdgeInsets? valueMargin,
     VoidCallback? valueOnTap,
@@ -118,6 +122,7 @@ class DefineMContainerModifier extends MGeneralModifier {
   }) {
     return DefineMContainerModifier(
       /// Container
+      valueChild: valueChild ?? this.valueChild,
       valuePadding: valuePadding ?? this.valuePadding,
       valueMargin: valueMargin ?? this.valueMargin,
       valueOnTap: valueOnTap ?? this.valueOnTap,
@@ -175,5 +180,9 @@ extension MContainerGeneralOk on DefineMContainerModifier {
 
   DefineMContainerModifier colorHex(int value) {
     return this.copyWith(valueBackgroundColor: Color(value));
+  }
+
+  DefineMContainerModifier child(Widget value) {
+    return this.copyWith(valueChild: value);
   }
 }
