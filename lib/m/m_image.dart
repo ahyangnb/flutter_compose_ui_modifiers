@@ -338,8 +338,10 @@ extension MImageModifierPropertys on DefineMImageModifier {
     return this.copyWith(valueImageWidth: value, valueImageHeight: value);
   }
 
-  DefineMImageModifier imageSize(double value) {
-    return this.copyWith(valueImageWidth: value, valueImageHeight: value);
+  DefineMImageModifier imageSize(double valueImageWidth,
+      double valueImageHeight) {
+    return this.copyWith(
+        valueImageWidth: valueImageWidth, valueImageHeight: valueImageHeight);
   }
 
   DefineMImageModifier imageWidth(double? value) {

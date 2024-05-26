@@ -119,6 +119,24 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     );
   }
 
+  DefineMTextFieldModifier paddingSymmetric(
+      {double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valuePadding?.left,
+        right: horizontal ?? this.valuePadding?.right,
+        top: vertical ?? this.valuePadding?.top,
+        bottom: vertical ?? this.valuePadding?.bottom,
+      ),
+    );
+  }
+
+  DefineMTextFieldModifier positioned(
+      {double? top, double? bottom, double? left, double? right}) {
+    return this.copyWith(
+        valueTop: top, valueBottom: bottom, valueLeft: left, valueRight: right);
+  }
+
   DefineMTextFieldModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
@@ -661,6 +679,23 @@ extension MTextGeneralGenerator on DefineMTextModifier {
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(top: value, bottom: value),
     );
+  }
+
+  DefineMTextModifier paddingSymmetric({double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valuePadding?.left,
+        right: horizontal ?? this.valuePadding?.right,
+        top: vertical ?? this.valuePadding?.top,
+        bottom: vertical ?? this.valuePadding?.bottom,
+      ),
+    );
+  }
+
+  DefineMTextModifier positioned(
+      {double? top, double? bottom, double? left, double? right}) {
+    return this.copyWith(
+        valueTop: top, valueBottom: bottom, valueLeft: left, valueRight: right);
   }
 
   DefineMTextModifier marginTop(double value) {
@@ -1280,6 +1315,23 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     );
   }
 
+  DefineMRowModifier paddingSymmetric({double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valuePadding?.left,
+        right: horizontal ?? this.valuePadding?.right,
+        top: vertical ?? this.valuePadding?.top,
+        bottom: vertical ?? this.valuePadding?.bottom,
+      ),
+    );
+  }
+
+  DefineMRowModifier positioned(
+      {double? top, double? bottom, double? left, double? right}) {
+    return this.copyWith(
+        valueTop: top, valueBottom: bottom, valueLeft: left, valueRight: right);
+  }
+
   DefineMRowModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
@@ -1826,6 +1878,24 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     );
   }
 
+  DefineMListViewModifier paddingSymmetric(
+      {double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valuePadding?.left,
+        right: horizontal ?? this.valuePadding?.right,
+        top: vertical ?? this.valuePadding?.top,
+        bottom: vertical ?? this.valuePadding?.bottom,
+      ),
+    );
+  }
+
+  DefineMListViewModifier positioned(
+      {double? top, double? bottom, double? left, double? right}) {
+    return this.copyWith(
+        valueTop: top, valueBottom: bottom, valueLeft: left, valueRight: right);
+  }
+
   DefineMListViewModifier paddingLeft(double value) {
     return setPaddingLeft(value);
   }
@@ -2290,6 +2360,24 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(top: value, bottom: value),
     );
+  }
+
+  DefineMColumnModifier paddingSymmetric(
+      {double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valuePadding?.left,
+        right: horizontal ?? this.valuePadding?.right,
+        top: vertical ?? this.valuePadding?.top,
+        bottom: vertical ?? this.valuePadding?.bottom,
+      ),
+    );
+  }
+
+  DefineMColumnModifier positioned(
+      {double? top, double? bottom, double? left, double? right}) {
+    return this.copyWith(
+        valueTop: top, valueBottom: bottom, valueLeft: left, valueRight: right);
   }
 
   DefineMColumnModifier paddingBottom(double value) {
@@ -2903,6 +2991,24 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     );
   }
 
+  DefineMAddButtonModifier paddingSymmetric(
+      {double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valuePadding?.left,
+        right: horizontal ?? this.valuePadding?.right,
+        top: vertical ?? this.valuePadding?.top,
+        bottom: vertical ?? this.valuePadding?.bottom,
+      ),
+    );
+  }
+
+  DefineMAddButtonModifier positioned(
+      {double? top, double? bottom, double? left, double? right}) {
+    return this.copyWith(
+        valueTop: top, valueBottom: bottom, valueLeft: left, valueRight: right);
+  }
+
   DefineMAddButtonModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
@@ -3504,6 +3610,24 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(top: value, bottom: value),
     );
+  }
+
+  DefineMStackModifier paddingSymmetric(
+      {double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valuePadding?.left,
+        right: horizontal ?? this.valuePadding?.right,
+        top: vertical ?? this.valuePadding?.top,
+        bottom: vertical ?? this.valuePadding?.bottom,
+      ),
+    );
+  }
+
+  DefineMStackModifier positioned(
+      {double? top, double? bottom, double? left, double? right}) {
+    return this.copyWith(
+        valueTop: top, valueBottom: bottom, valueLeft: left, valueRight: right);
   }
 
   DefineMStackModifier paddingBottom(double value) {
@@ -4116,6 +4240,24 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     );
   }
 
+  DefineMImageModifier paddingSymmetric(
+      {double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valuePadding?.left,
+        right: horizontal ?? this.valuePadding?.right,
+        top: vertical ?? this.valuePadding?.top,
+        bottom: vertical ?? this.valuePadding?.bottom,
+      ),
+    );
+  }
+
+  DefineMImageModifier positioned(
+      {double? top, double? bottom, double? left, double? right}) {
+    return this.copyWith(
+        valueTop: top, valueBottom: bottom, valueLeft: left, valueRight: right);
+  }
+
   DefineMImageModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
@@ -4716,6 +4858,23 @@ extension MTileGeneralGenerator on DefineMTileModifier {
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(top: value, bottom: value),
     );
+  }
+
+  DefineMTileModifier paddingSymmetric({double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valuePadding?.left,
+        right: horizontal ?? this.valuePadding?.right,
+        top: vertical ?? this.valuePadding?.top,
+        bottom: vertical ?? this.valuePadding?.bottom,
+      ),
+    );
+  }
+
+  DefineMTileModifier positioned(
+      {double? top, double? bottom, double? left, double? right}) {
+    return this.copyWith(
+        valueTop: top, valueBottom: bottom, valueLeft: left, valueRight: right);
   }
 
   DefineMTileModifier paddingBottom(double value) {
@@ -5327,6 +5486,24 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(top: value, bottom: value),
     );
+  }
+
+  DefineMContainerModifier paddingSymmetric(
+      {double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valuePadding?.left,
+        right: horizontal ?? this.valuePadding?.right,
+        top: vertical ?? this.valuePadding?.top,
+        bottom: vertical ?? this.valuePadding?.bottom,
+      ),
+    );
+  }
+
+  DefineMContainerModifier positioned(
+      {double? top, double? bottom, double? left, double? right}) {
+    return this.copyWith(
+        valueTop: top, valueBottom: bottom, valueLeft: left, valueRight: right);
   }
 
   DefineMContainerModifier marginTop(double value) {
