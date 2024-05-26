@@ -5,18 +5,72 @@ import 'dart:math' as math;
 import 'package:flutter_compose_ui_modifiers/m/m_container.dart';
 
 extension MTextFiledGenerator on DefineMTextFieldModifier {
-  DefineMTextFieldModifier shadow(BoxShadow value) {
-    return this.copyWith(valueShadow: value);
+  DefineMTextFieldModifier shadow({
+    required Offset offset,
+    required double blurRadius,
+    required double spreadRadius,
+    required Color color,
+  }) {
+    return this.copyWith(
+        valueShadow: BoxShadow(
+      offset: offset,
+      blurRadius: blurRadius,
+      spreadRadius: spreadRadius,
+      color: color,
+    ));
   }
 
   DefineMTextFieldModifier shadowDef({Color? color}) {
-    final value = BoxShadow(
+    final valueShadow = BoxShadow(
       color: color ?? Color(0xff000000).withOpacity(0.1),
       offset: const Offset(0, 2),
       blurRadius: 4,
       spreadRadius: 0,
     );
-    return this.copyWith(valueShadow: value);
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMTextFieldModifier shadowOffset(double dx, double dy) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(dx, dy),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMTextFieldModifier shadowBlur(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: value,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMTextFieldModifier shadowSpread(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: value,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMTextFieldModifier shadowColor(Color value) {
+    final valueShadow = BoxShadow(
+      color: value,
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
   }
 
   DefineMTextFieldModifier padding(double value) {
@@ -161,8 +215,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
-  DefineMTextFieldModifier size(double value) {
-    return this.copyWith(valueWidth: value, valueHeight: value);
+  DefineMTextFieldModifier size(double valueWidth, double valueHeight) {
+    return this.copyWith(valueWidth: valueWidth, valueHeight: valueHeight);
   }
 
   DefineMTextFieldModifier width(double? value) {
@@ -276,6 +330,18 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier borderWhite() {
     return this
         .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMTextFieldModifier borderColor(Color value) {
+    return this.copyWith(
+        valueBorder:
+            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMTextFieldModifier borderWidth(double value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
   DefineMTextFieldModifier flex([int value = 1]) {
@@ -685,8 +751,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
-  DefineMTextModifier size(double value) {
-    return this.copyWith(valueWidth: value, valueHeight: value);
+  DefineMTextModifier size(double valueWidth, double valueHeight) {
+    return this.copyWith(valueWidth: valueWidth, valueHeight: valueHeight);
   }
 
   DefineMTextModifier width(double? value) {
@@ -800,6 +866,18 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier borderWhite() {
     return this
         .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMTextModifier borderColor(Color value) {
+    return this.copyWith(
+        valueBorder:
+            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMTextModifier borderWidth(double value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
   DefineMTextModifier flex([int? value = 1]) {
@@ -1066,18 +1144,72 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 }
 
 extension MRowGeneralGenerator on DefineMRowModifier {
-  DefineMRowModifier shadow(BoxShadow value) {
-    return this.copyWith(valueShadow: value);
+  DefineMRowModifier shadow({
+    required Offset offset,
+    required double blurRadius,
+    required double spreadRadius,
+    required Color color,
+  }) {
+    return this.copyWith(
+        valueShadow: BoxShadow(
+      offset: offset,
+      blurRadius: blurRadius,
+      spreadRadius: spreadRadius,
+      color: color,
+    ));
   }
 
   DefineMRowModifier shadowDef({Color? color}) {
-    final value = BoxShadow(
+    final valueShadow = BoxShadow(
       color: color ?? Color(0xff000000).withOpacity(0.1),
       offset: const Offset(0, 2),
       blurRadius: 4,
       spreadRadius: 0,
     );
-    return this.copyWith(valueShadow: value);
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMRowModifier shadowOffset(double dx, double dy) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(dx, dy),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMRowModifier shadowBlur(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: value,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMRowModifier shadowSpread(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: value,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMRowModifier shadowColor(Color value) {
+    final valueShadow = BoxShadow(
+      color: value,
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
   }
 
   DefineMRowModifier padding(double value) {
@@ -1243,8 +1375,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
-  DefineMRowModifier size(double value) {
-    return this.copyWith(valueWidth: value, valueHeight: value);
+  DefineMRowModifier size(double valueWidth, double valueHeight) {
+    return this.copyWith(valueWidth: valueWidth, valueHeight: valueHeight);
   }
 
   DefineMRowModifier width(double? value) {
@@ -1358,6 +1490,18 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier borderWhite() {
     return this
         .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMRowModifier borderColor(Color value) {
+    return this.copyWith(
+        valueBorder:
+            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMRowModifier borderWidth(double value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
   DefineMRowModifier flex([int value = 1]) {
@@ -1758,6 +1902,18 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
         .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
+  DefineMListViewModifier borderColor(Color value) {
+    return this.copyWith(
+        valueBorder:
+            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMListViewModifier borderWidth(double value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: this.valueBorder?.left.color ?? Colors.white, width: value));
+  }
+
   DefineMListViewModifier flex([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
@@ -2022,18 +2178,72 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 }
 
 extension MColumnGeneralGenerator on DefineMColumnModifier {
-  DefineMColumnModifier shadow(BoxShadow value) {
-    return this.copyWith(valueShadow: value);
+  DefineMColumnModifier shadow({
+    required Offset offset,
+    required double blurRadius,
+    required double spreadRadius,
+    required Color color,
+  }) {
+    return this.copyWith(
+        valueShadow: BoxShadow(
+      offset: offset,
+      blurRadius: blurRadius,
+      spreadRadius: spreadRadius,
+      color: color,
+    ));
   }
 
   DefineMColumnModifier shadowDef({Color? color}) {
-    final value = BoxShadow(
+    final valueShadow = BoxShadow(
       color: color ?? Color(0xff000000).withOpacity(0.1),
       offset: const Offset(0, 2),
       blurRadius: 4,
       spreadRadius: 0,
     );
-    return this.copyWith(valueShadow: value);
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMColumnModifier shadowOffset(double dx, double dy) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(dx, dy),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMColumnModifier shadowBlur(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: value,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMColumnModifier shadowSpread(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: value,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMColumnModifier shadowColor(Color value) {
+    final valueShadow = BoxShadow(
+      color: value,
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
   }
 
   DefineMColumnModifier padding(double value) {
@@ -2178,8 +2388,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
-  DefineMColumnModifier size(double value) {
-    return this.copyWith(valueWidth: value, valueHeight: value);
+  DefineMColumnModifier size(double valueWidth, double valueHeight) {
+    return this.copyWith(valueWidth: valueWidth, valueHeight: valueHeight);
   }
 
   DefineMColumnModifier width(double? value) {
@@ -2293,6 +2503,18 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier borderWhite() {
     return this
         .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMColumnModifier borderColor(Color value) {
+    return this.copyWith(
+        valueBorder:
+            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMColumnModifier borderWidth(double value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
   DefineMColumnModifier flex([int value = 1]) {
@@ -2556,21 +2778,83 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier fullHeight([double? value]) {
     return this.copyWith(valueFullHeight: value);
   }
+
+  DefineMColumnModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMColumnModifier scroll([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
-  DefineMAddButtonModifier shadow(BoxShadow value) {
-    return this.copyWith(valueShadow: value);
+  DefineMAddButtonModifier shadow({
+    required Offset offset,
+    required double blurRadius,
+    required double spreadRadius,
+    required Color color,
+  }) {
+    return this.copyWith(
+        valueShadow: BoxShadow(
+      offset: offset,
+      blurRadius: blurRadius,
+      spreadRadius: spreadRadius,
+      color: color,
+    ));
   }
 
   DefineMAddButtonModifier shadowDef({Color? color}) {
-    final value = BoxShadow(
+    final valueShadow = BoxShadow(
       color: color ?? Color(0xff000000).withOpacity(0.1),
       offset: const Offset(0, 2),
       blurRadius: 4,
       spreadRadius: 0,
     );
-    return this.copyWith(valueShadow: value);
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMAddButtonModifier shadowOffset(double dx, double dy) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(dx, dy),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMAddButtonModifier shadowBlur(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: value,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMAddButtonModifier shadowSpread(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: value,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMAddButtonModifier shadowColor(Color value) {
+    final valueShadow = BoxShadow(
+      color: value,
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
   }
 
   DefineMAddButtonModifier padding(double value) {
@@ -2715,8 +2999,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
-  DefineMAddButtonModifier size(double value) {
-    return this.copyWith(valueWidth: value, valueHeight: value);
+  DefineMAddButtonModifier size(double valueWidth, double valueHeight) {
+    return this.copyWith(valueWidth: valueWidth, valueHeight: valueHeight);
   }
 
   DefineMAddButtonModifier width(double? value) {
@@ -2830,6 +3114,18 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier borderWhite() {
     return this
         .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMAddButtonModifier borderColor(Color value) {
+    return this.copyWith(
+        valueBorder:
+            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMAddButtonModifier borderWidth(double value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
   DefineMAddButtonModifier flex([int value = 1]) {
@@ -3096,18 +3392,72 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 }
 
 extension MAddStackGeneralGenerator on DefineMStackModifier {
-  DefineMStackModifier shadow(BoxShadow value) {
-    return this.copyWith(valueShadow: value);
+  DefineMStackModifier shadow({
+    required Offset offset,
+    required double blurRadius,
+    required double spreadRadius,
+    required Color color,
+  }) {
+    return this.copyWith(
+        valueShadow: BoxShadow(
+      offset: offset,
+      blurRadius: blurRadius,
+      spreadRadius: spreadRadius,
+      color: color,
+    ));
   }
 
   DefineMStackModifier shadowDef({Color? color}) {
-    final value = BoxShadow(
+    final valueShadow = BoxShadow(
       color: color ?? Color(0xff000000).withOpacity(0.1),
       offset: const Offset(0, 2),
       blurRadius: 4,
       spreadRadius: 0,
     );
-    return this.copyWith(valueShadow: value);
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMStackModifier shadowOffset(double dx, double dy) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(dx, dy),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMStackModifier shadowBlur(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: value,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMStackModifier shadowSpread(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: value,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMStackModifier shadowColor(Color value) {
+    final valueShadow = BoxShadow(
+      color: value,
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
   }
 
   DefineMStackModifier padding(double value) {
@@ -3251,8 +3601,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
-  DefineMStackModifier size(double value) {
-    return this.copyWith(valueWidth: value, valueHeight: value);
+  DefineMStackModifier size(double valueWidth, double valueHeight) {
+    return this.copyWith(valueWidth: valueWidth, valueHeight: valueHeight);
   }
 
   DefineMStackModifier width(double? value) {
@@ -3368,6 +3718,18 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
         .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
   }
 
+  DefineMStackModifier borderColor(Color value) {
+    return this.copyWith(
+        valueBorder:
+            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMStackModifier borderWidth(double value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: this.valueBorder?.left.color ?? Colors.white, width: value));
+  }
+
   DefineMStackModifier flex([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
@@ -3445,6 +3807,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   }
 
   DefineMStackModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMStackModifier scroll([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
 
@@ -3636,18 +4002,72 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 }
 
 extension MImageGeneralGenerator on DefineMImageModifier {
-  DefineMImageModifier shadow(BoxShadow value) {
-    return this.copyWith(valueShadow: value);
+  DefineMImageModifier shadow({
+    required Offset offset,
+    required double blurRadius,
+    required double spreadRadius,
+    required Color color,
+  }) {
+    return this.copyWith(
+        valueShadow: BoxShadow(
+      offset: offset,
+      blurRadius: blurRadius,
+      spreadRadius: spreadRadius,
+      color: color,
+    ));
   }
 
   DefineMImageModifier shadowDef({Color? color}) {
-    final value = BoxShadow(
+    final valueShadow = BoxShadow(
       color: color ?? Color(0xff000000).withOpacity(0.1),
       offset: const Offset(0, 2),
       blurRadius: 4,
       spreadRadius: 0,
     );
-    return this.copyWith(valueShadow: value);
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMImageModifier shadowOffset(double dx, double dy) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(dx, dy),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMImageModifier shadowBlur(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: value,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMImageModifier shadowSpread(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: value,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMImageModifier shadowColor(Color value) {
+    final valueShadow = BoxShadow(
+      color: value,
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
   }
 
   DefineMImageModifier padding(double value) {
@@ -3791,8 +4211,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
-  DefineMImageModifier size(double value) {
-    return this.copyWith(valueWidth: value, valueHeight: value);
+  DefineMImageModifier size(double valueWidth, double valueHeight) {
+    return this.copyWith(valueWidth: valueWidth, valueHeight: valueHeight);
   }
 
   DefineMImageModifier width(double? value) {
@@ -3906,6 +4326,18 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier borderWhite() {
     return this
         .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMImageModifier borderColor(Color value) {
+    return this.copyWith(
+        valueBorder:
+            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMImageModifier borderWidth(double value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
   DefineMImageModifier flex([int value = 1]) {
@@ -4172,18 +4604,72 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 }
 
 extension MTileGeneralGenerator on DefineMTileModifier {
-  DefineMTileModifier shadow(BoxShadow value) {
-    return this.copyWith(valueShadow: value);
+  DefineMTileModifier shadow({
+    required Offset offset,
+    required double blurRadius,
+    required double spreadRadius,
+    required Color color,
+  }) {
+    return this.copyWith(
+        valueShadow: BoxShadow(
+      offset: offset,
+      blurRadius: blurRadius,
+      spreadRadius: spreadRadius,
+      color: color,
+    ));
   }
 
   DefineMTileModifier shadowDef({Color? color}) {
-    final value = BoxShadow(
+    final valueShadow = BoxShadow(
       color: color ?? Color(0xff000000).withOpacity(0.1),
       offset: const Offset(0, 2),
       blurRadius: 4,
       spreadRadius: 0,
     );
-    return this.copyWith(valueShadow: value);
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMTileModifier shadowOffset(double dx, double dy) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(dx, dy),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMTileModifier shadowBlur(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: value,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMTileModifier shadowSpread(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: value,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMTileModifier shadowColor(Color value) {
+    final valueShadow = BoxShadow(
+      color: value,
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
   }
 
   DefineMTileModifier padding(double value) {
@@ -4327,8 +4813,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
-  DefineMTileModifier size(double value) {
-    return this.copyWith(valueWidth: value, valueHeight: value);
+  DefineMTileModifier size(double valueWidth, double valueHeight) {
+    return this.copyWith(valueWidth: valueWidth, valueHeight: valueHeight);
   }
 
   DefineMTileModifier width(double? value) {
@@ -4442,6 +4928,18 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier borderWhite() {
     return this
         .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMTileModifier borderColor(Color value) {
+    return this.copyWith(
+        valueBorder:
+            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMTileModifier borderWidth(double value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
   DefineMTileModifier flex([int value = 1]) {
@@ -4708,6 +5206,74 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 }
 
 extension MContainerGeneralGenerator on DefineMContainerModifier {
+  DefineMContainerModifier shadow({
+    required Offset offset,
+    required double blurRadius,
+    required double spreadRadius,
+    required Color color,
+  }) {
+    return this.copyWith(
+        valueShadow: BoxShadow(
+      offset: offset,
+      blurRadius: blurRadius,
+      spreadRadius: spreadRadius,
+      color: color,
+    ));
+  }
+
+  DefineMContainerModifier shadowDef({Color? color}) {
+    final valueShadow = BoxShadow(
+      color: color ?? Color(0xff000000).withOpacity(0.1),
+      offset: const Offset(0, 2),
+      blurRadius: 4,
+      spreadRadius: 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMContainerModifier shadowOffset(double dx, double dy) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(dx, dy),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMContainerModifier shadowBlur(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: value,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMContainerModifier shadowSpread(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: value,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMContainerModifier shadowColor(Color value) {
+    final valueShadow = BoxShadow(
+      color: value,
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
   DefineMContainerModifier paddingTop(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
@@ -4852,8 +5418,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
     return this.copyWith(valueWidth: value, valueHeight: value);
   }
 
-  DefineMContainerModifier size(double value) {
-    return this.copyWith(valueWidth: value, valueHeight: value);
+  DefineMContainerModifier size(double valueWidth, double valueHeight) {
+    return this.copyWith(valueWidth: valueWidth, valueHeight: valueHeight);
   }
 
   DefineMContainerModifier width(double? value) {
@@ -4971,6 +5537,18 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier borderWhite() {
     return this
         .copyWith(valueBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMContainerModifier borderColor(Color value) {
+    return this.copyWith(
+        valueBorder:
+            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMContainerModifier borderWidth(double value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
   DefineMContainerModifier flex([int? value = 1]) {

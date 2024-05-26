@@ -3,18 +3,18 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 class MContainer extends StatelessWidget {
   final DefineMContainerModifier? modifier;
-  final Widget child;
+  final Widget? child;
 
   MContainer({
     this.modifier,
-    required this.child,
+    this.child,
   });
 
   @override
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
-      child: child,
+      child: child ?? Container(),
     );
   }
 }
@@ -165,5 +165,15 @@ class DefineMContainerModifier extends MGeneralModifier {
       valueMaterialElevation:
           valueMaterialElevation ?? this.valueMaterialElevation,
     );
+  }
+}
+
+extension MContainerGeneralOk on DefineMContainerModifier {
+  DefineMContainerModifier color(Color value) {
+    return this.copyWith(valueBackgroundColor: value);
+  }
+
+  DefineMContainerModifier colorHex(int value) {
+    return this.copyWith(valueBackgroundColor: Color(value));
   }
 }

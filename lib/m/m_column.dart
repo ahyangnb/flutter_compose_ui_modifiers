@@ -89,6 +89,9 @@ class DefineMColumnModifier extends MGeneralModifier {
     /// Material
     super.valueMaterialType,
     super.valueMaterialElevation,
+
+    /// Other
+    super.valueScrollable,
   });
 
   /// Create a copyWith().
@@ -142,6 +145,9 @@ class DefineMColumnModifier extends MGeneralModifier {
     /// Material
     MaterialType? valueMaterialType,
     double? valueMaterialElevation,
+
+    /// Other
+    bool? valueScrollable,
   }) {
     return DefineMColumnModifier(
       children: children ?? this.children,
@@ -198,6 +204,9 @@ class DefineMColumnModifier extends MGeneralModifier {
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
       valueMaterialElevation:
           valueMaterialElevation ?? this.valueMaterialElevation,
+
+      // Other
+      valueScrollable: valueScrollable ?? this.valueScrollable,
     );
   }
 }

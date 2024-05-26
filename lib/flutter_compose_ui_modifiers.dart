@@ -26,6 +26,7 @@ export 'm/m_row.dart';
 export 'm/m_stack.dart';
 export 'm/m_image.dart';
 export 'm/m_tile.dart';
+export 'm/m_container.dart';
 export 'm/m.g.dart';
 export 'other/m_gradient_text.dart';
 export 'other/m_white_select_tile.dart';
@@ -92,6 +93,12 @@ extension FlutterUIModifiersWidget on Widget {
   ///     .centered()
   ///```
   Widget centered() {
+    return Center(
+      child: this,
+    );
+  }
+
+  Widget center() {
     return Center(
       child: this,
     );

@@ -7,7 +7,7 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 /// example:
 /// ```dart
 /// MText(
-//   modifier: MTextModifier.color(Colors.blue)
+//   modifier: MTextModifier.textColor(Colors.blue)
 //       .onClick(() => print("hi"))
 //       .fontSize(50)
 //       .fontWeight(FontWeight.w200)
@@ -21,16 +21,16 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 /// ```
 class MText extends StatelessWidget {
   final DefineMTextModifier? modifier;
-  final String data;
+  final String? data;
 
   MText({
     this.modifier,
-    required this.data,
+    this.data,
   });
 
   @override
   Widget build(BuildContext context) {
-    String text = data;
+    String text = data ?? modifier?.valueData ?? "";
     final useStyle = modifier?.styleValue ?? TextStyle();
     Widget textWidget = Text(
       text,
@@ -87,6 +87,7 @@ class DefineMTextModifier extends MGeneralModifier {
   final RegExp? valueHighlightRegExp;
   final int? valueMaxLines;
   final TextOverflow? valueOverflow;
+  final String? valueData;
 
   const DefineMTextModifier({
     this.styleValue = const TextStyle(),
@@ -95,6 +96,7 @@ class DefineMTextModifier extends MGeneralModifier {
     this.valueHighlightRegExp,
     this.valueMaxLines,
     this.valueOverflow,
+    this.valueData,
 
     /// Container
     super.valuePadding,
@@ -150,6 +152,7 @@ class DefineMTextModifier extends MGeneralModifier {
     RegExp? valueHighlightRegExp,
     final int? valueMaxLines,
     final TextOverflow? valueOverflow,
+    String? valueData,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -203,6 +206,7 @@ class DefineMTextModifier extends MGeneralModifier {
       valueHighlightRegExp: valueHighlightRegExp ?? this.valueHighlightRegExp,
       valueMaxLines: valueMaxLines ?? this.valueMaxLines,
       valueOverflow: valueOverflow ?? this.valueOverflow,
+      valueData: valueData ?? this.valueData,
 
       /// Container
       valuePadding: valuePadding ?? this.valuePadding,
@@ -269,6 +273,25 @@ extension MTextModifierPropertys on DefineMTextModifier {
   }
 
   DefineMTextModifier setColor(Color color) {
+    final newStyle = this.styleValue.copyWith(color: color);
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(styleValue: newStyle);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier textColor(Color color) {
+    return setColor(color);
+  }
+
+  DefineMTextModifier textColorHex(int color) {
+    return setColor(Color(color));
+  }
+
+  DefineMTextModifier textColorValue(int color) {
+    return setColor(Color(color));
+  }
+
+  DefineMTextModifier setTextColor(Color color) {
     final newStyle = this.styleValue.copyWith(color: color);
     final DefineMTextModifier newModifierValue =
         this.copyWith(styleValue: newStyle);
@@ -516,6 +539,12 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier textOverflowClip() {
     final DefineMTextModifier newModifierValue =
         this.copyWith(valueOverflow: TextOverflow.clip);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier data(String value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueData: value);
     return newModifierValue;
   }
 }

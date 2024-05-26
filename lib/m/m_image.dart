@@ -78,7 +78,8 @@ class MImage extends StatelessWidget {
               width: containerWidth,
               height: modifier?.valueHeight ?? useImageWidth,
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: modifier?.valueImageBackgroundColor ??
+                    MConfig.imageDefBgColor,
                 borderRadius: modifier?.valueBorderRadius,
                 border: modifier?.valueBorder,
                 shape: modifier?.valueShape ?? BoxShape.rectangle,
@@ -86,10 +87,10 @@ class MImage extends StatelessWidget {
             ),
           ClipRRect(
             borderRadius: modifier?.valueShape == BoxShape.circle &&
-                    containerWidth != null
+                containerWidth != null
                 ? BorderRadius.all(Radius.circular((containerWidth) / 2))
                 : modifier?.valueBorderRadius ??
-                    BorderRadius.all(Radius.circular(0)),
+                BorderRadius.all(Radius.circular(0)),
             child: SizedBox(
               width: modifier?.valueImageWidth == null
                   ? modifier?.valueWidth
@@ -112,11 +113,13 @@ class DefineMImageModifier extends MGeneralModifier {
   final BoxFit? valueFit;
   final double? valueImageWidth;
   final double? valueImageHeight;
+  final Color? valueImageBackgroundColor;
 
   const DefineMImageModifier({
     this.valueFit,
     this.valueImageWidth,
     this.valueImageHeight,
+    this.valueImageBackgroundColor,
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -167,6 +170,7 @@ class DefineMImageModifier extends MGeneralModifier {
     BoxFit? valueFit,
     double? valueImageWidth,
     double? valueImageHeight,
+    Color? valueImageBackgroundColor,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -217,6 +221,8 @@ class DefineMImageModifier extends MGeneralModifier {
       valueFit: valueFit ?? this.valueFit,
       valueImageWidth: valueImageWidth ?? this.valueImageWidth,
       valueImageHeight: valueImageWidth ?? this.valueImageHeight,
+      valueImageBackgroundColor:
+      valueImageBackgroundColor ?? this.valueImageBackgroundColor,
 
       /// Container
       valuePadding: valuePadding ?? this.valuePadding,
@@ -224,10 +230,10 @@ class DefineMImageModifier extends MGeneralModifier {
       valueOnTap: valueOnTap ?? this.valueOnTap,
       valueOnLongPress: valueOnLongPress ?? this.valueOnLongPress,
       valueOnLongPressMoveUpdate:
-          valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
+      valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
       valueOnLongPressUp: valueOnLongPressUp ?? this.valueOnLongPressUp,
       valueDragOutToStatusBar:
-          valueDragOutToStatusBar ?? this.valueDragOutToStatusBar,
+      valueDragOutToStatusBar ?? this.valueDragOutToStatusBar,
       valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
       valueBorderRadius: valueBorderRadius ?? this.valueBorderRadius,
       valueCenterAlign: valueCenterAlign ?? this.valueCenterAlign,
@@ -264,7 +270,7 @@ class DefineMImageModifier extends MGeneralModifier {
       // Material
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
       valueMaterialElevation:
-          valueMaterialElevation ?? this.valueMaterialElevation,
+      valueMaterialElevation ?? this.valueMaterialElevation,
     );
   }
 }
@@ -297,7 +303,15 @@ extension MImageModifierPropertys on DefineMImageModifier {
     return this.copyWith(valueImageWidth: value, valueImageHeight: value);
   }
 
+  DefineMImageModifier sizeImgAll(double value) {
+    return this.copyWith(valueImageWidth: value, valueImageHeight: value);
+  }
+
   DefineMImageModifier sizeImage(double value) {
+    return this.copyWith(valueImageWidth: value, valueImageHeight: value);
+  }
+
+  DefineMImageModifier allSizeImage(double value) {
     return this.copyWith(valueImageWidth: value, valueImageHeight: value);
   }
 
@@ -328,6 +342,14 @@ extension MImageModifierPropertys on DefineMImageModifier {
 
   DefineMImageModifier imageHeight(double? value) {
     return this.copyWith(valueImageHeight: value);
+  }
+
+  DefineMImageModifier imageBackgroundColor(Color? value) {
+    return this.copyWith(valueImageBackgroundColor: value);
+  }
+
+  DefineMImageModifier imgBgColor(Color? value) {
+    return this.copyWith(valueImageBackgroundColor: value);
   }
 }
 

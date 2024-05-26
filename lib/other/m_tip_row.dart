@@ -22,7 +22,7 @@ class MTipRow extends StatelessWidget {
       children: [
         8.px.space,
         MImage(
-          modifier: MImageModifier.size(22.px),
+          modifier: MImageModifier.sizeAll(22.px),
           data: image,
         ),
         6.px.space,

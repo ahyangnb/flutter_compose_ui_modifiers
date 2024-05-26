@@ -24,4 +24,6 @@ class MConfig {
   static RxBool isChildDataLoading = false.obs;
 
   static int pageLimit = 20;
+
+  static Color imageDefBgColor = Colors.grey[200]!;
 }
