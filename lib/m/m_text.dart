@@ -32,13 +32,22 @@ class MText extends StatelessWidget {
   Widget build(BuildContext context) {
     String text = data ?? modifier?.valueData ?? "";
     final useStyle = modifier?.styleValue ?? TextStyle();
-    Widget textWidget = Text(
-      text,
-      style: useStyle,
-      textAlign: modifier?.valueTextAlign,
-      maxLines: modifier?.valueMaxLines,
-      overflow: modifier?.valueOverflow,
-    );
+    final useValueSelectable = modifier?.valueSelectable ?? false;
+    Widget textWidget = useValueSelectable
+        ? SelectableText(
+            text,
+            style: useStyle,
+            textAlign: modifier?.valueTextAlign,
+            maxLines: modifier?.valueMaxLines,
+            // overflow: modifier?.valueOverflow,
+          )
+        : Text(
+            text,
+            style: useStyle,
+            textAlign: modifier?.valueTextAlign,
+            maxLines: modifier?.valueMaxLines,
+            overflow: modifier?.valueOverflow,
+          );
 
     if (modifier?.valueHighlightRegExp != null) {
       List<TextSpan> textSpans = [];
@@ -62,13 +71,21 @@ class MText extends StatelessWidget {
         },
       );
 
-      textWidget = RichText(
-        text: TextSpan(style: useStyle, children: textSpans),
-        textAlign: modifier?.valueTextAlign ?? TextAlign.start,
-        maxLines: modifier?.valueMaxLines,
-        overflow:
-            modifier?.valueOverflow ?? RichText(text: TextSpan()).overflow,
-      );
+      textWidget = useValueSelectable
+          ? SelectableText.rich(
+              TextSpan(style: useStyle, children: textSpans),
+              textAlign: modifier?.valueTextAlign ?? TextAlign.start,
+              maxLines: modifier?.valueMaxLines,
+              // overflow: modifier?.valueOverflow ??
+              //     RichText(text: TextSpan()).overflow,
+            )
+          : RichText(
+              text: TextSpan(style: useStyle, children: textSpans),
+              textAlign: modifier?.valueTextAlign ?? TextAlign.start,
+              maxLines: modifier?.valueMaxLines,
+              overflow: modifier?.valueOverflow ??
+                  RichText(text: TextSpan()).overflow,
+            );
     }
 
     return MGeneralLayoutModifierWidget(
@@ -88,6 +105,7 @@ class DefineMTextModifier extends MGeneralModifier {
   final int? valueMaxLines;
   final TextOverflow? valueOverflow;
   final String? valueData;
+  final bool? valueSelectable;
 
   const DefineMTextModifier({
     this.styleValue = const TextStyle(),
@@ -97,6 +115,7 @@ class DefineMTextModifier extends MGeneralModifier {
     this.valueMaxLines,
     this.valueOverflow,
     this.valueData,
+    this.valueSelectable,
 
     /// Container
     super.valuePadding,
@@ -153,6 +172,7 @@ class DefineMTextModifier extends MGeneralModifier {
     final int? valueMaxLines,
     final TextOverflow? valueOverflow,
     String? valueData,
+    bool? valueSelectable,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -207,6 +227,7 @@ class DefineMTextModifier extends MGeneralModifier {
       valueMaxLines: valueMaxLines ?? this.valueMaxLines,
       valueOverflow: valueOverflow ?? this.valueOverflow,
       valueData: valueData ?? this.valueData,
+      valueSelectable: valueSelectable ?? this.valueSelectable,
 
       /// Container
       valuePadding: valuePadding ?? this.valuePadding,
@@ -550,6 +571,12 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier data(String value) {
     final DefineMTextModifier newModifierValue =
         this.copyWith(valueData: value);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier selectable([bool value = true]) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueSelectable: value);
     return newModifierValue;
   }
 }
