@@ -144,14 +144,19 @@ class _MRefreshState extends State<MRefresh> {
 }
 
 class MLoadingIcon extends StatelessWidget {
-  const MLoadingIcon({super.key});
+  final double? size;
+
+  const MLoadingIcon({this.size, super.key});
 
   @override
   Widget build(BuildContext context) {
+    final sizeUse = size ?? 25.px;
     return SizedBox(
-      width: 30.px,
-      height: 30.px,
-      child: CircularProgressIndicator(),
+      width: sizeUse,
+      height: sizeUse,
+      child: CircularProgressIndicator(
+        strokeWidth: 3.px,
+      ),
     );
   }
 }
