@@ -37,6 +37,7 @@ export 'util/screen_fit.dart';
 export 'util/extension.dart';
 export 'util/modifier_extension.dart';
 export 'util/page.dart';
+export 'util/page_easy.dart';
 export 'config/m_theme_config.dart';
 
 /// Contains the modifier members of the [Widget] class.
