@@ -12,7 +12,8 @@ dependencies:
   extended_image: ^8.2.0
   get: ^4.6.6
   #Refresh the page data.
-  easy_refresh: ^3.3.4
+#  easy_refresh: ^3.3.4
+  pull_to_refresh: ^2.0.0
   #Log print.
   logger: ^1.3.0
 
