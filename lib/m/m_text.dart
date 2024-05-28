@@ -163,6 +163,10 @@ class DefineMTextModifier extends MGeneralModifier {
     /// Material
     super.valueMaterialType,
     super.valueMaterialElevation,
+
+    /// Other
+    super.valueScrollable,
+    super.valueSafeArea,
   });
 
   DefineMTextModifier copyWith({
@@ -220,6 +224,10 @@ class DefineMTextModifier extends MGeneralModifier {
     /// Material
     MaterialType? valueMaterialType,
     double? valueMaterialElevation,
+
+    /// Other
+    bool? valueScrollable,
+    SafeArea? valueSafeArea,
   }) {
     return DefineMTextModifier(
       styleValue: styleValue ?? this.styleValue,
@@ -262,7 +270,8 @@ class DefineMTextModifier extends MGeneralModifier {
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
-      valueContainerAlignment: valueContainerAlignment ?? this.valueContainerAlignment,
+      valueContainerAlignment:
+          valueContainerAlignment ?? this.valueContainerAlignment,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -279,6 +288,10 @@ class DefineMTextModifier extends MGeneralModifier {
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
       valueMaterialElevation:
           valueMaterialElevation ?? this.valueMaterialElevation,
+
+      // Other
+      valueScrollable: valueScrollable ?? this.valueScrollable,
+      valueSafeArea: valueSafeArea ?? this.valueSafeArea,
     );
   }
 }

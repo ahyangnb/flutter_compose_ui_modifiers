@@ -68,15 +68,13 @@ class DefineMStackModifier extends MGeneralModifier {
     super.valueGradientBorderSize,
     super.valueFullWidth,
     super.valueFullHeight,
+    super.valueContainerAlignment,
 
     /// Position Widget
     super.valueLeft,
     super.valueRight,
     super.valueTop,
     super.valueBottom,
-
-    /// Scroll
-    super.valueScrollable,
 
     // Blur
     super.valueSigmaX,
@@ -86,6 +84,10 @@ class DefineMStackModifier extends MGeneralModifier {
     /// Material
     super.valueMaterialType,
     super.valueMaterialElevation,
+
+    /// Other
+    super.valueScrollable,
+    super.valueSafeArea,
   });
 
   DefineMStackModifier copyWith({
@@ -123,15 +125,13 @@ class DefineMStackModifier extends MGeneralModifier {
     Gradient? valueGradientBorder,
     double? valueFullWidth,
     double? valueFullHeight,
+    AlignmentGeometry? valueContainerAlignment,
 
     /// Position Widget
     double? valueLeft,
     double? valueRight,
     double? valueTop,
     double? valueBottom,
-
-    /// Scroll
-    bool? valueScrollable,
 
     /// Blur
     double? valueSigmaX,
@@ -141,6 +141,10 @@ class DefineMStackModifier extends MGeneralModifier {
     /// Material
     MaterialType? valueMaterialType,
     double? valueMaterialElevation,
+
+    /// Other
+    bool? valueScrollable,
+    SafeArea? valueSafeArea,
   }) {
     return DefineMStackModifier(
       valueAlignment: valueAlignment ?? this.valueAlignment,
@@ -179,15 +183,14 @@ class DefineMStackModifier extends MGeneralModifier {
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
+      valueContainerAlignment:
+          valueContainerAlignment ?? this.valueContainerAlignment,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
       valueRight: valueRight ?? this.valueRight,
       valueTop: valueTop ?? this.valueTop,
       valueBottom: valueBottom ?? this.valueBottom,
-
-      /// Scroll
-      valueScrollable: valueScrollable ?? this.valueScrollable,
 
       // Blur
       valueSigmaX: valueSigmaX ?? this.valueSigmaX,
@@ -198,6 +201,10 @@ class DefineMStackModifier extends MGeneralModifier {
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
       valueMaterialElevation:
           valueMaterialElevation ?? this.valueMaterialElevation,
+
+      // Other
+      valueScrollable: valueScrollable ?? this.valueScrollable,
+      valueSafeArea: valueSafeArea ?? this.valueSafeArea,
     );
   }
 }

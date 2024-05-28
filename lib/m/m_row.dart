@@ -76,6 +76,7 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueGradientBorder,
     super.valueFullWidth,
     super.valueFullHeight,
+    super.valueContainerAlignment,
 
     /// Position Widget
     super.valueLeft,
@@ -91,6 +92,10 @@ class DefineMRowModifier extends MGeneralModifier {
     /// Material
     super.valueMaterialType,
     super.valueMaterialElevation,
+
+    /// Other
+    super.valueScrollable,
+    super.valueSafeArea,
   });
 
   /// Create a copyWith().
@@ -131,6 +136,7 @@ class DefineMRowModifier extends MGeneralModifier {
     Gradient? valueGradientBorder,
     double? valueFullWidth,
     double? valueFullHeight,
+    AlignmentGeometry? valueContainerAlignment,
 
     /// Position Widget
     double? valueLeft,
@@ -146,6 +152,10 @@ class DefineMRowModifier extends MGeneralModifier {
     /// Material
     MaterialType? valueMaterialType,
     double? valueMaterialElevation,
+
+    /// Other
+    bool? valueScrollable,
+    SafeArea? valueSafeArea,
   }) {
     return DefineMRowModifier(
       children: children ?? this.children,
@@ -189,6 +199,8 @@ class DefineMRowModifier extends MGeneralModifier {
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
+      valueContainerAlignment:
+          valueContainerAlignment ?? this.valueContainerAlignment,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -205,6 +217,10 @@ class DefineMRowModifier extends MGeneralModifier {
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
       valueMaterialElevation:
           valueMaterialElevation ?? this.valueMaterialElevation,
+
+      // Other
+      valueScrollable: valueScrollable ?? this.valueScrollable,
+      valueSafeArea: valueSafeArea ?? this.valueSafeArea,
     );
   }
 }

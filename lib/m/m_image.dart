@@ -156,6 +156,7 @@ class DefineMImageModifier extends MGeneralModifier {
     super.valueGradientBorderSize,
     super.valueFullWidth,
     super.valueFullHeight,
+    super.valueContainerAlignment,
 
     /// Position Widget
     super.valueLeft,
@@ -171,6 +172,10 @@ class DefineMImageModifier extends MGeneralModifier {
     /// Material
     super.valueMaterialType,
     super.valueMaterialElevation,
+
+    /// Other
+    super.valueScrollable,
+    super.valueSafeArea,
   });
 
   DefineMImageModifier copyWith({
@@ -208,6 +213,7 @@ class DefineMImageModifier extends MGeneralModifier {
     Gradient? valueGradientBorder,
     double? valueFullWidth,
     double? valueFullHeight,
+    AlignmentGeometry? valueContainerAlignment,
 
     /// Position Widget
     double? valueLeft,
@@ -223,6 +229,10 @@ class DefineMImageModifier extends MGeneralModifier {
     /// Material
     MaterialType? valueMaterialType,
     double? valueMaterialElevation,
+
+    /// Other
+    bool? valueScrollable,
+    SafeArea? valueSafeArea,
   }) {
     return DefineMImageModifier(
       valueFit: valueFit ?? this.valueFit,
@@ -262,6 +272,8 @@ class DefineMImageModifier extends MGeneralModifier {
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
+      valueContainerAlignment:
+          valueContainerAlignment ?? this.valueContainerAlignment,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -278,6 +290,10 @@ class DefineMImageModifier extends MGeneralModifier {
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
       valueMaterialElevation:
           valueMaterialElevation ?? this.valueMaterialElevation,
+
+      // Other
+      valueScrollable: valueScrollable ?? this.valueScrollable,
+      valueSafeArea: valueSafeArea ?? this.valueSafeArea,
     );
   }
 }

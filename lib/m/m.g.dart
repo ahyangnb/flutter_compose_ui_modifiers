@@ -623,6 +623,47 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier fullHeight([double? value]) {
     return this.copyWith(valueFullHeight: value);
   }
+
+  DefineMTextFieldModifier containerAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMTextFieldModifier alignmentContainer(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMTextFieldModifier align(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMTextFieldModifier alignCenter() {
+    return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMTextFieldModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMTextFieldModifier scroll([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMTextFieldModifier safeArea({
+    bool top = true,
+    bool bottom = true,
+    bool left = true,
+    bool right = true,
+  }) {
+    return this.copyWith(
+      valueSafeArea: SafeArea(
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+        child: Container(),
+      ),
+    );
+  }
 }
 
 extension MTextGeneralGenerator on DefineMTextModifier {
@@ -1191,6 +1232,31 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier alignCenter() {
     return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMTextModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMTextModifier scroll([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMTextModifier safeArea({
+    bool top = true,
+    bool bottom = true,
+    bool left = true,
+    bool right = true,
+  }) {
+    return this.copyWith(
+      valueSafeArea: SafeArea(
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+        child: Container(),
+      ),
+    );
   }
 }
 
@@ -1845,6 +1911,47 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier fullHeight([double? value]) {
     return this.copyWith(valueFullHeight: value);
   }
+
+  DefineMRowModifier containerAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMRowModifier alignmentContainer(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMRowModifier align(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMRowModifier alignCenter() {
+    return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMRowModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMRowModifier scroll([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMRowModifier safeArea({
+    bool top = true,
+    bool bottom = true,
+    bool left = true,
+    bool right = true,
+  }) {
+    return this.copyWith(
+      valueSafeArea: SafeArea(
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+        child: Container(),
+      ),
+    );
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
@@ -2260,6 +2367,47 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier fullHeight([double? value]) {
     return this.copyWith(valueFullHeight: value);
+  }
+
+  DefineMListViewModifier containerAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMListViewModifier alignmentContainer(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMListViewModifier align(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMListViewModifier alignCenter() {
+    return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMListViewModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMListViewModifier scroll([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMListViewModifier safeArea({
+    bool top = true,
+    bool bottom = true,
+    bool left = true,
+    bool right = true,
+  }) {
+    return this.copyWith(
+      valueSafeArea: SafeArea(
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+        child: Container(),
+      ),
+    );
   }
 }
 
@@ -2881,6 +3029,22 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier fullHeight([double? value]) {
     return this.copyWith(valueFullHeight: value);
+  }
+
+  DefineMColumnModifier containerAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMColumnModifier alignmentContainer(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMColumnModifier align(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMColumnModifier alignCenter() {
+    return this.copyWith(valueContainerAlignment: Alignment.center);
   }
 
   DefineMColumnModifier scrollable([bool value = true]) {
@@ -3528,6 +3692,47 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier fullHeight([double? value]) {
     return this.copyWith(valueFullHeight: value);
   }
+
+  DefineMAddButtonModifier containerAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMAddButtonModifier alignmentContainer(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMAddButtonModifier align(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMAddButtonModifier alignCenter() {
+    return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMAddButtonModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMAddButtonModifier scroll([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMAddButtonModifier safeArea({
+    bool top = true,
+    bool bottom = true,
+    bool left = true,
+    bool right = true,
+  }) {
+    return this.copyWith(
+      valueSafeArea: SafeArea(
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+        child: Container(),
+      ),
+    );
+  }
 }
 
 extension MAddStackGeneralGenerator on DefineMStackModifier {
@@ -3963,14 +4168,6 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(valueShape: value);
   }
 
-  DefineMStackModifier scrollable([bool value = true]) {
-    return this.copyWith(valueScrollable: value);
-  }
-
-  DefineMStackModifier scroll([bool value = true]) {
-    return this.copyWith(valueScrollable: value);
-  }
-
   DefineMStackModifier onLongPressMoveUpdate(
       GestureLongPressMoveUpdateCallback value) {
     return this.copyWith(valueOnLongPressMoveUpdate: value);
@@ -4155,6 +4352,47 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier fullHeight([double? value]) {
     return this.copyWith(valueFullHeight: value);
+  }
+
+  DefineMStackModifier containerAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMStackModifier alignmentContainer(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMStackModifier align(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMStackModifier alignCenter() {
+    return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMStackModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMStackModifier scroll([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMStackModifier safeArea({
+    bool top = true,
+    bool bottom = true,
+    bool left = true,
+    bool right = true,
+  }) {
+    return this.copyWith(
+      valueSafeArea: SafeArea(
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+        child: Container(),
+      ),
+    );
   }
 }
 
@@ -4776,6 +5014,47 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier fullHeight([double? value]) {
     return this.copyWith(valueFullHeight: value);
   }
+
+  DefineMImageModifier containerAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMImageModifier alignmentContainer(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMImageModifier align(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMImageModifier alignCenter() {
+    return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMImageModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMImageModifier scroll([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMImageModifier safeArea({
+    bool top = true,
+    bool bottom = true,
+    bool left = true,
+    bool right = true,
+  }) {
+    return this.copyWith(
+      valueSafeArea: SafeArea(
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+        child: Container(),
+      ),
+    );
+  }
 }
 
 extension MTileGeneralGenerator on DefineMTileModifier {
@@ -5394,6 +5673,47 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier fullHeight([double? value]) {
     return this.copyWith(valueFullHeight: value);
+  }
+
+  DefineMTileModifier containerAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMTileModifier alignmentContainer(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMTileModifier align(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMTileModifier alignCenter() {
+    return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMTileModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMTileModifier scroll([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMTileModifier safeArea({
+    bool top = true,
+    bool bottom = true,
+    bool left = true,
+    bool right = true,
+  }) {
+    return this.copyWith(
+      valueSafeArea: SafeArea(
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+        child: Container(),
+      ),
+    );
   }
 }
 
@@ -6021,5 +6341,46 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier fullHeight([double? value]) {
     return this.copyWith(valueFullHeight: value);
+  }
+
+  DefineMContainerModifier containerAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMContainerModifier alignmentContainer(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMContainerModifier align(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMContainerModifier alignCenter() {
+    return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMContainerModifier scrollable([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMContainerModifier scroll([bool value = true]) {
+    return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMContainerModifier safeArea({
+    bool top = true,
+    bool bottom = true,
+    bool left = true,
+    bool right = true,
+  }) {
+    return this.copyWith(
+      valueSafeArea: SafeArea(
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+        child: Container(),
+      ),
+    );
   }
 }

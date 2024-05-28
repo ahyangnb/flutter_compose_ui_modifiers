@@ -74,6 +74,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     super.valueGradientBorderSize,
     super.valueFullWidth,
     super.valueFullHeight,
+    super.valueContainerAlignment,
 
     /// Position Widget
     super.valueLeft,
@@ -131,6 +132,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     Gradient? valueGradientBorder,
     double? valueFullWidth,
     double? valueFullHeight,
+    AlignmentGeometry? valueContainerAlignment,
 
     /// Position Widget
     double? valueLeft,
@@ -190,6 +192,7 @@ class DefineMColumnModifier extends MGeneralModifier {
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
+      valueContainerAlignment: valueContainerAlignment ?? this.valueContainerAlignment,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
