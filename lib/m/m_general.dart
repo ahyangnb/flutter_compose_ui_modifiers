@@ -49,6 +49,7 @@ class MGeneralModifier {
   final String? valueBackgroundImage;
   final BoxFit? valueBackgroundImageFit;
   final MGravity? valueGravity;
+  final AlignmentGeometry? valueContainerAlignment;
 
   // If it doesn't work, set the fullWidth or fullHeight.
   final Gradient? valueGradientBorder;
@@ -109,6 +110,7 @@ class MGeneralModifier {
     this.valueGradientBorderSize,
     this.valueFullWidth,
     this.valueFullHeight,
+    this.valueContainerAlignment,
 
     /// Use the Positioned widget.
     this.valueLeft,
@@ -171,7 +173,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         generalModifier?.valueGradient != null ||
         generalModifier?.valueGradientBorder != null ||
         generalModifier?.valueBorder != null ||
-        // generalModifier?.valueAlignment != null ||
+        generalModifier?.valueContainerAlignment != null ||
         generalModifier?.valueShape != null ||
         generalModifier?.valueBackgroundImage != null) {
       child = Container(
@@ -183,9 +185,9 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
             : generalModifier?.valueHeight,
         transform: generalModifier?.valueTransform,
         constraints: generalModifier?.valueConstraints,
-        // alignment: ignoreList.contains(IgnoreModifierInGeneral.alignment)
-        //     ? null
-        //     : generalModifier.valueAlignment,
+        alignment: ignoreList.contains(IgnoreModifierInGeneral.alignment)
+            ? null
+            : generalModifier?.valueContainerAlignment,
         decoration: BoxDecoration(
           color: ignoreList.contains(IgnoreModifierInGeneral.backgroundColor)
               ? null

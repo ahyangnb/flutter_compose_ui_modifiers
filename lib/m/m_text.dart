@@ -147,6 +147,7 @@ class DefineMTextModifier extends MGeneralModifier {
     super.valueGradientBorderSize,
     super.valueFullWidth,
     super.valueFullHeight,
+    super.valueContainerAlignment,
 
     /// Position Widget
     super.valueLeft,
@@ -203,6 +204,7 @@ class DefineMTextModifier extends MGeneralModifier {
     Gradient? valueGradientBorder,
     double? valueFullWidth,
     double? valueFullHeight,
+    AlignmentGeometry? valueContainerAlignment,
 
     /// Position Widget
     double? valueLeft,
@@ -260,6 +262,7 @@ class DefineMTextModifier extends MGeneralModifier {
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
+      valueContainerAlignment: valueContainerAlignment ?? this.valueContainerAlignment,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,

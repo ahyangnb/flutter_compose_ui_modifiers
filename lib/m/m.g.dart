@@ -1176,6 +1176,22 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier fullHeight([double? value]) {
     return this.copyWith(valueFullHeight: value);
   }
+
+  DefineMTextModifier containerAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMTextModifier alignmentContainer(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMTextModifier align(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
+  }
+
+  DefineMTextModifier alignCenter() {
+    return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
 }
 
 extension MRowGeneralGenerator on DefineMRowModifier {
