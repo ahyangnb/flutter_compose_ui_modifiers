@@ -61,9 +61,12 @@ class _MNoDataState extends State<MNoData> {
                   height: height,
                   borderRadius: BorderRadius.all(Radius.circular(height / 2)),
                   onTap: () async {
-                    MConfig.isChildDataLoading.value = true;
-                    await widget.onPressed!();
-                    MConfig.isChildDataLoading.value = false;
+                    try {
+                      MConfig.isChildDataLoading.value = true;
+                      await widget.onPressed!();
+                    } finally {
+                      MConfig.isChildDataLoading.value = false;
+                    }
                   },
                 );
               },
