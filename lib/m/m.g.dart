@@ -2874,6 +2874,23 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier scroll([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
+
+  DefineMColumnModifier safeArea({
+    bool top = true,
+    bool bottom = true,
+    bool left = true,
+    bool right = true,
+  }) {
+    return this.copyWith(
+      valueSafeArea: SafeArea(
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+        child: Container(),
+      ),
+    );
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {

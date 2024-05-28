@@ -74,6 +74,9 @@ class MGeneralModifier {
   final MaterialType? valueMaterialType;
   final double? valueMaterialElevation;
 
+  /// Other
+  final SafeArea? valueSafeArea;
+
   const MGeneralModifier({
     this.valuePadding,
     this.valueMargin,
@@ -124,6 +127,9 @@ class MGeneralModifier {
     /// Material
     this.valueMaterialType,
     this.valueMaterialElevation,
+
+    /// Other
+    this.valueSafeArea,
   });
 }
 
@@ -317,6 +323,16 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
 
     if (generalModifier?.valueScrollable ?? false) {
       child = SingleChildScrollView(child: child);
+    }
+
+    if (generalModifier?.valueSafeArea != null) {
+      child = SafeArea(
+        top: generalModifier?.valueSafeArea?.top ?? true,
+        bottom: generalModifier?.valueSafeArea?.bottom ?? true,
+        left: generalModifier?.valueSafeArea?.left ?? true,
+        right: generalModifier?.valueSafeArea?.right ?? true,
+        child: child,
+      );
     }
 
     if (generalModifier?.valueLeft != null ||

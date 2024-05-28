@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math' as math;
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
@@ -31,13 +32,19 @@ class MImage extends StatelessWidget {
     final useImageHeight = modifier?.valueImageHeight;
     Widget imgWidget;
     if (data.startsWith('http')) {
-      imgWidget = ExtendedImage.network(
-        data,
+      imgWidget = CachedNetworkImage(
+        imageUrl: data,
         width: useImageWidth,
         height: useImageHeight,
         fit: fitUse,
-        cache: true,
       );
+      // imgWidget = ExtendedImage.network(
+      //   data,
+      //   width: useImageWidth,
+      //   height: useImageHeight,
+      //   fit: fitUse,
+      //   cache: true,
+      // );
     } else if (data.startsWith("assets/")) {
       imgWidget = Image.asset(
         data,
@@ -87,10 +94,10 @@ class MImage extends StatelessWidget {
             ),
           ClipRRect(
             borderRadius: modifier?.valueShape == BoxShape.circle &&
-                containerWidth != null
+                    containerWidth != null
                 ? BorderRadius.all(Radius.circular((containerWidth) / 2))
                 : modifier?.valueBorderRadius ??
-                BorderRadius.all(Radius.circular(0)),
+                    BorderRadius.all(Radius.circular(0)),
             child: SizedBox(
               width: modifier?.valueImageWidth == null
                   ? modifier?.valueWidth
@@ -222,7 +229,7 @@ class DefineMImageModifier extends MGeneralModifier {
       valueImageWidth: valueImageWidth ?? this.valueImageWidth,
       valueImageHeight: valueImageWidth ?? this.valueImageHeight,
       valueImageBackgroundColor:
-      valueImageBackgroundColor ?? this.valueImageBackgroundColor,
+          valueImageBackgroundColor ?? this.valueImageBackgroundColor,
 
       /// Container
       valuePadding: valuePadding ?? this.valuePadding,
@@ -230,10 +237,10 @@ class DefineMImageModifier extends MGeneralModifier {
       valueOnTap: valueOnTap ?? this.valueOnTap,
       valueOnLongPress: valueOnLongPress ?? this.valueOnLongPress,
       valueOnLongPressMoveUpdate:
-      valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
+          valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
       valueOnLongPressUp: valueOnLongPressUp ?? this.valueOnLongPressUp,
       valueDragOutToStatusBar:
-      valueDragOutToStatusBar ?? this.valueDragOutToStatusBar,
+          valueDragOutToStatusBar ?? this.valueDragOutToStatusBar,
       valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
       valueBorderRadius: valueBorderRadius ?? this.valueBorderRadius,
       valueCenterAlign: valueCenterAlign ?? this.valueCenterAlign,
@@ -270,7 +277,7 @@ class DefineMImageModifier extends MGeneralModifier {
       // Material
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
       valueMaterialElevation:
-      valueMaterialElevation ?? this.valueMaterialElevation,
+          valueMaterialElevation ?? this.valueMaterialElevation,
     );
   }
 }
@@ -308,13 +315,13 @@ extension MImageModifierPropertys on DefineMImageModifier {
   }
 
   DefineMImageModifier sizeImage(double valueWidth, double valueHeight) {
-    return this.copyWith(
-        valueImageWidth: valueWidth, valueImageHeight: valueHeight);
+    return this
+        .copyWith(valueImageWidth: valueWidth, valueImageHeight: valueHeight);
   }
 
   DefineMImageModifier sizeImg(double valueWidth, double valueHeight) {
-    return this.copyWith(
-        valueImageWidth: valueWidth, valueImageHeight: valueHeight);
+    return this
+        .copyWith(valueImageWidth: valueWidth, valueImageHeight: valueHeight);
   }
 
   DefineMImageModifier allSizeImage(double value) {
@@ -338,8 +345,8 @@ extension MImageModifierPropertys on DefineMImageModifier {
     return this.copyWith(valueImageWidth: value, valueImageHeight: value);
   }
 
-  DefineMImageModifier imageSize(double valueImageWidth,
-      double valueImageHeight) {
+  DefineMImageModifier imageSize(
+      double valueImageWidth, double valueImageHeight) {
     return this.copyWith(
         valueImageWidth: valueImageWidth, valueImageHeight: valueImageHeight);
   }

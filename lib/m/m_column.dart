@@ -92,6 +92,7 @@ class DefineMColumnModifier extends MGeneralModifier {
 
     /// Other
     super.valueScrollable,
+    super.valueSafeArea,
   });
 
   /// Create a copyWith().
@@ -148,6 +149,7 @@ class DefineMColumnModifier extends MGeneralModifier {
 
     /// Other
     bool? valueScrollable,
+    SafeArea? valueSafeArea,
   }) {
     return DefineMColumnModifier(
       children: children ?? this.children,
@@ -207,6 +209,7 @@ class DefineMColumnModifier extends MGeneralModifier {
 
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
+      valueSafeArea: valueSafeArea ?? this.valueSafeArea,
     );
   }
 }
