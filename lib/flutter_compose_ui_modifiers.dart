@@ -39,6 +39,7 @@ export 'util/modifier_extension.dart';
 export 'util/page.dart';
 export 'util/page_easy.dart';
 export 'util/m_format.dart';
+export 'util/m_media_logic.dart';
 export 'config/m_theme_config.dart';
 
 /// Contains the modifier members of the [Widget] class.
