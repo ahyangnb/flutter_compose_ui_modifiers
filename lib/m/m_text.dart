@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// @todo HighlightNamesText function with MText.
 
@@ -28,26 +30,54 @@ class MText extends StatelessWidget {
     this.data,
   });
 
+  void onOpen(link) async {
+    if (!await launchUrl(Uri.parse(link.url))) {
+      throw Exception('Could not launch ${link.url}');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     String text = data ?? modifier?.valueData ?? "";
     final useStyle = modifier?.styleValue ?? TextStyle();
     final useValueSelectable = modifier?.valueSelectable ?? false;
-    Widget textWidget = useValueSelectable
-        ? SelectableText(
-            text,
-            style: useStyle,
-            textAlign: modifier?.valueTextAlign,
-            maxLines: modifier?.valueMaxLines,
-            // overflow: modifier?.valueOverflow,
-          )
-        : Text(
-            text,
-            style: useStyle,
-            textAlign: modifier?.valueTextAlign,
-            maxLines: modifier?.valueMaxLines,
-            overflow: modifier?.valueOverflow,
-          );
+    final useValueLinkDisplay = modifier?.valueLinkDisplay ?? false;
+    Widget textWidget;
+    if (useValueSelectable) {
+      textWidget = useValueLinkDisplay
+          ? SelectableLinkify(
+              text: text,
+              style: useStyle,
+              textAlign: modifier?.valueTextAlign,
+              maxLines: modifier?.valueMaxLines,
+              // overflow: modifier?.valueOverflow,
+              onOpen: onOpen,
+            )
+          : SelectableText(
+              text,
+              style: useStyle,
+              textAlign: modifier?.valueTextAlign,
+              maxLines: modifier?.valueMaxLines,
+              // overflow: modifier?.valueOverflow,
+            );
+    } else {
+      textWidget = useValueLinkDisplay
+          ? Linkify(
+              text: text,
+              style: useStyle,
+              textAlign: modifier?.valueTextAlign ?? TextAlign.start,
+              maxLines: modifier?.valueMaxLines,
+              overflow: modifier?.valueOverflow,
+              onOpen: onOpen,
+            )
+          : Text(
+              text,
+              style: useStyle,
+              textAlign: modifier?.valueTextAlign,
+              maxLines: modifier?.valueMaxLines,
+              overflow: modifier?.valueOverflow,
+            );
+    }
 
     if (modifier?.valueHighlightRegExp != null) {
       List<TextSpan> textSpans = [];
@@ -106,6 +136,7 @@ class DefineMTextModifier extends MGeneralModifier {
   final TextOverflow? valueOverflow;
   final String? valueData;
   final bool? valueSelectable;
+  final bool? valueLinkDisplay;
 
   const DefineMTextModifier({
     this.styleValue = const TextStyle(),
@@ -116,6 +147,7 @@ class DefineMTextModifier extends MGeneralModifier {
     this.valueOverflow,
     this.valueData,
     this.valueSelectable,
+    this.valueLinkDisplay,
 
     /// Container
     super.valuePadding,
@@ -178,6 +210,7 @@ class DefineMTextModifier extends MGeneralModifier {
     final TextOverflow? valueOverflow,
     String? valueData,
     bool? valueSelectable,
+    bool? valueLinkDisplay,
 
     /// The following properties are inherited from MGeneralModifier.
     EdgeInsets? valuePadding,
@@ -238,6 +271,7 @@ class DefineMTextModifier extends MGeneralModifier {
       valueOverflow: valueOverflow ?? this.valueOverflow,
       valueData: valueData ?? this.valueData,
       valueSelectable: valueSelectable ?? this.valueSelectable,
+      valueLinkDisplay: valueLinkDisplay ?? this.valueLinkDisplay,
 
       /// Container
       valuePadding: valuePadding ?? this.valuePadding,
@@ -593,6 +627,12 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier selectable([bool value = true]) {
     final DefineMTextModifier newModifierValue =
         this.copyWith(valueSelectable: value);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier linkDisplay([bool value = true]) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueLinkDisplay: value);
     return newModifierValue;
   }
 }
