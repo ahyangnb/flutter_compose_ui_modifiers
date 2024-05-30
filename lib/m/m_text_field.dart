@@ -319,7 +319,7 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
     );
   }
 
-  DefineMTextFieldModifier hintFontSize(double value) {
+  DefineMTextFieldModifier hintFontSize(double? value) {
     return this.copyWith(
       decorationValue: (this.decorationValue ?? InputDecoration()).copyWith(
           hintStyle: (this.decorationValue?.hintStyle ?? TextStyle())
