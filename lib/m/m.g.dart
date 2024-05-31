@@ -4603,6 +4603,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier margin(double? value) {
     return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
   }
+  
+  DefineMImageModifier marginAll(double? value) {
+    return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
+  }
 
   DefineMImageModifier backgroundColor(Color? value) {
     return this.copyWith(valueBackgroundColor: value);

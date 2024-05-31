@@ -489,6 +489,13 @@ extension MTextModifierPropertys on DefineMTextModifier {
             this.styleValue.copyWith(decoration: TextDecoration.underline));
     return newModifierValue;
   }
+  
+  DefineMTextModifier textDecoration(TextDecoration value) {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        styleValue:
+            this.styleValue.copyWith(decoration: value));
+    return newModifierValue;
+  }
 
   /// High light
   DefineMTextModifier styleHighlight(TextStyle value) {
