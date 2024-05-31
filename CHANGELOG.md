@@ -1,3 +1,6 @@
+## 0.3.9
+* Add some util. 
+
 ## 0.3.8
 * Add so many function.
 
