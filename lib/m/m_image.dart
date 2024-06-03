@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
@@ -31,12 +32,17 @@ class MImage extends StatelessWidget {
     final useImageWidth = modifier?.valueImageWidth;
     final useImageHeight = modifier?.valueImageHeight;
     Widget imgWidget;
-    if (data.startsWith('http')) {
+
+    if (GetUtils.isNullOrBlank(data)!) {
+      imgWidget = MDefImg();
+    } else if (data.startsWith('http')) {
       imgWidget = CachedNetworkImage(
         imageUrl: data,
         width: useImageWidth,
         height: useImageHeight,
         fit: fitUse,
+        errorWidget: (BuildContext context, String url, Object error) =>
+            MDefImg(),
       );
       // imgWidget = ExtendedImage.network(
       //   data,
@@ -51,6 +57,9 @@ class MImage extends StatelessWidget {
         width: useImageWidth,
         height: useImageHeight,
         fit: fitUse,
+        errorBuilder:
+            (BuildContext context, Object error, StackTrace? stackTrace) =>
+                MDefImg(),
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
       );
@@ -62,6 +71,9 @@ class MImage extends StatelessWidget {
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
         fit: fitUse,
+        errorBuilder:
+            (BuildContext context, Object error, StackTrace? stackTrace) =>
+                MDefImg(),
       );
     } else {
       imgWidget = Image.memory(
@@ -71,6 +83,10 @@ class MImage extends StatelessWidget {
         fit: fitUse,
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
+
+        errorBuilder:
+            (BuildContext context, Object error, StackTrace? stackTrace) =>
+                MDefImg(),
       );
     }
 
@@ -128,6 +144,7 @@ class DefineMImageModifier extends MGeneralModifier {
     this.valueImageWidth,
     this.valueImageHeight,
     this.valueImageBackgroundColor,
+
     /// Main.
     super.valueKey,
 
@@ -398,27 +415,54 @@ extension MImageModifierPropertys on DefineMImageModifier {
 
 ImageProvider mGetImageProvider(String data) {
   ImageProvider imgWidget;
-  if (data.startsWith('http')) {
-    imgWidget = ExtendedNetworkImageProvider(
-      data,
-      cache: true,
-    );
-  } else if (data.startsWith("assets/")) {
+  try {
+    if (GetUtils.isNullOrBlank(data)!) {
+      imgWidget = AssetImage(
+        MConfig.assetImageWhenError ?? "",
+        // cacheWidth: cacheWidth,
+        // cacheHeight: cacheHeight,
+      );
+    } else if (data.startsWith('http')) {
+      imgWidget = CachedNetworkImageProvider(data);
+      // imgWidget = ExtendedNetworkImageProvider(
+      //   data,
+      //   cache: true,
+      // );
+    } else if (data.startsWith("assets/")) {
+      imgWidget = AssetImage(
+        data,
+        // cacheWidth: cacheWidth,
+        // cacheHeight: cacheHeight,
+      );
+    } else if (File(data).existsSync()) {
+      imgWidget = FileImage(
+        File(data),
+      );
+    } else {
+      imgWidget = MemoryImage(
+        Uint8List.fromList(data.codeUnits.toList()),
+        // cacheWidth: cacheWidth,
+        // cacheHeight: cacheHeight,
+      );
+    }
+  } catch (e) {
     imgWidget = AssetImage(
-      data,
-      // cacheWidth: cacheWidth,
-      // cacheHeight: cacheHeight,
-    );
-  } else if (File(data).existsSync()) {
-    imgWidget = FileImage(
-      File(data),
-    );
-  } else {
-    imgWidget = MemoryImage(
-      Uint8List.fromList(data.codeUnits.toList()),
+      MConfig.assetImageWhenError ?? "",
       // cacheWidth: cacheWidth,
       // cacheHeight: cacheHeight,
     );
   }
   return imgWidget;
+}
+
+class MDefImg extends StatelessWidget {
+  const MDefImg({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    if (GetUtils.isNullOrBlank(MConfig.assetImageWhenError)!) {
+      return Icon(Icons.error);
+    }
+    return Image.asset(MConfig.assetImageWhenError!);
+  }
 }

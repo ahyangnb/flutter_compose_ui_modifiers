@@ -21,6 +21,8 @@ class MConfig {
 
   static Widget? defNoDataImage;
 
+  static String? assetImageWhenError;
+
   static RxBool isChildDataLoading = false.obs;
 
   static int pageLimit = 20;
