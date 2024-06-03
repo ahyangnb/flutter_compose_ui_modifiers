@@ -47,6 +47,11 @@ class MTextField extends StatelessWidget {
         enabled: modifier?.valueEnable ?? true,
         scrollPadding:
             modifier?.valueScrollPadding ?? const EdgeInsets.all(20.0),
+        canRequestFocus:
+            modifier?.valueCanRequestFocus ?? TextField().canRequestFocus,
+        readOnly: modifier?.valueReadOnly ?? TextField().readOnly,
+        showCursor: modifier?.valueShowCursor ?? TextField().showCursor,
+        scrollController: modifier?.valueScrollController,
       ),
     );
   }
@@ -71,6 +76,10 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   final Color? valueFillColor;
   final EdgeInsets? valueScrollPadding;
   final InputBorder? valueInputBorder;
+  final bool? valueCanRequestFocus;
+  final bool? valueReadOnly;
+  final bool? valueShowCursor;
+  final ScrollController? valueScrollController;
 
   const DefineMTextFieldModifier({
     this.decorationValue,
@@ -89,6 +98,10 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     this.valueFillColor,
     this.valueScrollPadding,
     this.valueInputBorder,
+    this.valueCanRequestFocus,
+    this.valueReadOnly,
+    this.valueShowCursor,
+    this.valueScrollController,
 
     /// Main.
     super.valueKey,
@@ -163,6 +176,10 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     final Color? valueFillColor,
     final EdgeInsets? valueScrollPadding,
     final InputBorder? valueInputBorder,
+    final bool? valueCanRequestFocus,
+    final bool? valueReadOnly,
+    final bool? valueShowCursor,
+    final ScrollController? valueScrollController,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -236,6 +253,11 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueFillColor: valueFillColor ?? this.valueFillColor,
       valueScrollPadding: valueScrollPadding ?? this.valueScrollPadding,
       valueInputBorder: valueInputBorder ?? this.valueInputBorder,
+      valueCanRequestFocus: valueCanRequestFocus ?? this.valueCanRequestFocus,
+      valueReadOnly: valueReadOnly ?? this.valueReadOnly,
+      valueShowCursor: valueShowCursor ?? this.valueShowCursor,
+      valueScrollController:
+          valueScrollController ?? this.valueScrollController,
 
       /// The following properties are inherited from MGeneralModifier.
       /// Main.
@@ -571,5 +593,21 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier scrollPadding(EdgeInsets? value) {
     return this.copyWith(valueScrollPadding: value);
+  }
+
+  DefineMTextFieldModifier canRequestFocus(bool? value) {
+    return this.copyWith(valueCanRequestFocus: value);
+  }
+
+  DefineMTextFieldModifier readOnly(bool? value) {
+    return this.copyWith(valueReadOnly: value);
+  }
+
+  DefineMTextFieldModifier showCursor(bool? value) {
+    return this.copyWith(valueShowCursor: value);
+  }
+
+  DefineMTextFieldModifier scrollController(ScrollController? value) {
+    return this.copyWith(valueScrollController: value);
   }
 }
