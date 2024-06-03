@@ -664,6 +664,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
       ),
     );
   }
+
+  DefineMTextFieldModifier key(Key key) {
+    return this.copyWith(valueKey: key);
+  }
 }
 
 extension MTextGeneralGenerator on DefineMTextModifier {
@@ -1257,6 +1261,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
         child: Container(),
       ),
     );
+  }
+
+  DefineMTextModifier key(Key key) {
+    return this.copyWith(valueKey: key);
   }
 }
 
@@ -1952,6 +1960,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
       ),
     );
   }
+
+  DefineMRowModifier key(Key key) {
+    return this.copyWith(valueKey: key);
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
@@ -2408,6 +2420,10 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
         child: Container(),
       ),
     );
+  }
+
+  DefineMListViewModifier key(Key key) {
+    return this.copyWith(valueKey: key);
   }
 }
 
@@ -3071,6 +3087,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
       ),
     );
   }
+
+  DefineMColumnModifier key(Key key) {
+    return this.copyWith(valueKey: key);
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
@@ -3733,6 +3753,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
       ),
     );
   }
+
+  DefineMAddButtonModifier key(Key key) {
+    return this.copyWith(valueKey: key);
+  }
 }
 
 extension MAddStackGeneralGenerator on DefineMStackModifier {
@@ -4394,6 +4418,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
       ),
     );
   }
+
+  DefineMStackModifier key(Key key) {
+    return this.copyWith(valueKey: key);
+  }
 }
 
 extension MImageGeneralGenerator on DefineMImageModifier {
@@ -4603,7 +4631,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier margin(double? value) {
     return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
   }
-  
+
   DefineMImageModifier marginAll(double? value) {
     return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
   }
@@ -5058,6 +5086,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
         child: Container(),
       ),
     );
+  }
+
+  DefineMImageModifier key(Key key) {
+    return this.copyWith(valueKey: key);
   }
 }
 
@@ -5718,6 +5750,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
         child: Container(),
       ),
     );
+  }
+
+  DefineMTileModifier key(Key key) {
+    return this.copyWith(valueKey: key);
   }
 }
 
@@ -6386,5 +6422,9 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
         child: Container(),
       ),
     );
+  }
+
+  DefineMContainerModifier key(Key key) {
+    return this.copyWith(valueKey: key);
   }
 }
