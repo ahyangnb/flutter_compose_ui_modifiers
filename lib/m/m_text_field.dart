@@ -36,7 +36,7 @@ class MTextField extends StatelessWidget {
         controller: controller ?? TextEditingController(),
         focusNode: modifier?.valueFocusNode ?? FocusNode(),
         decoration: inputDecoration,
-        style: modifier?.styleValue,
+        style: modifier?.valueStyle,
         expands: modifier?.expandsValue ?? false,
         maxLines: modifier?.maxLinesValue,
         onSubmitted: modifier?.valueOnSubmitted,
@@ -56,7 +56,7 @@ final MTextFieldModifier = DefineMTextFieldModifier();
 
 class DefineMTextFieldModifier extends MGeneralModifier {
   final InputDecoration? decorationValue;
-  final TextStyle? styleValue;
+  final TextStyle? valueStyle;
   final bool? expandsValue;
   final int? maxLinesValue;
   final bool? valueAutoFocus;
@@ -74,7 +74,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
 
   const DefineMTextFieldModifier({
     this.decorationValue,
-    this.styleValue,
+    this.valueStyle,
     this.expandsValue,
     this.maxLinesValue,
     this.valueAutoFocus,
@@ -148,7 +148,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   /// Create a copyWith().
   DefineMTextFieldModifier copyWith({
     final InputDecoration? decorationValue,
-    final TextStyle? styleValue,
+    final TextStyle? valueStyle,
     final bool? expandsValue,
     final int? maxLinesValue,
     final bool? valueAutoFocus,
@@ -220,7 +220,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   }) {
     return DefineMTextFieldModifier(
       decorationValue: decorationValue ?? this.decorationValue,
-      styleValue: styleValue ?? this.styleValue,
+      valueStyle: valueStyle ?? this.valueStyle,
       expandsValue: expandsValue ?? this.expandsValue,
       maxLinesValue: maxLinesValue ?? this.maxLinesValue,
       valueAutoFocus: valueAutoFocus ?? this.valueAutoFocus,
@@ -496,7 +496,7 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
   }
 
   DefineMTextFieldModifier style(TextStyle value) {
-    return this.copyWith(styleValue: value);
+    return this.copyWith(valueStyle: value);
   }
 
   DefineMTextFieldModifier expands(bool? value) {
@@ -509,18 +509,18 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier labelColor(Color value) {
     return this.copyWith(
-        styleValue: (this.styleValue ?? TextStyle()).copyWith(color: value));
+        valueStyle: (this.valueStyle ?? TextStyle()).copyWith(color: value));
   }
 
   DefineMTextFieldModifier labelFontSize(double value) {
     return this.copyWith(
-        styleValue: (this.styleValue ?? TextStyle()).copyWith(fontSize: value));
+        valueStyle: (this.valueStyle ?? TextStyle()).copyWith(fontSize: value));
   }
 
   DefineMTextFieldModifier labelFontWeight(FontWeight value) {
     return this.copyWith(
-        styleValue:
-            (this.styleValue ?? TextStyle()).copyWith(fontWeight: value));
+        valueStyle:
+            (this.valueStyle ?? TextStyle()).copyWith(fontWeight: value));
   }
 
   DefineMTextFieldModifier styleWhiteOpacity1({String? hintText}) {
@@ -528,7 +528,7 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
       decorationValue: (this.decorationValue ?? InputDecoration()).copyWith(
           hintText: hintText ?? 'Please enter your name...',
           hintStyle: MConfig.textFieldHintStyle),
-      styleValue: MConfig.textFieldStyle,
+      valueStyle: MConfig.textFieldStyle,
       valueBackgroundColor: MConfig.bgWhite22,
       valueBorderRadius: BorderRadius.circular(8),
       valueHeight: 52,
@@ -545,12 +545,12 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier color([Color? value]) {
     return this.copyWith(
-        styleValue: (this.styleValue ?? TextStyle()).copyWith(color: value));
+        valueStyle: (this.valueStyle ?? TextStyle()).copyWith(color: value));
   }
 
   DefineMTextFieldModifier fontSize([double? value]) {
     return this.copyWith(
-        styleValue: (this.styleValue ?? TextStyle()).copyWith(fontSize: value));
+        valueStyle: (this.valueStyle ?? TextStyle()).copyWith(fontSize: value));
   }
 
   DefineMTextFieldModifier textAlign([TextAlign? value]) {

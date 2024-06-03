@@ -16,7 +16,7 @@ class MTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final fontSize = modifier?.styleValue.fontSize ?? 18.px;
+    final fontSize = modifier?.valueStyle.fontSize ?? 18.px;
     return MGeneralLayoutModifierWidget(
       key: modifier?.valueKey ?? key,
       generalModifier: modifier,
@@ -39,7 +39,7 @@ class MTile extends StatelessWidget {
               .fontSize(fontSize)
 
               /// If use it will not center of the item.
-              // .heightSize(modifier?.styleValue.height ?? (25.px / fontSize))
+              // .heightSize(modifier?.valueStyle.height ?? (25.px / fontSize))
               .expanded(),
           if (modifier?.valueWidgetRight != null) modifier!.valueWidgetRight!,
         ],
@@ -51,13 +51,13 @@ class MTile extends StatelessWidget {
 final MTileModifier = DefineMTileModifier();
 
 class DefineMTileModifier extends MGeneralModifier {
-  final TextStyle styleValue;
+  final TextStyle valueStyle;
   final TextAlign? valueTextAlign;
   final String? valueIcon;
   final Widget? valueWidgetRight;
 
   const DefineMTileModifier({
-    this.styleValue = const TextStyle(),
+    this.valueStyle = const TextStyle(),
     this.valueTextAlign,
     this.valueIcon,
     this.valueWidgetRight,
@@ -118,7 +118,7 @@ class DefineMTileModifier extends MGeneralModifier {
   });
 
   DefineMTileModifier copyWith({
-    TextStyle? styleValue,
+    TextStyle? valueStyle,
     TextAlign? valueTextAlign,
     String? valueIcon,
     Widget? valueWidgetRight,
@@ -178,7 +178,7 @@ class DefineMTileModifier extends MGeneralModifier {
     SafeArea? valueSafeArea,
   }) {
     return DefineMTileModifier(
-      styleValue: styleValue ?? this.styleValue,
+      valueStyle: valueStyle ?? this.valueStyle,
       valueTextAlign: valueTextAlign ?? this.valueTextAlign,
       valueIcon: valueIcon ?? this.valueIcon,
       valueWidgetRight: valueWidgetRight ?? this.valueWidgetRight,
@@ -258,9 +258,9 @@ extension MTileModifierPropertys on DefineMTileModifier {
   }
 
   DefineMTileModifier setColor(Color color) {
-    final newStyle = this.styleValue.copyWith(color: color);
+    final newStyle = this.valueStyle.copyWith(color: color);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -269,23 +269,23 @@ extension MTileModifierPropertys on DefineMTileModifier {
   }
 
   DefineMTileModifier setFontSize(double fontSize) {
-    final newStyle = this.styleValue.copyWith(fontSize: fontSize);
+    final newStyle = this.valueStyle.copyWith(fontSize: fontSize);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTileModifier letterSpacing(double value) {
-    final newStyle = this.styleValue.copyWith(letterSpacing: value);
+    final newStyle = this.valueStyle.copyWith(letterSpacing: value);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTileModifier fontFamily(String value) {
-    final newStyle = this.styleValue.copyWith(fontFamily: value);
+    final newStyle = this.valueStyle.copyWith(fontFamily: value);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -303,9 +303,9 @@ extension MTileModifierPropertys on DefineMTileModifier {
   }
 
   DefineMTileModifier heightLine(double value) {
-    final newStyle = this.styleValue.copyWith(height: value);
+    final newStyle = this.valueStyle.copyWith(height: value);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -320,15 +320,15 @@ extension MTileModifierPropertys on DefineMTileModifier {
   }
 
   DefineMTileModifier setFontWeight(FontWeight fontWeight) {
-    final newStyle = this.styleValue.copyWith(fontWeight: fontWeight);
+    final newStyle = this.valueStyle.copyWith(fontWeight: fontWeight);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTileModifier style(TextStyle value) {
     final DefineMTileModifier newModifierValue =
-        this.copyWith(styleValue: value);
+        this.copyWith(valueStyle: value);
     return newModifierValue;
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -39,7 +40,7 @@ class MText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String text = data ?? modifier?.valueData ?? "";
-    final useStyle = modifier?.styleValue ?? TextStyle();
+    final useStyle = modifier?.valueStyle ?? TextStyle();
     final useValueSelectable = modifier?.valueSelectable ?? false;
     final useValueLinkDisplay = modifier?.valueLinkDisplay ?? false;
     Widget textWidget;
@@ -129,7 +130,7 @@ class MText extends StatelessWidget {
 final MTextModifier = DefineMTextModifier();
 
 class DefineMTextModifier extends MGeneralModifier {
-  final TextStyle styleValue;
+  final TextStyle valueStyle;
   final TextStyle? valueHighlightStyle;
   final TextAlign? valueTextAlign;
   final RegExp? valueHighlightRegExp;
@@ -139,8 +140,8 @@ class DefineMTextModifier extends MGeneralModifier {
   final bool? valueSelectable;
   final bool? valueLinkDisplay;
 
-  const DefineMTextModifier({
-    this.styleValue = const TextStyle(),
+  DefineMTextModifier({
+    this.valueStyle = const TextStyle(),
     this.valueHighlightStyle,
     this.valueTextAlign,
     this.valueHighlightRegExp,
@@ -206,7 +207,7 @@ class DefineMTextModifier extends MGeneralModifier {
   });
 
   DefineMTextModifier copyWith({
-    TextStyle? styleValue,
+    TextStyle? valueStyle,
     TextStyle? valueHighlightStyle,
     TextAlign? valueTextAlign,
     RegExp? valueHighlightRegExp,
@@ -271,7 +272,7 @@ class DefineMTextModifier extends MGeneralModifier {
     SafeArea? valueSafeArea,
   }) {
     return DefineMTextModifier(
-      styleValue: styleValue ?? this.styleValue,
+      valueStyle: valueStyle ?? this.valueStyle,
       valueHighlightStyle: valueHighlightStyle ?? this.valueHighlightStyle,
       valueTextAlign: valueTextAlign ?? this.valueTextAlign,
       valueHighlightRegExp: valueHighlightRegExp ?? this.valueHighlightRegExp,
@@ -339,6 +340,23 @@ class DefineMTextModifier extends MGeneralModifier {
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
     );
   }
+
+  double getTextWidth(String data) {
+    return getTextSize(data).width;
+  }
+
+  double getTextHeight(String data) {
+    return getTextSize(data).height;
+  }
+
+  Size getTextSize(String data) {
+    final TextPainter textPainter = TextPainter(
+        text: TextSpan(text: data, style: valueStyle),
+        maxLines: 1,
+        textDirection: TextDirection.ltr)
+      ..layout(minWidth: 0, maxWidth: double.infinity);
+    return textPainter.size;
+  }
 }
 
 class MFontWeight {
@@ -360,9 +378,9 @@ extension MTextModifierPropertys on DefineMTextModifier {
   }
 
   DefineMTextModifier setColor(Color color) {
-    final newStyle = this.styleValue.copyWith(color: color);
+    final newStyle = this.valueStyle.copyWith(color: color);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -379,9 +397,9 @@ extension MTextModifierPropertys on DefineMTextModifier {
   }
 
   DefineMTextModifier setTextColor(Color color) {
-    final newStyle = this.styleValue.copyWith(color: color);
+    final newStyle = this.valueStyle.copyWith(color: color);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -390,23 +408,23 @@ extension MTextModifierPropertys on DefineMTextModifier {
   }
 
   DefineMTextModifier setFontSize(double fontSize) {
-    final newStyle = this.styleValue.copyWith(fontSize: fontSize);
+    final newStyle = this.valueStyle.copyWith(fontSize: fontSize);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTextModifier letterSpacing(double value) {
-    final newStyle = this.styleValue.copyWith(letterSpacing: value);
+    final newStyle = this.valueStyle.copyWith(letterSpacing: value);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTextModifier fontFamily(String value) {
-    final newStyle = this.styleValue.copyWith(fontFamily: value);
+    final newStyle = this.valueStyle.copyWith(fontFamily: value);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -419,9 +437,9 @@ extension MTextModifierPropertys on DefineMTextModifier {
   }
 
   DefineMTextModifier heightLine(double value) {
-    final newStyle = this.styleValue.copyWith(height: value);
+    final newStyle = this.valueStyle.copyWith(height: value);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -454,57 +472,56 @@ extension MTextModifierPropertys on DefineMTextModifier {
   }
 
   DefineMTextModifier setFontWeight(FontWeight fontWeight) {
-    final newStyle = this.styleValue.copyWith(fontWeight: fontWeight);
+    final newStyle = this.valueStyle.copyWith(fontWeight: fontWeight);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: newStyle);
+        this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTextModifier style(TextStyle value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(styleValue: value);
+        this.copyWith(valueStyle: value);
     return newModifierValue;
   }
 
   DefineMTextModifier deleteLine() {
     final DefineMTextModifier newModifierValue = this.copyWith(
-        styleValue:
-            this.styleValue.copyWith(decoration: TextDecoration.lineThrough));
+        valueStyle:
+            this.valueStyle.copyWith(decoration: TextDecoration.lineThrough));
     return newModifierValue;
   }
 
   DefineMTextModifier lineThrough() {
     final DefineMTextModifier newModifierValue = this.copyWith(
-        styleValue:
-            this.styleValue.copyWith(decoration: TextDecoration.lineThrough));
+        valueStyle:
+            this.valueStyle.copyWith(decoration: TextDecoration.lineThrough));
     return newModifierValue;
   }
 
   DefineMTextModifier throughLine() {
     final DefineMTextModifier newModifierValue = this.copyWith(
-        styleValue:
-            this.styleValue.copyWith(decoration: TextDecoration.lineThrough));
+        valueStyle:
+            this.valueStyle.copyWith(decoration: TextDecoration.lineThrough));
     return newModifierValue;
   }
 
   DefineMTextModifier underLine() {
     final DefineMTextModifier newModifierValue = this.copyWith(
-        styleValue:
-            this.styleValue.copyWith(decoration: TextDecoration.underline));
+        valueStyle:
+            this.valueStyle.copyWith(decoration: TextDecoration.underline));
     return newModifierValue;
   }
 
   DefineMTextModifier under() {
     final DefineMTextModifier newModifierValue = this.copyWith(
-        styleValue:
-            this.styleValue.copyWith(decoration: TextDecoration.underline));
+        valueStyle:
+            this.valueStyle.copyWith(decoration: TextDecoration.underline));
     return newModifierValue;
   }
-  
+
   DefineMTextModifier textDecoration(TextDecoration value) {
-    final DefineMTextModifier newModifierValue = this.copyWith(
-        styleValue:
-            this.styleValue.copyWith(decoration: value));
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueStyle: this.valueStyle.copyWith(decoration: value));
     return newModifierValue;
   }
 
@@ -572,7 +589,7 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier chipWhite() {
     final borderWidth = 1.px;
     final DefineMTextModifier newModifierValue = this.copyWith(
-      styleValue: (this.styleValue).copyWith(
+      valueStyle: (this.valueStyle).copyWith(
         color: Colors.white,
         fontSize: 12.px,
       ),

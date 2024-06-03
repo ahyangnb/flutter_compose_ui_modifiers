@@ -369,3 +369,21 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     return child;
   }
 }
+
+extension OkExtentionOfGeneal on MGeneralModifier {
+  double get getFullSizeWidth => getFullSize.width;
+
+  double get getFullSizeHeight => getFullSize.height;
+
+  double get getFullPaddingHorizontal =>
+      (valueMargin?.left ?? 0) + (valueMargin?.right ?? 0);
+
+  double get getFullPaddingVertical =>
+      (valueMargin?.top ?? 0) + (valueMargin?.bottom ?? 0);
+
+  Size get getFullSize {
+    final _width = (valueWidth ?? 0) + getFullPaddingHorizontal;
+    final _height = (valueHeight ?? 0) + getFullPaddingVertical;
+    return Size(_width, _height);
+  }
+}
