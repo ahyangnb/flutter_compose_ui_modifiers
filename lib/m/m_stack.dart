@@ -13,6 +13,7 @@ class MStack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
+      key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       ignoreList: [IgnoreModifierInGeneral.alignment],
       child: Stack(

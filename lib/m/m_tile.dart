@@ -18,6 +18,7 @@ class MTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final fontSize = modifier?.styleValue.fontSize ?? 18.px;
     return MGeneralLayoutModifierWidget(
+      key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: MRow(
         modifier: MRowModifier.mainAxisAlignment(MainAxisAlignment.start)

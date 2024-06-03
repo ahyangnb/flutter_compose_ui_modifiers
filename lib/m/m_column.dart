@@ -18,6 +18,7 @@ class MColumn extends StatelessWidget {
       ...modifier?.children ?? [],
     ];
     return MGeneralLayoutModifierWidget(
+      key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: Column(
         crossAxisAlignment: modifier?.valueCrossAxisAlignment ??

@@ -13,6 +13,7 @@ class MContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
+      key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: child ?? modifier?.valueChild ?? Container(),
     );

@@ -13,6 +13,7 @@ class MListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
+      key: modifier?.valueKey ?? key,
       generalModifier: modifier,
 
       /// Padding will be use in ListView, so we need to ignore it.

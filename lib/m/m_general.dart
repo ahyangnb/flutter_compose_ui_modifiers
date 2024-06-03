@@ -22,6 +22,10 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 enum MGravity { top, center, bottom }
 
 class MGeneralModifier {
+  /// Main key.
+  final Key? valueKey;
+
+  /// Contents:
   final EdgeInsets? valuePadding;
   final EdgeInsets? valueMargin;
   final VoidCallback? valueOnTap;
@@ -79,6 +83,10 @@ class MGeneralModifier {
   final SafeArea? valueSafeArea;
 
   const MGeneralModifier({
+    /// Main key.
+    this.valueKey,
+
+    /// Contents:
     this.valuePadding,
     this.valueMargin,
     this.valueOnTap,
@@ -154,6 +162,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     this.generalModifier,
     required this.child,
     this.ignoreList = const [],
+    required super.key,
   });
 
   @override

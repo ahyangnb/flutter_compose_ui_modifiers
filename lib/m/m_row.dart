@@ -18,6 +18,7 @@ class MRow extends StatelessWidget {
       ...modifier?.children ?? [],
     ];
     return MGeneralLayoutModifierWidget(
+      key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: Row(
         crossAxisAlignment: modifier?.valueCrossAxisAlignment ??

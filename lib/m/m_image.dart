@@ -77,6 +77,7 @@ class MImage extends StatelessWidget {
     final containerWidth = modifier?.valueWidth ?? useImageWidth;
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
+      key: modifier?.valueKey ?? key,
       child: Stack(
         alignment: Alignment.center,
         children: [

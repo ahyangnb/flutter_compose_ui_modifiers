@@ -119,6 +119,7 @@ class MText extends StatelessWidget {
     }
 
     return MGeneralLayoutModifierWidget(
+      key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: textWidget,
     );
