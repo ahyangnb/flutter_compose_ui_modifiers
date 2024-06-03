@@ -40,6 +40,10 @@ class DefineMStackModifier extends MGeneralModifier {
     this.valueTextDirection,
     this.valueFit,
     this.valueClipBehavior,
+    /// Main.
+    super.valueKey,
+
+    /// Contents:
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -98,6 +102,10 @@ class DefineMStackModifier extends MGeneralModifier {
     final Clip? valueClipBehavior,
 
     /// The following properties are inherited from MGeneralModifier.
+    /// Main.
+    Key? valueKey,
+
+    /// Contents:
     EdgeInsets? valuePadding,
     EdgeInsets? valueMargin,
     VoidCallback? valueOnTap,
@@ -153,7 +161,10 @@ class DefineMStackModifier extends MGeneralModifier {
       valueFit: valueFit ?? this.valueFit,
       valueClipBehavior: valueClipBehavior ?? this.valueClipBehavior,
 
-      /// Container.
+      /// Main.
+      valueKey: valueKey ?? this.valueKey,
+
+      /// Contents:
       valuePadding: valuePadding ?? this.valuePadding,
       valueMargin: valueMargin ?? this.valueMargin,
       valueOnTap: valueOnTap ?? this.valueOnTap,

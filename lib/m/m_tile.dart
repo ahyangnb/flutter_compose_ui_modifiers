@@ -62,6 +62,9 @@ class DefineMTileModifier extends MGeneralModifier {
     this.valueIcon,
     this.valueWidgetRight,
 
+    /// Main.
+    super.valueKey,
+
     /// Container
     super.valuePadding,
     super.valueMargin,
@@ -121,6 +124,10 @@ class DefineMTileModifier extends MGeneralModifier {
     Widget? valueWidgetRight,
 
     /// The following properties are inherited from MGeneralModifier.
+    /// Main.
+    Key? valueKey,
+
+    /// Contents:
     EdgeInsets? valuePadding,
     EdgeInsets? valueMargin,
     VoidCallback? valueOnTap,
@@ -177,6 +184,10 @@ class DefineMTileModifier extends MGeneralModifier {
       valueWidgetRight: valueWidgetRight ?? this.valueWidgetRight,
 
       /// Container
+      /// Main.
+      valueKey: valueKey ?? this.valueKey,
+
+      /// Contents:
       valuePadding: valuePadding ?? this.valuePadding,
       valueMargin: valueMargin ?? this.valueMargin,
       valueOnTap: valueOnTap ?? this.valueOnTap,

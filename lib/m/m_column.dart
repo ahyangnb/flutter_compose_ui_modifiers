@@ -46,6 +46,10 @@ class DefineMColumnModifier extends MGeneralModifier {
     this.valueReverse,
     this.valueCrossAxisAlignment,
     this.valueMainAxisAlignment,
+    /// Main.
+    super.valueKey,
+
+    /// Contents:
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -105,6 +109,10 @@ class DefineMColumnModifier extends MGeneralModifier {
     MainAxisAlignment? valueMainAxisAlignment,
 
     /// The following properties are inherited from MGeneralModifier.
+    /// Main.
+    Key? valueKey,
+
+    /// Contents:
     EdgeInsets? valuePadding,
     EdgeInsets? valueMargin,
     GestureTapCallback? valueOnTap,
@@ -163,6 +171,10 @@ class DefineMColumnModifier extends MGeneralModifier {
           valueMainAxisAlignment ?? this.valueMainAxisAlignment,
 
       /// The following properties are inherited from MGeneralModifier.
+      /// Main.
+      valueKey: valueKey ?? this.valueKey,
+
+      /// Contents:
       valuePadding: valuePadding ?? this.valuePadding,
       valueMargin: valueMargin ?? this.valueMargin,
       valueOnTap: valueOnTap ?? this.valueOnTap,

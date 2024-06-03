@@ -28,6 +28,11 @@ class DefineMContainerModifier extends MGeneralModifier {
   const DefineMContainerModifier({
     /// Container
     this.valueChild,
+
+    /// Main.
+    super.valueKey,
+
+    /// Contents:
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -81,6 +86,10 @@ class DefineMContainerModifier extends MGeneralModifier {
 
   DefineMContainerModifier copyWith({
     /// The following properties are inherited from MGeneralModifier.
+    /// Main.
+    Key? valueKey,
+
+    /// Contents:
     Widget? valueChild,
     EdgeInsets? valuePadding,
     EdgeInsets? valueMargin,
@@ -132,6 +141,9 @@ class DefineMContainerModifier extends MGeneralModifier {
     SafeArea? valueSafeArea,
   }) {
     return DefineMContainerModifier(
+      /// Main.
+      valueKey: valueKey ?? this.valueKey,
+
       /// Container
       valueChild: valueChild ?? this.valueChild,
       valuePadding: valuePadding ?? this.valuePadding,

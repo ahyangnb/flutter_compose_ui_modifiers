@@ -47,6 +47,10 @@ class DefineMListViewModifier extends MGeneralModifier {
     this.valueShrinkWrap,
     this.valuePhysics,
     this.valueController,
+    /// Main.
+    super.valueKey,
+
+    /// Contents:
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -107,6 +111,10 @@ class DefineMListViewModifier extends MGeneralModifier {
     ScrollController? valueController,
 
     /// The following properties are inherited from MGeneralModifier.
+    /// Main.
+    Key? valueKey,
+
+    /// Contents:
     EdgeInsets? valuePadding,
     EdgeInsets? valueMargin,
     GestureTapCallback? valueOnTap,
@@ -164,6 +172,10 @@ class DefineMListViewModifier extends MGeneralModifier {
       valueController: valueController ?? this.valueController,
 
       /// The following properties are inherited from MGeneralModifier.
+      /// Main.
+      valueKey: valueKey ?? this.valueKey,
+
+      /// Contents:
       valuePadding: valuePadding ?? this.valuePadding,
       valueMargin: valueMargin ?? this.valueMargin,
       valueOnTap: valueOnTap ?? this.valueOnTap,

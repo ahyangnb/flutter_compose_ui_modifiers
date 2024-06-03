@@ -128,6 +128,10 @@ class DefineMImageModifier extends MGeneralModifier {
     this.valueImageWidth,
     this.valueImageHeight,
     this.valueImageBackgroundColor,
+    /// Main.
+    super.valueKey,
+
+    /// Contents:
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -186,6 +190,10 @@ class DefineMImageModifier extends MGeneralModifier {
     Color? valueImageBackgroundColor,
 
     /// The following properties are inherited from MGeneralModifier.
+    /// Main.
+    Key? valueKey,
+
+    /// Contents:
     EdgeInsets? valuePadding,
     EdgeInsets? valueMargin,
     VoidCallback? valueOnTap,
@@ -242,7 +250,10 @@ class DefineMImageModifier extends MGeneralModifier {
       valueImageBackgroundColor:
           valueImageBackgroundColor ?? this.valueImageBackgroundColor,
 
-      /// Container
+      /// Main.
+      valueKey: valueKey ?? this.valueKey,
+
+      /// Contents:
       valuePadding: valuePadding ?? this.valuePadding,
       valueMargin: valueMargin ?? this.valueMargin,
       valueOnTap: valueOnTap ?? this.valueOnTap,

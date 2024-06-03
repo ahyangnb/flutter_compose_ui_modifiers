@@ -150,6 +150,9 @@ class DefineMTextModifier extends MGeneralModifier {
     this.valueSelectable,
     this.valueLinkDisplay,
 
+    /// Main.
+    super.valueKey,
+
     /// Container
     super.valuePadding,
     super.valueMargin,
@@ -214,6 +217,10 @@ class DefineMTextModifier extends MGeneralModifier {
     bool? valueLinkDisplay,
 
     /// The following properties are inherited from MGeneralModifier.
+    /// Main.
+    Key? valueKey,
+
+    /// Contents:
     EdgeInsets? valuePadding,
     EdgeInsets? valueMargin,
     VoidCallback? valueOnTap,
@@ -274,7 +281,10 @@ class DefineMTextModifier extends MGeneralModifier {
       valueSelectable: valueSelectable ?? this.valueSelectable,
       valueLinkDisplay: valueLinkDisplay ?? this.valueLinkDisplay,
 
-      /// Container
+      /// Main.
+      valueKey: valueKey ?? this.valueKey,
+
+      /// Contents:
       valuePadding: valuePadding ?? this.valuePadding,
       valueMargin: valueMargin ?? this.valueMargin,
       valueOnTap: valueOnTap ?? this.valueOnTap,

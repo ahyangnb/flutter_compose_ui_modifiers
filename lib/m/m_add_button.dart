@@ -59,6 +59,11 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     this.valueImageIcon,
     this.valueImageWidth,
     this.valueImageHeight,
+
+    /// Main.
+    super.valueKey,
+
+    /// Contents:
     super.valuePadding,
     super.valueMargin,
     super.valueOnTap,
@@ -119,6 +124,10 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     double? valueImageHeight,
 
     /// The following properties are inherited from MGeneralModifier.
+    /// Main.
+    Key? valueKey,
+
+    /// Contents:
     EdgeInsets? valuePadding,
     EdgeInsets? valueMargin,
     GestureTapCallback? valueOnTap,
@@ -176,6 +185,10 @@ class DefineMAddButtonModifier extends MGeneralModifier {
       valueImageHeight: valueImageHeight ?? this.valueImageHeight,
 
       /// The following properties are inherited from MGeneralModifier.
+      /// Main.
+      valueKey: valueKey ?? this.valueKey,
+
+      /// Contents:
       valuePadding: valuePadding ?? this.valuePadding,
       valueMargin: valueMargin ?? this.valueMargin,
       valueOnTap: valueOnTap ?? this.valueOnTap,
