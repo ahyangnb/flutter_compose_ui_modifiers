@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math' as math;
 
@@ -77,7 +78,8 @@ class MImage extends StatelessWidget {
       );
     } else {
       imgWidget = Image.memory(
-        Uint8List.fromList(data.codeUnits.toList()),
+        base64Decode(data),
+        // Uint8List.fromList(data.codeUnits.toList()),
         width: useImageWidth,
         height: useImageHeight,
         fit: fitUse,
@@ -440,7 +442,8 @@ ImageProvider mGetImageProvider(String data) {
       );
     } else {
       imgWidget = MemoryImage(
-        Uint8List.fromList(data.codeUnits.toList()),
+        base64Decode(data),
+        // Uint8List.fromList(data.codeUnits.toList()),
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
       );
