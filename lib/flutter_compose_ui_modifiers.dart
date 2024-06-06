@@ -33,6 +33,7 @@ export 'other/m_white_select_tile.dart';
 export 'other/m_button.dart';
 export 'other/m_tip_row.dart';
 export 'other/m_refresh_indicator.dart';
+export 'other/m_animate.dart';
 export 'util/screen_fit.dart';
 export 'util/extension.dart';
 export 'util/modifier_extension.dart';
