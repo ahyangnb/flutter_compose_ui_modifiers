@@ -61,3 +61,12 @@ extension ModifierMapHandle on Map {
     return containsKey(key) ? this[key]! as T : null;
   }
 }
+
+extension ListCheckConditions on List {
+  bool bothEqual(value) {
+    for (var item in this) {
+      if (item != value) return false;
+    }
+    return true;
+  }
+}
