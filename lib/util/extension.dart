@@ -70,3 +70,13 @@ extension ListCheckConditions on List {
     return true;
   }
 }
+
+extension InsDelay on int {
+  Future delayMilliseconds() {
+    return Future.delayed(Duration(milliseconds: this));
+  }
+
+  Future delaySeconds() {
+    return Future.delayed(Duration(seconds: this));
+  }
+}

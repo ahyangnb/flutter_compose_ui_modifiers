@@ -1,0 +1,3 @@
+class MDialogManager {
+  /// todo implement
+}
