@@ -25,6 +25,12 @@ typedef FutureCallback<T> = Future<T> Function();
 /// Function type of return value.
 typedef ReturnCallback<T> = T Function();
 
+/// Function type of return value.
+typedef ReturnCallbackWithParam<T, P> = T Function(P);
+
+/// CallBack
+typedef CallBack = Function(dynamic value);
+
 /// function type with multiple parameters
 typedef BinaryCallback<T, U> = void Function(T a, U b);
 
