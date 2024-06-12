@@ -586,16 +586,61 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   }
 
   DefineMTextFieldModifier constraints({
-    double minWidth = 0.0,
-    double maxWidth = double.infinity,
-    double minHeight = 0.0,
-    double maxHeight = double.infinity,
+    double? minWidth,
+    double? maxWidth,
+    double? minHeight,
+    double? maxHeight,
   }) {
-    final useValue = BoxConstraints(
-      minWidth: minWidth,
-      maxWidth: maxWidth,
-      minHeight: minHeight,
-      maxHeight: maxHeight,
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: minWidth ?? oldValue.minWidth,
+      maxWidth: maxWidth ?? oldValue.maxWidth,
+      minHeight: minHeight ?? oldValue.minHeight,
+      maxHeight: maxHeight ?? oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTextFieldModifier minWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: value,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTextFieldModifier maxWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: value,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTextFieldModifier minHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: value,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTextFieldModifier maxHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: value,
     );
     return this.copyWith(valueConstraints: useValue);
   }
@@ -1184,16 +1229,61 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   }
 
   DefineMTextModifier constraints({
-    double minWidth = 0.0,
-    double maxWidth = double.infinity,
-    double minHeight = 0.0,
-    double maxHeight = double.infinity,
+    double? minWidth,
+    double? maxWidth,
+    double? minHeight,
+    double? maxHeight,
   }) {
-    final useValue = BoxConstraints(
-      minWidth: minWidth,
-      maxWidth: maxWidth,
-      minHeight: minHeight,
-      maxHeight: maxHeight,
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: minWidth ?? oldValue.minWidth,
+      maxWidth: maxWidth ?? oldValue.maxWidth,
+      minHeight: minHeight ?? oldValue.minHeight,
+      maxHeight: maxHeight ?? oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTextModifier minWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: value,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTextModifier maxWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: value,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTextModifier minHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: value,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTextModifier maxHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: value,
     );
     return this.copyWith(valueConstraints: useValue);
   }
@@ -1882,16 +1972,61 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   }
 
   DefineMRowModifier constraints({
-    double minWidth = 0.0,
-    double maxWidth = double.infinity,
-    double minHeight = 0.0,
-    double maxHeight = double.infinity,
+    double? minWidth,
+    double? maxWidth,
+    double? minHeight,
+    double? maxHeight,
   }) {
-    final useValue = BoxConstraints(
-      minWidth: minWidth,
-      maxWidth: maxWidth,
-      minHeight: minHeight,
-      maxHeight: maxHeight,
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: minWidth ?? oldValue.minWidth,
+      maxWidth: maxWidth ?? oldValue.maxWidth,
+      minHeight: minHeight ?? oldValue.minHeight,
+      maxHeight: maxHeight ?? oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMRowModifier minWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: value,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMRowModifier maxWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: value,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMRowModifier minHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: value,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMRowModifier maxHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: value,
     );
     return this.copyWith(valueConstraints: useValue);
   }
@@ -2343,16 +2478,61 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   }
 
   DefineMListViewModifier constraints({
-    double minWidth = 0.0,
-    double maxWidth = double.infinity,
-    double minHeight = 0.0,
-    double maxHeight = double.infinity,
+    double? minWidth,
+    double? maxWidth,
+    double? minHeight,
+    double? maxHeight,
   }) {
-    final useValue = BoxConstraints(
-      minWidth: minWidth,
-      maxWidth: maxWidth,
-      minHeight: minHeight,
-      maxHeight: maxHeight,
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: minWidth ?? oldValue.minWidth,
+      maxWidth: maxWidth ?? oldValue.maxWidth,
+      minHeight: minHeight ?? oldValue.minHeight,
+      maxHeight: maxHeight ?? oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMListViewModifier minWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: value,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMListViewModifier maxWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: value,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMListViewModifier minHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: value,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMListViewModifier maxHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: value,
     );
     return this.copyWith(valueConstraints: useValue);
   }
@@ -3009,16 +3189,61 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   }
 
   DefineMColumnModifier constraints({
-    double minWidth = 0.0,
-    double maxWidth = double.infinity,
-    double minHeight = 0.0,
-    double maxHeight = double.infinity,
+    double? minWidth,
+    double? maxWidth,
+    double? minHeight,
+    double? maxHeight,
   }) {
-    final useValue = BoxConstraints(
-      minWidth: minWidth,
-      maxWidth: maxWidth,
-      minHeight: minHeight,
-      maxHeight: maxHeight,
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: minWidth ?? oldValue.minWidth,
+      maxWidth: maxWidth ?? oldValue.maxWidth,
+      minHeight: minHeight ?? oldValue.minHeight,
+      maxHeight: maxHeight ?? oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMColumnModifier minWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: value,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMColumnModifier maxWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: value,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMColumnModifier minHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: value,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMColumnModifier maxHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: value,
     );
     return this.copyWith(valueConstraints: useValue);
   }
@@ -3675,16 +3900,61 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   }
 
   DefineMAddButtonModifier constraints({
-    double minWidth = 0.0,
-    double maxWidth = double.infinity,
-    double minHeight = 0.0,
-    double maxHeight = double.infinity,
+    double? minWidth,
+    double? maxWidth,
+    double? minHeight,
+    double? maxHeight,
   }) {
-    final useValue = BoxConstraints(
-      minWidth: minWidth,
-      maxWidth: maxWidth,
-      minHeight: minHeight,
-      maxHeight: maxHeight,
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: minWidth ?? oldValue.minWidth,
+      maxWidth: maxWidth ?? oldValue.maxWidth,
+      minHeight: minHeight ?? oldValue.minHeight,
+      maxHeight: maxHeight ?? oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMAddButtonModifier minWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: value,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMAddButtonModifier maxWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: value,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMAddButtonModifier minHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: value,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMAddButtonModifier maxHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: value,
     );
     return this.copyWith(valueConstraints: useValue);
   }
@@ -4340,16 +4610,61 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   }
 
   DefineMStackModifier constraints({
-    double minWidth = 0.0,
-    double maxWidth = double.infinity,
-    double minHeight = 0.0,
-    double maxHeight = double.infinity,
+    double? minWidth,
+    double? maxWidth,
+    double? minHeight,
+    double? maxHeight,
   }) {
-    final useValue = BoxConstraints(
-      minWidth: minWidth,
-      maxWidth: maxWidth,
-      minHeight: minHeight,
-      maxHeight: maxHeight,
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: minWidth ?? oldValue.minWidth,
+      maxWidth: maxWidth ?? oldValue.maxWidth,
+      minHeight: minHeight ?? oldValue.minHeight,
+      maxHeight: maxHeight ?? oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMStackModifier minWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: value,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMStackModifier maxWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: value,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMStackModifier minHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: value,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMStackModifier maxHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: value,
     );
     return this.copyWith(valueConstraints: useValue);
   }
@@ -5009,16 +5324,61 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   }
 
   DefineMImageModifier constraints({
-    double minWidth = 0.0,
-    double maxWidth = double.infinity,
-    double minHeight = 0.0,
-    double maxHeight = double.infinity,
+    double? minWidth,
+    double? maxWidth,
+    double? minHeight,
+    double? maxHeight,
   }) {
-    final useValue = BoxConstraints(
-      minWidth: minWidth,
-      maxWidth: maxWidth,
-      minHeight: minHeight,
-      maxHeight: maxHeight,
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: minWidth ?? oldValue.minWidth,
+      maxWidth: maxWidth ?? oldValue.maxWidth,
+      minHeight: minHeight ?? oldValue.minHeight,
+      maxHeight: maxHeight ?? oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMImageModifier minWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: value,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMImageModifier maxWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: value,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMImageModifier minHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: value,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMImageModifier maxHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: value,
     );
     return this.copyWith(valueConstraints: useValue);
   }
@@ -5673,16 +6033,61 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   }
 
   DefineMTileModifier constraints({
-    double minWidth = 0.0,
-    double maxWidth = double.infinity,
-    double minHeight = 0.0,
-    double maxHeight = double.infinity,
+    double? minWidth,
+    double? maxWidth,
+    double? minHeight,
+    double? maxHeight,
   }) {
-    final useValue = BoxConstraints(
-      minWidth: minWidth,
-      maxWidth: maxWidth,
-      minHeight: minHeight,
-      maxHeight: maxHeight,
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: minWidth ?? oldValue.minWidth,
+      maxWidth: maxWidth ?? oldValue.maxWidth,
+      minHeight: minHeight ?? oldValue.minHeight,
+      maxHeight: maxHeight ?? oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTileModifier minWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: value,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTileModifier maxWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: value,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTileModifier minHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: value,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMTileModifier maxHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: value,
     );
     return this.copyWith(valueConstraints: useValue);
   }
@@ -6345,16 +6750,61 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   }
 
   DefineMContainerModifier constraints({
-    double minWidth = 0.0,
-    double maxWidth = double.infinity,
-    double minHeight = 0.0,
-    double maxHeight = double.infinity,
+    double? minWidth,
+    double? maxWidth,
+    double? minHeight,
+    double? maxHeight,
   }) {
-    final useValue = BoxConstraints(
-      minWidth: minWidth,
-      maxWidth: maxWidth,
-      minHeight: minHeight,
-      maxHeight: maxHeight,
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: minWidth ?? oldValue.minWidth,
+      maxWidth: maxWidth ?? oldValue.maxWidth,
+      minHeight: minHeight ?? oldValue.minHeight,
+      maxHeight: maxHeight ?? oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMContainerModifier minWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: value,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMContainerModifier maxWidth(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: value,
+      minHeight: oldValue.minHeight,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMContainerModifier minHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: value,
+      maxHeight: oldValue.maxHeight,
+    );
+    return this.copyWith(valueConstraints: useValue);
+  }
+
+  DefineMContainerModifier maxHeight(double value) {
+    final oldValue = this.valueConstraints ?? BoxConstraints();
+    final useValue = oldValue.copyWith(
+      minWidth: oldValue.minWidth,
+      maxWidth: oldValue.maxWidth,
+      minHeight: oldValue.minHeight,
+      maxHeight: value,
     );
     return this.copyWith(valueConstraints: useValue);
   }

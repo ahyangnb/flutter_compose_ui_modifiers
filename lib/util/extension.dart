@@ -6,8 +6,8 @@ mixin WorkManager {
   List<Worker> workList = <Worker>[];
 
   /// Create a new ever met, who can listen evens, and that will be destroy went to get the extra controller close.
-  Worker everAndAutoClose<T>(
-      RxInterface<T> listener, WorkerCallback<T> callback) {
+  Worker everAndAutoClose<T>(RxInterface<T> listener,
+      WorkerCallback<T> callback) {
     final worker = ever(listener, callback);
     workList.add(worker);
     return worker;
@@ -50,6 +50,8 @@ class ModifierState<T extends StatefulWidget> extends State<T>
 
 extension ModifierBoolHandle on bool {
   bool not() => !this;
+
+  bool get reverse => !this;
 }
 
 extension ModifierMapHandle on Map {

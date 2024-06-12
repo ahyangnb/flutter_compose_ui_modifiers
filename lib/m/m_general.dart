@@ -182,6 +182,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         generalModifier?.valueGradient != null ||
         generalModifier?.valueGradientBorder != null ||
         generalModifier?.valueBorder != null ||
+        generalModifier?.valueConstraints != null ||
         generalModifier?.valueContainerAlignment != null ||
         generalModifier?.valueShape != null ||
         generalModifier?.valueBackgroundImage != null) {
