@@ -81,6 +81,7 @@ class MGeneralModifier {
 
   /// Other
   final SafeArea? valueSafeArea;
+  final bool? valueVisible;
 
   const MGeneralModifier({
     /// Main key.
@@ -140,6 +141,7 @@ class MGeneralModifier {
 
     /// Other
     this.valueSafeArea,
+    this.valueVisible,
   });
 }
 
@@ -344,6 +346,17 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         left: generalModifier?.valueSafeArea?.left ?? true,
         right: generalModifier?.valueSafeArea?.right ?? true,
         child: child,
+      );
+    }
+
+    if (generalModifier?.valueVisible != null) {
+      child = AnimatedCrossFade(
+        firstChild: child,
+        secondChild: Container(),
+        crossFadeState: generalModifier!.valueVisible!
+            ? CrossFadeState.showFirst
+            : CrossFadeState.showSecond,
+        duration: Duration(milliseconds: 300),
       );
     }
 
