@@ -713,6 +713,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier key(Key key) {
     return this.copyWith(valueKey: key);
   }
+
+  DefineMTextFieldModifier visible(bool value) {
+    return this.copyWith(valueVisible: value);
+  }
 }
 
 extension MTextGeneralGenerator on DefineMTextModifier {
@@ -1355,6 +1359,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier key(Key key) {
     return this.copyWith(valueKey: key);
+  }
+
+  DefineMTextModifier visible(bool value) {
+    return this.copyWith(valueVisible: value);
   }
 }
 
@@ -2099,6 +2107,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier key(Key key) {
     return this.copyWith(valueKey: key);
   }
+
+  DefineMRowModifier visible(bool value) {
+    return this.copyWith(valueVisible: value);
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
@@ -2604,6 +2616,10 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier key(Key key) {
     return this.copyWith(valueKey: key);
+  }
+
+  DefineMListViewModifier visible(bool value) {
+    return this.copyWith(valueVisible: value);
   }
 }
 
@@ -3316,6 +3332,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier key(Key key) {
     return this.copyWith(valueKey: key);
   }
+
+  DefineMColumnModifier visible(bool value) {
+    return this.copyWith(valueVisible: value);
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
@@ -4027,6 +4047,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier key(Key key) {
     return this.copyWith(valueKey: key);
   }
+
+  DefineMAddButtonModifier visible(bool value) {
+    return this.copyWith(valueVisible: value);
+  }
 }
 
 extension MAddStackGeneralGenerator on DefineMStackModifier {
@@ -4736,6 +4760,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier key(Key key) {
     return this.copyWith(valueKey: key);
+  }
+
+  DefineMStackModifier visible(bool value) {
+    return this.copyWith(valueVisible: value);
   }
 }
 
@@ -5451,6 +5479,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier key(Key key) {
     return this.copyWith(valueKey: key);
   }
+
+  DefineMImageModifier visible(bool value) {
+    return this.copyWith(valueVisible: value);
+  }
 }
 
 extension MTileGeneralGenerator on DefineMTileModifier {
@@ -6159,6 +6191,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier key(Key key) {
     return this.copyWith(valueKey: key);
+  }
+
+  DefineMTileModifier visible(bool value) {
+    return this.copyWith(valueVisible: value);
   }
 }
 
@@ -6876,5 +6912,9 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier key(Key key) {
     return this.copyWith(valueKey: key);
+  }
+
+  DefineMContainerModifier visible(bool value) {
+    return this.copyWith(valueVisible: value);
   }
 }
