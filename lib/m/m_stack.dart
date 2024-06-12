@@ -40,6 +40,7 @@ class DefineMStackModifier extends MGeneralModifier {
     this.valueTextDirection,
     this.valueFit,
     this.valueClipBehavior,
+
     /// Main.
     super.valueKey,
 
@@ -93,6 +94,7 @@ class DefineMStackModifier extends MGeneralModifier {
     /// Other
     super.valueScrollable,
     super.valueSafeArea,
+    super.valueVisible,
   });
 
   DefineMStackModifier copyWith({
@@ -154,6 +156,7 @@ class DefineMStackModifier extends MGeneralModifier {
     /// Other
     bool? valueScrollable,
     SafeArea? valueSafeArea,
+    bool? valueVisible,
   }) {
     return DefineMStackModifier(
       valueAlignment: valueAlignment ?? this.valueAlignment,
@@ -217,6 +220,7 @@ class DefineMStackModifier extends MGeneralModifier {
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
+      valueVisible: valueVisible ?? this.valueVisible,
     );
   }
 }

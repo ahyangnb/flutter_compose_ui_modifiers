@@ -82,6 +82,7 @@ class DefineMContainerModifier extends MGeneralModifier {
     /// Other
     super.valueScrollable,
     super.valueSafeArea,
+    super.valueVisible,
   });
 
   DefineMContainerModifier copyWith({
@@ -139,6 +140,7 @@ class DefineMContainerModifier extends MGeneralModifier {
     /// Other
     bool? valueScrollable,
     SafeArea? valueSafeArea,
+    bool? valueVisible,
   }) {
     return DefineMContainerModifier(
       /// Main.
@@ -198,6 +200,7 @@ class DefineMContainerModifier extends MGeneralModifier {
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
+      valueVisible: valueVisible ?? this.valueVisible,
     );
   }
 }

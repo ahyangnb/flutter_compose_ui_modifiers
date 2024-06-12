@@ -200,6 +200,7 @@ class DefineMImageModifier extends MGeneralModifier {
     /// Other
     super.valueScrollable,
     super.valueSafeArea,
+    super.valueVisible,
   });
 
   DefineMImageModifier copyWith({
@@ -261,6 +262,7 @@ class DefineMImageModifier extends MGeneralModifier {
     /// Other
     bool? valueScrollable,
     SafeArea? valueSafeArea,
+    bool? valueVisible,
   }) {
     return DefineMImageModifier(
       valueFit: valueFit ?? this.valueFit,
@@ -325,6 +327,7 @@ class DefineMImageModifier extends MGeneralModifier {
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
+      valueVisible: valueVisible ?? this.valueVisible,
     );
   }
 }

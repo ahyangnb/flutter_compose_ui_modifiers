@@ -115,6 +115,7 @@ class DefineMTileModifier extends MGeneralModifier {
     /// Other
     super.valueScrollable,
     super.valueSafeArea,
+    super.valueVisible,
   });
 
   DefineMTileModifier copyWith({
@@ -176,6 +177,7 @@ class DefineMTileModifier extends MGeneralModifier {
     /// Other
     bool? valueScrollable,
     SafeArea? valueSafeArea,
+    bool? valueVisible,
   }) {
     return DefineMTileModifier(
       valueStyle: valueStyle ?? this.valueStyle,
@@ -240,6 +242,7 @@ class DefineMTileModifier extends MGeneralModifier {
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
+      valueVisible: valueVisible ?? this.valueVisible,
     );
   }
 }

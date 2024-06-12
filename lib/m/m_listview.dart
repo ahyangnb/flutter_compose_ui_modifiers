@@ -100,6 +100,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     /// Other
     super.valueScrollable,
     super.valueSafeArea,
+    super.valueVisible,
   });
 
   /// Create a copyWith().
@@ -163,6 +164,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     /// Other
     bool? valueScrollable,
     SafeArea? valueSafeArea,
+    bool? valueVisible,
   }) {
     return DefineMListViewModifier(
       valueReverse: valueReverse ?? this.valueReverse,
@@ -227,6 +229,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
+      valueVisible: valueVisible ?? this.valueVisible,
     );
   }
 }

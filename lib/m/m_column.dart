@@ -46,6 +46,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     this.valueReverse,
     this.valueCrossAxisAlignment,
     this.valueMainAxisAlignment,
+
     /// Main.
     super.valueKey,
 
@@ -99,6 +100,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     /// Other
     super.valueScrollable,
     super.valueSafeArea,
+    super.valueVisible,
   });
 
   /// Create a copyWith().
@@ -161,6 +163,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     /// Other
     bool? valueScrollable,
     SafeArea? valueSafeArea,
+    bool? valueVisible,
   }) {
     return DefineMColumnModifier(
       children: children ?? this.children,
@@ -205,7 +208,8 @@ class DefineMColumnModifier extends MGeneralModifier {
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
-      valueContainerAlignment: valueContainerAlignment ?? this.valueContainerAlignment,
+      valueContainerAlignment:
+          valueContainerAlignment ?? this.valueContainerAlignment,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -226,6 +230,7 @@ class DefineMColumnModifier extends MGeneralModifier {
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
+      valueVisible: valueVisible ?? this.valueVisible,
     );
   }
 }

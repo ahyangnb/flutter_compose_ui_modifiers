@@ -21,3 +21,7 @@ Auto get the remaining size and wrap maxWidth the widget, if content not so much
 wii not occupy whole remaining width.
 
 ```dart
+
+
+### 5. replace AddButton to a property of General.
+ 
