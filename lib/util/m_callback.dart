@@ -1,3 +1,6 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+
 /// String.
 typedef StringCallBack = void Function(String value);
 typedef StringCallBackFuture<T> = Future<T> Function(String value);
@@ -46,3 +49,11 @@ typedef SumCallback = int Function(int a, int b);
 
 // An asynchronous function that receives an int parameter and returns a Future<String>
 typedef StringFutureCallbackWithInt = Future<String> Function(int value);
+
+void debugDo(VoidCallback onAction,
+    [bool? condition1, bool? condition2, bool? condition3]) {
+  if (condition1 != null && condition1.not()) return;
+  if (condition2 != null && condition2.not()) return;
+  if (condition3 != null && condition3.not()) return;
+  if (kDebugMode) onAction();
+}
