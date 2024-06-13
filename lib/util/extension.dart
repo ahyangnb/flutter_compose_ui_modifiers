@@ -6,8 +6,8 @@ mixin WorkManager {
   List<Worker> workList = <Worker>[];
 
   /// Create a new ever met, who can listen evens, and that will be destroy went to get the extra controller close.
-  Worker everAndAutoClose<T>(RxInterface<T> listener,
-      WorkerCallback<T> callback) {
+  Worker everAndAutoClose<T>(
+      RxInterface<T> listener, WorkerCallback<T> callback) {
     final worker = ever(listener, callback);
     workList.add(worker);
     return worker;
@@ -70,6 +70,16 @@ extension ListCheckConditions on List {
       if (item != value) return false;
     }
     return true;
+  }
+}
+
+extension ModifierObjectEmptyCheck on Object? {
+  bool mEmpty() {
+    return GetUtils.isNullOrBlank(this)!;
+  }
+
+  bool mNotEmpty() {
+    return GetUtils.isNullOrBlank(this)!.not();
   }
 }
 
