@@ -83,6 +83,15 @@ extension ModifierObjectEmptyCheck on Object? {
   }
 }
 
+extension ModifierStringCheck on String? {
+  bool mIntStr() {
+    if (mEmpty()) return false;
+    return int.tryParse(this!) != null;
+  }
+}
+
+bool mIntStr(String? value) => value.mIntStr();
+
 extension InsDelay on int {
   Future delayMilliseconds() {
     return Future.delayed(Duration(milliseconds: this));

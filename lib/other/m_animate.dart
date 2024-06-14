@@ -50,3 +50,26 @@ class MFadeContent extends StatelessWidget {
     );
   }
 }
+
+class MFadeShow extends StatelessWidget {
+  final bool secondVisible;
+  final Widget secondChild;
+  final Widget firstChild;
+
+  MFadeShow({
+    required this.secondVisible,
+    required this.secondChild,
+    required this.firstChild,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedCrossFade(
+      firstChild: firstChild,
+      secondChild: secondChild,
+      crossFadeState:
+          secondVisible ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+      duration: const Duration(milliseconds: 300),
+    );
+  }
+}
