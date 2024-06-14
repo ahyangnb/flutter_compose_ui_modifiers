@@ -89,26 +89,42 @@ class _MRefreshState extends State<MRefresh> {
   Future<MIndicatorResult?> handleRefresh() async {
     MConfig.isChildDataLoading.value = true;
     widget.mPageState.goPage = 1;
-    final MIndicatorResult? value = await widget.onGetData();
+    try {
+      final MIndicatorResult? value = await widget.onGetData();
+      refreshDone();
+      return value;
+    } catch (e) {
+      mLogger.e("_MRefreshState::handleRefresh::${e.toString()}");
+      refreshDone();
+      return MIndicatorResult.fail;
+    }
+  }
+
+  void refreshDone() {
     MConfig.isChildDataLoading.value = false;
     _refreshController.refreshCompleted(resetFooterState: true);
-    return value;
   }
 
   Future<MIndicatorResult?> handleLoadMore() async {
     MConfig.isChildDataLoading.value = true;
     widget.mPageState.goPage += 1;
-    final MIndicatorResult? value = await widget.onGetData();
-    MConfig.isChildDataLoading.value = false;
-    if (value == MIndicatorResult.noMore) {
-      _refreshController.loadNoData();
-    } else if (value == MIndicatorResult.fail) {
+    try {
+      final MIndicatorResult? value = await widget.onGetData();
+      MConfig.isChildDataLoading.value = false;
+      if (value == MIndicatorResult.noMore) {
+        _refreshController.loadNoData();
+      } else if (value == MIndicatorResult.fail) {
+        _refreshController.loadFailed();
+      } else {
+        _refreshController.loadComplete();
+      }
+      return value;
+    } catch (e) {
+      mLogger.e("_MRefreshState::handleRefresh::${e.toString()}");
+      MConfig.isChildDataLoading.value = false;
       _refreshController.loadFailed();
-    } else {
-      _refreshController.loadComplete();
+      return MIndicatorResult.fail;
     }
-
-    return value;
   }
 
   @override
