@@ -356,6 +356,12 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
             Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
+  DefineMTextFieldModifier borderColorHex(int value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: Color(value), width: this.valueBorder?.left.width ?? 1));
+  }
+
   DefineMTextFieldModifier borderWidth(double value) {
     return this.copyWith(
         valueBorder: Border.all(
@@ -1003,6 +1009,12 @@ extension MTextGeneralGenerator on DefineMTextModifier {
             Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
+  DefineMTextModifier borderColorHex(int value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: Color(value), width: this.valueBorder?.left.width ?? 1));
+  }
+
   DefineMTextModifier borderWidth(double value) {
     return this.copyWith(
         valueBorder: Border.all(
@@ -1439,6 +1451,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return setPaddingEdge(EdgeInsets.all(value));
   }
 
+  DefineMRowModifier paddingAll(double value) {
+    return setPaddingEdge(EdgeInsets.all(value));
+  }
+
   DefineMRowModifier paddingSet(EdgeInsets value) {
     return setPaddingEdge(value);
   }
@@ -1736,6 +1752,12 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(
         valueBorder:
             Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMRowModifier borderColorHex(int value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: Color(value), width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMRowModifier borderWidth(double value) {
@@ -2258,6 +2280,12 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     return this.copyWith(
         valueBorder:
             Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMListViewModifier borderColorHex(int value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: Color(value), width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMListViewModifier borderWidth(double value) {
@@ -2975,6 +3003,12 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
             Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
+  DefineMColumnModifier borderColorHex(int value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: Color(value), width: this.valueBorder?.left.width ?? 1));
+  }
+
   DefineMColumnModifier borderWidth(double value) {
     return this.copyWith(
         valueBorder: Border.all(
@@ -3690,6 +3724,12 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
             Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
+  DefineMAddButtonModifier borderColorHex(int value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: Color(value), width: this.valueBorder?.left.width ?? 1));
+  }
+
   DefineMAddButtonModifier borderWidth(double value) {
     return this.copyWith(
         valueBorder: Border.all(
@@ -4402,6 +4442,12 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(
         valueBorder:
             Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMStackModifier borderColorHex(int value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: Color(value), width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMStackModifier borderWidth(double value) {
@@ -5122,6 +5168,12 @@ extension MImageGeneralGenerator on DefineMImageModifier {
             Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
+  DefineMImageModifier borderColorHex(int value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: Color(value), width: this.valueBorder?.left.width ?? 1));
+  }
+
   DefineMImageModifier borderWidth(double value) {
     return this.copyWith(
         valueBorder: Border.all(
@@ -5833,6 +5885,12 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     return this.copyWith(
         valueBorder:
             Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMTileModifier borderColorHex(int value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: Color(value), width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMTileModifier borderWidth(double value) {
@@ -6554,6 +6612,12 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
     return this.copyWith(
         valueBorder:
             Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+  }
+
+  DefineMContainerModifier borderColorHex(int value) {
+    return this.copyWith(
+        valueBorder: Border.all(
+            color: Color(value), width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMContainerModifier borderWidth(double value) {
