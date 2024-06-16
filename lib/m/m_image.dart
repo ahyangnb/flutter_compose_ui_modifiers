@@ -21,6 +21,7 @@ class MImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final useData = data ?? "";
     final fitUse = modifier?.valueFit ?? BoxFit.cover;
     // int? cacheWidth = modifier?.valueWidth?.toInt() == null
     //     ? null
@@ -34,11 +35,11 @@ class MImage extends StatelessWidget {
     final useImageHeight = modifier?.valueImageHeight;
     Widget imgWidget;
 
-    if (GetUtils.isNullOrBlank(data)!) {
+    if (GetUtils.isNullOrBlank(useData)!) {
       imgWidget = MDefImg();
-    } else if (data!.startsWith('http')) {
+    } else if (useData!.startsWith('http')) {
       imgWidget = CachedNetworkImage(
-        imageUrl: data!,
+        imageUrl: useData!,
         width: useImageWidth,
         height: useImageHeight,
         fit: fitUse,
@@ -52,9 +53,9 @@ class MImage extends StatelessWidget {
       //   fit: fitUse,
       //   cache: true,
       // );
-    } else if (data!.startsWith("assets/")) {
+    } else if (useData!.startsWith("assets/")) {
       imgWidget = Image.asset(
-        data!,
+        useData!,
         width: useImageWidth,
         height: useImageHeight,
         fit: fitUse,
@@ -64,9 +65,9 @@ class MImage extends StatelessWidget {
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
       );
-    } else if (File(data!).existsSync()) {
+    } else if (File(useData!).existsSync()) {
       imgWidget = Image.file(
-        File(data!),
+        File(useData!),
         width: useImageWidth,
         height: useImageHeight,
         // cacheWidth: cacheWidth,
@@ -78,7 +79,7 @@ class MImage extends StatelessWidget {
       );
     } else {
       imgWidget = Image.memory(
-        base64Decode(data!),
+        base64Decode(useData!),
         // Uint8List.fromList(data.codeUnits.toList()),
         width: useImageWidth,
         height: useImageHeight,
@@ -99,7 +100,7 @@ class MImage extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          if (data!.isURL)
+          if (useData?.isURL ?? false)
             Container(
               width: containerWidth,
               height: modifier?.valueHeight ?? useImageWidth,
