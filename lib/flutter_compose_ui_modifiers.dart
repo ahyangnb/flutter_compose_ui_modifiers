@@ -43,6 +43,8 @@ export 'util/m_format.dart';
 export 'util/m_media_logic.dart';
 export 'util/m_callback.dart';
 export 'util/m_util.dart';
+export 'util/picker_image_util.dart';
+export 'custom/custom_confirm_dialog.dart';
 export 'config/m_theme_config.dart';
 
 /// Contains the modifier members of the [Widget] class.

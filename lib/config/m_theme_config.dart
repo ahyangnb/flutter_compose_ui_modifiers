@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:get/get.dart';
 
 class MConfig {
   static TextStyle userInfoTitleStyle2 =
       TextStyle(color: Colors.white, fontSize: 16.px, height: 22.px / 16.px);
+  static Function(String message)? showCustomToastValue;
+  static Function(String message, String content, Function() onConfirm)?
+      mCustomConfirmDialogValue;
 
   static var textFieldStyle = TextStyle(
     fontSize: 16.px,
@@ -22,10 +26,20 @@ class MConfig {
   static Widget? defNoDataImage;
 
   static String? assetImageWhenError;
+  static String picturePermission =
+      "Please allow file storage permissions and album viewing permissions.";
 
   static RxBool isChildDataLoading = false.obs;
 
   static int pageLimit = 20;
 
   static Color imageDefBgColor = Colors.grey[200]!;
+}
+
+void mShowCustomToast(String value) {
+  if (MConfig.showCustomToastValue == null) {
+    mLogger.e("Please set MConfig.showCustomToastValue");
+  } else {
+    MConfig.showCustomToastValue!(value);
+  }
 }

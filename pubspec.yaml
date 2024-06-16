@@ -25,6 +25,15 @@ dependencies:
   flutter_linkify: ^6.0.0
   url_launcher: ^6.1.0 # Launch the external browser.
   mix: ^1.0.0
+  #Get current device information from within the Flutter application.
+  device_info_plus: ^10.0.1
+  #A Flutter plugin for iOS and Android for picking images from the image library, and taking new pictures with the camera.
+  image_picker: ^1.0.7
+  #Get system folder.
+  path_provider: ^2.1.2
+  #On most operating systems, permissions aren't just granted to apps at install time. Rather,
+  # developers have to ask the user for permission while the app is running.
+  permission_handler: ^11.3.0
 
 dev_dependencies:
   flutter_test:
