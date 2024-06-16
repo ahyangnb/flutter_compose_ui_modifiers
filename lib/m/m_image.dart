@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 
 class MImage extends StatelessWidget {
   final DefineMImageModifier? modifier;
-  final String data;
+  final String? data;
 
   MImage({
     this.modifier,
@@ -36,9 +36,9 @@ class MImage extends StatelessWidget {
 
     if (GetUtils.isNullOrBlank(data)!) {
       imgWidget = MDefImg();
-    } else if (data.startsWith('http')) {
+    } else if (data!.startsWith('http')) {
       imgWidget = CachedNetworkImage(
-        imageUrl: data,
+        imageUrl: data!,
         width: useImageWidth,
         height: useImageHeight,
         fit: fitUse,
@@ -52,9 +52,9 @@ class MImage extends StatelessWidget {
       //   fit: fitUse,
       //   cache: true,
       // );
-    } else if (data.startsWith("assets/")) {
+    } else if (data!.startsWith("assets/")) {
       imgWidget = Image.asset(
-        data,
+        data!,
         width: useImageWidth,
         height: useImageHeight,
         fit: fitUse,
@@ -64,9 +64,9 @@ class MImage extends StatelessWidget {
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
       );
-    } else if (File(data).existsSync()) {
+    } else if (File(data!).existsSync()) {
       imgWidget = Image.file(
-        File(data),
+        File(data!),
         width: useImageWidth,
         height: useImageHeight,
         // cacheWidth: cacheWidth,
@@ -78,7 +78,7 @@ class MImage extends StatelessWidget {
       );
     } else {
       imgWidget = Image.memory(
-        base64Decode(data),
+        base64Decode(data!),
         // Uint8List.fromList(data.codeUnits.toList()),
         width: useImageWidth,
         height: useImageHeight,
@@ -99,7 +99,7 @@ class MImage extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          if (data.isURL)
+          if (data!.isURL)
             Container(
               width: containerWidth,
               height: modifier?.valueHeight ?? useImageWidth,

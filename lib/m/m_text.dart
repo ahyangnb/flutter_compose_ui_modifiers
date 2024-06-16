@@ -481,6 +481,10 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return newModifierValue;
   }
 
+  DefineMTextModifier bold() => setFontWeight(MFontWeight.bold);
+
+  DefineMTextModifier medium() => setFontWeight(MFontWeight.medium);
+
   DefineMTextModifier style(TextStyle value) {
     final DefineMTextModifier newModifierValue =
         this.copyWith(valueStyle: value);
