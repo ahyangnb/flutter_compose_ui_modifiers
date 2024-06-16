@@ -26,8 +26,6 @@ class MConfig {
   static Widget? defNoDataImage;
 
   static String? assetImageWhenError;
-  static String picturePermission =
-      "Please allow file storage permissions and album viewing permissions.";
 
   static RxBool isChildDataLoading = false.obs;
 

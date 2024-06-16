@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/config/m_str.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
 import 'package:flutter_compose_ui_modifiers/custom/custom_confirm_dialog.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
@@ -97,12 +98,12 @@ class MUtilPickerImage {
         }
       } catch (e) {
         mLogger.e("pickImage::e::${e.toString()}");
-        mCustomConfirmDialog("Notice", MConfig.picturePermission, () async {
+        mCustomConfirmDialog(MStr.notice, MStr.picturePermission, () async {
           await openAppSettings();
         });
       }
     } else {
-      mCustomConfirmDialog("Notice", MConfig.picturePermission, () async {
+      mCustomConfirmDialog(MStr.notice, MStr.picturePermission, () async {
         await openAppSettings();
       });
     }
@@ -194,7 +195,7 @@ class MUtilPickerImage {
             children: <Widget>[
               ListTile(
                 leading: const Icon(Icons.photo_library),
-                title: const Text('Select from Gallery'),
+                title: Text(MStr.selectFromGallery),
                 onTap: () async {
                   // Logic to select image from gallery
                   final result = await pickImage(ImageSource.gallery);
@@ -203,7 +204,7 @@ class MUtilPickerImage {
               ),
               ListTile(
                 leading: const Icon(Icons.camera),
-                title: const Text('Open Camera'),
+                title: Text(MStr.openCamera),
                 onTap: () async {
                   // Logic to open camera
                   final result = await pickImage(ImageSource.camera);
