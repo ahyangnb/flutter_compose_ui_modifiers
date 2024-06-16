@@ -24,3 +24,5 @@ wii not occupy whole remaining width.
 ### 5. replace AddButton to a property of General.
  
 ### 5. use mix to cancel `[` and `]` in some List widget.
+
+### 6. MImage can show a add button if use avatar method in modifier.
