@@ -25,4 +25,8 @@ wii not occupy whole remaining width.
  
 ### 5. use mix to cancel `[` and `]` in some List widget.
 
-### 6. MImage can show a add button if use avatar method in modifier.
+### 6. MImage add new method to show add button.
+if show add button and click will 
+```dart 
+MImageModifier.avatar(size: 24.px * 2).click(logic.add)
+```
