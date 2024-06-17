@@ -92,7 +92,6 @@ class MAnimateLeftToRight extends StatefulWidget {
 
 class MAnimateLeftToRightState extends State<MAnimateLeftToRight>
     with SingleTickerProviderStateMixin {
-  late Key key = ValueKey(widget.child.hashCode);
   AnimationController? _controller;
   Animation<Offset>? _animation;
   Animation<double>? _animationOpacity;
@@ -124,12 +123,18 @@ class MAnimateLeftToRightState extends State<MAnimateLeftToRight>
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: _animationOpacity!,
-      child: SlideTransition(
-        position: _animation!,
-        child: widget.child,
-      ),
+    return AnimatedBuilder(
+      animation: _controller!,
+      builder: (BuildContext context, Widget? child) {
+        if (_animationOpacity!.value == 0) return Container();
+        return FadeTransition(
+          opacity: _animationOpacity!,
+          child: SlideTransition(
+            position: _animation!,
+            child: widget.child,
+          ),
+        );
+      },
     );
   }
 
