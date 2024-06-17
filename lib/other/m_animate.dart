@@ -33,11 +33,12 @@ class MAnimateScale extends StatelessWidget {
   }
 }
 
-class MFadeContent extends StatelessWidget {
+class MAnimateFadeContent extends StatelessWidget {
   final bool visible;
   final Widget child;
 
-  const MFadeContent({required this.visible, required this.child, super.key});
+  const MAnimateFadeContent(
+      {required this.visible, required this.child, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,12 +52,32 @@ class MFadeContent extends StatelessWidget {
   }
 }
 
-class MFadeShow extends StatelessWidget {
+class MAnimateLeftToRight extends StatelessWidget {
+  final bool visible;
+  final Widget child;
+
+  const MAnimateLeftToRight(
+      {required this.visible, required this.child, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedCrossFade(
+      firstChild: const SizedBox(width: 0, height: 0),
+      alignment: Alignment.topRight,
+      secondChild: child,
+      crossFadeState:
+          visible ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+      duration: const Duration(milliseconds: 300),
+    );
+  }
+}
+
+class MAnimateFadeShow extends StatelessWidget {
   final bool secondVisible;
   final Widget secondChild;
   final Widget firstChild;
 
-  MFadeShow({
+  MAnimateFadeShow({
     required this.secondVisible,
     required this.secondChild,
     required this.firstChild,
