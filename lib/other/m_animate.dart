@@ -33,6 +33,14 @@ class MAnimateScale extends StatelessWidget {
   }
 }
 
+/// Use example:
+/// ```
+/// MAnimateFadeContent(
+// /// You can change the visible and refresh the ui state.
+//    visible: visible,
+//    child: Text("HI I am a Widget"),
+//  );
+/// ```
 class MAnimateFadeContent extends StatelessWidget {
   final bool visible;
   final Widget child;
@@ -52,6 +60,14 @@ class MAnimateFadeContent extends StatelessWidget {
   }
 }
 
+/// Use example:
+/// ```
+/// MAnimateLeftToRight(
+// /// You can change the visible and refresh the ui state.
+//    visible: visible,
+//    child: Text("HI I am a Widget"),
+//  );
+/// ```
 class MAnimateLeftToRight extends StatelessWidget {
   final bool visible;
   final Widget child;
@@ -72,6 +88,17 @@ class MAnimateLeftToRight extends StatelessWidget {
   }
 }
 
+
+
+/// Use example:
+/// ```
+/// MAnimateFadeShow(
+// /// You can change the visible and refresh the ui state.
+//    secondVisible: visible,
+//    firstChild: Text("Loading"),
+//    secondChild: Text("HI I am a Widget"),
+//  );
+/// ```
 class MAnimateFadeShow extends StatelessWidget {
   final bool secondVisible;
   final Widget secondChild;
