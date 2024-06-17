@@ -44,9 +44,14 @@ class MAnimateScale extends StatelessWidget {
 class MAnimateFadeContent extends StatelessWidget {
   final bool visible;
   final Widget child;
+  final bool containReverse;
 
-  const MAnimateFadeContent(
-      {required this.visible, required this.child, super.key});
+  const MAnimateFadeContent({
+    required this.visible,
+    required this.child,
+    this.containReverse = true,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +61,7 @@ class MAnimateFadeContent extends StatelessWidget {
       crossFadeState:
           visible ? CrossFadeState.showSecond : CrossFadeState.showFirst,
       duration: const Duration(milliseconds: 300),
+      reverseDuration: Duration(milliseconds: containReverse ? 300 : 0),
     );
   }
 }
@@ -71,9 +77,14 @@ class MAnimateFadeContent extends StatelessWidget {
 class MAnimateLeftToRight extends StatelessWidget {
   final bool visible;
   final Widget child;
+  final bool containReverse;
 
-  const MAnimateLeftToRight(
-      {required this.visible, required this.child, super.key});
+  const MAnimateLeftToRight({
+    required this.visible,
+    required this.child,
+    this.containReverse = true,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -84,11 +95,10 @@ class MAnimateLeftToRight extends StatelessWidget {
       crossFadeState:
           visible ? CrossFadeState.showSecond : CrossFadeState.showFirst,
       duration: const Duration(milliseconds: 300),
+      reverseDuration: Duration(milliseconds: containReverse ? 300 : 0),
     );
   }
 }
-
-
 
 /// Use example:
 /// ```
