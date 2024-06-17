@@ -74,7 +74,7 @@ class MAnimateFadeContent extends StatelessWidget {
 //    child: Text("HI I am a Widget"),
 //  );
 /// ```
-class MAnimateLeftToRight extends StatelessWidget {
+class MAnimateLeftToRight extends StatefulWidget {
   final bool visible;
   final Widget child;
   final bool containReverse;
@@ -87,16 +87,56 @@ class MAnimateLeftToRight extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return AnimatedCrossFade(
-      firstChild: const SizedBox(width: 0, height: 0),
-      alignment: Alignment.topRight,
-      secondChild: child,
-      crossFadeState:
-          visible ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-      duration: const Duration(milliseconds: 300),
-      reverseDuration: Duration(milliseconds: containReverse ? 300 : 0),
+  State<StatefulWidget> createState() => MAnimateLeftToRightState();
+}
+
+class MAnimateLeftToRightState extends State<MAnimateLeftToRight>
+    with SingleTickerProviderStateMixin {
+  late Key key = ValueKey(widget.child.hashCode);
+  AnimationController? _controller;
+  Animation<Offset>? _animation;
+  Animation<double>? _animationOpacity;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      duration: Duration(milliseconds: 300),
+      vsync: this,
     );
+    _animation = Tween<Offset>(begin: Offset(-1.0, 0.0), end: Offset(0.0, 0.0))
+        .animate(_controller!);
+    _animationOpacity =
+        Tween<double>(begin: 0.0, end: 1.0).animate(_controller!);
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant MAnimateLeftToRight oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.visible != oldWidget.visible) {
+      if (widget.visible) {
+        _controller!.forward();
+      } else {
+        _controller!.reverse();
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeTransition(
+      opacity: _animationOpacity!,
+      child: SlideTransition(
+        position: _animation!,
+        child: widget.child,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
   }
 }
 
