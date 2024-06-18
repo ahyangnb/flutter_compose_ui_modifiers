@@ -35,17 +35,20 @@ class MImage extends StatelessWidget {
     final useImageHeight = modifier?.valueImageHeight;
     Widget imgWidget;
 
-    final imgError = modifier?.valueImgError != null
-        ? Image.asset(modifier!.valueImgError!, fit: modifier?.valueImgErrorFit)
-        : MImgError(fit: modifier?.valueImgErrorFit);
+    final imgError = modifier?.valueImageWhenErrorWidget ??
+        (modifier?.valueImgError != null
+            ? Image.asset(modifier!.valueImgError!,
+                fit: modifier?.valueImgErrorFit)
+            : MImgError(fit: modifier?.valueImgErrorFit));
 
     if (GetUtils.isNullOrBlank(useData)!) {
       imgWidget = imgError;
     } else if (useData.startsWith('http')) {
-      final imgLoading = modifier?.valueImgLoading != null
-          ? Image.asset(modifier!.valueImgLoading!,
-              fit: modifier?.valueImgLoadingFit)
-          : MImgLoading(fit: modifier?.valueImgErrorFit);
+      final imgLoading = modifier?.valueImageWhenLoadingWidget ??
+          (modifier?.valueImgLoading != null
+              ? Image.asset(modifier!.valueImgLoading!,
+                  fit: modifier?.valueImgLoadingFit)
+              : MImgLoading(fit: modifier?.valueImgErrorFit));
       imgWidget = CachedNetworkImage(
         imageUrl: useData,
         width: useImageWidth,
@@ -109,7 +112,7 @@ class MImage extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          if (useData.isURL ?? false)
+          if (useData.isURL)
             Container(
               width: containerWidth,
               height: modifier?.valueHeight ?? useImageWidth,
@@ -154,6 +157,8 @@ class DefineMImageModifier extends MGeneralModifier {
   final BoxFit? valueImgErrorFit;
   final String? valueImgLoading;
   final BoxFit? valueImgLoadingFit;
+  final Widget? valueImageWhenErrorWidget;
+  final Widget? valueImageWhenLoadingWidget;
 
   const DefineMImageModifier({
     this.valueFit,
@@ -164,6 +169,8 @@ class DefineMImageModifier extends MGeneralModifier {
     this.valueImgErrorFit,
     this.valueImgLoading,
     this.valueImgLoadingFit,
+    this.valueImageWhenErrorWidget,
+    this.valueImageWhenLoadingWidget,
 
     /// Main.
     super.valueKey,
@@ -230,6 +237,8 @@ class DefineMImageModifier extends MGeneralModifier {
     BoxFit? valueImgErrorFit,
     String? valueImgLoading,
     BoxFit? valueImgLoadingFit,
+    Widget? valueImageWhenErrorWidget,
+    Widget? valueImageWhenLoadingWidget,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -296,6 +305,10 @@ class DefineMImageModifier extends MGeneralModifier {
       valueImgErrorFit: valueImgErrorFit ?? this.valueImgErrorFit,
       valueImgLoading: valueImgLoading ?? this.valueImgLoading,
       valueImgLoadingFit: valueImgLoadingFit ?? this.valueImgLoadingFit,
+      valueImageWhenErrorWidget:
+          valueImageWhenErrorWidget ?? this.valueImageWhenErrorWidget,
+      valueImageWhenLoadingWidget:
+          valueImageWhenLoadingWidget ?? this.valueImageWhenLoadingWidget,
 
       /// Main.
       valueKey: valueKey ?? this.valueKey,
@@ -459,6 +472,14 @@ extension MImageModifierPropertys on DefineMImageModifier {
 
   DefineMImageModifier imageLoadingFit(BoxFit? value) {
     return this.copyWith(valueImgLoadingFit: value);
+  }
+
+  DefineMImageModifier imageWhenErrorWidget(Widget? value) {
+    return this.copyWith(valueImageWhenErrorWidget: value);
+  }
+
+  DefineMImageModifier imageWhenLoadingWidget(Widget? value) {
+    return this.copyWith(valueImageWhenLoadingWidget: value);
   }
 }
 
