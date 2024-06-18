@@ -32,3 +32,5 @@ await MUtilPickerImage.changeAvatar();
 ```
 
 ### 7. support GetBuilder and condition before return.
+
+### 8. support hero.
