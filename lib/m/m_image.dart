@@ -35,16 +35,25 @@ class MImage extends StatelessWidget {
     final useImageHeight = modifier?.valueImageHeight;
     Widget imgWidget;
 
+    final imgError = modifier?.valueImgError != null
+        ? Image.asset(modifier!.valueImgError!, fit: modifier?.valueImgErrorFit)
+        : MImgError(fit: modifier?.valueImgErrorFit);
+
     if (GetUtils.isNullOrBlank(useData)!) {
-      imgWidget = MDefImg();
-    } else if (useData!.startsWith('http')) {
+      imgWidget = imgError;
+    } else if (useData.startsWith('http')) {
+      final imgLoading = modifier?.valueImgLoading != null
+          ? Image.asset(modifier!.valueImgLoading!,
+              fit: modifier?.valueImgLoadingFit)
+          : MImgLoading(fit: modifier?.valueImgErrorFit);
       imgWidget = CachedNetworkImage(
-        imageUrl: useData!,
+        imageUrl: useData,
         width: useImageWidth,
         height: useImageHeight,
         fit: fitUse,
         errorWidget: (BuildContext context, String url, Object error) =>
-            MDefImg(),
+            imgError,
+        placeholder: (BuildContext context, String url) => imgLoading,
       );
       // imgWidget = ExtendedImage.network(
       //   data,
@@ -53,21 +62,21 @@ class MImage extends StatelessWidget {
       //   fit: fitUse,
       //   cache: true,
       // );
-    } else if (useData!.startsWith("assets/")) {
+    } else if (useData.startsWith("assets/")) {
       imgWidget = Image.asset(
-        useData!,
+        useData,
         width: useImageWidth,
         height: useImageHeight,
         fit: fitUse,
         errorBuilder:
             (BuildContext context, Object error, StackTrace? stackTrace) =>
-                MDefImg(),
+                imgError,
         // cacheWidth: cacheWidth,
         // cacheHeight: cacheHeight,
       );
-    } else if (File(useData!).existsSync()) {
+    } else if (File(useData).existsSync()) {
       imgWidget = Image.file(
-        File(useData!),
+        File(useData),
         width: useImageWidth,
         height: useImageHeight,
         // cacheWidth: cacheWidth,
@@ -75,11 +84,11 @@ class MImage extends StatelessWidget {
         fit: fitUse,
         errorBuilder:
             (BuildContext context, Object error, StackTrace? stackTrace) =>
-                MDefImg(),
+                imgError,
       );
     } else {
       imgWidget = Image.memory(
-        base64Decode(useData!),
+        base64Decode(useData),
         // Uint8List.fromList(data.codeUnits.toList()),
         width: useImageWidth,
         height: useImageHeight,
@@ -89,7 +98,7 @@ class MImage extends StatelessWidget {
 
         errorBuilder:
             (BuildContext context, Object error, StackTrace? stackTrace) =>
-                MDefImg(),
+                imgError,
       );
     }
 
@@ -100,7 +109,7 @@ class MImage extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          if (useData?.isURL ?? false)
+          if (useData.isURL ?? false)
             Container(
               width: containerWidth,
               height: modifier?.valueHeight ?? useImageWidth,
@@ -141,12 +150,20 @@ class DefineMImageModifier extends MGeneralModifier {
   final double? valueImageWidth;
   final double? valueImageHeight;
   final Color? valueImageBackgroundColor;
+  final String? valueImgError;
+  final BoxFit? valueImgErrorFit;
+  final String? valueImgLoading;
+  final BoxFit? valueImgLoadingFit;
 
   const DefineMImageModifier({
     this.valueFit,
     this.valueImageWidth,
     this.valueImageHeight,
     this.valueImageBackgroundColor,
+    this.valueImgError,
+    this.valueImgErrorFit,
+    this.valueImgLoading,
+    this.valueImgLoadingFit,
 
     /// Main.
     super.valueKey,
@@ -209,6 +226,10 @@ class DefineMImageModifier extends MGeneralModifier {
     double? valueImageWidth,
     double? valueImageHeight,
     Color? valueImageBackgroundColor,
+    String? valueImgError,
+    BoxFit? valueImgErrorFit,
+    String? valueImgLoading,
+    BoxFit? valueImgLoadingFit,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -271,6 +292,10 @@ class DefineMImageModifier extends MGeneralModifier {
       valueImageHeight: valueImageWidth ?? this.valueImageHeight,
       valueImageBackgroundColor:
           valueImageBackgroundColor ?? this.valueImageBackgroundColor,
+      valueImgError: valueImgError ?? this.valueImgError,
+      valueImgErrorFit: valueImgErrorFit ?? this.valueImgErrorFit,
+      valueImgLoading: valueImgLoading ?? this.valueImgLoading,
+      valueImgLoadingFit: valueImgLoadingFit ?? this.valueImgLoadingFit,
 
       /// Main.
       valueKey: valueKey ?? this.valueKey,
@@ -417,6 +442,24 @@ extension MImageModifierPropertys on DefineMImageModifier {
   DefineMImageModifier imgBgColor(Color? value) {
     return this.copyWith(valueImageBackgroundColor: value);
   }
+
+  /// Assets path value.
+  DefineMImageModifier imageError(String? value) {
+    return this.copyWith(valueImgError: value);
+  }
+
+  DefineMImageModifier imageErrorFit(BoxFit? value) {
+    return this.copyWith(valueImgErrorFit: value);
+  }
+
+  /// Assets path value.
+  DefineMImageModifier imageLoading(String? value) {
+    return this.copyWith(valueImgLoading: value);
+  }
+
+  DefineMImageModifier imageLoadingFit(BoxFit? value) {
+    return this.copyWith(valueImgLoadingFit: value);
+  }
 }
 
 ImageProvider mGetImageProvider(String data) {
@@ -462,14 +505,30 @@ ImageProvider mGetImageProvider(String data) {
   return imgWidget;
 }
 
-class MDefImg extends StatelessWidget {
-  const MDefImg({super.key});
+class MImgError extends StatelessWidget {
+  final BoxFit? fit;
+
+  const MImgError({this.fit, super.key});
 
   @override
   Widget build(BuildContext context) {
     if (GetUtils.isNullOrBlank(MConfig.assetImageWhenError)!) {
       return Icon(Icons.error);
     }
-    return Image.asset(MConfig.assetImageWhenError!);
+    return Image.asset(MConfig.assetImageWhenError!, fit: fit);
+  }
+}
+
+class MImgLoading extends StatelessWidget {
+  final BoxFit? fit;
+
+  const MImgLoading({this.fit, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    if (GetUtils.isNullOrBlank(MConfig.assetImageWhenLoading)!) {
+      return Container();
+    }
+    return Image.asset(MConfig.assetImageWhenLoading!, fit: fit);
   }
 }
