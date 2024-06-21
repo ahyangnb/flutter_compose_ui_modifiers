@@ -90,3 +90,27 @@ class MErrorData extends StatelessWidget {
     return MNoData(onPressed, noDataText: "Error", topSpace: topSpace);
   }
 }
+
+class MCenterTip extends StatelessWidget {
+  final String tip;
+  final double? loadingIconSize;
+
+  const MCenterTip({required this.tip, this.loadingIconSize, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final loadingIconSizeUse = loadingIconSize ?? 25.px;
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Center(child: MLoadingIcon(size: loadingIconSizeUse)),
+        MText(
+          modifier: MTextModifier.color(Colors.white)
+              .fontSize(13.px)
+              .marginTop(loadingIconSizeUse + 20.px),
+          data: tip,
+        ),
+      ],
+    );
+  }
+}

@@ -547,9 +547,13 @@ extension MTextModifierPropertys on DefineMTextModifier {
   }
 
   DefineMTextModifier highLightColorHex(int value) {
+    return highLightColor(Color(value));
+  }
+
+  DefineMTextModifier highLightFontWeight(FontWeight value) {
     final DefineMTextModifier newModifierValue = this.copyWith(
         valueHighlightStyle: (this.valueHighlightStyle ?? TextStyle())
-            .copyWith(color: Color(value)));
+            .copyWith(fontWeight: value));
     return newModifierValue;
   }
 
@@ -578,11 +582,15 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return newModifierValue;
   }
 
-  DefineMTextModifier lightColorHex(int value) {
+  DefineMTextModifier lightFontWeight(FontWeight value) {
     final DefineMTextModifier newModifierValue = this.copyWith(
         valueHighlightStyle: (this.valueHighlightStyle ?? TextStyle())
-            .copyWith(color: Color(value)));
+            .copyWith(fontWeight: value));
     return newModifierValue;
+  }
+
+  DefineMTextModifier lightColorHex(int value) {
+    return lightColor(Color(value));
   }
 
   DefineMTextModifier lightRegExp(RegExp value) {

@@ -27,6 +27,8 @@ class MConfig {
 
   static String? assetImageWhenError;
 
+  static String? assetImageWhenLoading;
+
   static RxBool isChildDataLoading = false.obs;
 
   static int pageLimit = 20;

@@ -12,4 +12,13 @@ class MUtil {
       return 0;
     }
   }
+
+  static String full2Num(int value) {
+    final valueStr = value.toString();
+    if (valueStr.length >= 2) {
+      return valueStr;
+    } else {
+      return '0$valueStr';
+    }
+  }
 }
