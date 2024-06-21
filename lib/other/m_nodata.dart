@@ -38,10 +38,11 @@ class _MNoDataState extends State<MNoData> {
           SizedBox(height: 15.px),
           Text(
             widget.noDataText ?? MConfig.noDataText,
-            style: TextStyle(
-              fontSize: 33.px,
-              color: MColor.noDataTextColor,
-            ),
+            style: MColor.noDataTextStyle ??
+                TextStyle(
+                  fontSize: 33.px,
+                  color: MColor.noDataTextColor,
+                ),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 20.px),

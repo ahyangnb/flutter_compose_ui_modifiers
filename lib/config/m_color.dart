@@ -16,6 +16,7 @@ class MColor {
   static _ButtonColor button = _ButtonColor();
 
   static Color noDataTextColor = const Color(0xff9B678F);
+  static TextStyle? noDataTextStyle;
 }
 
 class _ButtonColor {
