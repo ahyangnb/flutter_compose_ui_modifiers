@@ -32,6 +32,10 @@ class MConfig {
   static int pageLimit = 20;
 
   static Color imageDefBgColor = Colors.grey[200]!;
+
+  static String noDataText = 'No data yet';
+
+  static String refreshText = "Refresh";
 }
 
 void mShowCustomToast(String value) {

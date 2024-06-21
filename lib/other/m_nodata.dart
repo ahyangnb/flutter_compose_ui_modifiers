@@ -1,18 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:get/get.dart';
 
 class MNoData extends StatefulWidget {
   final Future<void> Function()? onPressed;
-  final String noDataText;
+  final String? noDataText;
   final double? topSpace;
   final Widget? noDataImage;
 
   const MNoData(
     this.onPressed, {
-    this.noDataText = 'No data yet',
+    this.noDataText,
     this.noDataImage,
     this.topSpace,
     super.key,
@@ -36,10 +37,10 @@ class _MNoDataState extends State<MNoData> {
               Icon(CupertinoIcons.news, size: 100.px, color: Colors.white),
           SizedBox(height: 15.px),
           Text(
-            widget.noDataText,
+            widget.noDataText ?? MConfig.noDataText,
             style: TextStyle(
               fontSize: 33.px,
-              color: const Color(0xff9B678F),
+              color: MColor.noDataTextColor,
             ),
             textAlign: TextAlign.center,
           ),
@@ -56,7 +57,7 @@ class _MNoDataState extends State<MNoData> {
                 }
                 final double height = 44.px;
                 return MButton(
-                  text: "Refresh",
+                  text: MConfig.refreshText,
                   width: 127.px,
                   height: height,
                   borderRadius: BorderRadius.all(Radius.circular(height / 2)),
