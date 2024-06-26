@@ -12,11 +12,11 @@ class MMediaLogic extends GetxController with WidgetsBindingObserver {
 
   static MMediaLogic get to => Get.find<MMediaLogic>();
   RxDouble maxKeyboardHeight = 0.0.obs;
-  static const double minKeyboardHeightDef = 300.0;
+  static const double _minKeyboardHeightDef = 300.0;
   RxDouble maxBottomPaddingHeight = 0.0.obs;
 
   /// Avoid some error.
-  final double maxBottomPaddingHeightValueDef = 100.px;
+  final double _maxBottomPaddingHeightValueDef = 100.px;
   final box = GetStorage();
 
   final String _maxKeyboardHeightKey = "MMediaLogic_maxKeyboardHeightKey";
@@ -41,9 +41,9 @@ class MMediaLogic extends GetxController with WidgetsBindingObserver {
     });
 
     maxKeyboardHeight.value =
-        box.read(_maxKeyboardHeightKey) ?? minKeyboardHeightDef;
+        box.read(_maxKeyboardHeightKey) ?? _minKeyboardHeightDef;
     maxBottomPaddingHeight.value = box.read(_maxBottomPaddingHeightKey) ?? 0.0;
-    if (maxBottomPaddingHeight.value > maxBottomPaddingHeightValueDef) {
+    if (maxBottomPaddingHeight.value > _maxBottomPaddingHeightValueDef) {
       maxBottomPaddingHeight.value =
           Get.context == null ? 0 : MediaQuery.of(Get.context!).padding.bottom;
       box.write(_maxBottomPaddingHeightKey, maxBottomPaddingHeight.value);
@@ -70,7 +70,7 @@ class MMediaLogic extends GetxController with WidgetsBindingObserver {
 
   void updateBottomPaddingHeight(double newValue) {
     if (newValue > maxBottomPaddingHeight.value &&
-        newValue < maxBottomPaddingHeightValueDef) {
+        newValue < _maxBottomPaddingHeightValueDef) {
       maxBottomPaddingHeight.value = newValue;
       box.write(_maxBottomPaddingHeightKey, maxBottomPaddingHeight.value);
     }
