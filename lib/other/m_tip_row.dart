@@ -6,11 +6,13 @@ class MTipRow extends StatelessWidget {
   final String image;
   final String tipText;
   final List<String>? highLightText;
+  final VoidCallback? onTap;
 
   MTipRow({
     required this.image,
     required this.tipText,
     this.highLightText,
+    this.onTap,
   });
 
   @override
@@ -36,10 +38,11 @@ class MTipRow extends StatelessWidget {
           data: tipText,
         ),
         2.px.space,
-        MButtonMini(
-          "Turn on",
-          onTap: () {},
-        ),
+        if (onTap != null)
+          MButtonMini(
+            "Turn on",
+            onTap: () => onTap!(),
+          ),
         8.px.space,
       ],
     );
