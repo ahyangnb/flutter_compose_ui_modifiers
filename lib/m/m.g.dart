@@ -586,6 +586,18 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueGravity: value);
   }
 
+  DefineMTextFieldModifier backgroundImageFit(BoxFit value) {
+    return this.copyWith(valueBackgroundImageFit: value);
+  }
+
+  DefineMTextFieldModifier backgroundImage(String value) {
+    return this.copyWith(valueBackgroundImage: value);
+  }
+
+  DefineMTextFieldModifier dragOutToStatusBar(VoidCallback value) {
+    return this.copyWith(valueDragOutToStatusBar: value);
+  }
+
   DefineMTextFieldModifier maskColor([Color? value]) {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
@@ -1237,6 +1249,18 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
+  }
+
+  DefineMTextModifier backgroundImageFit(BoxFit value) {
+    return this.copyWith(valueBackgroundImageFit: value);
+  }
+
+  DefineMTextModifier backgroundImage(String value) {
+    return this.copyWith(valueBackgroundImage: value);
+  }
+
+  DefineMTextModifier dragOutToStatusBar(VoidCallback value) {
+    return this.copyWith(valueDragOutToStatusBar: value);
   }
 
   DefineMTextModifier maskColor([Color? value]) {
@@ -2512,6 +2536,18 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     return this.copyWith(valueGravity: value);
   }
 
+  DefineMListViewModifier backgroundImageFit(BoxFit value) {
+    return this.copyWith(valueBackgroundImageFit: value);
+  }
+
+  DefineMListViewModifier backgroundImage(String value) {
+    return this.copyWith(valueBackgroundImage: value);
+  }
+
+  DefineMListViewModifier dragOutToStatusBar(VoidCallback value) {
+    return this.copyWith(valueDragOutToStatusBar: value);
+  }
+
   DefineMListViewModifier maskColor([Color? value]) {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
@@ -3231,6 +3267,18 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
+  }
+
+  DefineMColumnModifier backgroundImageFit(BoxFit value) {
+    return this.copyWith(valueBackgroundImageFit: value);
+  }
+
+  DefineMColumnModifier backgroundImage(String value) {
+    return this.copyWith(valueBackgroundImage: value);
+  }
+
+  DefineMColumnModifier dragOutToStatusBar(VoidCallback value) {
+    return this.copyWith(valueDragOutToStatusBar: value);
   }
 
   DefineMColumnModifier maskColor([Color? value]) {
@@ -3954,6 +4002,18 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueGravity: value);
   }
 
+  DefineMAddButtonModifier backgroundImageFit(BoxFit value) {
+    return this.copyWith(valueBackgroundImageFit: value);
+  }
+
+  DefineMAddButtonModifier backgroundImage(String value) {
+    return this.copyWith(valueBackgroundImage: value);
+  }
+
+  DefineMAddButtonModifier dragOutToStatusBar(VoidCallback value) {
+    return this.copyWith(valueDragOutToStatusBar: value);
+  }
+
   DefineMAddButtonModifier maskColor([Color? value]) {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
@@ -4672,6 +4732,18 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
+  }
+
+  DefineMStackModifier backgroundImageFit(BoxFit value) {
+    return this.copyWith(valueBackgroundImageFit: value);
+  }
+
+  DefineMStackModifier backgroundImage(String value) {
+    return this.copyWith(valueBackgroundImage: value);
+  }
+
+  DefineMStackModifier dragOutToStatusBar(VoidCallback value) {
+    return this.copyWith(valueDragOutToStatusBar: value);
   }
 
   DefineMStackModifier maskColor([Color? value]) {
@@ -5398,6 +5470,18 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueGravity: value);
   }
 
+  DefineMImageModifier backgroundImageFit(BoxFit value) {
+    return this.copyWith(valueBackgroundImageFit: value);
+  }
+
+  DefineMImageModifier backgroundImage(String value) {
+    return this.copyWith(valueBackgroundImage: value);
+  }
+
+  DefineMImageModifier dragOutToStatusBar(VoidCallback value) {
+    return this.copyWith(valueDragOutToStatusBar: value);
+  }
+
   DefineMImageModifier maskColor([Color? value]) {
     return this
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
@@ -6115,6 +6199,18 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
+  }
+
+  DefineMTileModifier backgroundImageFit(BoxFit value) {
+    return this.copyWith(valueBackgroundImageFit: value);
+  }
+
+  DefineMTileModifier backgroundImage(String value) {
+    return this.copyWith(valueBackgroundImage: value);
+  }
+
+  DefineMTileModifier dragOutToStatusBar(VoidCallback value) {
+    return this.copyWith(valueDragOutToStatusBar: value);
   }
 
   DefineMTileModifier maskColor([Color? value]) {
@@ -6842,6 +6938,18 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
+  }
+
+  DefineMContainerModifier backgroundImageFit(BoxFit value) {
+    return this.copyWith(valueBackgroundImageFit: value);
+  }
+
+  DefineMContainerModifier backgroundImage(String value) {
+    return this.copyWith(valueBackgroundImage: value);
+  }
+
+  DefineMContainerModifier dragOutToStatusBar(VoidCallback value) {
+    return this.copyWith(valueDragOutToStatusBar: value);
   }
 
   DefineMContainerModifier maskColor([Color? value]) {
