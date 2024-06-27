@@ -100,7 +100,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     super.valueMaterialElevation,
 
     /// Other
-    super.valueScrollable,
+    // super.valueScrollable,
     super.valueSafeArea,
     super.valueVisible,
   });
@@ -166,7 +166,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     double? valueMaterialElevation,
 
     /// Other
-    bool? valueScrollable,
+    // bool? valueScrollable,
     SafeArea? valueSafeArea,
     bool? valueVisible,
   }) {
@@ -234,7 +234,7 @@ class DefineMListViewModifier extends MGeneralModifier {
           valueMaterialElevation ?? this.valueMaterialElevation,
 
       // Other
-      valueScrollable: valueScrollable ?? this.valueScrollable,
+      // valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
     );

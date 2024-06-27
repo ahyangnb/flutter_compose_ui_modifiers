@@ -711,6 +711,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueScrollable: value);
   }
 
+  DefineMTextFieldModifier scrollController(ScrollController value) {
+    return this.copyWith(valueScrollController: value);
+  }
+
   DefineMTextFieldModifier safeArea({
     bool top = true,
     bool bottom = true,
@@ -1374,6 +1378,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier scroll([bool value = true]) {
     return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMTextModifier scrollController(ScrollController value) {
+    return this.copyWith(valueScrollController: value);
   }
 
   DefineMTextModifier safeArea({
@@ -2133,6 +2141,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueScrollable: value);
   }
 
+  DefineMRowModifier scrollController(ScrollController value) {
+    return this.copyWith(valueScrollController: value);
+  }
+
   DefineMRowModifier safeArea({
     bool top = true,
     bool bottom = true,
@@ -2653,13 +2665,13 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     return this.copyWith(valueContainerAlignment: Alignment.center);
   }
 
-  DefineMListViewModifier scrollable([bool value = true]) {
-    return this.copyWith(valueScrollable: value);
-  }
-
-  DefineMListViewModifier scroll([bool value = true]) {
-    return this.copyWith(valueScrollable: value);
-  }
+  // DefineMListViewModifier scrollable([bool value = true]) {
+  //   return this.copyWith(valueScrollable: value);
+  // }
+  //
+  // DefineMListViewModifier scroll([bool value = true]) {
+  //   return this.copyWith(valueScrollable: value);
+  // }
 
   DefineMListViewModifier safeArea({
     bool top = true,
@@ -3392,6 +3404,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier scroll([bool value = true]) {
     return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMColumnModifier scrollController(ScrollController value) {
+    return this.copyWith(valueScrollController: value);
   }
 
   DefineMColumnModifier safeArea({
@@ -4127,6 +4143,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueScrollable: value);
   }
 
+  DefineMAddButtonModifier scrollController(ScrollController value) {
+    return this.copyWith(valueScrollController: value);
+  }
+
   DefineMAddButtonModifier safeArea({
     bool top = true,
     bool bottom = true,
@@ -4857,6 +4877,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier scroll([bool value = true]) {
     return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMStackModifier scrollController(ScrollController value) {
+    return this.copyWith(valueScrollController: value);
   }
 
   DefineMStackModifier safeArea({
@@ -5595,6 +5619,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueScrollable: value);
   }
 
+  DefineMImageModifier scrollController(ScrollController value) {
+    return this.copyWith(valueScrollController: value);
+  }
+
   DefineMImageModifier safeArea({
     bool top = true,
     bool bottom = true,
@@ -6324,6 +6352,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier scroll([bool value = true]) {
     return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMTileModifier scrollController(ScrollController value) {
+    return this.copyWith(valueScrollController: value);
   }
 
   DefineMTileModifier safeArea({
@@ -7063,6 +7095,10 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier scroll([bool value = true]) {
     return this.copyWith(valueScrollable: value);
+  }
+
+  DefineMContainerModifier scrollController(ScrollController value) {
+    return this.copyWith(valueScrollController: value);
   }
 
   DefineMContainerModifier safeArea({

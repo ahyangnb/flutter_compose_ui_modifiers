@@ -69,6 +69,7 @@ class MGeneralModifier {
 
   /// Scroll.
   final bool? valueScrollable;
+  final ScrollController? valueScrollController;
 
   /// Blur
   final double? valueSigmaX;
@@ -129,6 +130,7 @@ class MGeneralModifier {
 
     /// Scroll.
     this.valueScrollable,
+    this.valueScrollController,
 
     /// Blur.
     this.valueSigmaX,
@@ -335,8 +337,16 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
       );
     }
 
-    if (generalModifier?.valueScrollable ?? false) {
-      child = SingleChildScrollView(child: child);
+    /// Current Widget is not scrollable.
+    if (generalModifier is! DefineMListViewModifier) {
+      if ((generalModifier?.valueScrollable ?? false) ||
+          generalModifier?.valueScrollController != null) {
+        child = SingleChildScrollView(
+          child: child,
+          controller:
+              generalModifier?.valueScrollController ?? ScrollController(),
+        );
+      }
     }
 
     if (generalModifier?.valueSafeArea != null) {

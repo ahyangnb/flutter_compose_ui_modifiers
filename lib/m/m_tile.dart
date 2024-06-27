@@ -116,6 +116,7 @@ class DefineMTileModifier extends MGeneralModifier {
 
     /// Other
     super.valueScrollable,
+    super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
   });
@@ -180,6 +181,7 @@ class DefineMTileModifier extends MGeneralModifier {
 
     /// Other
     bool? valueScrollable,
+    ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
   }) {
@@ -222,7 +224,7 @@ class DefineMTileModifier extends MGeneralModifier {
       valueShape: valueShape ?? this.valueShape,
       valueBackgroundImage: valueBackgroundImage ?? this.valueBackgroundImage,
       valueBackgroundImageFit:
-      valueBackgroundImageFit ?? this.valueBackgroundImageFit,
+          valueBackgroundImageFit ?? this.valueBackgroundImageFit,
       valueGravity: valueGravity ?? this.valueGravity,
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
@@ -248,6 +250,8 @@ class DefineMTileModifier extends MGeneralModifier {
 
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
+      valueScrollController:
+          valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
     );

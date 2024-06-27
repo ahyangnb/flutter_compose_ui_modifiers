@@ -114,6 +114,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
 
     /// Other
     super.valueScrollable,
+    super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
   });
@@ -180,6 +181,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
 
     /// Other
     bool? valueScrollable,
+    ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
   }) {
@@ -249,6 +251,8 @@ class DefineMAddButtonModifier extends MGeneralModifier {
 
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
+      valueScrollController:
+      valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
     );

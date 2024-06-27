@@ -100,6 +100,7 @@ class DefineMRowModifier extends MGeneralModifier {
 
     /// Other
     super.valueScrollable,
+    super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
   });
@@ -165,6 +166,7 @@ class DefineMRowModifier extends MGeneralModifier {
 
     /// Other
     bool? valueScrollable,
+    ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
   }) {
@@ -235,6 +237,8 @@ class DefineMRowModifier extends MGeneralModifier {
 
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
+      valueScrollController:
+      valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
     );
