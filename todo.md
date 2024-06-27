@@ -35,8 +35,12 @@ await MUtilPickerImage.changeAvatar();
 
 ### 8. support hero.
 
-### 9. fix column set scroll controller not work.
-
+### 9. fix column set scroll controller not work. [done]
+because i have use MRefresh, and we need pass the scroll controller to MRefresh. 
+```
         // modifier: MColumnModifier.crossAxisAlignment(CrossAxisAlignment.start)
         //     .scrollable(true)
         //     .scrollController(controller),
+```
+
+### 10. Research why MRefresh can not with ListView.

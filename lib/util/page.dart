@@ -53,6 +53,8 @@ class MRefresh extends StatefulWidget {
   final RxList<dynamic> dataList;
   final Future<MIndicatorResult> Function() onGetData;
   final Widget child;
+  final RefreshController? refreshController;
+  final ScrollController? scrollController;
 
   const MRefresh({
     this.mainColor = Colors.white,
@@ -60,6 +62,8 @@ class MRefresh extends StatefulWidget {
     required this.dataList,
     required this.onGetData,
     required this.child,
+    this.refreshController,
+    this.scrollController,
     super.key,
   });
 
@@ -83,8 +87,8 @@ enum MIndicatorResult {
 }
 
 class _MRefreshState extends State<MRefresh> {
-  RefreshController _refreshController =
-      RefreshController(initialRefresh: false);
+  late RefreshController _refreshController =
+      widget.refreshController ?? RefreshController(initialRefresh: false);
 
   Future<MIndicatorResult?> handleRefresh() async {
     MConfig.isChildDataLoading.value = true;
@@ -143,6 +147,7 @@ class _MRefreshState extends State<MRefresh> {
       onRefresh: () => handleRefresh(),
       onLoading: () => handleLoadMore(),
       controller: _refreshController,
+      scrollController: widget.scrollController,
       child: Obx(() {
         if (widget.mPageState.isLoading.value) {
           return Container();
