@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:get/get.dart';
 
 class MImage extends StatelessWidget {
@@ -40,68 +41,76 @@ class MImage extends StatelessWidget {
             ? Image.asset(modifier!.valueImgError!,
                 fit: modifier?.valueImgErrorFit)
             : MImgError(fit: modifier?.valueImgErrorFit));
+    try {
+      if (GetUtils.isNullOrBlank(useData)!) {
+        imgWidget = imgError;
+      } else if (useData.startsWith('http')) {
+        final imgLoading = modifier?.valueImageWhenLoadingWidget ??
+            (modifier?.valueImgLoading != null
+                ? Image.asset(modifier!.valueImgLoading!,
+                    fit: modifier?.valueImgLoadingFit)
+                : MImgLoading(fit: modifier?.valueImgErrorFit));
+        imgWidget = CachedNetworkImage(
+          imageUrl: useData,
+          width: useImageWidth,
+          height: useImageHeight,
+          fit: fitUse,
+          errorWidget: (BuildContext context, String url, Object error) =>
+              imgError,
+          placeholder: (BuildContext context, String url) => imgLoading,
+        );
+        // imgWidget = ExtendedImage.network(
+        //   data,
+        //   width: useImageWidth,
+        //   height: useImageHeight,
+        //   fit: fitUse,
+        //   cache: true,
+        // );
+      } else if (useData.startsWith("assets/")) {
+        imgWidget = Image.asset(
+          useData,
+          width: useImageWidth,
+          height: useImageHeight,
+          fit: fitUse,
+          errorBuilder:
+              (BuildContext context, Object error, StackTrace? stackTrace) =>
+                  imgError,
+          // cacheWidth: cacheWidth,
+          // cacheHeight: cacheHeight,
+        );
+      } else if (File(useData).existsSync()) {
+        imgWidget = Image.file(
+          File(useData),
+          width: useImageWidth,
+          height: useImageHeight,
+          // cacheWidth: cacheWidth,
+          // cacheHeight: cacheHeight,
+          fit: fitUse,
+          errorBuilder:
+              (BuildContext context, Object error, StackTrace? stackTrace) =>
+                  imgError,
+        );
+      } else {
+        imgWidget = Image.memory(
+          base64Decode(useData),
+          // Uint8List.fromList(data.codeUnits.toList()),
+          width: useImageWidth,
+          height: useImageHeight,
+          fit: fitUse,
+          // cacheWidth: cacheWidth,
+          // cacheHeight: cacheHeight,
 
-    if (GetUtils.isNullOrBlank(useData)!) {
-      imgWidget = imgError;
-    } else if (useData.startsWith('http')) {
-      final imgLoading = modifier?.valueImageWhenLoadingWidget ??
-          (modifier?.valueImgLoading != null
-              ? Image.asset(modifier!.valueImgLoading!,
-                  fit: modifier?.valueImgLoadingFit)
-              : MImgLoading(fit: modifier?.valueImgErrorFit));
-      imgWidget = CachedNetworkImage(
-        imageUrl: useData,
+          errorBuilder:
+              (BuildContext context, Object error, StackTrace? stackTrace) =>
+                  imgError,
+        );
+      }
+    } catch (e, s) {
+      mLogger.e("MImage::ERROR::${e.toString()}", error: e, stackTrace: s);
+      imgWidget = Container(
         width: useImageWidth,
         height: useImageHeight,
-        fit: fitUse,
-        errorWidget: (BuildContext context, String url, Object error) =>
-            imgError,
-        placeholder: (BuildContext context, String url) => imgLoading,
-      );
-      // imgWidget = ExtendedImage.network(
-      //   data,
-      //   width: useImageWidth,
-      //   height: useImageHeight,
-      //   fit: fitUse,
-      //   cache: true,
-      // );
-    } else if (useData.startsWith("assets/")) {
-      imgWidget = Image.asset(
-        useData,
-        width: useImageWidth,
-        height: useImageHeight,
-        fit: fitUse,
-        errorBuilder:
-            (BuildContext context, Object error, StackTrace? stackTrace) =>
-                imgError,
-        // cacheWidth: cacheWidth,
-        // cacheHeight: cacheHeight,
-      );
-    } else if (File(useData).existsSync()) {
-      imgWidget = Image.file(
-        File(useData),
-        width: useImageWidth,
-        height: useImageHeight,
-        // cacheWidth: cacheWidth,
-        // cacheHeight: cacheHeight,
-        fit: fitUse,
-        errorBuilder:
-            (BuildContext context, Object error, StackTrace? stackTrace) =>
-                imgError,
-      );
-    } else {
-      imgWidget = Image.memory(
-        base64Decode(useData),
-        // Uint8List.fromList(data.codeUnits.toList()),
-        width: useImageWidth,
-        height: useImageHeight,
-        fit: fitUse,
-        // cacheWidth: cacheWidth,
-        // cacheHeight: cacheHeight,
-
-        errorBuilder:
-            (BuildContext context, Object error, StackTrace? stackTrace) =>
-                imgError,
+        child: imgError,
       );
     }
 
@@ -348,7 +357,7 @@ class DefineMImageModifier extends MGeneralModifier {
       valueShape: valueShape ?? this.valueShape,
       valueBackgroundImage: valueBackgroundImage ?? this.valueBackgroundImage,
       valueBackgroundImageFit:
-      valueBackgroundImageFit ?? this.valueBackgroundImageFit,
+          valueBackgroundImageFit ?? this.valueBackgroundImageFit,
       valueGravity: valueGravity ?? this.valueGravity,
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
@@ -375,7 +384,7 @@ class DefineMImageModifier extends MGeneralModifier {
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueScrollController:
-      valueScrollController ?? this.valueScrollController,
+          valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
     );
