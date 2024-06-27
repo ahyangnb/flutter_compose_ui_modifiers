@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
-class MListView extends StatelessWidget {
+class MListView extends StatefulWidget {
   final DefineMListViewModifier? modifier;
   final List<Widget>? children;
 
@@ -11,22 +13,55 @@ class MListView extends StatelessWidget {
   });
 
   @override
+  State<MListView> createState() => _MListViewState();
+}
+
+class _MListViewState extends State<MListView> {
+  late ScrollController useController =
+      widget.modifier?.valueController ?? ScrollController();
+
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.modifier?.valueOnScrollStop != null) {
+      useController.addListener(_onScroll);
+    }
+  }
+
+  void _onScroll() {
+    _timer?.cancel();
+    _timer = Timer(const Duration(milliseconds: 800), () {
+      widget.modifier!.valueOnScrollStop!();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
-      key: modifier?.valueKey ?? key,
-      generalModifier: modifier,
+      key: widget.modifier?.valueKey ?? widget.key,
+      generalModifier: widget.modifier,
 
       /// Padding will be use in ListView, so we need to ignore it.
       ignoreList: [IgnoreModifierInGeneral.padding],
       child: ListView(
-        padding: modifier?.valuePadding ?? EdgeInsets.zero,
-        reverse: modifier?.valueReverse ?? false,
-        children: children ?? [],
-        shrinkWrap: modifier?.valueShrinkWrap ?? false,
-        physics: modifier?.valuePhysics,
-        controller: modifier?.valueController,
+        padding: widget.modifier?.valuePadding ?? EdgeInsets.zero,
+        reverse: widget.modifier?.valueReverse ?? false,
+        children: widget.children ?? [],
+        shrinkWrap: widget.modifier?.valueShrinkWrap ?? false,
+        physics: widget.modifier?.valuePhysics,
+        controller: useController,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    useController.removeListener(_onScroll);
+    useController.dispose();
+    _timer?.cancel();
+    super.dispose();
   }
 }
 
@@ -40,6 +75,7 @@ class DefineMListViewModifier extends MGeneralModifier {
   final bool? valueShrinkWrap;
   final ScrollPhysics? valuePhysics;
   final ScrollController? valueController;
+  final VoidCallback? valueOnScrollStop;
 
   const DefineMListViewModifier({
     this.valueReverse,
@@ -47,6 +83,8 @@ class DefineMListViewModifier extends MGeneralModifier {
     this.valueShrinkWrap,
     this.valuePhysics,
     this.valueController,
+    this.valueOnScrollStop,
+
     /// Main.
     super.valueKey,
 
@@ -112,6 +150,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     bool? valueShrinkWrap,
     ScrollPhysics? valuePhysics,
     ScrollController? valueController,
+    VoidCallback? valueOnScrollStop,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -176,6 +215,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       valueShrinkWrap: valueShrinkWrap ?? this.valueShrinkWrap,
       valuePhysics: valuePhysics ?? this.valuePhysics,
       valueController: valueController ?? this.valueController,
+      valueOnScrollStop: valueOnScrollStop ?? this.valueOnScrollStop,
 
       /// The following properties are inherited from MGeneralModifier.
       /// Main.
@@ -210,7 +250,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       valueShape: valueShape ?? this.valueShape,
       valueBackgroundImage: valueBackgroundImage ?? this.valueBackgroundImage,
       valueBackgroundImageFit:
-      valueBackgroundImageFit ?? this.valueBackgroundImageFit,
+          valueBackgroundImageFit ?? this.valueBackgroundImageFit,
       valueGravity: valueGravity ?? this.valueGravity,
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
@@ -268,5 +308,9 @@ extension MListViewModifierPropertys on DefineMListViewModifier {
 
   DefineMListViewModifier paddingZero() {
     return this.copyWith(valuePadding: EdgeInsets.zero);
+  }
+
+  DefineMListViewModifier onScrollStop(VoidCallback value) {
+    return this.copyWith(valueOnScrollStop: value);
   }
 }
