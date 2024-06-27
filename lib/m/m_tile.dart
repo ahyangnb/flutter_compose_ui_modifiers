@@ -388,6 +388,7 @@ extension MTileModifierPropertys on DefineMTileModifier {
   DefineMTileModifier switchButton({
     required RxBool value,
     final ValueChanged<bool>? onChanged,
+    bool autoReverseState = true,
   }) {
     final DefineMTileModifier newModifierValue = this.copyWith(
       valueWidgetRight: Obx(
@@ -395,7 +396,7 @@ extension MTileModifierPropertys on DefineMTileModifier {
           return CupertinoSwitch(
             value: value.value,
             onChanged: (v) {
-              value.value = v;
+              if (autoReverseState) value.value = v;
               if (onChanged != null) onChanged(v);
             },
             activeColor: Color(0xffFD211E),
