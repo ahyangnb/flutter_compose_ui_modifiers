@@ -3410,6 +3410,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueScrollController: value);
   }
 
+  DefineMColumnModifier onScrollStop(VoidCallback value) {
+    return this.copyWith(valueOnScrollStop: value);
+  }
+
   DefineMColumnModifier safeArea({
     bool top = true,
     bool bottom = true,

@@ -70,6 +70,7 @@ class MGeneralModifier {
   /// Scroll.
   final bool? valueScrollable;
   final ScrollController? valueScrollController;
+  final VoidCallback? valueOnScrollStop;
 
   /// Blur
   final double? valueSigmaX;
@@ -131,6 +132,7 @@ class MGeneralModifier {
     /// Scroll.
     this.valueScrollable,
     this.valueScrollController,
+    this.valueOnScrollStop,
 
     /// Blur.
     this.valueSigmaX,
@@ -342,11 +344,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         generalModifier is! DefineMTextFieldModifier) {
       if ((generalModifier?.valueScrollable ?? false) ||
           generalModifier?.valueScrollController != null) {
-        child = SingleChildScrollView(
-          child: child,
-          controller:
-              generalModifier?.valueScrollController ?? ScrollController(),
-        );
+        child = MScrollWidget(child, generalModifier!);
       }
     }
 
@@ -410,5 +408,33 @@ extension OkExtentionOfGeneal on MGeneralModifier {
     final _width = (valueWidth ?? 0) + getFullPaddingHorizontal;
     final _height = (valueHeight ?? 0) + getFullPaddingVertical;
     return Size(_width, _height);
+  }
+}
+
+class MScrollWidget extends StatefulWidget {
+  final Widget child;
+  final MGeneralModifier generalModifier;
+
+  const MScrollWidget(this.child, this.generalModifier, {super.key});
+
+  @override
+  State<MScrollWidget> createState() => _MScrollWidgetState();
+}
+
+class _MScrollWidgetState extends State<MScrollWidget> with AutoOnScrollStop {
+  @override
+  late ScrollController useController =
+      widget.generalModifier.valueScrollController ?? ScrollController();
+
+  @override
+  VoidCallback? get valueOnScrollStop =>
+      widget.generalModifier.valueOnScrollStop;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: widget.child,
+      controller: useController,
+    );
   }
 }

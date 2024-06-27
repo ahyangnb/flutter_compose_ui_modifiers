@@ -102,6 +102,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     /// Other
     super.valueScrollable,
     super.valueScrollController,
+    super.valueOnScrollStop,
     super.valueSafeArea,
     super.valueVisible,
   });
@@ -168,6 +169,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     /// Other
     bool? valueScrollable,
     ScrollController? valueScrollController,
+    VoidCallback? valueOnScrollStop,
     SafeArea? valueSafeArea,
     bool? valueVisible,
   }) {
@@ -240,6 +242,7 @@ class DefineMColumnModifier extends MGeneralModifier {
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueScrollController:
           valueScrollController ?? this.valueScrollController,
+      valueOnScrollStop: valueOnScrollStop ?? this.valueOnScrollStop,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
     );

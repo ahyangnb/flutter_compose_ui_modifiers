@@ -16,26 +16,13 @@ class MListView extends StatefulWidget {
   State<MListView> createState() => _MListViewState();
 }
 
-class _MListViewState extends State<MListView> {
+class _MListViewState extends State<MListView> with AutoOnScrollStop {
+  @override
   late ScrollController useController =
       widget.modifier?.valueController ?? ScrollController();
 
-  Timer? _timer;
-
   @override
-  void initState() {
-    super.initState();
-    if (widget.modifier?.valueOnScrollStop != null) {
-      useController.addListener(_onScroll);
-    }
-  }
-
-  void _onScroll() {
-    _timer?.cancel();
-    _timer = Timer(const Duration(milliseconds: 800), () {
-      widget.modifier!.valueOnScrollStop!();
-    });
-  }
+  VoidCallback? get valueOnScrollStop => widget.modifier?.valueOnScrollStop;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +41,33 @@ class _MListViewState extends State<MListView> {
         controller: useController,
       ),
     );
+  }
+}
+
+mixin AutoOnScrollStop<T extends StatefulWidget> on State<T> {
+  late ScrollController useController;
+  VoidCallback? get valueOnScrollStop;
+
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    if (valueOnScrollStop != null) {
+      useController.addListener(_onScroll);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return build(context);
+  }
+
+  void _onScroll() {
+    _timer?.cancel();
+    _timer = Timer(const Duration(milliseconds: 800), () {
+      valueOnScrollStop!();
+    });
   }
 
   @override
