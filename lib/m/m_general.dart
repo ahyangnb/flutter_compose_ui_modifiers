@@ -338,7 +338,8 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     }
 
     /// Current Widget is not scrollable.
-    if (generalModifier is! DefineMListViewModifier) {
+    if (generalModifier is! DefineMListViewModifier &&
+        generalModifier is! DefineMTextFieldModifier) {
       if ((generalModifier?.valueScrollable ?? false) ||
           generalModifier?.valueScrollController != null) {
         child = SingleChildScrollView(

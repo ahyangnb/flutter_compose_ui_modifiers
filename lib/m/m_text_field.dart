@@ -617,7 +617,8 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
     return this.copyWith(valueShowCursor: value);
   }
 
-  DefineMTextFieldModifier scrollController(ScrollController? value) {
-    return this.copyWith(valueScrollController: value);
-  }
+  /// Will be contain it in m.g.dart
+  // DefineMTextFieldModifier scrollController(ScrollController? value) {
+  //   return this.copyWith(valueScrollController: value);
+  // }
 }
