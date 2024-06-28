@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
@@ -44,7 +45,39 @@ class MText extends StatelessWidget {
     final useValueSelectable = modifier?.valueSelectable ?? false;
     final useValueLinkDisplay = modifier?.valueLinkDisplay ?? false;
     Widget textWidget;
-    if (useValueSelectable) {
+
+    if (modifier?.valueClickTextTo != null &&
+        modifier!.valueClickTextTo!.isNotEmpty) {
+      final textSpans = <TextSpan>[];
+      text.splitMapJoin(
+        RegExp(modifier!.valueClickTextTo!.map((e) => e.data).join('|')),
+        onMatch: (m) {
+          final matchingText = modifier!.valueClickTextTo!
+              .firstWhere((e) => e.data == m.group(0));
+          textSpans.add(
+            TextSpan(
+              text: matchingText.data,
+              style: modifier?.valueHighlightStyle != null
+                  ? modifier?.valueHighlightStyle
+                  : useStyle.copyWith(color: Colors.red),
+              recognizer: TapGestureRecognizer()..onTap = matchingText.onClick,
+            ),
+          );
+          return m.group(0)!;
+        },
+        onNonMatch: (n) {
+          textSpans.add(TextSpan(text: n, style: useStyle));
+          return n;
+        },
+      );
+      textWidget = RichText(
+        text: TextSpan(style: useStyle, children: textSpans),
+        textAlign: modifier?.valueTextAlign ?? TextAlign.start,
+        maxLines: modifier?.valueMaxLines,
+        overflow:
+            modifier?.valueOverflow ?? RichText(text: TextSpan()).overflow,
+      );
+    } else if (useValueSelectable) {
       textWidget = useValueLinkDisplay
           ? SelectableLinkify(
               text: text,
@@ -61,26 +94,7 @@ class MText extends StatelessWidget {
               maxLines: modifier?.valueMaxLines,
               // overflow: modifier?.valueOverflow,
             );
-    } else {
-      textWidget = useValueLinkDisplay
-          ? Linkify(
-              text: text,
-              style: useStyle,
-              textAlign: modifier?.valueTextAlign ?? TextAlign.start,
-              maxLines: modifier?.valueMaxLines,
-              overflow: modifier?.valueOverflow,
-              onOpen: onOpen,
-            )
-          : Text(
-              text,
-              style: useStyle,
-              textAlign: modifier?.valueTextAlign,
-              maxLines: modifier?.valueMaxLines,
-              overflow: modifier?.valueOverflow,
-            );
-    }
-
-    if (modifier?.valueHighlightRegExp != null) {
+    } else if (modifier?.valueHighlightRegExp != null) {
       List<TextSpan> textSpans = [];
 
       text.splitMapJoin(
@@ -117,6 +131,23 @@ class MText extends StatelessWidget {
               overflow: modifier?.valueOverflow ??
                   RichText(text: TextSpan()).overflow,
             );
+    } else {
+      textWidget = useValueLinkDisplay
+          ? Linkify(
+              text: text,
+              style: useStyle,
+              textAlign: modifier?.valueTextAlign ?? TextAlign.start,
+              maxLines: modifier?.valueMaxLines,
+              overflow: modifier?.valueOverflow,
+              onOpen: onOpen,
+            )
+          : Text(
+              text,
+              style: useStyle,
+              textAlign: modifier?.valueTextAlign,
+              maxLines: modifier?.valueMaxLines,
+              overflow: modifier?.valueOverflow,
+            );
     }
 
     return MGeneralLayoutModifierWidget(
@@ -139,6 +170,7 @@ class DefineMTextModifier extends MGeneralModifier {
   final String? valueData;
   final bool? valueSelectable;
   final bool? valueLinkDisplay;
+  final List<MClickText>? valueClickTextTo;
 
   DefineMTextModifier({
     this.valueStyle = const TextStyle(),
@@ -150,6 +182,7 @@ class DefineMTextModifier extends MGeneralModifier {
     this.valueData,
     this.valueSelectable,
     this.valueLinkDisplay,
+    this.valueClickTextTo,
 
     /// Main.
     super.valueKey,
@@ -220,6 +253,7 @@ class DefineMTextModifier extends MGeneralModifier {
     String? valueData,
     bool? valueSelectable,
     bool? valueLinkDisplay,
+    final List<MClickText>? valueClickTextTo,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -289,6 +323,7 @@ class DefineMTextModifier extends MGeneralModifier {
       valueData: valueData ?? this.valueData,
       valueSelectable: valueSelectable ?? this.valueSelectable,
       valueLinkDisplay: valueLinkDisplay ?? this.valueLinkDisplay,
+      valueClickTextTo: valueClickTextTo ?? this.valueClickTextTo,
 
       /// Main.
       valueKey: valueKey ?? this.valueKey,
@@ -322,7 +357,7 @@ class DefineMTextModifier extends MGeneralModifier {
       valueShape: valueShape ?? this.valueShape,
       valueBackgroundImage: valueBackgroundImage ?? this.valueBackgroundImage,
       valueBackgroundImageFit:
-      valueBackgroundImageFit ?? this.valueBackgroundImageFit,
+          valueBackgroundImageFit ?? this.valueBackgroundImageFit,
       valueGravity: valueGravity ?? this.valueGravity,
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
@@ -349,7 +384,7 @@ class DefineMTextModifier extends MGeneralModifier {
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueScrollController:
-      valueScrollController ?? this.valueScrollController,
+          valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
     );
@@ -371,6 +406,13 @@ class DefineMTextModifier extends MGeneralModifier {
       ..layout(minWidth: 0, maxWidth: double.infinity);
     return textPainter.size;
   }
+}
+
+class MClickText {
+  final String data;
+  final VoidCallback onClick;
+
+  MClickText(this.data, {required this.onClick});
 }
 
 class MFontWeight {
@@ -694,6 +736,12 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier linkDisplay([bool value = true]) {
     final DefineMTextModifier newModifierValue =
         this.copyWith(valueLinkDisplay: value);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier clickTextTo(List<MClickText> value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueClickTextTo: value);
     return newModifierValue;
   }
 }
