@@ -166,51 +166,6 @@ class MText extends StatelessWidget {
   }
 }
 
-class HttpUrlLinkifier extends Linkifier {
-  const HttpUrlLinkifier();
-
-  @override
-  List<LinkifyElement> parse(
-      List<LinkifyElement> elements, LinkifyOptions options) {
-    final list = <LinkifyElement>[];
-
-    for (final element in elements) {
-      final matches = _urlRegex.allMatches(element.text);
-
-      if (matches.isNotEmpty) {
-        var start = 0;
-
-        for (final match in matches) {
-          if (match.start != start) {
-            list.add(TextElement(element.text.substring(start, match.start)));
-          }
-
-          list.add(UrlElement(
-            element.text.substring(match.start, match.end),
-          ));
-
-          start = match.end;
-        }
-
-        if (start != element.text.length) {
-          list.add(
-              TextElement(element.text.substring(start, element.text.length)));
-        }
-      } else {
-        list.add(element);
-      }
-    }
-
-    return list;
-  }
-}
-
-final _urlRegex = RegExp(
-  r'^(.*?)((?:https?:\/\/|www\.)[^\s/$.?#].[^\s]*)',
-  caseSensitive: false,
-  dotAll: true,
-);
-
 final MTextModifier = DefineMTextModifier();
 
 class DefineMTextModifier extends MGeneralModifier {
