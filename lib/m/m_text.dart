@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
-import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -37,6 +36,11 @@ class MText extends StatelessWidget {
       throw Exception('Could not launch ${link.url}');
     }
   }
+
+  List<Linkifier> get linkFilters =>
+      modifier?.valueLinkifiers ?? [UrlLinkifier()];
+
+  LinkifyOptions get linkOption => const LinkifyOptions(humanize: false);
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +90,8 @@ class MText extends StatelessWidget {
               maxLines: modifier?.valueMaxLines,
               // overflow: modifier?.valueOverflow,
               onOpen: onOpen,
+              linkifiers: linkFilters,
+              options: linkOption,
             )
           : SelectableText(
               text,
@@ -140,6 +146,8 @@ class MText extends StatelessWidget {
               maxLines: modifier?.valueMaxLines,
               overflow: modifier?.valueOverflow,
               onOpen: onOpen,
+              linkifiers: linkFilters,
+              options: linkOption,
             )
           : Text(
               text,
@@ -158,6 +166,51 @@ class MText extends StatelessWidget {
   }
 }
 
+class HttpUrlLinkifier extends Linkifier {
+  const HttpUrlLinkifier();
+
+  @override
+  List<LinkifyElement> parse(
+      List<LinkifyElement> elements, LinkifyOptions options) {
+    final list = <LinkifyElement>[];
+
+    for (final element in elements) {
+      final matches = _urlRegex.allMatches(element.text);
+
+      if (matches.isNotEmpty) {
+        var start = 0;
+
+        for (final match in matches) {
+          if (match.start != start) {
+            list.add(TextElement(element.text.substring(start, match.start)));
+          }
+
+          list.add(UrlElement(
+            element.text.substring(match.start, match.end),
+          ));
+
+          start = match.end;
+        }
+
+        if (start != element.text.length) {
+          list.add(
+              TextElement(element.text.substring(start, element.text.length)));
+        }
+      } else {
+        list.add(element);
+      }
+    }
+
+    return list;
+  }
+}
+
+final _urlRegex = RegExp(
+  r'^(.*?)((?:https?:\/\/|www\.)[^\s/$.?#].[^\s]*)',
+  caseSensitive: false,
+  dotAll: true,
+);
+
 final MTextModifier = DefineMTextModifier();
 
 class DefineMTextModifier extends MGeneralModifier {
@@ -171,6 +224,7 @@ class DefineMTextModifier extends MGeneralModifier {
   final bool? valueSelectable;
   final bool? valueLinkDisplay;
   final List<MClickText>? valueClickTextTo;
+  final List<Linkifier>? valueLinkifiers;
 
   DefineMTextModifier({
     this.valueStyle = const TextStyle(),
@@ -183,6 +237,7 @@ class DefineMTextModifier extends MGeneralModifier {
     this.valueSelectable,
     this.valueLinkDisplay,
     this.valueClickTextTo,
+    this.valueLinkifiers,
 
     /// Main.
     super.valueKey,
@@ -254,6 +309,7 @@ class DefineMTextModifier extends MGeneralModifier {
     bool? valueSelectable,
     bool? valueLinkDisplay,
     final List<MClickText>? valueClickTextTo,
+    final List<Linkifier>? valueLinkifiers,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -324,6 +380,7 @@ class DefineMTextModifier extends MGeneralModifier {
       valueSelectable: valueSelectable ?? this.valueSelectable,
       valueLinkDisplay: valueLinkDisplay ?? this.valueLinkDisplay,
       valueClickTextTo: valueClickTextTo ?? this.valueClickTextTo,
+      valueLinkifiers: valueLinkifiers ?? this.valueLinkifiers,
 
       /// Main.
       valueKey: valueKey ?? this.valueKey,
@@ -736,6 +793,17 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier linkDisplay([bool value = true]) {
     final DefineMTextModifier newModifierValue =
         this.copyWith(valueLinkDisplay: value);
+    return newModifierValue;
+  }
+
+  // modifier.linkifiers(systemUser
+  // /// null means Support all,
+  // ? null
+  // /// only support http.
+  //     : [const HttpUrlLinkifier()])
+  DefineMTextModifier linkifiers(List<Linkifier>? value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueLinkifiers: value);
     return newModifierValue;
   }
 
