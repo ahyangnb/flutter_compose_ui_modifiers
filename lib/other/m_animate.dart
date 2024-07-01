@@ -45,23 +45,27 @@ class MAnimateFadeContent extends StatelessWidget {
   final bool visible;
   final Widget child;
   final bool containReverse;
+  final int? milliseconds;
 
   const MAnimateFadeContent({
     required this.visible,
     required this.child,
     this.containReverse = true,
+    this.milliseconds,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    final millisecondsUse = milliseconds ?? 300;
     return AnimatedCrossFade(
       firstChild: Container(),
       secondChild: child,
       crossFadeState:
           visible ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-      duration: const Duration(milliseconds: 300),
-      reverseDuration: Duration(milliseconds: containReverse ? 300 : 0),
+      duration: Duration(milliseconds: millisecondsUse),
+      reverseDuration:
+          Duration(milliseconds: containReverse ? millisecondsUse : 0),
     );
   }
 }
