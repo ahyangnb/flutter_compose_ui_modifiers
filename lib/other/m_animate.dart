@@ -162,11 +162,13 @@ class MAnimateFadeShow extends StatelessWidget {
   final bool secondVisible;
   final Widget secondChild;
   final Widget firstChild;
+  final int? milliseconds;
 
   MAnimateFadeShow({
     required this.secondVisible,
     required this.secondChild,
     required this.firstChild,
+    this.milliseconds,
   });
 
   @override
@@ -176,7 +178,7 @@ class MAnimateFadeShow extends StatelessWidget {
       secondChild: secondChild,
       crossFadeState:
           secondVisible ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-      duration: const Duration(milliseconds: 300),
+      duration: Duration(milliseconds: milliseconds ?? 300),
     );
   }
 }
