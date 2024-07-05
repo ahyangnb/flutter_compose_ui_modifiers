@@ -11,7 +11,7 @@ class MTextField extends StatelessWidget {
   MTextField({
     this.controller,
     this.modifier,
-  });
+  }) : super(key: modifier?.valueKey ?? null);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class MTextField extends StatelessWidget {
           inputDecoration.copyWith(border: modifier?.valueInputBorder);
     }
     return MGeneralLayoutModifierWidget(
-      key: modifier?.valueKey ?? key,
+      // key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: TextField(
         autofocus: modifier?.valueAutoFocus ?? false,

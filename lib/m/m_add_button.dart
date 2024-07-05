@@ -9,12 +9,12 @@ class MAddButton extends StatelessWidget {
   MAddButton({
     this.children,
     this.modifier,
-  });
+  }) : super(key: modifier?.valueKey ?? null);
 
   @override
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
-      key: modifier?.valueKey ?? key,
+      // key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       ignoreList: [
         IgnoreModifierInGeneral.width,

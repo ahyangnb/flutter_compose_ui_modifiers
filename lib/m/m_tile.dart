@@ -12,13 +12,13 @@ class MTile extends StatelessWidget {
   MTile({
     this.modifier,
     this.label,
-  });
+  }) : super(key: modifier?.valueKey ?? null);
 
   @override
   Widget build(BuildContext context) {
     final fontSize = modifier?.valueStyle.fontSize ?? 18.px;
     return MGeneralLayoutModifierWidget(
-      key: modifier?.valueKey ?? key,
+      // key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: MRow(
         modifier: MRowModifier.mainAxisAlignment(MainAxisAlignment.start)

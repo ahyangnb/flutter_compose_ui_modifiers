@@ -9,7 +9,7 @@ class MRow extends StatelessWidget {
   MRow({
     this.children,
     this.modifier,
-  });
+  }) : super(key: modifier?.valueKey ?? null);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MRow extends StatelessWidget {
       ...modifier?.children ?? [],
     ];
     return MGeneralLayoutModifierWidget(
-      key: modifier?.valueKey ?? key,
+      // key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: Row(
         crossAxisAlignment: modifier?.valueCrossAxisAlignment ??

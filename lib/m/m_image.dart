@@ -18,7 +18,7 @@ class MImage extends StatelessWidget {
   MImage({
     this.modifier,
     required this.data,
-  });
+  }) : super(key: modifier?.valueKey ?? null);
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +117,7 @@ class MImage extends StatelessWidget {
     final containerWidth = modifier?.valueWidth ?? useImageWidth;
     return MGeneralLayoutModifierWidget(
       generalModifier: modifier,
-      key: modifier?.valueKey ?? key,
+      // key: modifier?.valueKey ?? key,
       child: Stack(
         alignment: Alignment.center,
         children: [

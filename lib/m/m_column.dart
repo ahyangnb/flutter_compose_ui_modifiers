@@ -9,7 +9,7 @@ class MColumn extends StatelessWidget {
   MColumn({
     this.children,
     this.modifier,
-  });
+  }) : super(key: modifier?.valueKey ?? null);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MColumn extends StatelessWidget {
       ...modifier?.children ?? [],
     ];
     return MGeneralLayoutModifierWidget(
-      key: modifier?.valueKey ?? key,
+      // key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: Column(
         crossAxisAlignment: modifier?.valueCrossAxisAlignment ??

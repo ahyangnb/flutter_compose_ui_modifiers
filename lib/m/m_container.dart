@@ -8,12 +8,12 @@ class MContainer extends StatelessWidget {
   MContainer({
     this.modifier,
     this.child,
-  });
+  }) : super(key: modifier?.valueKey ?? null);
 
   @override
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
-      key: modifier?.valueKey ?? key,
+      // key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: child ?? modifier?.valueChild ?? Container(),
     );

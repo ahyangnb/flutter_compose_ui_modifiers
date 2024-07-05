@@ -29,7 +29,7 @@ class MText extends StatelessWidget {
   MText({
     this.modifier,
     this.data,
-  });
+  }) : super(key: modifier?.valueKey ?? null);
 
   void onOpen(link) async {
     if (!await launchUrl(Uri.parse(link.url))) {
@@ -159,7 +159,7 @@ class MText extends StatelessWidget {
     }
 
     return MGeneralLayoutModifierWidget(
-      key: modifier?.valueKey ?? key,
+      // key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: textWidget,
     );

@@ -10,7 +10,7 @@ class MListView extends StatefulWidget {
   MListView({
     this.modifier,
     this.children,
-  });
+  }) : super(key: modifier?.valueKey ?? null);
 
   @override
   State<MListView> createState() => _MListViewState();
@@ -27,7 +27,7 @@ class _MListViewState extends State<MListView> with AutoOnScrollStop {
   @override
   Widget build(BuildContext context) {
     return MGeneralLayoutModifierWidget(
-      key: widget.modifier?.valueKey ?? widget.key,
+      // key: widget.modifier?.valueKey ?? widget.key,
       generalModifier: widget.modifier,
 
       /// Padding will be use in ListView, so we need to ignore it.

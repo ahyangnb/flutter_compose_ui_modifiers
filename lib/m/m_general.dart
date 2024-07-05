@@ -168,7 +168,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     this.generalModifier,
     required this.child,
     this.ignoreList = const [],
-    required super.key,
+    // required super.key,
   });
 
   @override
