@@ -1,3 +1,6 @@
+## 0.4.0
+* add more widget property.
+
 ## 0.3.9
 * Add some util. 
 
