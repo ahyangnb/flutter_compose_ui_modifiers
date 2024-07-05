@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'dart:math' as math;
 
-import 'package:flutter_compose_ui_modifiers/m/m_container.dart';
-
 extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier shadow({
     required Offset offset,

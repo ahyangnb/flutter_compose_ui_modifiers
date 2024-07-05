@@ -44,3 +44,6 @@ because i have use MRefresh, and we need pass the scroll controller to MRefresh.
 ```
 
 ### 10. Research why MRefresh can not with ListView.
+
+### 11. text field.
+feature: Auto jump to next line when click enter key.

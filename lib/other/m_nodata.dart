@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
-import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:get/get.dart';
 

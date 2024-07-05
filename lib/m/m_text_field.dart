@@ -1,7 +1,4 @@
-/// todo feature: Auto jump to next line when click enter key.
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 
 class MTextField extends StatelessWidget {

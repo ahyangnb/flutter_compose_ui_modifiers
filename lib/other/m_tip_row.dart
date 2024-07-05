@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
-import 'package:flutter_compose_ui_modifiers/m/m_image.dart';
 
 class MTipRow extends StatelessWidget {
   final String image;
