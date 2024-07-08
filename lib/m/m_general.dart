@@ -267,7 +267,8 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     if (generalModifier?.valueSigmaX != null ||
         generalModifier?.valueSigmaY != null) {
       if (generalModifier is DefineMImageModifier) {
-        child = ClipRect(
+        child = ClipRRect(
+          borderRadius: generalModifier?.valueBorderRadius ?? BorderRadius.zero,
           child: ImageFiltered(
             imageFilter: ImageFilter.compose(
               // Blur.
@@ -284,7 +285,8 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
           ),
         );
       } else {
-        child = ClipRect(
+        child = ClipRRect(
+          borderRadius: generalModifier?.valueBorderRadius ?? BorderRadius.zero,
           child: BackdropFilter(
             filter: ImageFilter.blur(
               sigmaX: generalModifier?.valueSigmaX ?? 0,
