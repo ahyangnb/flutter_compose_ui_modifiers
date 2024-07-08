@@ -25,7 +25,30 @@ class MUtil {
   }
 }
 
-Future<T?> mApiRetry<T>(Future<T> req) async {
+/// Test code:
+///
+// void main() async {
+//   test("Test the tryAgain function", () async {
+//     final int? videoCallResult = await mApiRetry<int>(getIntFuture);
+//     if (videoCallResult == null) {
+//       return;
+//     }
+//     print("videoCallResult::$videoCallResult");
+//   });
+// }
+//
+// Future<int> getIntFuture() async {
+//   print("To getIntFuture get value start");
+//   await Future.delayed(Duration(seconds: 1));
+//   final nextInt = math.Random().nextInt(100);
+//   if (nextInt.isEven) {
+//     throw Exception("Error::1");
+//   }
+//   final millisecond = DateTime.now().millisecond;
+//   return millisecond;
+// }
+///
+Future<T?> mApiRetry<T>(Future<T> Function() req) async {
   const int maxRetries = 3;
   const Duration retryDelay = Duration(milliseconds: 600);
   int retryCount = 0;
@@ -33,7 +56,7 @@ Future<T?> mApiRetry<T>(Future<T> req) async {
   while (retryCount < maxRetries) {
     mLogger.d("Start get mApiRetry()::${T.toString()}::Start🚗.");
     try {
-      final value = await req;
+      final value = await req();
       if (value != null) {
         mLogger.d("Start get mApiRetry()::${T.toString()}::Done✅.");
         return value;
