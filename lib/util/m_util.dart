@@ -48,7 +48,7 @@ class MUtil {
 //   return millisecond;
 // }
 ///
-Future<T?> mApiRetry<T>(Future<T> Function() req) async {
+Future<T?> mApiRetry<T>(Future<T> Function(bool last) req) async {
   const int maxRetries = 3;
   const Duration retryDelay = Duration(milliseconds: 600);
   int retryCount = 0;
@@ -56,7 +56,7 @@ Future<T?> mApiRetry<T>(Future<T> Function() req) async {
   while (retryCount < maxRetries) {
     mLogger.d("Start get mApiRetry()::${T.toString()}::Start🚗.");
     try {
-      final value = await req();
+      final value = await req(retryCount >= maxRetries);
       if (value != null) {
         mLogger.d("Start get mApiRetry()::${T.toString()}::Done✅.");
         return value;
