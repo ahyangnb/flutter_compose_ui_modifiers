@@ -31,15 +31,17 @@ Future<T?> mApiRetry<T>(Future<T> req) async {
   int retryCount = 0;
 
   while (retryCount < maxRetries) {
-    mLogger.d("Start get mApiRetry()");
+    mLogger.d("Start get mApiRetry()::${T.toString()}::Start🚗.");
     try {
       final value = await req;
       if (value != null) {
+        mLogger.d("Start get mApiRetry()::${T.toString()}::Done✅.");
         return value;
       }
       // break;
     } catch (e, s) {
-      mLogger.e('mApiRetry::$e\n', stackTrace: s, error: e);
+      mLogger.e('mApiRetry::${T.toString()}::Error::$e\n',
+          stackTrace: s, error: e);
       retryCount++;
       if (retryCount >= maxRetries) {
         mLogger.e('Max retries reached. Handling error after final attempt.');
