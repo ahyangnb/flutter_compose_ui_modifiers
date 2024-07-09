@@ -517,6 +517,12 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return newModifierValue;
   }
 
+  DefineMTextModifier textAlignCenter() {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueTextAlign: TextAlign.center);
+    return newModifierValue;
+  }
+
   DefineMTextModifier centerText() {
     final DefineMTextModifier newModifierValue =
         this.copyWith(valueTextAlign: TextAlign.center);

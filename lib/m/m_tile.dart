@@ -406,4 +406,40 @@ extension MTileModifierPropertys on DefineMTileModifier {
     );
     return newModifierValue;
   }
+
+  DefineMTileModifier arrowLabel(RxString value) {
+    final DefineMTileModifier newModifierValue = this.copyWith(
+      valueWidgetRight: Row(children: [
+        Obx(
+          () {
+            return MText(
+              modifier: MTextModifier.color(Colors.white).fontSize(14.px),
+              data: value.value,
+            );
+          },
+        ),
+        3.px.space,
+        MImage(
+          modifier: MImageModifier.height(20.98.px)
+              .package('flutter_compose_ui_modifiers'),
+          data: 'assets/images/label_arrow.png',
+        ).widthSet(22.px).center(),
+      ]),
+    );
+    return newModifierValue;
+  }
+
+  DefineMTileModifier abel(RxString value) {
+    final DefineMTileModifier newModifierValue = this.copyWith(
+      valueWidgetRight: Obx(
+        () {
+          return MText(
+            modifier: MTextModifier.color(Colors.white).fontSize(14.px),
+            data: value.value,
+          );
+        },
+      ),
+    );
+    return newModifierValue;
+  }
 }

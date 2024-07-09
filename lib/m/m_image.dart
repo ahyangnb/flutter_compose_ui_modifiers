@@ -6,6 +6,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class MImage extends StatelessWidget {
@@ -38,6 +39,7 @@ class MImage extends StatelessWidget {
             ? Image.asset(modifier!.valueImgError!,
                 fit: modifier?.valueImgErrorFit)
             : MImgError(fit: modifier?.valueImgErrorFit));
+    final bool isAssets = useData.startsWith("assets/");
     try {
       if (GetUtils.isNullOrBlank(useData)!) {
         imgWidget = imgError;
@@ -63,7 +65,20 @@ class MImage extends StatelessWidget {
         //   fit: fitUse,
         //   cache: true,
         // );
-      } else if (useData.startsWith("assets/")) {
+      } else if (isAssets && useData.endsWith(".svg")) {
+        imgWidget = SvgPicture.asset(
+          useData,
+          width: useImageWidth,
+          height: useImageHeight,
+          fit: fitUse,
+          // errorBuilder:
+          //     (BuildContext context, Object error, StackTrace? stackTrace) =>
+          //         imgError,
+          // cacheWidth: cacheWidth,
+          // cacheHeight: cacheHeight,
+          package: modifier?.valuePackage,
+        );
+      } else if (isAssets) {
         imgWidget = Image.asset(
           useData,
           width: useImageWidth,
@@ -74,6 +89,7 @@ class MImage extends StatelessWidget {
                   imgError,
           // cacheWidth: cacheWidth,
           // cacheHeight: cacheHeight,
+          package: modifier?.valuePackage,
         );
       } else if (File(useData).existsSync()) {
         imgWidget = Image.file(
@@ -165,6 +181,7 @@ class DefineMImageModifier extends MGeneralModifier {
   final BoxFit? valueImgLoadingFit;
   final Widget? valueImageWhenErrorWidget;
   final Widget? valueImageWhenLoadingWidget;
+  final String? valuePackage;
 
   const DefineMImageModifier({
     this.valueFit,
@@ -177,6 +194,7 @@ class DefineMImageModifier extends MGeneralModifier {
     this.valueImgLoadingFit,
     this.valueImageWhenErrorWidget,
     this.valueImageWhenLoadingWidget,
+    this.valuePackage,
 
     /// Main.
     super.valueKey,
@@ -248,6 +266,7 @@ class DefineMImageModifier extends MGeneralModifier {
     BoxFit? valueImgLoadingFit,
     Widget? valueImageWhenErrorWidget,
     Widget? valueImageWhenLoadingWidget,
+    String? valuePackage,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -321,6 +340,7 @@ class DefineMImageModifier extends MGeneralModifier {
           valueImageWhenErrorWidget ?? this.valueImageWhenErrorWidget,
       valueImageWhenLoadingWidget:
           valueImageWhenLoadingWidget ?? this.valueImageWhenLoadingWidget,
+      valuePackage: valuePackage ?? this.valuePackage,
 
       /// Main.
       valueKey: valueKey ?? this.valueKey,
@@ -497,6 +517,10 @@ extension MImageModifierPropertys on DefineMImageModifier {
 
   DefineMImageModifier imageWhenLoadingWidget(Widget? value) {
     return this.copyWith(valueImageWhenLoadingWidget: value);
+  }
+
+  DefineMImageModifier package(String? value) {
+    return this.copyWith(valuePackage: value);
   }
 }
 

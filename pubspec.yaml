@@ -34,9 +34,14 @@ dependencies:
   #On most operating systems, permissions aren't just granted to apps at install time. Rather,
   # developers have to ask the user for permission while the app is running.
   permission_handler: ^11.3.0
+  #Show svg image.
+  flutter_svg: 2.0.10+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
+
+  assets:
+    - assets/images/
