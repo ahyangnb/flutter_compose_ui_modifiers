@@ -182,3 +182,16 @@ class MAnimateFadeShow extends StatelessWidget {
     );
   }
 }
+
+class MAnimatedSwitcher {
+  static Widget scaleWithOpacity(Widget child, Animation<double> animation) {
+    return FadeTransition(
+      key: ValueKey<Key?>(child.key),
+      opacity: animation,
+      child: ScaleTransition(
+        scale: animation,
+        child: child,
+      ),
+    );
+  }
+}
