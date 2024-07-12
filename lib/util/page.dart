@@ -8,19 +8,23 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 Future<MIndicatorResult> mGetPageData<T>({
   required Future<List<T>?> reqData,
   required MPageState<T> mPageState,
+  required List<T>? Function(List<T> value)? handleData,
 }) async {
   MIndicatorResult result = MIndicatorResult.success;
 
   try {
-    final value = await reqData;
+    List<T>? value = await reqData;
     if (value == null) {
       mPageState.error.value = true;
       result = MIndicatorResult.fail;
     } else {
+      if (handleData != null) {
+        value = handleData(value);
+      }
       if (mPageState.goPage == 1) {
-        mPageState.dataList.value = value;
+        mPageState.dataList.value = value!;
       } else {
-        mPageState.dataList.addAll(value);
+        mPageState.dataList.addAll(value!);
       }
       if (mPageState.goPage > 1) {
         // Check if there is no more data
