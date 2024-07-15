@@ -1,3 +1,6 @@
+## 0.4.1
+* add mApiRetry.
+
 ## 0.4.0
 * add more widget property.
 
