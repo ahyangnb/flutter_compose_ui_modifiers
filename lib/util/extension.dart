@@ -139,3 +139,69 @@ class MRxStringConverter implements JsonConverter<RxString, String> {
   @override
   String toJson(RxString object) => object.value;
 }
+
+typedef TabControllerWidgetBuilder = Widget Function(
+    BuildContext context, TabController tabController);
+
+class MTabControllerListener extends StatefulWidget {
+  final TabController tabController;
+  final TabControllerWidgetBuilder builder;
+
+  const MTabControllerListener({
+    Key? key,
+    required this.tabController,
+    required this.builder,
+  }) : super(key: key);
+
+  @override
+  _MTabControllerListenerState createState() => _MTabControllerListenerState();
+}
+
+class _MTabControllerListenerState extends State<MTabControllerListener>
+    with MCheckTabBarChange {
+  @override
+  Widget build(BuildContext context) {
+    return widget.builder(context, widget.tabController);
+  }
+
+  @override
+  void onChange(int newIndex) {
+    if (mounted) {
+      setState(() {
+        // Force rebuild when tab changes
+      });
+    }
+  }
+
+  @override
+  TabController get tabControllerUse => widget.tabController;
+}
+
+mixin MCheckTabBarChange<T extends StatefulWidget> on State<T> {
+  TabController get tabControllerUse;
+
+  late int currentTabIndex = tabControllerUse.index;
+
+  void onChange(int newIndex);
+
+  @override
+  void initState() {
+    super.initState();
+    _onTabChanged();
+    tabControllerUse.addListener(_onTabChanged);
+  }
+
+  @override
+  void dispose() {
+    tabControllerUse.removeListener(_onTabChanged);
+    super.dispose();
+  }
+
+  void _onTabChanged() {
+    if (currentTabIndex == tabControllerUse.index) {
+      return;
+    }
+    currentTabIndex = tabControllerUse.index;
+    onChange(currentTabIndex);
+  }
+}
