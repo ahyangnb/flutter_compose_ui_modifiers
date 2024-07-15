@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 // mixin class WorkManager {
 mixin WorkManager {
@@ -100,4 +101,41 @@ extension InsDelay on int {
   Future delaySeconds() {
     return Future.delayed(Duration(seconds: this));
   }
+}
+
+/// Use case:
+///
+// @JsonSerializable()
+// class ExampleModel {
+//   ExampleModel({this.isSwitch, this.rxValue});
+//
+//   factory ExampleModel.defaultConstructor() => ExampleModel();
+//
+//   factory ExampleModel.fromJson(Map<String, dynamic> json) =>
+//       _$ExampleModelFromJson(json);
+//   final bool? isSwitch;
+//
+//   @MRxIntConverter()
+//   final RxInt? rxValue;
+//
+//   Map<String, dynamic> toJson() => _$ExampleModelToJson(this);
+// }
+class MRxIntConverter implements JsonConverter<RxInt, int> {
+  const MRxIntConverter();
+
+  @override
+  RxInt fromJson(int json) => RxInt(json);
+
+  @override
+  int toJson(RxInt object) => object.value;
+}
+
+class MRxStringConverter implements JsonConverter<RxString, String> {
+  const MRxStringConverter();
+
+  @override
+  RxString fromJson(String json) => RxString(json);
+
+  @override
+  String toJson(RxString object) => object.value;
 }
