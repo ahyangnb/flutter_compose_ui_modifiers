@@ -8,7 +8,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 Future<MIndicatorResult> mGetPageData<T>({
   required Future<List<T>?> reqData,
   required MPageState<T> mPageState,
-  required List<T>? Function(List<T> value)? handleData,
+  List<T>? Function(List<T> value)? handleData,
 }) async {
   MIndicatorResult result = MIndicatorResult.success;
 
