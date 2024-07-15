@@ -35,7 +35,7 @@ dependencies:
   # developers have to ask the user for permission while the app is running.
   permission_handler: ^11.3.0
   #Show svg image.
-  flutter_svg: 2.0.10+1
+  flutter_svg: ^2.0.10+1
   #Json to dart.
   json_annotation: ^4.8.1
 
