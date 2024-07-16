@@ -1,3 +1,6 @@
+## 0.4.2
+* add MRefreshController.
+
 ## 0.4.1
 * add mApiRetry.
 
