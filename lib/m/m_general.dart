@@ -192,7 +192,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
         generalModifier?.valueContainerAlignment != null ||
         generalModifier?.valueShape != null ||
         generalModifier?.valueBackgroundImage != null) {
-      child = Container(
+      child = AnimatedContainer(
         width: ignoreList.contains(IgnoreModifierInGeneral.width)
             ? null
             : generalModifier?.valueWidth,
@@ -231,6 +231,7 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
             ? null
             : generalModifier?.valuePadding,
         margin: generalModifier?.valueMargin,
+        duration: Duration(milliseconds: 300),
         child: child,
       );
     }
