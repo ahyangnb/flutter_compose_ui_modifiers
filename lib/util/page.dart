@@ -51,6 +51,18 @@ mixin class MPageState<T> {
   RxList<T> dataList = <T>[].obs;
 }
 
+class MRefreshController {
+  _MRefreshState? _refreshState;
+
+  void setRefreshState(_MRefreshState state) {
+    _refreshState = state;
+  }
+
+  Future<MIndicatorResult?> refreshContent() async {
+    return _refreshState?.handleRefresh();
+  }
+}
+
 class MRefresh extends StatefulWidget {
   final Color mainColor;
   final MPageState mPageState;
@@ -59,6 +71,7 @@ class MRefresh extends StatefulWidget {
   final Widget child;
   final RefreshController? refreshController;
   final ScrollController? scrollController;
+  final MRefreshController? mRefreshController;
 
   const MRefresh({
     this.mainColor = Colors.white,
@@ -68,6 +81,7 @@ class MRefresh extends StatefulWidget {
     required this.child,
     this.refreshController,
     this.scrollController,
+    this.mRefreshController,
     super.key,
   });
 
@@ -93,6 +107,12 @@ enum MIndicatorResult {
 class _MRefreshState extends State<MRefresh> {
   late RefreshController _refreshController =
       widget.refreshController ?? RefreshController(initialRefresh: false);
+
+  @override
+  void initState() {
+    super.initState();
+    widget.mRefreshController?.setRefreshState(this);
+  }
 
   Future<MIndicatorResult?> handleRefresh() async {
     MConfig.isChildDataLoading.value = true;
