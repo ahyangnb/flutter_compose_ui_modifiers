@@ -63,6 +63,7 @@ class MButton extends StatelessWidget {
     this.boxShadow,
     this.border,
     this.disabledBackgroundColor,
+    this.textAlign,
   });
 
   final void Function()? onTap;
@@ -83,6 +84,7 @@ class MButton extends StatelessWidget {
   final List<BoxShadow>? boxShadow;
   final Border? border;
   final Color? disabledBackgroundColor;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -125,6 +127,7 @@ class MButton extends StatelessWidget {
                     color: textColor ?? MColor.button.textColor,
                     fontWeight: fontWeight ?? FontWeight.w600,
                   ),
+              textAlign: textAlign,
             ),
       ),
     );
