@@ -373,10 +373,12 @@ extension MTileModifierPropertys on DefineMTileModifier {
       valueWidgetRight: MButton(
         text: buttonText ?? "Copy",
         fontSize: 16.px,
-        width: width ?? 66.px,
+        width: width,
         height: heightResult,
         maxHeight: heightResult,
-        padding: EdgeInsets.zero,
+        padding: width == null
+            ? EdgeInsets.symmetric(horizontal: 10.px)
+            : EdgeInsets.zero,
         borderRadius: BorderRadius.all(Radius.circular(radius ?? 16.px)),
         onTap: () async {
           await Clipboard.setData(ClipboardData(text: copyContent ?? ""));
