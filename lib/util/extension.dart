@@ -205,3 +205,10 @@ mixin MCheckTabBarChange<T extends StatefulWidget> on State<T> {
     onChange(currentTabIndex);
   }
 }
+
+extension LocaleExtentsion on Locale? {
+  String get localeToStr {
+    final String? countryCode = this?.countryCode;
+    return '${this?.languageCode}${GetUtils.isNullOrBlank(countryCode)! ? '' : '_$countryCode'}';
+  }
+}
