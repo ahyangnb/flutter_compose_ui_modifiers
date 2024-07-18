@@ -26,9 +26,9 @@ class MTile extends StatelessWidget {
             .height(54.px)
             .backgroundColor(MConfig.bgWhite22)
             .borderRadiusSet(
-              (modifier?.valueBorderRadius as BorderRadius?) ??
-                  BorderRadius.all(Radius.circular(8.px)),
-            )
+          (modifier?.valueBorderRadius as BorderRadius?) ??
+              BorderRadius.all(Radius.circular(8.px)),
+        )
             .marginHorizontal(16.px),
         children: [
           if (modifier?.valueIcon != null)
@@ -37,10 +37,13 @@ class MTile extends StatelessWidget {
               .color(Colors.white)
               .fontSize(fontSize)
 
-              /// If use it will not center of the item.
-              // .heightSize(modifier?.valueStyle.height ?? (25.px / fontSize))
+          /// If use it will not center of the item.
+          // .heightSize(modifier?.valueStyle.height ?? (25.px / fontSize))
               .expanded(),
-          if (modifier?.valueWidgetRight != null) modifier!.valueWidgetRight!,
+          if (modifier?.valueWidgetRight != null) ...[
+            10.px.space,
+            modifier!.valueWidgetRight!
+          ],
         ],
       ),
     );
@@ -200,10 +203,10 @@ class DefineMTileModifier extends MGeneralModifier {
       valueOnTap: valueOnTap ?? this.valueOnTap,
       valueOnLongPress: valueOnLongPress ?? this.valueOnLongPress,
       valueOnLongPressMoveUpdate:
-          valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
+      valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
       valueOnLongPressUp: valueOnLongPressUp ?? this.valueOnLongPressUp,
       valueDragOutToStatusBar:
-          valueDragOutToStatusBar ?? this.valueDragOutToStatusBar,
+      valueDragOutToStatusBar ?? this.valueDragOutToStatusBar,
       valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
       valueBorderRadius: valueBorderRadius ?? this.valueBorderRadius,
       valueCenterAlign: valueCenterAlign ?? this.valueCenterAlign,
@@ -223,13 +226,13 @@ class DefineMTileModifier extends MGeneralModifier {
       valueShape: valueShape ?? this.valueShape,
       valueBackgroundImage: valueBackgroundImage ?? this.valueBackgroundImage,
       valueBackgroundImageFit:
-          valueBackgroundImageFit ?? this.valueBackgroundImageFit,
+      valueBackgroundImageFit ?? this.valueBackgroundImageFit,
       valueGravity: valueGravity ?? this.valueGravity,
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
       valueContainerAlignment:
-          valueContainerAlignment ?? this.valueContainerAlignment,
+      valueContainerAlignment ?? this.valueContainerAlignment,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -245,12 +248,12 @@ class DefineMTileModifier extends MGeneralModifier {
       // Material
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
       valueMaterialElevation:
-          valueMaterialElevation ?? this.valueMaterialElevation,
+      valueMaterialElevation ?? this.valueMaterialElevation,
 
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueScrollController:
-          valueScrollController ?? this.valueScrollController,
+      valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
     );
@@ -273,7 +276,7 @@ extension MTileModifierPropertys on DefineMTileModifier {
   DefineMTileModifier setColor(Color color) {
     final newStyle = this.valueStyle.copyWith(color: color);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -284,21 +287,21 @@ extension MTileModifierPropertys on DefineMTileModifier {
   DefineMTileModifier setFontSize(double fontSize) {
     final newStyle = this.valueStyle.copyWith(fontSize: fontSize);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTileModifier letterSpacing(double value) {
     final newStyle = this.valueStyle.copyWith(letterSpacing: value);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTileModifier fontFamily(String value) {
     final newStyle = this.valueStyle.copyWith(fontFamily: value);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -318,13 +321,13 @@ extension MTileModifierPropertys on DefineMTileModifier {
   DefineMTileModifier heightLine(double value) {
     final newStyle = this.valueStyle.copyWith(height: value);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTileModifier textAlign(TextAlign value) {
     final DefineMTileModifier newModifierValue =
-        this.copyWith(valueTextAlign: value);
+    this.copyWith(valueTextAlign: value);
     return newModifierValue;
   }
 
@@ -335,25 +338,25 @@ extension MTileModifierPropertys on DefineMTileModifier {
   DefineMTileModifier setFontWeight(FontWeight fontWeight) {
     final newStyle = this.valueStyle.copyWith(fontWeight: fontWeight);
     final DefineMTileModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTileModifier style(TextStyle value) {
     final DefineMTileModifier newModifierValue =
-        this.copyWith(valueStyle: value);
+    this.copyWith(valueStyle: value);
     return newModifierValue;
   }
 
   DefineMTileModifier icon(String? value) {
     final DefineMTileModifier newModifierValue =
-        this.copyWith(valueIcon: value);
+    this.copyWith(valueIcon: value);
     return newModifierValue;
   }
 
   DefineMTileModifier widgetRight([Widget? value]) {
     final DefineMTileModifier newModifierValue =
-        this.copyWith(valueWidgetRight: value);
+    this.copyWith(valueWidgetRight: value);
     return newModifierValue;
   }
 
@@ -391,7 +394,7 @@ extension MTileModifierPropertys on DefineMTileModifier {
   }) {
     final DefineMTileModifier newModifierValue = this.copyWith(
       valueWidgetRight: Obx(
-        () {
+            () {
           return CupertinoSwitch(
             value: value.value,
             onChanged: (v) {
@@ -411,7 +414,7 @@ extension MTileModifierPropertys on DefineMTileModifier {
     final DefineMTileModifier newModifierValue = this.copyWith(
       valueWidgetRight: Row(children: [
         Obx(
-          () {
+              () {
             return MText(
               modifier: MTextModifier.color(Colors.white).fontSize(14.px),
               data: value.value,
@@ -432,7 +435,7 @@ extension MTileModifierPropertys on DefineMTileModifier {
   DefineMTileModifier abel(RxString value) {
     final DefineMTileModifier newModifierValue = this.copyWith(
       valueWidgetRight: Obx(
-        () {
+            () {
           return MText(
             modifier: MTextModifier.color(Colors.white).fontSize(14.px),
             data: value.value,
