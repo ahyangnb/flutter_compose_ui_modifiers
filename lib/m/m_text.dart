@@ -634,6 +634,8 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return newModifierValue;
   }
 
+  /// The long text put on the head.
+  /// such as ["150", "1"].
   DefineMTextModifier highlightText(List<String> value) {
     final DefineMTextModifier newModifierValue =
         this.copyWith(valueHighlightRegExp: RegExp(value.join("|")));
@@ -668,6 +670,8 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return highlightRegExp(value);
   }
 
+  /// The long text put on the head.
+  /// such as ["150", "1"].
   DefineMTextModifier lightText(List<String> value) {
     return highlightText(value);
   }
