@@ -33,7 +33,8 @@ class MWhiteSelectTile extends StatelessWidget {
               .enable(false)
               .hintStyle(MConfig.textFieldHintStyle)
               .style(MConfig.textFieldStyle)
-              .textAlign(TextAlign.right)
+              .textAlign(
+                  MLanUtil.ifArabicLan ? TextAlign.left : TextAlign.right)
               .contentPadding(EdgeInsets.zero)
               .onTap(onTap),
           controller: controller,
