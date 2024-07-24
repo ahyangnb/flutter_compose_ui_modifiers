@@ -29,7 +29,7 @@ import 'package:get/get.dart';
 //   } else {
 //     getLocale = Locale(languageSave);
 //   }
-//   Get.locale = getLocale;
+//   Get.locale ??= getLocale;
 //   return getLocale;
 // }
 /// ```
