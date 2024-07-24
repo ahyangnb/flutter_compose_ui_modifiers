@@ -12,7 +12,7 @@ class MLanUtil {
 
   static String defLanDisplayName = 'English';
 
-  static bool get ifArabicLan {
+  static bool get arabicLan {
     return (Get.locale ?? currentLocale).languageCode ==
         LanguageEnumType.ARABIC.languageCode;
   }
