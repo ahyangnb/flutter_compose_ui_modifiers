@@ -13,9 +13,8 @@ class MLanUtil {
   static String defLanDisplayName = 'English';
 
   static bool get ifArabicLan {
-    final bool value =
-        Get.locale?.localeToStr == LanguageEnumType.ARABIC.lanWithCountryCode;
-    return value;
+    return (Get.locale ?? currentLocale).languageCode ==
+        LanguageEnumType.ARABIC.languageCode;
   }
 
   static Future<void> setNewLan(String languageCode) async {
