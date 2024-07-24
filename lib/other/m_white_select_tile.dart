@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/other/m_reverse.dart';
 import 'package:get/get.dart';
 
 class MWhiteSelectTile extends StatelessWidget {
@@ -38,10 +39,12 @@ class MWhiteSelectTile extends StatelessWidget {
           controller: controller,
         ),
         10.px.space,
-        if (GetUtils.isNullOrBlank(arrowImg)!)
-          Icon(CupertinoIcons.right_chevron, size: 18.px, color: Colors.white)
-        else
-          MImage(modifier: MImageModifier.width(8.px), data: arrowImg!),
+        MReverseWidget(
+          child: GetUtils.isNullOrBlank(arrowImg)!
+              ? Icon(CupertinoIcons.right_chevron,
+                  size: 18.px, color: Colors.white)
+              : MImage(modifier: MImageModifier.width(8.px), data: arrowImg!),
+        ),
       ],
     );
   }
