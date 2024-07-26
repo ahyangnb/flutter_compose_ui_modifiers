@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-class GradientBoxBorder extends BoxBorder {
+class GradientBoxBorder extends Border {
   const GradientBoxBorder({required this.gradient, this.width = 1.0});
 
   final Gradient gradient;
@@ -61,7 +61,7 @@ class GradientBoxBorder extends BoxBorder {
   }
 
   @override
-  ShapeBorder scale(double t) {
+  Border scale(double t) {
     return this;
   }
 
