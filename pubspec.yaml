@@ -1,6 +1,6 @@
 name: flutter_compose_ui_modifiers
 description: Flutter UI Modifiers is a collection of declarative widget modifiers to make your Flutter code shorter and linear.
-version: 0.4.2
+version: 0.4.3
 homepage: https://github.com/ahyangnb/flutter_compose_ui_modifiers
 
 environment:
@@ -12,7 +12,7 @@ dependencies:
   extended_image: ^8.2.0
   #A flutter library to show images from the internet and keep them in the cache directory.
   cached_network_image: ^3.3.1
-  get: ^4.6.6
+  get: ^4.6.5
   #Refresh the page data.
   easy_refresh: ^3.3.4
   pull_to_refresh: ^2.0.0
