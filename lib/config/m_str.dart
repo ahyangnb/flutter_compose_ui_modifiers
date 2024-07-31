@@ -14,4 +14,8 @@ class MStr {
   static String get openCamera => en ? "'Open Camera'" : "打开摄像头";
 
   static String get selectFromGallery => en ? "Select from Gallery" : "从相册选择";
+
+  static String get cancel => en ? "Cancel" : "取消";
+
+  static String get ok => en ? "OK" : "确定";
 }

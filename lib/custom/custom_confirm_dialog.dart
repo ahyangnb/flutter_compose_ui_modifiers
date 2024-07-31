@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/config/m_str.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:get/get.dart';
@@ -21,11 +22,11 @@ mCustomConfirmDialog(String title, String content, Function() onConfirm) {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text("Cancel"),
+            child: Text(MStr.cancel),
           ),
           TextButton(
             onPressed: onConfirm,
-            child: Text("OK"),
+            child: Text(MStr.ok),
           ),
         ],
       );
