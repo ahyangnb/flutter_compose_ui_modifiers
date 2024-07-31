@@ -57,6 +57,7 @@ class MImage extends StatelessWidget {
           errorWidget: (BuildContext context, String url, Object error) =>
               imgError,
           placeholder: (BuildContext context, String url) => imgLoading,
+          color: modifier?.valueImageColor,
         );
         // imgWidget = ExtendedImage.network(
         //   data,
@@ -77,6 +78,7 @@ class MImage extends StatelessWidget {
           // cacheWidth: cacheWidth,
           // cacheHeight: cacheHeight,
           package: modifier?.valuePackage,
+          color: modifier?.valueImageColor,
         );
       } else if (isAssets) {
         imgWidget = Image.asset(
@@ -90,6 +92,7 @@ class MImage extends StatelessWidget {
           // cacheWidth: cacheWidth,
           // cacheHeight: cacheHeight,
           package: modifier?.valuePackage,
+          color: modifier?.valueImageColor,
         );
       } else if (File(useData).existsSync()) {
         imgWidget = Image.file(
@@ -102,6 +105,7 @@ class MImage extends StatelessWidget {
           errorBuilder:
               (BuildContext context, Object error, StackTrace? stackTrace) =>
                   imgError,
+          color: modifier?.valueImageColor,
         );
       } else {
         imgWidget = Image.memory(
@@ -116,6 +120,7 @@ class MImage extends StatelessWidget {
           errorBuilder:
               (BuildContext context, Object error, StackTrace? stackTrace) =>
                   imgError,
+          color: modifier?.valueImageColor,
         );
       }
     } catch (e, s) {
@@ -174,6 +179,7 @@ class DefineMImageModifier extends MGeneralModifier {
   final BoxFit? valueFit;
   final double? valueImageWidth;
   final double? valueImageHeight;
+  final Color? valueImageColor;
   final Color? valueImageBackgroundColor;
   final String? valueImgError;
   final BoxFit? valueImgErrorFit;
@@ -187,6 +193,7 @@ class DefineMImageModifier extends MGeneralModifier {
     this.valueFit,
     this.valueImageWidth,
     this.valueImageHeight,
+    this.valueImageColor,
     this.valueImageBackgroundColor,
     this.valueImgError,
     this.valueImgErrorFit,
@@ -259,6 +266,7 @@ class DefineMImageModifier extends MGeneralModifier {
     BoxFit? valueFit,
     double? valueImageWidth,
     double? valueImageHeight,
+    Color? valueImageColor,
     Color? valueImageBackgroundColor,
     String? valueImgError,
     BoxFit? valueImgErrorFit,
@@ -330,6 +338,7 @@ class DefineMImageModifier extends MGeneralModifier {
       valueFit: valueFit ?? this.valueFit,
       valueImageWidth: valueImageWidth ?? this.valueImageWidth,
       valueImageHeight: valueImageWidth ?? this.valueImageHeight,
+      valueImageColor: valueImageColor ?? this.valueImageColor,
       valueImageBackgroundColor:
           valueImageBackgroundColor ?? this.valueImageBackgroundColor,
       valueImgError: valueImgError ?? this.valueImgError,
@@ -491,6 +500,14 @@ extension MImageModifierPropertys on DefineMImageModifier {
 
   DefineMImageModifier imgBgColor(Color? value) {
     return this.copyWith(valueImageBackgroundColor: value);
+  }
+
+  DefineMImageModifier imageColor(Color? value) {
+    return this.copyWith(valueImageColor: value);
+  }
+
+  DefineMImageModifier imgColor(Color? value) {
+    return this.copyWith(valueImageColor: value);
   }
 
   /// Assets path value.
