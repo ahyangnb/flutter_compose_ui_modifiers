@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
 
 class MUtil {
@@ -77,4 +78,11 @@ Future<T?> mApiRetry<T>(Future<T> Function(bool last) req) async {
     }
   }
   return null;
+}
+
+extension MCopyUtilExtension on Object {
+  Future<void> copy() {
+    /// Copy the value to the clipboard.
+    return Clipboard.setData(ClipboardData(text: this.toString()));
+  }
 }
