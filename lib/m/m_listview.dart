@@ -2,22 +2,26 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
 class MListView extends StatefulWidget {
   final DefineMListViewModifier? modifier;
   final List<Widget>? children;
+  final List<Widget> Function()? builder;
 
   MListView({
     this.modifier,
     this.children,
+    this.builder,
   }) : super(key: modifier?.valueKey ?? null);
 
   @override
   State<MListView> createState() => _MListViewState();
 }
 
-class _MListViewState extends State<MListView> with AutoOnScrollStop {
+class _MListViewState extends ModifierState<MListView>
+    with AutoOnScrollStop, ObxImplementation {
   @override
   late ScrollController useController =
       widget.modifier?.valueController ?? ScrollController();
@@ -27,6 +31,16 @@ class _MListViewState extends State<MListView> with AutoOnScrollStop {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.builder == null && widget.modifier?.valueObxListener != null) {
+      throw MustSetBuilderException();
+    }
+
+    /// The MListView not have widget.modifier?.children.
+    // (widget.children != null || widget.modifier?.children != null)
+    if (widget.builder != null && widget.children != null) {
+      throw OnlyBuilderException("children");
+    }
+
     return MGeneralLayoutModifierWidget(
       // key: widget.modifier?.valueKey ?? widget.key,
       generalModifier: widget.modifier,
@@ -43,9 +57,12 @@ class _MListViewState extends State<MListView> with AutoOnScrollStop {
       ),
     );
   }
+
+  @override
+  Rx? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
-mixin AutoOnScrollStop<T extends StatefulWidget> on State<T> {
+mixin AutoOnScrollStop<T extends StatefulWidget> on ModifierState<T> {
   late ScrollController useController;
 
   VoidCallback? get valueOnScrollStop;

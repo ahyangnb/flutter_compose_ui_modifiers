@@ -6,6 +6,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
+import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -28,9 +29,12 @@ class _MImageState extends ModifierState<MImage> with ObxImplementation {
   @override
   Widget build(BuildContext context) {
     if (widget.builder == null && widget.modifier?.valueObxListener != null) {
-      throw Exception(
-          "If you set the valueObxListener, you must set the builder function.");
+      throw MustSetBuilderException();
     }
+    if (widget.builder != null && widget.data != null) {
+      throw OnlyBuilderException("data");
+    }
+
     final useData =
         widget.builder != null ? widget.builder!() : widget.data ?? "";
     final fitUse = widget.modifier?.valueFit ?? BoxFit.cover;

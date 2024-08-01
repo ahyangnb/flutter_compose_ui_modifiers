@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
 class MTextField extends StatelessWidget {
@@ -13,6 +14,9 @@ class MTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (modifier?.valueObxListener != null) {
+      throw NotSupportObxListenerException();
+    }
     InputDecoration inputDecoration =
         modifier?.decorationValue ?? InputDecoration();
     if (modifier?.valueFilled != null) {

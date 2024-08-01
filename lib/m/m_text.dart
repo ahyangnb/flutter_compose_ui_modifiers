@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -23,15 +24,22 @@ import 'package:url_launcher/url_launcher.dart';
 //   data: 'can click me!',
 // )
 /// ```
-class MText extends StatelessWidget {
+class MText extends StatefulWidget {
   final DefineMTextModifier? modifier;
   final String? data;
+  final String Function()? builder;
 
   MText({
     this.modifier,
     this.data,
+    this.builder,
   }) : super(key: modifier?.valueKey ?? null);
 
+  @override
+  State<MText> createState() => _MTextState();
+}
+
+class _MTextState extends ModifierState<MText> with ObxImplementation {
   void onOpen(link) async {
     if (!await launchUrl(Uri.parse(link.url))) {
       throw Exception('Could not launch ${link.url}');
@@ -39,31 +47,37 @@ class MText extends StatelessWidget {
   }
 
   List<Linkifier> get linkFilters =>
-      modifier?.valueLinkifiers ?? [UrlLinkifier()];
+      widget.modifier?.valueLinkifiers ?? [UrlLinkifier()];
 
   LinkifyOptions get linkOption => const LinkifyOptions(humanize: false);
 
   @override
   Widget build(BuildContext context) {
-    String text = data ?? modifier?.valueData ?? "";
-    final useStyle = modifier?.valueStyle ?? TextStyle();
-    final useValueSelectable = modifier?.valueSelectable ?? false;
-    final useValueLinkDisplay = modifier?.valueLinkDisplay ?? false;
+    if (widget.builder == null && widget.modifier?.valueObxListener != null) {
+      throw MustSetBuilderException();
+    }
+    if (widget.builder != null && widget.data != null) {
+      throw OnlyBuilderException("data");
+    }
+    String text = widget.data ?? widget.modifier?.valueData ?? "";
+    final useStyle = widget.modifier?.valueStyle ?? TextStyle();
+    final useValueSelectable = widget.modifier?.valueSelectable ?? false;
+    final useValueLinkDisplay = widget.modifier?.valueLinkDisplay ?? false;
     Widget textWidget;
 
-    if (modifier?.valueClickTextTo != null &&
-        modifier!.valueClickTextTo!.isNotEmpty) {
+    if (widget.modifier?.valueClickTextTo != null &&
+        widget.modifier!.valueClickTextTo!.isNotEmpty) {
       final textSpans = <TextSpan>[];
       text.splitMapJoin(
-        RegExp(modifier!.valueClickTextTo!.map((e) => e.data).join('|')),
+        RegExp(widget.modifier!.valueClickTextTo!.map((e) => e.data).join('|')),
         onMatch: (m) {
-          final matchingText = modifier!.valueClickTextTo!
+          final matchingText = widget.modifier!.valueClickTextTo!
               .firstWhere((e) => e.data == m.group(0));
           textSpans.add(
             TextSpan(
               text: matchingText.data,
-              style: modifier?.valueHighlightStyle != null
-                  ? modifier?.valueHighlightStyle
+              style: widget.modifier?.valueHighlightStyle != null
+                  ? widget.modifier?.valueHighlightStyle
                   : useStyle.copyWith(color: Colors.red),
               recognizer: TapGestureRecognizer()..onTap = matchingText.onClick,
             ),
@@ -77,18 +91,18 @@ class MText extends StatelessWidget {
       );
       textWidget = RichText(
         text: TextSpan(style: useStyle, children: textSpans),
-        textAlign: modifier?.valueTextAlign ?? TextAlign.start,
-        maxLines: modifier?.valueMaxLines,
-        overflow:
-            modifier?.valueOverflow ?? RichText(text: TextSpan()).overflow,
+        textAlign: widget.modifier?.valueTextAlign ?? TextAlign.start,
+        maxLines: widget.modifier?.valueMaxLines,
+        overflow: widget.modifier?.valueOverflow ??
+            RichText(text: TextSpan()).overflow,
       );
     } else if (useValueSelectable) {
       textWidget = useValueLinkDisplay
           ? SelectableLinkify(
               text: text,
               style: useStyle,
-              textAlign: modifier?.valueTextAlign,
-              maxLines: modifier?.valueMaxLines,
+              textAlign: widget.modifier?.valueTextAlign,
+              maxLines: widget.modifier?.valueMaxLines,
               // overflow: modifier?.valueOverflow,
               onOpen: onOpen,
               linkifiers: linkFilters,
@@ -97,21 +111,21 @@ class MText extends StatelessWidget {
           : SelectableText(
               text,
               style: useStyle,
-              textAlign: modifier?.valueTextAlign,
-              maxLines: modifier?.valueMaxLines,
+              textAlign: widget.modifier?.valueTextAlign,
+              maxLines: widget.modifier?.valueMaxLines,
               // overflow: modifier?.valueOverflow,
             );
-    } else if (modifier?.valueHighlightRegExp != null) {
+    } else if (widget.modifier?.valueHighlightRegExp != null) {
       List<TextSpan> textSpans = [];
 
       text.splitMapJoin(
-        modifier!.valueHighlightRegExp!,
+        widget.modifier!.valueHighlightRegExp!,
         onMatch: (m) {
           textSpans.add(
             TextSpan(
               text: m.group(0),
-              style: modifier?.valueHighlightStyle != null
-                  ? modifier?.valueHighlightStyle
+              style: widget.modifier?.valueHighlightStyle != null
+                  ? widget.modifier?.valueHighlightStyle
                   : useStyle.copyWith(color: Colors.red),
             ),
           );
@@ -126,16 +140,16 @@ class MText extends StatelessWidget {
       textWidget = useValueSelectable
           ? SelectableText.rich(
               TextSpan(style: useStyle, children: textSpans),
-              textAlign: modifier?.valueTextAlign ?? TextAlign.start,
-              maxLines: modifier?.valueMaxLines,
+              textAlign: widget.modifier?.valueTextAlign ?? TextAlign.start,
+              maxLines: widget.modifier?.valueMaxLines,
               // overflow: modifier?.valueOverflow ??
               //     RichText(text: TextSpan()).overflow,
             )
           : RichText(
               text: TextSpan(style: useStyle, children: textSpans),
-              textAlign: modifier?.valueTextAlign ?? TextAlign.start,
-              maxLines: modifier?.valueMaxLines,
-              overflow: modifier?.valueOverflow ??
+              textAlign: widget.modifier?.valueTextAlign ?? TextAlign.start,
+              maxLines: widget.modifier?.valueMaxLines,
+              overflow: widget.modifier?.valueOverflow ??
                   RichText(text: TextSpan()).overflow,
             );
     } else {
@@ -143,9 +157,9 @@ class MText extends StatelessWidget {
           ? Linkify(
               text: text,
               style: useStyle,
-              textAlign: modifier?.valueTextAlign ?? TextAlign.start,
-              maxLines: modifier?.valueMaxLines,
-              overflow: modifier?.valueOverflow,
+              textAlign: widget.modifier?.valueTextAlign ?? TextAlign.start,
+              maxLines: widget.modifier?.valueMaxLines,
+              overflow: widget.modifier?.valueOverflow,
               onOpen: onOpen,
               linkifiers: linkFilters,
               options: linkOption,
@@ -153,18 +167,21 @@ class MText extends StatelessWidget {
           : Text(
               text,
               style: useStyle,
-              textAlign: modifier?.valueTextAlign,
-              maxLines: modifier?.valueMaxLines,
-              overflow: modifier?.valueOverflow,
+              textAlign: widget.modifier?.valueTextAlign,
+              maxLines: widget.modifier?.valueMaxLines,
+              overflow: widget.modifier?.valueOverflow,
             );
     }
 
     return MGeneralLayoutModifierWidget(
       // key: modifier?.valueKey ?? key,
-      generalModifier: modifier,
+      generalModifier: widget.modifier,
       child: textWidget,
     );
   }
+
+  @override
+  Rx? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MTextModifier = DefineMTextModifier();

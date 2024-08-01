@@ -1,24 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
-class MContainer extends StatelessWidget {
+class MContainer extends StatefulWidget {
   final DefineMContainerModifier? modifier;
   final Widget? child;
+  final Widget Function()? builder;
 
   MContainer({
     this.modifier,
     this.child,
+    this.builder,
   }) : super(key: modifier?.valueKey ?? null);
 
   @override
+  State<MContainer> createState() => _MContainerState();
+}
+
+class _MContainerState extends ModifierState<MContainer>
+    with ObxImplementation {
+  @override
   Widget build(BuildContext context) {
+    if (widget.builder == null && widget.modifier?.valueObxListener != null) {
+      throw MustSetBuilderException();
+    }
+    if (widget.builder != null && widget.child != null) {
+      throw OnlyBuilderException("child");
+    }
     return MGeneralLayoutModifierWidget(
       // key: modifier?.valueKey ?? key,
-      generalModifier: modifier,
-      child: child ?? modifier?.valueChild ?? Container(),
+      generalModifier: widget.modifier,
+      child: widget.child ?? widget.modifier?.valueChild ?? Container(),
     );
   }
+
+  @override
+  Rx? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MContainerModifier = DefineMContainerModifier();

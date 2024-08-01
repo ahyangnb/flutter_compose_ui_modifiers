@@ -1,37 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/modifier_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
-class MRow extends StatelessWidget {
+class MRow extends StatefulWidget {
   final DefineMRowModifier? modifier;
   final List<Widget>? children;
+  final List<Widget> Function()? builder;
 
   MRow({
     this.children,
+    this.builder,
     this.modifier,
   }) : super(key: modifier?.valueKey ?? null);
 
   @override
+  State<MRow> createState() => _MRowState();
+}
+
+class _MRowState extends ModifierState<MRow> with ObxImplementation {
+  @override
   Widget build(BuildContext context) {
+    if (widget.builder == null && widget.modifier?.valueObxListener != null) {
+      throw MustSetBuilderException();
+    }
+    if (widget.builder != null &&
+        (widget.children != null || widget.modifier?.children != null)) {
+      throw OnlyBuilderException("children");
+    }
+
     final List<Widget> valueChildrenResult = <Widget>[
-      ...children ?? [],
-      ...modifier?.children ?? [],
+      ...widget.children ?? [],
+      ...widget.modifier?.children ?? [],
     ];
     return MGeneralLayoutModifierWidget(
       // key: modifier?.valueKey ?? key,
-      generalModifier: modifier,
+      generalModifier: widget.modifier,
       child: Row(
-        crossAxisAlignment: modifier?.valueCrossAxisAlignment ??
+        crossAxisAlignment: widget.modifier?.valueCrossAxisAlignment ??
             ModifierConfig.defRowCrossAxisAlignment,
-        mainAxisAlignment: modifier?.valueMainAxisAlignment ??
+        mainAxisAlignment: widget.modifier?.valueMainAxisAlignment ??
             ModifierConfig.defRowMainAxisAlignment,
-        children: modifier?.valueReverse == true
+        children: widget.modifier?.valueReverse == true
             ? valueChildrenResult.reversed.toList()
             : valueChildrenResult,
       ),
     );
   }
+
+  @override
+  Rx? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MRowModifier = DefineMRowModifier();

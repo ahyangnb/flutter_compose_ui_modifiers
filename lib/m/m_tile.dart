@@ -3,23 +3,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/other/m_reverse.dart';
+import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
-class MTile extends StatelessWidget {
+class MTile extends StatefulWidget {
   final DefineMTileModifier? modifier;
   final String? label;
+  final String Function()? builder;
 
   MTile({
     this.modifier,
     this.label,
+    this.builder,
   }) : super(key: modifier?.valueKey ?? null);
 
   @override
+  State<MTile> createState() => _MTileState();
+}
+
+class _MTileState extends ModifierState<MTile> with ObxImplementation {
+  @override
   Widget build(BuildContext context) {
-    final fontSize = modifier?.valueStyle.fontSize ?? 18.px;
+    if (widget.builder == null && widget.modifier?.valueObxListener != null) {
+      throw MustSetBuilderException();
+    }
+    if (widget.builder != null && widget.label != null) {
+      throw OnlyBuilderException("label");
+    }
+    final fontSize = widget.modifier?.valueStyle.fontSize ?? 18.px;
     return MGeneralLayoutModifierWidget(
       // key: modifier?.valueKey ?? key,
-      generalModifier: modifier,
+      generalModifier: widget.modifier,
       child: MRow(
         modifier: MRowModifier.mainAxisAlignment(MainAxisAlignment.start)
             .crossAxisAlignment(CrossAxisAlignment.center)
@@ -27,28 +41,33 @@ class MTile extends StatelessWidget {
             .height(54.px)
             .backgroundColor(MConfig.bgWhite22)
             .borderRadiusSet(
-              (modifier?.valueBorderRadius as BorderRadius?) ??
+              (widget.modifier?.valueBorderRadius as BorderRadius?) ??
                   BorderRadius.all(Radius.circular(8.px)),
             )
             .marginHorizontal(16.px),
         children: [
-          if (modifier?.valueIcon != null)
-            Image.asset(modifier!.valueIcon!).setSize(30.px).marginRight(10.px),
-          Text(label ?? "Label")
+          if (widget.modifier?.valueIcon != null)
+            Image.asset(widget.modifier!.valueIcon!)
+                .setSize(30.px)
+                .marginRight(10.px),
+          Text(widget.label ?? "Label")
               .color(Colors.white)
               .fontSize(fontSize)
 
               /// If use it will not center of the item.
               // .heightSize(modifier?.valueStyle.height ?? (25.px / fontSize))
               .expanded(),
-          if (modifier?.valueWidgetRight != null) ...[
+          if (widget.modifier?.valueWidgetRight != null) ...[
             10.px.space,
-            modifier!.valueWidgetRight!
+            widget.modifier!.valueWidgetRight!
           ],
         ],
       ),
     );
   }
+
+  @override
+  Rx? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MTileModifier = DefineMTileModifier();

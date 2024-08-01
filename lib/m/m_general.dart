@@ -429,7 +429,7 @@ class MScrollWidget extends StatefulWidget {
   State<MScrollWidget> createState() => _MScrollWidgetState();
 }
 
-class _MScrollWidgetState extends State<MScrollWidget> with AutoOnScrollStop {
+class _MScrollWidgetState extends ModifierState<MScrollWidget> with AutoOnScrollStop {
   @override
   late ScrollController useController =
       widget.generalModifier.valueScrollController ?? ScrollController();

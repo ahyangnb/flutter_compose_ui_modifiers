@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
 class MAddButton extends StatelessWidget {
@@ -14,6 +15,9 @@ class MAddButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (modifier?.valueObxListener != null) {
+      throw NotSupportObxListenerException();
+    }
     return MGeneralLayoutModifierWidget(
       // key: modifier?.valueKey ?? key,
       generalModifier: modifier,

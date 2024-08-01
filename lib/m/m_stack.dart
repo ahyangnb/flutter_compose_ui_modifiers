@@ -1,31 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
-class MStack extends StatelessWidget {
+class MStack extends StatefulWidget {
   final DefineMStackModifier? modifier;
   final List<Widget>? children;
+  final List<Widget> Function()? builder;
 
   MStack({
     this.modifier,
-    required this.children,
+    this.children,
+    this.builder,
   }) : super(key: modifier?.valueKey ?? null);
 
   @override
+  State<MStack> createState() => _MStackState();
+}
+
+class _MStackState extends ModifierState<MStack> with ObxImplementation {
+  @override
   Widget build(BuildContext context) {
+    if (widget.builder == null && widget.modifier?.valueObxListener != null) {
+      throw MustSetBuilderException();
+    }
+
+    /// The MStack not have `widget.modifier?.children`.
+    // (widget.children != null || widget.modifier?.children != null)
+    if (widget.builder != null && widget.children != null) {
+      throw OnlyBuilderException("children");
+    }
+
     return MGeneralLayoutModifierWidget(
       // key: modifier?.valueKey ?? key,
-      generalModifier: modifier,
+      generalModifier: widget.modifier,
       ignoreList: [IgnoreModifierInGeneral.alignment],
       child: Stack(
-        alignment: modifier?.valueAlignment ?? AlignmentDirectional.topStart,
-        textDirection: modifier?.valueTextDirection,
-        fit: modifier?.valueFit ?? StackFit.loose,
-        clipBehavior: modifier?.valueClipBehavior ?? Clip.hardEdge,
-        children: children ?? <Widget>[],
+        alignment:
+            widget.modifier?.valueAlignment ?? AlignmentDirectional.topStart,
+        textDirection: widget.modifier?.valueTextDirection,
+        fit: widget.modifier?.valueFit ?? StackFit.loose,
+        clipBehavior: widget.modifier?.valueClipBehavior ?? Clip.hardEdge,
+        children: widget.children ?? <Widget>[],
       ),
     );
   }
+
+  @override
+  Rx? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MStackModifier = DefineMStackModifier();
