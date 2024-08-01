@@ -298,7 +298,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueShape: valueShape ?? this.valueShape,
       valueBackgroundImage: valueBackgroundImage ?? this.valueBackgroundImage,
       valueBackgroundImageFit:
-      valueBackgroundImageFit ?? this.valueBackgroundImageFit,
+          valueBackgroundImageFit ?? this.valueBackgroundImageFit,
       valueGravity: valueGravity ?? this.valueGravity,
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
@@ -619,7 +619,7 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
   }
 
   /// Will be contain it in m.g.dart
-  // DefineMTextFieldModifier scrollController(ScrollController? value) {
-  //   return this.copyWith(valueScrollController: value);
-  // }
+// DefineMTextFieldModifier scrollController(ScrollController? value) {
+//   return this.copyWith(valueScrollController: value);
+// }
 }

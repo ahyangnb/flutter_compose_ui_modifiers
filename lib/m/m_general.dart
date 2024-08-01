@@ -18,7 +18,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/assistant/m_dragble.dart';
 import 'package:flutter_compose_ui_modifiers/custom/gradient_box_border.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
-import 'package:flutter_compose_ui_modifiers/other/m_obx.dart';
 import 'package:get/get.dart';
 
 enum MGravity { top, center, bottom }
@@ -376,10 +375,6 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
       );
     }
 
-    if (generalModifier?.valueObx != null) {
-      child = ModifierObxWidget(generalModifier!.valueObx!, child: child);
-    }
-
     if (generalModifier?.valueLeft != null ||
         generalModifier?.valueRight != null ||
         generalModifier?.valueTop != null ||
@@ -447,5 +442,21 @@ class _MScrollWidgetState extends State<MScrollWidget> with AutoOnScrollStop {
       child: widget.child,
       controller: useController,
     );
+  }
+}
+
+mixin ObxImplementation<T extends StatefulWidget> on ModifierState<T> {
+  Rx<dynamic>? get valueObx;
+
+  @override
+  void initState() {
+    super.initState();
+    if (valueObx != null) {
+      everAndAutoClose(valueObx!, (callback) {
+        if (mounted) {
+          setState(() {});
+        }
+      });
+    }
   }
 }

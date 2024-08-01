@@ -9,19 +9,32 @@ import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class MImage extends StatelessWidget {
+class MImage extends StatefulWidget {
   final DefineMImageModifier? modifier;
   final String? data;
+  final String Function()? builder;
 
   MImage({
     this.modifier,
-    required this.data,
+    this.data,
+    this.builder,
   }) : super(key: modifier?.valueKey ?? null);
 
   @override
+  State<MImage> createState() => _MImageState();
+}
+
+class _MImageState extends ModifierState<MImage> with ObxImplementation {
+  @override
   Widget build(BuildContext context) {
-    final useData = data ?? "";
-    final fitUse = modifier?.valueFit ?? BoxFit.cover;
+    if (widget.builder == null && widget.modifier?.valueObx != null) {
+      throw Exception(
+          "If you set the valueObx, you must set the builder function.");
+    }
+    final useData =
+        widget.builder != null ? widget.builder!() : widget.data ?? "";
+    mLogger.d("[MImage] useData::$useData");
+    final fitUse = widget.modifier?.valueFit ?? BoxFit.cover;
     // int? cacheWidth = modifier?.valueWidth?.toInt() == null
     //     ? null
     //     : (modifier!.valueWidth!.toInt() * Get.mediaQuery.devicePixelRatio * 2)
@@ -30,25 +43,25 @@ class MImage extends StatelessWidget {
     //     ? null
     //     : (modifier!.valueHeight!.toInt() * Get.mediaQuery.devicePixelRatio * 2)
     //         .toInt();
-    final useImageWidth = modifier?.valueImageWidth;
-    final useImageHeight = modifier?.valueImageHeight;
+    final useImageWidth = widget.modifier?.valueImageWidth;
+    final useImageHeight = widget.modifier?.valueImageHeight;
     Widget imgWidget;
 
-    final imgError = modifier?.valueImageWhenErrorWidget ??
-        (modifier?.valueImgError != null
-            ? Image.asset(modifier!.valueImgError!,
-                fit: modifier?.valueImgErrorFit)
-            : MImgError(fit: modifier?.valueImgErrorFit));
+    final imgError = widget.modifier?.valueImageWhenErrorWidget ??
+        (widget.modifier?.valueImgError != null
+            ? Image.asset(widget.modifier!.valueImgError!,
+                fit: widget.modifier?.valueImgErrorFit)
+            : MImgError(fit: widget.modifier?.valueImgErrorFit));
     final bool isAssets = useData.startsWith("assets/");
     try {
       if (GetUtils.isNullOrBlank(useData)!) {
         imgWidget = imgError;
       } else if (useData.startsWith('http')) {
-        final imgLoading = modifier?.valueImageWhenLoadingWidget ??
-            (modifier?.valueImgLoading != null
-                ? Image.asset(modifier!.valueImgLoading!,
-                    fit: modifier?.valueImgLoadingFit)
-                : MImgLoading(fit: modifier?.valueImgErrorFit));
+        final imgLoading = widget.modifier?.valueImageWhenLoadingWidget ??
+            (widget.modifier?.valueImgLoading != null
+                ? Image.asset(widget.modifier!.valueImgLoading!,
+                    fit: widget.modifier?.valueImgLoadingFit)
+                : MImgLoading(fit: widget.modifier?.valueImgErrorFit));
         imgWidget = CachedNetworkImage(
           imageUrl: useData,
           width: useImageWidth,
@@ -57,7 +70,7 @@ class MImage extends StatelessWidget {
           errorWidget: (BuildContext context, String url, Object error) =>
               imgError,
           placeholder: (BuildContext context, String url) => imgLoading,
-          color: modifier?.valueImageColor,
+          color: widget.modifier?.valueImageColor,
         );
         // imgWidget = ExtendedImage.network(
         //   data,
@@ -77,8 +90,8 @@ class MImage extends StatelessWidget {
           //         imgError,
           // cacheWidth: cacheWidth,
           // cacheHeight: cacheHeight,
-          package: modifier?.valuePackage,
-          color: modifier?.valueImageColor,
+          package: widget.modifier?.valuePackage,
+          color: widget.modifier?.valueImageColor,
         );
       } else if (isAssets) {
         imgWidget = Image.asset(
@@ -91,8 +104,8 @@ class MImage extends StatelessWidget {
                   imgError,
           // cacheWidth: cacheWidth,
           // cacheHeight: cacheHeight,
-          package: modifier?.valuePackage,
-          color: modifier?.valueImageColor,
+          package: widget.modifier?.valuePackage,
+          color: widget.modifier?.valueImageColor,
         );
       } else if (File(useData).existsSync()) {
         imgWidget = Image.file(
@@ -105,7 +118,7 @@ class MImage extends StatelessWidget {
           errorBuilder:
               (BuildContext context, Object error, StackTrace? stackTrace) =>
                   imgError,
-          color: modifier?.valueImageColor,
+          color: widget.modifier?.valueImageColor,
         );
       } else {
         imgWidget = Image.memory(
@@ -120,7 +133,7 @@ class MImage extends StatelessWidget {
           errorBuilder:
               (BuildContext context, Object error, StackTrace? stackTrace) =>
                   imgError,
-          color: modifier?.valueImageColor,
+          color: widget.modifier?.valueImageColor,
         );
       }
     } catch (e, s) {
@@ -132,9 +145,9 @@ class MImage extends StatelessWidget {
       );
     }
 
-    final containerWidth = modifier?.valueWidth ?? useImageWidth;
+    final containerWidth = widget.modifier?.valueWidth ?? useImageWidth;
     return MGeneralLayoutModifierWidget(
-      generalModifier: modifier,
+      generalModifier: widget.modifier,
       // key: modifier?.valueKey ?? key,
       child: Stack(
         alignment: Alignment.center,
@@ -142,27 +155,27 @@ class MImage extends StatelessWidget {
           if (useData.isURL)
             Container(
               width: containerWidth,
-              height: modifier?.valueHeight ?? useImageWidth,
+              height: widget.modifier?.valueHeight ?? useImageWidth,
               decoration: BoxDecoration(
-                color: modifier?.valueImageBackgroundColor ??
+                color: widget.modifier?.valueImageBackgroundColor ??
                     MConfig.imageDefBgColor,
-                borderRadius: modifier?.valueBorderRadius,
-                border: modifier?.valueBorder,
-                shape: modifier?.valueShape ?? BoxShape.rectangle,
+                borderRadius: widget.modifier?.valueBorderRadius,
+                border: widget.modifier?.valueBorder,
+                shape: widget.modifier?.valueShape ?? BoxShape.rectangle,
               ),
             ),
           ClipRRect(
-            borderRadius: modifier?.valueShape == BoxShape.circle &&
+            borderRadius: widget.modifier?.valueShape == BoxShape.circle &&
                     containerWidth != null
                 ? BorderRadius.all(Radius.circular((containerWidth) / 2))
-                : modifier?.valueBorderRadius ??
+                : widget.modifier?.valueBorderRadius ??
                     BorderRadius.all(Radius.circular(0)),
             child: SizedBox(
-              width: modifier?.valueImageWidth == null
-                  ? modifier?.valueWidth
+              width: widget.modifier?.valueImageWidth == null
+                  ? widget.modifier?.valueWidth
                   : null,
-              height: modifier?.valueImageHeight == null
-                  ? modifier?.valueHeight
+              height: widget.modifier?.valueImageHeight == null
+                  ? widget.modifier?.valueHeight
                   : null,
               child: imgWidget,
             ),
@@ -171,6 +184,9 @@ class MImage extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Rx? get valueObx => widget.modifier?.valueObx;
 }
 
 final MImageModifier = DefineMImageModifier();

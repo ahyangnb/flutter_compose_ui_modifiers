@@ -48,6 +48,7 @@ class DefineMRowModifier extends MGeneralModifier {
     this.valueReverse,
     this.valueCrossAxisAlignment,
     this.valueMainAxisAlignment,
+
     /// Main.
     super.valueKey,
 
@@ -241,7 +242,7 @@ class DefineMRowModifier extends MGeneralModifier {
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueScrollController:
-      valueScrollController ?? this.valueScrollController,
+          valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
       valueObx: valueObx ?? this.valueObx,

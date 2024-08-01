@@ -47,6 +47,7 @@ class _MListViewState extends State<MListView> with AutoOnScrollStop {
 
 mixin AutoOnScrollStop<T extends StatefulWidget> on State<T> {
   late ScrollController useController;
+
   VoidCallback? get valueOnScrollStop;
 
   Timer? _timer;

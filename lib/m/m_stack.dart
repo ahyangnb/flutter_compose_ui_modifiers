@@ -205,7 +205,7 @@ class DefineMStackModifier extends MGeneralModifier {
       valueShape: valueShape ?? this.valueShape,
       valueBackgroundImage: valueBackgroundImage ?? this.valueBackgroundImage,
       valueBackgroundImageFit:
-      valueBackgroundImageFit ?? this.valueBackgroundImageFit,
+          valueBackgroundImageFit ?? this.valueBackgroundImageFit,
       valueGravity: valueGravity ?? this.valueGravity,
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
@@ -232,7 +232,7 @@ class DefineMStackModifier extends MGeneralModifier {
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueScrollController:
-      valueScrollController ?? this.valueScrollController,
+          valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
       valueObx: valueObx ?? this.valueObx,
