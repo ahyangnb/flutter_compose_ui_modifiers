@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'dart:math' as math;
 
+import 'package:get/get.dart';
+
 extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier shadow({
     required Offset offset,
@@ -737,6 +739,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
   }
+
+  DefineMTextFieldModifier obx(Rx<dynamic> value) {
+    return this.copyWith(valueObx: value);
+  }
 }
 
 extension MTextGeneralGenerator on DefineMTextModifier {
@@ -1405,6 +1411,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMTextModifier obx(Rx<dynamic> value) {
+    return this.copyWith(valueObx: value);
   }
 }
 
@@ -2167,6 +2177,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
   }
+
+  DefineMRowModifier obx(Rx<dynamic> value) {
+    return this.copyWith(valueObx: value);
+  }
 }
 
 extension MListViewGeneralGenerator on DefineMListViewModifier {
@@ -2694,6 +2708,10 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMListViewModifier obx(Rx<dynamic> value) {
+    return this.copyWith(valueObx: value);
   }
 }
 
@@ -3436,6 +3454,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
   }
+
+  DefineMColumnModifier obx(Rx<dynamic> value) {
+    return this.copyWith(valueObx: value);
+  }
 }
 
 extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
@@ -4173,6 +4195,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
   }
+
+  DefineMAddButtonModifier obx(Rx<dynamic> value) {
+    return this.copyWith(valueObx: value);
+  }
 }
 
 extension MAddStackGeneralGenerator on DefineMStackModifier {
@@ -4908,6 +4934,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMStackModifier obx(Rx<dynamic> value) {
+    return this.copyWith(valueObx: value);
   }
 }
 
@@ -5649,6 +5679,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
   }
+
+  DefineMImageModifier obx(Rx<dynamic> value) {
+    return this.copyWith(valueObx: value);
+  }
 }
 
 extension MTileGeneralGenerator on DefineMTileModifier {
@@ -6383,6 +6417,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMTileModifier obx(Rx<dynamic> value) {
+    return this.copyWith(valueObx: value);
   }
 }
 
@@ -7126,5 +7164,9 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMContainerModifier obx(Rx<dynamic> value) {
+    return this.copyWith(valueObx: value);
   }
 }
