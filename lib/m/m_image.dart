@@ -260,6 +260,7 @@ class DefineMImageModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
+    super.valueObx,
   });
 
   DefineMImageModifier copyWith({
@@ -333,6 +334,7 @@ class DefineMImageModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
+    Rx<dynamic>? valueObx,
   }) {
     return DefineMImageModifier(
       valueFit: valueFit ?? this.valueFit,
@@ -413,6 +415,7 @@ class DefineMImageModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
+      valueObx: valueObx ?? this.valueObx,
     );
   }
 }

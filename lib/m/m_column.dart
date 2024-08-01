@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/modifier_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:get/get.dart';
 
 class MColumn extends StatelessWidget {
   final DefineMColumnModifier? modifier;
@@ -105,6 +106,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     super.valueOnScrollStop,
     super.valueSafeArea,
     super.valueVisible,
+    super.valueObx,
   });
 
   /// Create a copyWith().
@@ -172,6 +174,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     VoidCallback? valueOnScrollStop,
     SafeArea? valueSafeArea,
     bool? valueVisible,
+    Rx<dynamic>? valueObx,
   }) {
     return DefineMColumnModifier(
       children: children ?? this.children,
@@ -245,6 +248,7 @@ class DefineMColumnModifier extends MGeneralModifier {
       valueOnScrollStop: valueOnScrollStop ?? this.valueOnScrollStop,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
+      valueObx: valueObx ?? this.valueObx,
     );
   }
 }

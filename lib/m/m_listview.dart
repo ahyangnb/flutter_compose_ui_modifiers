@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:get/get.dart';
 
 class MListView extends StatefulWidget {
   final DefineMListViewModifier? modifier;
@@ -155,6 +156,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     // super.valueScrollable,
     super.valueSafeArea,
     super.valueVisible,
+    super.valueObx,
   });
 
   /// Create a copyWith().
@@ -222,6 +224,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     // bool? valueScrollable,
     SafeArea? valueSafeArea,
     bool? valueVisible,
+    Rx<dynamic>? valueObx,
   }) {
     return DefineMListViewModifier(
       valueReverse: valueReverse ?? this.valueReverse,
@@ -291,6 +294,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       // valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
+      valueObx: valueObx ?? this.valueObx,
     );
   }
 }

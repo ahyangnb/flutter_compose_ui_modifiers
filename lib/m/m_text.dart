@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// @todo HighlightNamesText function with MText.
@@ -251,6 +252,7 @@ class DefineMTextModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
+    super.valueObx,
   });
 
   DefineMTextModifier copyWith({
@@ -323,6 +325,7 @@ class DefineMTextModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
+    Rx<dynamic>? valueObx,
   }) {
     return DefineMTextModifier(
       valueStyle: valueStyle ?? this.valueStyle,
@@ -399,6 +402,7 @@ class DefineMTextModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
+      valueObx: valueObx ?? this.valueObx,
     );
   }
 

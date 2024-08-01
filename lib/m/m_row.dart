@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/modifier_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:get/get.dart';
 
 class MRow extends StatelessWidget {
   final DefineMRowModifier? modifier;
@@ -103,6 +104,7 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
+    super.valueObx,
   });
 
   /// Create a copyWith().
@@ -169,6 +171,7 @@ class DefineMRowModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
+    Rx<dynamic>? valueObx,
   }) {
     return DefineMRowModifier(
       children: children ?? this.children,
@@ -241,6 +244,7 @@ class DefineMRowModifier extends MGeneralModifier {
       valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
+      valueObx: valueObx ?? this.valueObx,
     );
   }
 }

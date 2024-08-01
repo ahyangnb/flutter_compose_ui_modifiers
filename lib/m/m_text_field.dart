@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:get/get.dart';
 
 class MTextField extends StatelessWidget {
   final DefineMTextFieldModifier? modifier;
@@ -156,6 +157,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     super.valueScrollable,
     super.valueSafeArea,
     super.valueVisible,
+    super.valueObx,
   });
 
   /// Create a copyWith().
@@ -237,6 +239,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     bool? valueScrollable,
     SafeArea? valueSafeArea,
     bool? valueVisible,
+    Rx<dynamic>? valueObx,
   }) {
     return DefineMTextFieldModifier(
       decorationValue: decorationValue ?? this.decorationValue,
@@ -323,6 +326,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
+      valueObx: valueObx ?? this.valueObx,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:get/get.dart';
 
 class MContainer extends StatelessWidget {
   final DefineMContainerModifier? modifier;
@@ -86,6 +87,7 @@ class DefineMContainerModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
+    super.valueObx,
   });
 
   DefineMContainerModifier copyWith({
@@ -147,6 +149,7 @@ class DefineMContainerModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
+    Rx<dynamic>? valueObx,
   }) {
     return DefineMContainerModifier(
       /// Main.
@@ -212,6 +215,7 @@ class DefineMContainerModifier extends MGeneralModifier {
       valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
+      valueObx: valueObx ?? this.valueObx,
     );
   }
 }

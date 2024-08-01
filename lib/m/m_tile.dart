@@ -122,6 +122,7 @@ class DefineMTileModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
+    super.valueObx,
   });
 
   DefineMTileModifier copyWith({
@@ -187,6 +188,7 @@ class DefineMTileModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
+    Rx<dynamic>? valueObx,
   }) {
     return DefineMTileModifier(
       valueStyle: valueStyle ?? this.valueStyle,
@@ -257,6 +259,7 @@ class DefineMTileModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
+      valueObx: valueObx ?? this.valueObx,
     );
   }
 }
