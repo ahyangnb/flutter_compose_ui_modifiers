@@ -18,6 +18,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/assistant/m_dragble.dart';
 import 'package:flutter_compose_ui_modifiers/custom/gradient_box_border.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/other/m_obx.dart';
+import 'package:get/get.dart';
 
 enum MGravity { top, center, bottom }
 
@@ -84,6 +86,7 @@ class MGeneralModifier {
   /// Other
   final SafeArea? valueSafeArea;
   final bool? valueVisible;
+  final Rx<dynamic>? valueObx;
 
   const MGeneralModifier({
     /// Main key.
@@ -146,6 +149,7 @@ class MGeneralModifier {
     /// Other
     this.valueSafeArea,
     this.valueVisible,
+    this.valueObx,
   });
 }
 
@@ -370,6 +374,10 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
             : CrossFadeState.showSecond,
         duration: Duration(milliseconds: 300),
       );
+    }
+
+    if (generalModifier?.valueObx != null) {
+      child = ModifierObxWidget(generalModifier!.valueObx!, child: child);
     }
 
     if (generalModifier?.valueLeft != null ||
