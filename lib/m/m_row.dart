@@ -105,7 +105,7 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
-    super.valueObx,
+    super.valueObxListener,
   });
 
   /// Create a copyWith().
@@ -172,7 +172,7 @@ class DefineMRowModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
-    Rx<dynamic>? valueObx,
+    Rx<dynamic>? valueObxListener,
   }) {
     return DefineMRowModifier(
       children: children ?? this.children,
@@ -245,7 +245,7 @@ class DefineMRowModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
-      valueObx: valueObx ?? this.valueObx,
+      valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
 }

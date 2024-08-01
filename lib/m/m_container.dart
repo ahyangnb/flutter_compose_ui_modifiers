@@ -87,7 +87,7 @@ class DefineMContainerModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
-    super.valueObx,
+    super.valueObxListener,
   });
 
   DefineMContainerModifier copyWith({
@@ -149,7 +149,7 @@ class DefineMContainerModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
-    Rx<dynamic>? valueObx,
+    Rx<dynamic>? valueObxListener,
   }) {
     return DefineMContainerModifier(
       /// Main.
@@ -215,7 +215,7 @@ class DefineMContainerModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
-      valueObx: valueObx ?? this.valueObx,
+      valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
 }

@@ -106,7 +106,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     super.valueOnScrollStop,
     super.valueSafeArea,
     super.valueVisible,
-    super.valueObx,
+    super.valueObxListener,
   });
 
   /// Create a copyWith().
@@ -174,7 +174,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     VoidCallback? valueOnScrollStop,
     SafeArea? valueSafeArea,
     bool? valueVisible,
-    Rx<dynamic>? valueObx,
+    Rx<dynamic>? valueObxListener,
   }) {
     return DefineMColumnModifier(
       children: children ?? this.children,
@@ -248,7 +248,7 @@ class DefineMColumnModifier extends MGeneralModifier {
       valueOnScrollStop: valueOnScrollStop ?? this.valueOnScrollStop,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
-      valueObx: valueObx ?? this.valueObx,
+      valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
 }

@@ -85,7 +85,9 @@ class MGeneralModifier {
   /// Other
   final SafeArea? valueSafeArea;
   final bool? valueVisible;
-  final Rx<dynamic>? valueObx;
+
+  /// Only refresh `builder` content.
+  final Rx<dynamic>? valueObxListener;
 
   const MGeneralModifier({
     /// Main key.
@@ -148,7 +150,7 @@ class MGeneralModifier {
     /// Other
     this.valueSafeArea,
     this.valueVisible,
-    this.valueObx,
+    this.valueObxListener,
   });
 }
 
@@ -446,13 +448,13 @@ class _MScrollWidgetState extends State<MScrollWidget> with AutoOnScrollStop {
 }
 
 mixin ObxImplementation<T extends StatefulWidget> on ModifierState<T> {
-  Rx<dynamic>? get valueObx;
+  Rx<dynamic>? get valueObxListener;
 
   @override
   void initState() {
     super.initState();
-    if (valueObx != null) {
-      everAndAutoClose(valueObx!, (callback) {
+    if (valueObxListener != null) {
+      everAndAutoClose(valueObxListener!, (callback) {
         if (mounted) {
           setState(() {});
         }

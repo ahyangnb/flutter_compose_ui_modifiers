@@ -99,7 +99,7 @@ class DefineMStackModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
-    super.valueObx,
+    super.valueObxListener,
   });
 
   DefineMStackModifier copyWith({
@@ -165,7 +165,7 @@ class DefineMStackModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
-    Rx<dynamic>? valueObx,
+    Rx<dynamic>? valueObxListener,
   }) {
     return DefineMStackModifier(
       valueAlignment: valueAlignment ?? this.valueAlignment,
@@ -235,7 +235,7 @@ class DefineMStackModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
-      valueObx: valueObx ?? this.valueObx,
+      valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
 }

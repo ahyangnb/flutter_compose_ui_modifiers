@@ -118,7 +118,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
-    super.valueObx,
+    super.valueObxListener,
   });
 
   /// Create a copyWith().
@@ -186,7 +186,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
-    Rx<dynamic>? valueObx,
+    Rx<dynamic>? valueObxListener,
   }) {
     return DefineMAddButtonModifier(
       iconSizeValue: iconSizeValue ?? this.iconSizeValue,
@@ -258,7 +258,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
-      valueObx: valueObx ?? this.valueObx,
+      valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
 }

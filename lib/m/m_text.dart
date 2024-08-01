@@ -252,7 +252,7 @@ class DefineMTextModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
-    super.valueObx,
+    super.valueObxListener,
   });
 
   DefineMTextModifier copyWith({
@@ -325,7 +325,7 @@ class DefineMTextModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
-    Rx<dynamic>? valueObx,
+    Rx<dynamic>? valueObxListener,
   }) {
     return DefineMTextModifier(
       valueStyle: valueStyle ?? this.valueStyle,
@@ -402,7 +402,7 @@ class DefineMTextModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
-      valueObx: valueObx ?? this.valueObx,
+      valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
 

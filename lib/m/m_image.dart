@@ -27,9 +27,9 @@ class MImage extends StatefulWidget {
 class _MImageState extends ModifierState<MImage> with ObxImplementation {
   @override
   Widget build(BuildContext context) {
-    if (widget.builder == null && widget.modifier?.valueObx != null) {
+    if (widget.builder == null && widget.modifier?.valueObxListener != null) {
       throw Exception(
-          "If you set the valueObx, you must set the builder function.");
+          "If you set the valueObxListener, you must set the builder function.");
     }
     final useData =
         widget.builder != null ? widget.builder!() : widget.data ?? "";
@@ -186,7 +186,7 @@ class _MImageState extends ModifierState<MImage> with ObxImplementation {
   }
 
   @override
-  Rx? get valueObx => widget.modifier?.valueObx;
+  Rx? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MImageModifier = DefineMImageModifier();
@@ -276,7 +276,7 @@ class DefineMImageModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
-    super.valueObx,
+    super.valueObxListener,
   });
 
   DefineMImageModifier copyWith({
@@ -350,7 +350,7 @@ class DefineMImageModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
-    Rx<dynamic>? valueObx,
+    Rx<dynamic>? valueObxListener,
   }) {
     return DefineMImageModifier(
       valueFit: valueFit ?? this.valueFit,
@@ -431,7 +431,7 @@ class DefineMImageModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
-      valueObx: valueObx ?? this.valueObx,
+      valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
 }

@@ -740,8 +740,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueVisible: value);
   }
 
-  DefineMTextFieldModifier obx(Rx<dynamic> value) {
-    return this.copyWith(valueObx: value);
+  DefineMTextFieldModifier obxListener(Rx<dynamic> value) {
+    return this.copyWith(valueObxListener: value);
   }
 }
 
@@ -1413,8 +1413,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     return this.copyWith(valueVisible: value);
   }
 
-  DefineMTextModifier obx(Rx<dynamic> value) {
-    return this.copyWith(valueObx: value);
+  DefineMTextModifier obxListener(Rx<dynamic> value) {
+    return this.copyWith(valueObxListener: value);
   }
 }
 
@@ -2178,8 +2178,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueVisible: value);
   }
 
-  DefineMRowModifier obx(Rx<dynamic> value) {
-    return this.copyWith(valueObx: value);
+  DefineMRowModifier obxListener(Rx<dynamic> value) {
+    return this.copyWith(valueObxListener: value);
   }
 }
 
@@ -2710,8 +2710,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     return this.copyWith(valueVisible: value);
   }
 
-  DefineMListViewModifier obx(Rx<dynamic> value) {
-    return this.copyWith(valueObx: value);
+  DefineMListViewModifier obxListener(Rx<dynamic> value) {
+    return this.copyWith(valueObxListener: value);
   }
 }
 
@@ -3455,8 +3455,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueVisible: value);
   }
 
-  DefineMColumnModifier obx(Rx<dynamic> value) {
-    return this.copyWith(valueObx: value);
+  DefineMColumnModifier obxListener(Rx<dynamic> value) {
+    return this.copyWith(valueObxListener: value);
   }
 }
 
@@ -4196,8 +4196,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueVisible: value);
   }
 
-  DefineMAddButtonModifier obx(Rx<dynamic> value) {
-    return this.copyWith(valueObx: value);
+  DefineMAddButtonModifier obxListener(Rx<dynamic> value) {
+    return this.copyWith(valueObxListener: value);
   }
 }
 
@@ -4936,8 +4936,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(valueVisible: value);
   }
 
-  DefineMStackModifier obx(Rx<dynamic> value) {
-    return this.copyWith(valueObx: value);
+  DefineMStackModifier obxListener(Rx<dynamic> value) {
+    return this.copyWith(valueObxListener: value);
   }
 }
 
@@ -5680,8 +5680,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueVisible: value);
   }
 
-  DefineMImageModifier obx(Rx<dynamic> value) {
-    return this.copyWith(valueObx: value);
+  DefineMImageModifier obxListener(Rx<dynamic> value) {
+    return this.copyWith(valueObxListener: value);
   }
 }
 
@@ -6419,8 +6419,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     return this.copyWith(valueVisible: value);
   }
 
-  DefineMTileModifier obx(Rx<dynamic> value) {
-    return this.copyWith(valueObx: value);
+  DefineMTileModifier obxListener(Rx<dynamic> value) {
+    return this.copyWith(valueObxListener: value);
   }
 }
 
@@ -7166,7 +7166,7 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
     return this.copyWith(valueVisible: value);
   }
 
-  DefineMContainerModifier obx(Rx<dynamic> value) {
-    return this.copyWith(valueObx: value);
+  DefineMContainerModifier obxListener(Rx<dynamic> value) {
+    return this.copyWith(valueObxListener: value);
   }
 }

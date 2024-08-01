@@ -157,7 +157,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     // super.valueScrollable,
     super.valueSafeArea,
     super.valueVisible,
-    super.valueObx,
+    super.valueObxListener,
   });
 
   /// Create a copyWith().
@@ -225,7 +225,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     // bool? valueScrollable,
     SafeArea? valueSafeArea,
     bool? valueVisible,
-    Rx<dynamic>? valueObx,
+    Rx<dynamic>? valueObxListener,
   }) {
     return DefineMListViewModifier(
       valueReverse: valueReverse ?? this.valueReverse,
@@ -295,7 +295,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       // valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
-      valueObx: valueObx ?? this.valueObx,
+      valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
 }

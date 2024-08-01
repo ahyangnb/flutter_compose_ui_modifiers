@@ -157,7 +157,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     super.valueScrollable,
     super.valueSafeArea,
     super.valueVisible,
-    super.valueObx,
+    super.valueObxListener,
   });
 
   /// Create a copyWith().
@@ -239,7 +239,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     bool? valueScrollable,
     SafeArea? valueSafeArea,
     bool? valueVisible,
-    Rx<dynamic>? valueObx,
+    Rx<dynamic>? valueObxListener,
   }) {
     return DefineMTextFieldModifier(
       decorationValue: decorationValue ?? this.decorationValue,
@@ -326,7 +326,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
-      valueObx: valueObx ?? this.valueObx,
+      valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
 }
