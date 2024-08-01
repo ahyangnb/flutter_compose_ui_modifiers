@@ -33,7 +33,6 @@ class _MImageState extends ModifierState<MImage> with ObxImplementation {
     }
     final useData =
         widget.builder != null ? widget.builder!() : widget.data ?? "";
-    mLogger.d("[MImage] useData::$useData");
     final fitUse = widget.modifier?.valueFit ?? BoxFit.cover;
     // int? cacheWidth = modifier?.valueWidth?.toInt() == null
     //     ? null
