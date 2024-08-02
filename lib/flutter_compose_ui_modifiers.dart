@@ -45,6 +45,7 @@ export 'util/m_callback.dart';
 export 'util/m_util.dart';
 export 'util/picker_image_util.dart';
 export 'util/m_lan_util.dart';
+export 'other/m_sliver.dart';
 export 'custom/custom_confirm_dialog.dart';
 export 'config/m_theme_config.dart';
 

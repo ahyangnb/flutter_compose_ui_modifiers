@@ -212,3 +212,39 @@ extension LocaleExtentsion on Locale? {
     return '${this?.languageCode}${GetUtils.isNullOrBlank(countryCode)! ? '' : '_$countryCode'}';
   }
 }
+
+/// Make a extension to allow list to multiply Contents.
+/// He is law, we just use multiply market to Do something in like this
+/// ```
+/// [
+//                     MRow(
+//                       children: <Widget>[
+//                         MContainer(
+//                           modifier: MContainerModifier.width(375.px / 2)
+//                               .color(Colors.red)
+//                               .height(300.px),
+//                         )
+//                       ],
+//                     ),
+//                     MRow(
+//                       modifier: MRowModifier.mainAxisEnd(),
+//                       children: <Widget>[
+//                         MContainer(
+//                           modifier: MContainerModifier.width(375.px / 2)
+//                               .color(Colors.red)
+//                               .height(300.px),
+//                         )
+//                       ],
+//                     ),
+//                   ] * 3
+/// ```
+/// But keep the generic
+extension ListMultiply<T> on List<T> {
+  List<T> operator *(int times) {
+    final List<T> result = <T>[];
+    for (var i = 0; i < times; i++) {
+      result.addAll(this);
+    }
+    return result;
+  }
+}
