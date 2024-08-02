@@ -5,6 +5,13 @@ import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
 class MAddButton extends StatelessWidget {
+  /// Please do not use DefineMAddButtonModifier, just use `MAddButtonModifier`.
+  /// for example:
+  /// ```
+  /// MAddButton(
+  ///  modifier: MAddButtonModifier.color(Colors.red),
+  ///  )
+  ///  ```
   final DefineMAddButtonModifier? modifier;
   final List<Widget>? children;
 

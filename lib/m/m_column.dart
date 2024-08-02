@@ -5,6 +5,14 @@ import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
 class MColumn extends StatefulWidget {
+  /// Please do not use DefineMColumnModifier, just use `MColumnModifier`.
+  /// for example:
+  /// ```
+  /// MColumn(
+  ///  modifier: MColumnModifier.color(Colors.red),
+  ///  children: [],
+  ///  )
+  ///  ```
   final DefineMColumnModifier? modifier;
   final List<Widget>? children;
   final List<Widget> Function()? builder;

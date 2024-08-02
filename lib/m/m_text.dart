@@ -25,6 +25,14 @@ import 'package:url_launcher/url_launcher.dart';
 // )
 /// ```
 class MText extends StatefulWidget {
+  /// Please do not use DefineMTextModifier, just use `MTextModifier`.
+  /// for example:
+  /// ```
+  /// MText(
+  ///  modifier: MTextModifier.color(Colors.red),
+  ///  data: "test",
+  ///  )
+  ///  ```
   final DefineMTextModifier? modifier;
   final String? data;
   final String Function()? builder;

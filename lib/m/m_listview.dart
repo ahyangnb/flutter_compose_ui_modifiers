@@ -6,6 +6,14 @@ import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
 class MListView extends StatefulWidget {
+  /// Please do not use DefineMListViewModifier, just use `MListViewModifier`.
+  /// for example:
+  /// ```
+  /// MListView(
+  ///  modifier: MListViewModifier.color(Colors.red),
+  ///  children: [],
+  ///  )
+  ///  ```
   final DefineMListViewModifier? modifier;
   final List<Widget>? children;
   final List<Widget> Function()? builder;

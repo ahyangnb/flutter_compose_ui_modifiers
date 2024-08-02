@@ -4,6 +4,13 @@ import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
 class MContainer extends StatefulWidget {
+  /// Please do not use DefineMContainerModifier, just use `MContainerModifier`.
+  /// for example:
+  /// ```
+  /// MContainer(
+  ///  modifier: MContainerModifier.color(Colors.red),
+  ///  )
+  ///  ```
   final DefineMContainerModifier? modifier;
   final Widget? child;
   final Widget Function()? builder;

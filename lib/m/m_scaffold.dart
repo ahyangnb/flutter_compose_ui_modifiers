@@ -2,6 +2,14 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class MScaffold extends StatelessWidget {
+  /// Please do not use DefineMScaffoldModifier, just use `MScaffoldModifier`.
+  /// for example:
+  /// ```
+  /// MScaffold(
+  ///  modifier: MScaffoldModifier.drawer(Container()),
+  ///  body: MListView(),
+  ///  )
+  ///  ```
   final DefineMScaffoldModifier? modifier;
   final Widget? body;
 

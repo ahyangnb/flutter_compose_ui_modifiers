@@ -4,7 +4,14 @@ import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
 class MTextField extends StatelessWidget {
-
+  /// Please do not use DefineMTextFieldModifier, just use `MTextFieldModifier`.
+  /// for example:
+  /// ```
+  /// MTextField(
+  ///  modifier: MTextFieldModifier.color(Colors.red),
+  ///  controller: TextEditingController().,
+  ///  )
+  ///  ```
   final DefineMTextFieldModifier? modifier;
   final TextEditingController? controller;
 

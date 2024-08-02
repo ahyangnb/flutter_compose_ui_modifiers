@@ -5,6 +5,14 @@ import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
 class MRow extends StatefulWidget {
+  /// Please do not use DefineMRowModifier, just use `MRowModifier`.
+  /// for example:
+  /// ```
+  /// MRow(
+  ///  modifier: MRowModifier.color(Colors.red),
+  ///  children: [],
+  ///  )
+  ///  ```
   final DefineMRowModifier? modifier;
   final List<Widget>? children;
   final List<Widget> Function()? builder;

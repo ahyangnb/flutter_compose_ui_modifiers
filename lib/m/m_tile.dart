@@ -7,6 +7,14 @@ import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
 class MTile extends StatefulWidget {
+  /// Please do not use DefineMTileModifier, just use `MTileModifier`.
+  /// for example:
+  /// ```
+  /// MTile(
+  ///  modifier: MTileModifier.color(Colors.red),
+  ///  label: "Label",
+  ///  )
+  ///  ```
   final DefineMTileModifier? modifier;
   final String? label;
   final String Function()? builder;

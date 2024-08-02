@@ -11,6 +11,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class MImage extends StatefulWidget {
+  /// Please do not use DefineMImageModifier, just use `MImageModifier`.
+  /// for example:
+  /// ```
+  /// MImage(
+  ///  modifier: MImageModifier.color(Colors.red),
+  ///  data: "",
+  ///  )
+  ///  ```
   final DefineMImageModifier? modifier;
   final String? data;
   final String Function()? builder;
