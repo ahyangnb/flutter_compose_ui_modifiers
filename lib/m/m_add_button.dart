@@ -51,6 +51,7 @@ class MAddButton extends StatelessWidget {
 
 final MAddButtonModifier = DefineMAddButtonModifier();
 
+/// Please do not use it, just use `MAddButtonModifier`.
 class DefineMAddButtonModifier extends MGeneralModifier {
   final double? iconSizeValue;
   final Color? iconColorValue;

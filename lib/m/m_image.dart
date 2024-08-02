@@ -194,6 +194,7 @@ class _MImageState extends ModifierState<MImage> with ObxImplementation {
 
 final MImageModifier = DefineMImageModifier();
 
+/// Please do not use it, just use `MImageModifier`.
 class DefineMImageModifier extends MGeneralModifier {
   final BoxFit? valueFit;
   final double? valueImageWidth;

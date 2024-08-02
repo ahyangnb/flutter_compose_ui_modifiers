@@ -4,6 +4,7 @@ import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
 class MTextField extends StatelessWidget {
+
   final DefineMTextFieldModifier? modifier;
   final TextEditingController? controller;
 
@@ -61,6 +62,7 @@ class MTextField extends StatelessWidget {
 
 final MTextFieldModifier = DefineMTextFieldModifier();
 
+/// Please do not use it, just use `MTextFieldModifier`.
 class DefineMTextFieldModifier extends MGeneralModifier {
   final InputDecoration? decorationValue;
   final TextStyle? valueStyle;

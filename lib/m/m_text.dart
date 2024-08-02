@@ -186,6 +186,7 @@ class _MTextState extends ModifierState<MText> with ObxImplementation {
 
 final MTextModifier = DefineMTextModifier();
 
+/// Please do not use it, just use `MTextModifier`.
 class DefineMTextModifier extends MGeneralModifier {
   final TextStyle valueStyle;
   final TextStyle? valueHighlightStyle;

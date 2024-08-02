@@ -72,6 +72,7 @@ class _MTileState extends ModifierState<MTile> with ObxImplementation {
 
 final MTileModifier = DefineMTileModifier();
 
+/// Please do not use it, just use `MTileModifier`.
 class DefineMTileModifier extends MGeneralModifier {
   final TextStyle valueStyle;
   final TextAlign? valueTextAlign;

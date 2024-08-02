@@ -41,6 +41,7 @@ class _MContainerState extends ModifierState<MContainer>
 
 final MContainerModifier = DefineMContainerModifier();
 
+/// Please do not use it, just use `MContainerModifier`.
 class DefineMContainerModifier extends MGeneralModifier {
   final Widget? valueChild;
 

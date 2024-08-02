@@ -52,6 +52,7 @@ class _MStackState extends ModifierState<MStack> with ObxImplementation {
 
 final MStackModifier = DefineMStackModifier();
 
+/// Please do not use it, just use `MStackModifier`.
 class DefineMStackModifier extends MGeneralModifier {
   final AlignmentGeometry? valueAlignment;
   final TextDirection? valueTextDirection;

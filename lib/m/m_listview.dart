@@ -100,6 +100,7 @@ mixin AutoOnScrollStop<T extends StatefulWidget> on ModifierState<T> {
 
 final MListViewModifier = DefineMListViewModifier();
 
+/// Please do not use it, just use `MListViewModifier`.
 class DefineMListViewModifier extends MGeneralModifier {
   final bool? valueReverse;
 

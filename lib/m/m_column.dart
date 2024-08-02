@@ -55,6 +55,7 @@ class _MColumnState extends ModifierState<MColumn> with ObxImplementation {
 
 final MColumnModifier = DefineMColumnModifier();
 
+/// Please do not use it, just use `MColumnModifier`.
 class DefineMColumnModifier extends MGeneralModifier {
   final List<Widget>? children;
   final bool? valueReverse;

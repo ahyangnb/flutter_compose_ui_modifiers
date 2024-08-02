@@ -55,6 +55,7 @@ class _MRowState extends ModifierState<MRow> with ObxImplementation {
 
 final MRowModifier = DefineMRowModifier();
 
+/// Please do not use it, just use `MRowModifier`.
 class DefineMRowModifier extends MGeneralModifier {
   final List<Widget>? children;
   final bool? valueReverse;

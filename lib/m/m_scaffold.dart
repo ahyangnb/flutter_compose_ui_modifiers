@@ -55,6 +55,7 @@ class MScaffold extends StatelessWidget {
 
 final MScaffoldModifier = DefineMScaffoldModifier();
 
+/// Please do not use it, just use `MScaffoldModifier`.
 class DefineMScaffoldModifier {
   /// feature: Auto scaleless keyboard when click blank area.
   final bool autoHideKeyboardValue;
