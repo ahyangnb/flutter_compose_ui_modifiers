@@ -34,6 +34,8 @@ export 'other/m_button.dart';
 export 'other/m_tip_row.dart';
 export 'other/m_refresh_indicator.dart';
 export 'other/m_animate.dart';
+export 'other/m_sliver.dart';
+export 'other/m_tab.dart';
 export 'util/screen_fit.dart';
 export 'util/extension.dart';
 export 'util/modifier_extension.dart';
@@ -45,7 +47,6 @@ export 'util/m_callback.dart';
 export 'util/m_util.dart';
 export 'util/picker_image_util.dart';
 export 'util/m_lan_util.dart';
-export 'other/m_sliver.dart';
 export 'custom/custom_confirm_dialog.dart';
 export 'config/m_theme_config.dart';
 
