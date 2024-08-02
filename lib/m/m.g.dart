@@ -2577,6 +2577,14 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
 
+  DefineMListViewModifier width(double? value) {
+    return this.copyWith(valueWidth: value);
+  }
+
+  DefineMListViewModifier height(double? value) {
+    return this.copyWith(valueHeight: value);
+  }
+
   DefineMListViewModifier constraints({
     double? minWidth,
     double? maxWidth,

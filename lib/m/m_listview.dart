@@ -62,6 +62,7 @@ class _MListViewState extends ModifierState<MListView>
         shrinkWrap: widget.modifier?.valueShrinkWrap ?? false,
         physics: widget.modifier?.valuePhysics,
         controller: useController,
+        scrollDirection: widget.modifier?.valueScrollDirection ?? Axis.vertical,
       ),
     );
   }
@@ -118,6 +119,7 @@ class DefineMListViewModifier extends MGeneralModifier {
   final ScrollPhysics? valuePhysics;
   final ScrollController? valueController;
   final VoidCallback? valueOnScrollStop;
+  final Axis? valueScrollDirection;
 
   const DefineMListViewModifier({
     this.valueReverse,
@@ -126,6 +128,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     this.valuePhysics,
     this.valueController,
     this.valueOnScrollStop,
+    this.valueScrollDirection,
 
     /// Main.
     super.valueKey,
@@ -194,6 +197,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     ScrollPhysics? valuePhysics,
     ScrollController? valueController,
     VoidCallback? valueOnScrollStop,
+    Axis? valueScrollDirection,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -260,6 +264,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       valuePhysics: valuePhysics ?? this.valuePhysics,
       valueController: valueController ?? this.valueController,
       valueOnScrollStop: valueOnScrollStop ?? this.valueOnScrollStop,
+      valueScrollDirection: valueScrollDirection ?? this.valueScrollDirection,
 
       /// The following properties are inherited from MGeneralModifier.
       /// Main.
@@ -357,5 +362,9 @@ extension MListViewModifierPropertys on DefineMListViewModifier {
 
   DefineMListViewModifier onScrollStop(VoidCallback value) {
     return this.copyWith(valueOnScrollStop: value);
+  }
+
+  DefineMListViewModifier scrollDirection(Axis value) {
+    return this.copyWith(valueScrollDirection: value);
   }
 }
