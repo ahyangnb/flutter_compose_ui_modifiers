@@ -4,7 +4,7 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 extension ListToWidget on List<Widget> {
   MStack listToStack({AlignmentGeometry? alignment}) {
     return MStack(
-      modifier: MStackModifier.alignment(alignment ?? Stack().alignment),
+      modifier: MStackModifier.alignStack(alignment ?? Stack().alignment),
       children: this,
     );
   }

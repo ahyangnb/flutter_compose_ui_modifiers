@@ -272,8 +272,12 @@ class DefineMStackModifier extends MGeneralModifier {
 }
 
 extension MStackModifierPropertys on DefineMStackModifier {
-  DefineMStackModifier alignment(AlignmentGeometry value) {
+  DefineMStackModifier alignmentStack(AlignmentGeometry value) {
     return this.copyWith(valueAlignment: value);
+  }
+
+  DefineMStackModifier alignStack(AlignmentGeometry? value) {
+    return this.copyWith(valueContainerAlignment: value);
   }
 
   DefineMStackModifier centerAlignStack() {
