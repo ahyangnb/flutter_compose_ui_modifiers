@@ -2577,14 +2577,6 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
         .copyWith(valueMaskColor: value ?? Colors.black.withOpacity(0.5));
   }
 
-  DefineMListViewModifier width(double? value) {
-    return this.copyWith(valueWidth: value);
-  }
-
-  DefineMListViewModifier height(double? value) {
-    return this.copyWith(valueHeight: value);
-  }
-
   DefineMListViewModifier constraints({
     double? minWidth,
     double? maxWidth,
@@ -2720,6 +2712,233 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier obxListener(Rx<dynamic> value) {
     return this.copyWith(valueObxListener: value);
+  }
+
+  DefineMListViewModifier shadow({
+    required Offset offset,
+    required double blurRadius,
+    required double spreadRadius,
+    required Color color,
+  }) {
+    return this.copyWith(
+        valueShadow: BoxShadow(
+      offset: offset,
+      blurRadius: blurRadius,
+      spreadRadius: spreadRadius,
+      color: color,
+    ));
+  }
+
+  DefineMListViewModifier shadowDef({Color? color}) {
+    final valueShadow = BoxShadow(
+      color: color ?? Color(0xff000000).withOpacity(0.1),
+      offset: const Offset(0, 2),
+      blurRadius: 4,
+      spreadRadius: 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMListViewModifier shadowOffset(double dx, double dy) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(dx, dy),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMListViewModifier shadowBlur(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: value,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMListViewModifier shadowSpread(double value) {
+    final valueShadow = BoxShadow(
+      color: this.valueShadow?.color ?? Color(0xff000000).withOpacity(0.1),
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: value,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMListViewModifier shadowColor(Color value) {
+    final valueShadow = BoxShadow(
+      color: value,
+      offset: Offset(this.valueShadow?.offset.dx ?? 0.0,
+          this.valueShadow?.offset.dy ?? 0.0),
+      blurRadius: this.valueShadow?.blurRadius ?? 4,
+      spreadRadius: this.valueShadow?.spreadRadius ?? 0,
+    );
+    return this.copyWith(valueShadow: valueShadow);
+  }
+
+  DefineMListViewModifier marginTop(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(top: value),
+    );
+  }
+
+  DefineMListViewModifier marginBottom(double value) {
+    return this.copyWith(
+      valueMargin:
+          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+    );
+  }
+
+  DefineMListViewModifier marginLeft(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(left: value),
+    );
+  }
+
+  DefineMListViewModifier marginRight(double value) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(right: value),
+    );
+  }
+
+  DefineMListViewModifier marginHorizontal(double value) {
+    return marginSymmetric(horizontal: value);
+  }
+
+  DefineMListViewModifier marginVertical(double value) {
+    return marginSymmetric(vertical: value);
+  }
+
+  DefineMListViewModifier marginSymmetric(
+      {double? horizontal, double? vertical}) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: horizontal ?? this.valueMargin?.left,
+        right: horizontal ?? this.valueMargin?.right,
+        top: vertical ?? this.valueMargin?.top,
+        bottom: vertical ?? this.valueMargin?.bottom,
+      ),
+    );
+  }
+
+  DefineMListViewModifier marginOnly({
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }) {
+    return this.copyWith(
+      valueMargin: (this.valueMargin ?? EdgeInsets.zero).copyWith(
+        left: left ?? this.valueMargin?.left,
+        right: right ?? this.valueMargin?.right,
+        top: top ?? this.valueMargin?.top,
+        bottom: bottom ?? this.valueMargin?.bottom,
+      ),
+    );
+  }
+
+  DefineMListViewModifier marginSet(EdgeInsets? value) {
+    return this.copyWith(valueMargin: value);
+  }
+
+  DefineMListViewModifier margin(double? value) {
+    return this.copyWith(valueMargin: EdgeInsets.all(value ?? 0));
+  }
+
+  DefineMListViewModifier backgroundColor(Color? value) {
+    return this.copyWith(valueBackgroundColor: value);
+  }
+
+  DefineMListViewModifier center([bool value = true]) {
+    return this.copyWith(valueCenterAlign: value);
+  }
+
+  DefineMListViewModifier centered() {
+    return this.copyWith(valueCenterAlign: true);
+  }
+
+  DefineMListViewModifier sizeSet(Size value) {
+    return this.copyWith(valueWidth: value.width, valueHeight: value.height);
+  }
+
+  DefineMListViewModifier sizeAll(double value) {
+    return this.copyWith(valueWidth: value, valueHeight: value);
+  }
+
+  DefineMListViewModifier size(double valueWidth, double valueHeight) {
+    return this.copyWith(valueWidth: valueWidth, valueHeight: valueHeight);
+  }
+
+  DefineMListViewModifier width(double? value) {
+    return this.copyWith(valueWidth: value);
+  }
+
+  DefineMListViewModifier height(double? value) {
+    return this.copyWith(valueHeight: value);
+  }
+
+  DefineMListViewModifier onTap(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMListViewModifier onClick(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMListViewModifier click(VoidCallback onTap) {
+    return setClick(onTap);
+  }
+
+  DefineMListViewModifier setClick(VoidCallback valueOnTap) {
+    return this.copyWith(valueOnTap: valueOnTap);
+  }
+
+  DefineMListViewModifier clipCircle() {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.circular(
+            math.max(valueWidth ?? 0, valueHeight ?? 0) / 2));
+  }
+
+  DefineMListViewModifier borderRadius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMListViewModifier borderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueBorderRadius: value);
+  }
+
+  DefineMListViewModifier borderRadiusVertical(double value) {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMListViewModifier borderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMListViewModifier borderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
   }
 }
 
