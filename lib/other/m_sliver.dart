@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Please use [SliverPinnedToBoxAdapter] in extended_sliver plugin.
 class MHeaderDelegate extends SliverPersistentHeaderDelegate {
   final double minHeight;
   final double maxHeight;
