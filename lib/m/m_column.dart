@@ -322,6 +322,23 @@ extension MColumnModifierPropertys on DefineMColumnModifier {
     return this.copyWith(valueMainAxisAlignment: MainAxisAlignment.end);
   }
 
+  DefineMColumnModifier mainAxisStart() {
+    return this.copyWith(valueMainAxisAlignment: MainAxisAlignment.start);
+  }
+
+  DefineMColumnModifier mainSpaceBetween() {
+    return this
+        .copyWith(valueMainAxisAlignment: MainAxisAlignment.spaceBetween);
+  }
+
+  DefineMColumnModifier mainSpaceAround() {
+    return this.copyWith(valueMainAxisAlignment: MainAxisAlignment.spaceAround);
+  }
+
+  DefineMColumnModifier mainSpaceEvenly() {
+    return this.copyWith(valueMainAxisAlignment: MainAxisAlignment.spaceEvenly);
+  }
+
   DefineMColumnModifier crossAxisCenter() {
     return this.copyWith(valueCrossAxisAlignment: CrossAxisAlignment.center);
   }

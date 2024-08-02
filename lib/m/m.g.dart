@@ -457,6 +457,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
+  DefineMTextFieldModifier corner(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
   DefineMTextFieldModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
@@ -1127,6 +1131,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   }
 
   DefineMTextModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMTextModifier corner(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
@@ -1895,6 +1903,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
+  DefineMRowModifier corner(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
   DefineMRowModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
@@ -2428,6 +2440,10 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   }
 
   DefineMListViewModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMListViewModifier corner(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
@@ -3395,6 +3411,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
+  DefineMColumnModifier corner(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
   DefineMColumnModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
@@ -4140,6 +4160,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
+  DefineMAddButtonModifier corner(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
   DefineMAddButtonModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
@@ -4877,6 +4901,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   }
 
   DefineMStackModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMStackModifier corner(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
@@ -5624,6 +5652,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
+  DefineMImageModifier corner(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
   DefineMImageModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
@@ -6360,6 +6392,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   }
 
   DefineMTileModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMTileModifier corner(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
@@ -7107,6 +7143,10 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   }
 
   DefineMContainerModifier radius(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMContainerModifier corner(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
