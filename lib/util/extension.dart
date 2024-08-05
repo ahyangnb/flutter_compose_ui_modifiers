@@ -248,3 +248,13 @@ extension ListMultiply<T> on List<T> {
     return result;
   }
 }
+
+extension WidgetMultiple on Widget {
+  List<Widget> operator *(int times) {
+    final List<Widget> result = <Widget>[];
+    for (var i = 0; i < times; i++) {
+      result.add(this);
+    }
+    return result;
+  }
+}
