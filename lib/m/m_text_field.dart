@@ -49,6 +49,7 @@ class MTextField extends StatelessWidget {
         style: modifier?.valueStyle,
         expands: modifier?.expandsValue ?? false,
         maxLines: modifier?.maxLinesValue,
+        maxLength: modifier?.valueMaxLength,
         onSubmitted: modifier?.valueOnSubmitted,
         keyboardType: modifier?.valueKeyboardType,
         textInputAction: modifier?.valueTextInputAction,
@@ -75,6 +76,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   final TextStyle? valueStyle;
   final bool? expandsValue;
   final int? maxLinesValue;
+  final int? valueMaxLength;
   final bool? valueAutoFocus;
   final ValueChanged<String>? valueOnSubmitted;
   final TextInputType? valueKeyboardType;
@@ -97,6 +99,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     this.valueStyle,
     this.expandsValue,
     this.maxLinesValue,
+    this.valueMaxLength,
     this.valueAutoFocus,
     this.valueOnSubmitted,
     this.valueKeyboardType,
@@ -179,6 +182,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     final TextStyle? valueStyle,
     final bool? expandsValue,
     final int? maxLinesValue,
+    final int? valueMaxLength,
     final bool? valueAutoFocus,
     final ValueChanged<String>? valueOnSubmitted,
     final TextInputType? valueKeyboardType,
@@ -259,6 +263,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueStyle: valueStyle ?? this.valueStyle,
       expandsValue: expandsValue ?? this.expandsValue,
       maxLinesValue: maxLinesValue ?? this.maxLinesValue,
+      valueMaxLength: valueMaxLength ?? this.valueMaxLength,
       valueAutoFocus: valueAutoFocus ?? this.valueAutoFocus,
       valueOnSubmitted: valueOnSubmitted ?? this.valueOnSubmitted,
       valueKeyboardType: valueKeyboardType ?? this.valueKeyboardType,
@@ -551,6 +556,10 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier maxLines(int? value) {
     return this.copyWith(maxLinesValue: value);
+  }
+
+  DefineMTextFieldModifier maxLength(int? value) {
+    return this.copyWith(valueMaxLength: value);
   }
 
   DefineMTextFieldModifier labelColor(Color value) {
