@@ -633,6 +633,31 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return newModifierValue;
   }
 
+  DefineMTextModifier space(double value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueStyle: this.valueStyle.copyWith(wordSpacing: value));
+    return newModifierValue;
+  }
+
+  DefineMTextModifier textSpacing(double value) {
+    final DefineMTextModifier newModifierValue = this
+        .copyWith(valueStyle: this.valueStyle.copyWith(letterSpacing: value));
+    return newModifierValue;
+  }
+
+  DefineMTextModifier rowHeight(double value) {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        valueStyle: this
+            .valueStyle
+            .copyWith(height: this.valueStyle.fontSize! / value));
+    return newModifierValue;
+  }
+
+  /// Nothing to happen, only for fit LanHu.
+  DefineMTextModifier paragraph() {
+    return this;
+  }
+
   /// High light
   DefineMTextModifier styleHighlight(TextStyle value) {
     final DefineMTextModifier newModifierValue =
