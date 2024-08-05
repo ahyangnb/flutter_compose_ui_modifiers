@@ -249,6 +249,15 @@ extension ListMultiply<T> on List<T> {
   }
 }
 
+extension TextSpanRich<T> on List<TextSpan> {
+  Text toTextRich({TextStyle? defStyle}) {
+    return Text.rich(
+      TextSpan(children: this),
+      style: defStyle,
+    );
+  }
+}
+
 extension WidgetMultiple on Widget {
   List<Widget> operator *(int times) {
     final List<Widget> result = <Widget>[];
