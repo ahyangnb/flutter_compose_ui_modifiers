@@ -217,6 +217,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
+  DefineMTextFieldModifier backgroundColorHex(int value) {
+    return this.copyWith(valueBackgroundColor: Color(value));
+  }
+
   DefineMTextFieldModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -892,6 +896,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier backgroundColor(Color? value) {
     return this.copyWith(valueBackgroundColor: value);
+  }
+
+  DefineMTextModifier backgroundColorHex(int value) {
+    return this.copyWith(valueBackgroundColor: Color(value));
   }
 
   DefineMTextModifier center([bool value = true]) {
@@ -1661,6 +1669,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier backgroundColor(Color? value) {
     return this.copyWith(valueBackgroundColor: value);
+  }
+
+  DefineMRowModifier backgroundColorHex(int value) {
+    return this.copyWith(valueBackgroundColor: Color(value));
   }
 
   DefineMRowModifier center([bool value = true]) {
@@ -2871,6 +2883,10 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
+  DefineMListViewModifier backgroundColorHex(int value) {
+    return this.copyWith(valueBackgroundColor: Color(value));
+  }
+
   DefineMListViewModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -3169,6 +3185,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier backgroundColor(Color? value) {
     return this.copyWith(valueBackgroundColor: value);
+  }
+
+  DefineMColumnModifier backgroundColorHex(int value) {
+    return this.copyWith(valueBackgroundColor: Color(value));
   }
 
   DefineMColumnModifier center([bool value = true]) {
@@ -3920,6 +3940,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
+  DefineMAddButtonModifier backgroundColorHex(int value) {
+    return this.copyWith(valueBackgroundColor: Color(value));
+  }
+
   DefineMAddButtonModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -4662,6 +4686,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier backgroundColor(Color? value) {
     return this.copyWith(valueBackgroundColor: value);
+  }
+
+  DefineMStackModifier backgroundColorHex(int value) {
+    return this.copyWith(valueBackgroundColor: Color(value));
   }
 
   DefineMStackModifier center([bool value = true]) {
@@ -5412,6 +5440,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueBackgroundColor: value);
   }
 
+  DefineMImageModifier backgroundColorHex(int value) {
+    return this.copyWith(valueBackgroundColor: Color(value));
+  }
+
   DefineMImageModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -6153,6 +6185,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier backgroundColor(Color? value) {
     return this.copyWith(valueBackgroundColor: value);
+  }
+
+  DefineMTileModifier backgroundColorHex(int value) {
+    return this.copyWith(valueBackgroundColor: Color(value));
   }
 
   DefineMTileModifier center([bool value = true]) {
@@ -6900,6 +6936,10 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier backgroundColor(Color? value) {
     return this.copyWith(valueBackgroundColor: value);
+  }
+
+  DefineMContainerModifier backgroundColorHex(int value) {
+    return this.copyWith(valueBackgroundColor: Color(value));
   }
 
   DefineMContainerModifier center([bool value = true]) {

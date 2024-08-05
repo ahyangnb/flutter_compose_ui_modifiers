@@ -11,6 +11,9 @@ extension ScreenExtensionDouble on num {
   double get px =>
       Get.context != null ? ((Get.width / 375) * this) : this.toDouble();
 
+  /// For adapted now
+  double get pt => px;
+
   Widget get pxs => px.space;
 
   Widget get pxS => px.space;
