@@ -44,6 +44,7 @@ class MGeneralModifier {
   final BoxConstraints? valueConstraints;
   final double? valueAspectRatio;
   final int? valueFlex;
+  final bool? valueOutSizeFlex;
   final String? valueHelp;
   final double? valueOpacity;
   final double? valueRotate;
@@ -111,6 +112,7 @@ class MGeneralModifier {
     this.valueConstraints,
     this.valueAspectRatio,
     this.valueFlex,
+    this.valueOutSizeFlex,
     this.valueHelp,
     this.valueOpacity,
     this.valueRotate,
@@ -395,11 +397,18 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     }
 
     /// Must use it in last one.
-    if (generalModifier?.valueFlex != null) {
+    if (generalModifier?.valueFlex != null ||
+        generalModifier?.valueOutSizeFlex != null) {
       if (child is Positioned) {
         throw Exception('The Positioned widget can not use Expanded widget');
       }
-      child = Expanded(flex: generalModifier!.valueFlex!, child: child);
+      if (generalModifier?.valueOutSizeFlex ?? false) {
+        child = Align(
+          alignment: Alignment.topLeft,
+          child: child,
+        );
+      }
+      child = Expanded(flex: generalModifier?.valueFlex ?? 1, child: child);
     }
     return child;
   }

@@ -380,6 +380,14 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueFlex: value);
   }
 
+  DefineMTextFieldModifier outSizeFlex() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
+  DefineMTextFieldModifier expandedOutSide() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
   DefineMTextFieldModifier gradient([Gradient? value]) {
     return this.copyWith(valueGradient: value);
   }
@@ -1059,6 +1067,14 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier expanded([int? value = 1]) {
     return this.copyWith(valueFlex: value);
+  }
+
+  DefineMTextModifier outSizeFlex() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
+  DefineMTextModifier expandedOutSide() {
+    return this.copyWith(valueOutSizeFlex: true);
   }
 
   DefineMTextModifier gradient([Gradient? value]) {
@@ -1834,6 +1850,14 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueFlex: value);
   }
 
+  DefineMRowModifier outSizeFlex() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
+  DefineMRowModifier expandedOutSide() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
   DefineMRowModifier gradient([Gradient? value]) {
     return this.copyWith(valueGradient: value);
   }
@@ -2372,6 +2396,14 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier expanded([int value = 1]) {
     return this.copyWith(valueFlex: value);
+  }
+
+  DefineMListViewModifier outSizeFlex() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
+  DefineMListViewModifier expandedOutSide() {
+    return this.copyWith(valueOutSizeFlex: true);
   }
 
   DefineMListViewModifier gradient([Gradient? value]) {
@@ -3350,6 +3382,14 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueFlex: value);
   }
 
+  DefineMColumnModifier outSizeFlex() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
+  DefineMColumnModifier expandedOutSide() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
   DefineMColumnModifier gradient([Gradient? value]) {
     return this.copyWith(valueGradient: value);
   }
@@ -4103,6 +4143,14 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueFlex: value);
   }
 
+  DefineMAddButtonModifier outSizeFlex() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
+  DefineMAddButtonModifier expandedOutSide() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
   DefineMAddButtonModifier gradient([Gradient? value]) {
     return this.copyWith(valueGradient: value);
   }
@@ -4849,6 +4897,14 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier expanded([int value = 1]) {
     return this.copyWith(valueFlex: value);
+  }
+
+  DefineMStackModifier outSizeFlex() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
+  DefineMStackModifier expandedOutSide() {
+    return this.copyWith(valueOutSizeFlex: true);
   }
 
   DefineMStackModifier gradient([Gradient? value]) {
@@ -5603,6 +5659,14 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueFlex: value);
   }
 
+  DefineMImageModifier outSizeFlex() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
+  DefineMImageModifier expandedOutSide() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
   DefineMImageModifier gradient([Gradient? value]) {
     return this.copyWith(valueGradient: value);
   }
@@ -6348,6 +6412,14 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier expanded([int value = 1]) {
     return this.copyWith(valueFlex: value);
+  }
+
+  DefineMTileModifier outSizeFlex() {
+    return this.copyWith(valueOutSizeFlex: true);
+  }
+
+  DefineMTileModifier expandedOutSide() {
+    return this.copyWith(valueOutSizeFlex: true);
   }
 
   DefineMTileModifier gradient([Gradient? value]) {
