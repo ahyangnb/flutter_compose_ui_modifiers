@@ -160,6 +160,7 @@ enum IgnoreModifierInGeneral {
   width,
   height,
   backgroundColor,
+  borderRadius,
   alignment
 }
 
@@ -213,7 +214,10 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
           color: ignoreList.contains(IgnoreModifierInGeneral.backgroundColor)
               ? null
               : generalModifier?.valueBackgroundColor,
-          borderRadius: generalModifier?.valueBorderRadius,
+          borderRadius:
+              ignoreList.contains(IgnoreModifierInGeneral.borderRadius)
+                  ? null
+                  : generalModifier?.valueBorderRadius,
           boxShadow: generalModifier?.valueShadow != null
               ? [generalModifier!.valueShadow!]
               : null,
@@ -429,7 +433,8 @@ class MScrollWidget extends StatefulWidget {
   State<MScrollWidget> createState() => _MScrollWidgetState();
 }
 
-class _MScrollWidgetState extends ModifierState<MScrollWidget> with AutoOnScrollStop {
+class _MScrollWidgetState extends ModifierState<MScrollWidget>
+    with AutoOnScrollStop {
   @override
   late ScrollController useController =
       widget.generalModifier.valueScrollController ?? ScrollController();

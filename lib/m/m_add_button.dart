@@ -13,11 +13,11 @@ class MAddButton extends StatelessWidget {
   ///  )
   ///  ```
   final DefineMAddButtonModifier? modifier;
-  final List<Widget>? children;
+  final RxString? value;
 
   MAddButton({
-    this.children,
     this.modifier,
+    this.value,
   }) : super(key: modifier?.valueKey ?? null);
 
   @override
@@ -25,32 +25,84 @@ class MAddButton extends StatelessWidget {
     if (modifier?.valueObxListener != null) {
       throw NotSupportObxListenerException();
     }
-    return MGeneralLayoutModifierWidget(
-      // key: modifier?.valueKey ?? key,
-      generalModifier: modifier,
-      ignoreList: [
-        IgnoreModifierInGeneral.width,
-        IgnoreModifierInGeneral.height,
-        IgnoreModifierInGeneral.backgroundColor,
-      ],
-      child: Container(
-        width: modifier?.valueWidth ?? 86,
-        height: modifier?.valueHeight ?? 86,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: modifier?.valueBackgroundColor ?? const Color(0xffF8F8F8),
-          borderRadius:
-              modifier?.valueBorderRadius ?? BorderRadius.circular(43),
+
+    final width = modifier?.valueWidth ?? modifier?.valueImageWidth ?? 86.px;
+    final height = modifier?.valueHeight ?? modifier?.valueImageHeight ?? 86.px;
+    final addButton = Icon(CupertinoIcons.add,
+        size: modifier?.iconSizeValue ?? 25.px,
+        color: modifier?.imageColorValue ?? const Color(0xff949494));
+    final BorderRadiusGeometry radius =
+        modifier?.valueBorderRadius ?? BorderRadius.circular(43.0);
+    final double marginCloseTop = modifier?.valueMarginCloseTop ?? 0.px;
+    return Align(
+      alignment: Alignment.topLeft,
+      child: MGeneralLayoutModifierWidget(
+        // key: modifier?.valueKey ?? key,
+        generalModifier: modifier,
+        ignoreList: [
+          // IgnoreModifierInGeneral.width,
+          // IgnoreModifierInGeneral.height,
+          IgnoreModifierInGeneral.backgroundColor,
+          IgnoreModifierInGeneral.borderRadius,
+        ],
+        child: Stack(
+          children: [
+            Container(
+              width: width,
+              height: height,
+              alignment: Alignment.center,
+              margin:
+                  EdgeInsets.only(top: marginCloseTop, right: marginCloseTop),
+              decoration: BoxDecoration(
+                color:
+                    modifier?.valueBackgroundColor ?? const Color(0xffF8F8F8),
+                borderRadius: radius,
+              ),
+              child: value != null
+                  ? Obx(() {
+                      if (GetUtils.isNullOrBlank(value?.value)!) {
+                        return addButton;
+                      }
+                      return MImage(
+                        data: value!.value,
+                        modifier: MImageModifier.width(width)
+                            .height(height)
+                            .imageColor(modifier?.imageColorValue)
+                            .borderRadiusSet(radius as BorderRadius),
+                      );
+                    })
+                  : addButton,
+            ),
+            if (value != null)
+              Obx(() {
+                if (GetUtils.isNullOrBlank(value!.value)!.not()) {
+                  return MImage(
+                    data: 'assets/images/ic_close_image.png',
+                    modifier: MImageModifier.sizeImageAll(
+                            modifier?.valueCloseButtonSize ?? 18.px)
+                        .right(0)
+                        .top(0)
+
+                        /// The area we can click.
+                        .marginLeft(10.px)
+
+                        /// The area we can click.
+                        .marginBottom(10.px)
+                        .package('flutter_compose_ui_modifiers')
+                        .click(() {
+                      if (modifier?.valueClickClose != null) {
+                        modifier!.valueClickClose!();
+                      } else {
+                        value!.value = '';
+                      }
+                    }),
+                  );
+                } else {
+                  return Container();
+                }
+              })
+          ],
         ),
-        child: modifier?.valueImageIcon != null
-            ? MImage(
-                data: modifier!.valueImageIcon!,
-                modifier: MImageModifier.width(modifier?.valueImageWidth)
-                    .height(modifier?.valueImageHeight),
-              )
-            : Icon(CupertinoIcons.add,
-                size: modifier?.iconSizeValue ?? 25,
-                color: modifier?.iconColorValue ?? const Color(0xff949494)),
       ),
     );
   }
@@ -61,17 +113,24 @@ final MAddButtonModifier = DefineMAddButtonModifier();
 /// Please do not use it, just use `MAddButtonModifier`.
 class DefineMAddButtonModifier extends MGeneralModifier {
   final double? iconSizeValue;
-  final Color? iconColorValue;
-  final String? valueImageIcon;
+  final Color? imageColorValue;
+
+  // final String? valueImageIcon;
   final double? valueImageWidth;
   final double? valueImageHeight;
+  final double? valueCloseButtonSize;
+  final double? valueMarginCloseTop;
+  final VoidCallback? valueClickClose;
 
   const DefineMAddButtonModifier({
     this.iconSizeValue,
-    this.iconColorValue,
-    this.valueImageIcon,
+    this.imageColorValue,
+    // this.valueImageIcon,
     this.valueImageWidth,
     this.valueImageHeight,
+    this.valueCloseButtonSize,
+    this.valueMarginCloseTop,
+    this.valueClickClose,
 
     /// Main.
     super.valueKey,
@@ -136,10 +195,13 @@ class DefineMAddButtonModifier extends MGeneralModifier {
   /// Create a copyWith().
   DefineMAddButtonModifier copyWith({
     double? iconSizeValue,
-    Color? iconColorValue,
-    String? valueImageIcon,
+    Color? imageColorValue,
+    // String? valueImageIcon,
     double? valueImageWidth,
     double? valueImageHeight,
+    double? valueCloseButtonSize,
+    double? valueMarginCloseTop,
+    VoidCallback? valueClickClose,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -202,10 +264,13 @@ class DefineMAddButtonModifier extends MGeneralModifier {
   }) {
     return DefineMAddButtonModifier(
       iconSizeValue: iconSizeValue ?? this.iconSizeValue,
-      iconColorValue: iconColorValue ?? this.iconColorValue,
-      valueImageIcon: valueImageIcon ?? this.valueImageIcon,
+      imageColorValue: imageColorValue ?? this.imageColorValue,
+      // valueImageIcon: valueImageIcon ?? this.valueImageIcon,
       valueImageWidth: valueImageWidth ?? this.valueImageWidth,
       valueImageHeight: valueImageHeight ?? this.valueImageHeight,
+      valueCloseButtonSize: valueCloseButtonSize ?? this.valueCloseButtonSize,
+      valueMarginCloseTop: valueMarginCloseTop ?? this.valueMarginCloseTop,
+      valueClickClose: valueClickClose ?? this.valueClickClose,
 
       /// The following properties are inherited from MGeneralModifier.
       /// Main.
@@ -280,13 +345,13 @@ extension MAddButtonModifierPropertys on DefineMAddButtonModifier {
     return this.copyWith(iconSizeValue: value);
   }
 
-  DefineMAddButtonModifier iconColor(Color value) {
-    return this.copyWith(iconColorValue: value);
+  DefineMAddButtonModifier imageColor(Color value) {
+    return this.copyWith(imageColorValue: value);
   }
 
-  DefineMAddButtonModifier imageIcon(String value) {
-    return this.copyWith(valueImageIcon: value);
-  }
+  // DefineMAddButtonModifier imageIcon(String value) {
+  //   return this.copyWith(valueImageIcon: value);
+  // }
 
   DefineMAddButtonModifier imageSize(double? value) {
     return this.copyWith(valueImageWidth: value, valueImageHeight: value);
@@ -298,5 +363,22 @@ extension MAddButtonModifierPropertys on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier imageHeight(double? value) {
     return this.copyWith(valueImageHeight: value);
+  }
+
+  DefineMAddButtonModifier marginCloseTop(double? value) {
+    return this.copyWith(valueMarginCloseTop: value);
+  }
+
+  DefineMAddButtonModifier clickClose(VoidCallback? value) {
+    return this.copyWith(valueClickClose: value);
+  }
+
+  DefineMAddButtonModifier styleSquareCorner() {
+    return this
+        .backgroundColor(Colors.grey[200]!)
+        .height(40.px)
+        .sizeAll(90.px)
+        .radius(8.px)
+        .marginCloseTop(8.px);
   }
 }
