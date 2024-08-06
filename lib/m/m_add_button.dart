@@ -4,7 +4,7 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
 
-class MAddButton extends StatelessWidget {
+class MAddButton extends StatefulWidget {
   /// Please do not use DefineMAddButtonModifier, just use `MAddButtonModifier`.
   /// for example:
   /// ```
@@ -14,31 +14,42 @@ class MAddButton extends StatelessWidget {
   ///  ```
   final DefineMAddButtonModifier? modifier;
   final RxString? value;
+  final RxList<String>? images;
 
   MAddButton({
     this.modifier,
     this.value,
+    this.images,
   }) : super(key: modifier?.valueKey ?? null);
 
   @override
+  State<MAddButton> createState() => _MAddButtonState();
+}
+
+class _MAddButtonState extends State<MAddButton> {
+  @override
   Widget build(BuildContext context) {
-    if (modifier?.valueObxListener != null) {
+    if (widget.modifier?.valueObxListener != null) {
       throw NotSupportObxListenerException();
     }
 
-    final width = modifier?.valueWidth ?? modifier?.valueImageWidth ?? 86.px;
-    final height = modifier?.valueHeight ?? modifier?.valueImageHeight ?? 86.px;
+    final width = widget.modifier?.valueWidth ??
+        widget.modifier?.valueImageWidth ??
+        86.px;
+    final height = widget.modifier?.valueHeight ??
+        widget.modifier?.valueImageHeight ??
+        86.px;
     final addButton = Icon(CupertinoIcons.add,
-        size: modifier?.iconSizeValue ?? 25.px,
-        color: modifier?.imageColorValue ?? const Color(0xff949494));
+        size: widget.modifier?.iconSizeValue ?? 25.px,
+        color: widget.modifier?.imageColorValue ?? const Color(0xff949494));
     final BorderRadiusGeometry radius =
-        modifier?.valueBorderRadius ?? BorderRadius.circular(43.0);
-    final double marginCloseTop = modifier?.valueMarginCloseTop ?? 0.px;
-    return Align(
+        widget.modifier?.valueBorderRadius ?? BorderRadius.circular(43.0);
+    final double marginCloseTop = widget.modifier?.valueMarginCloseTop ?? 0.px;
+    final content = Align(
       alignment: Alignment.topLeft,
       child: MGeneralLayoutModifierWidget(
         // key: modifier?.valueKey ?? key,
-        generalModifier: modifier,
+        generalModifier: widget.modifier,
         ignoreList: [
           // IgnoreModifierInGeneral.width,
           // IgnoreModifierInGeneral.height,
@@ -54,32 +65,32 @@ class MAddButton extends StatelessWidget {
               margin:
                   EdgeInsets.only(top: marginCloseTop, right: marginCloseTop),
               decoration: BoxDecoration(
-                color:
-                    modifier?.valueBackgroundColor ?? const Color(0xffF8F8F8),
+                color: widget.modifier?.valueBackgroundColor ??
+                    const Color(0xffF8F8F8),
                 borderRadius: radius,
               ),
-              child: value != null
+              child: widget.value != null
                   ? Obx(() {
-                      if (GetUtils.isNullOrBlank(value?.value)!) {
+                      if (GetUtils.isNullOrBlank(widget.value?.value)!) {
                         return addButton;
                       }
                       return MImage(
-                        data: value!.value,
+                        data: widget.value!.value,
                         modifier: MImageModifier.width(width)
                             .height(height)
-                            .imageColor(modifier?.imageColorValue)
+                            .imageColor(widget.modifier?.imageColorValue)
                             .borderRadiusSet(radius as BorderRadius),
                       );
                     })
                   : addButton,
             ),
-            if (value != null)
+            if (widget.value != null)
               Obx(() {
-                if (GetUtils.isNullOrBlank(value!.value)!.not()) {
+                if (GetUtils.isNullOrBlank(widget.value!.value)!.not()) {
                   return MImage(
                     data: 'assets/images/ic_close_image.png',
                     modifier: MImageModifier.sizeImageAll(
-                            modifier?.valueCloseButtonSize ?? 18.px)
+                            widget.modifier?.valueCloseButtonSize ?? 18.px)
                         .right(0)
                         .top(0)
 
@@ -90,10 +101,10 @@ class MAddButton extends StatelessWidget {
                         .marginBottom(10.px)
                         .package('flutter_compose_ui_modifiers')
                         .click(() {
-                      if (modifier?.valueClickClose != null) {
-                        modifier!.valueClickClose!();
+                      if (widget.modifier?.valueClickClose != null) {
+                        widget.modifier!.valueClickClose!();
                       } else {
-                        value!.value = '';
+                        widget.value!.value = '';
                       }
                     }),
                   );
@@ -105,10 +116,42 @@ class MAddButton extends StatelessWidget {
         ),
       ),
     );
+    // if (widget.images == null) {
+      return content;
+    // } else {
+    //   final int maxImagesLength = widget.modifier?.valueMaxImagesLength ?? 9;
+    //   return SizedBox(
+    //     width: Get.width,
+    //     child: Obx(
+    //           () => Wrap(
+    //         spacing: 8.px,
+    //         runSpacing: 8.px,
+    //         children: List.generate(
+    //             widget.images!.length >= maxImagesLength
+    //                 ? widget.images!.length
+    //                 : widget.images!.length + 1, (index) {
+    //           final bool add = widget.images!.length - 1 < index;
+    //           return MAddButton(
+    //             value: add ? null : widget.images![index].obs,
+    //             modifier: MAddButtonModifier.width(90.px).backgroundColor(Colors.blue).radius(8.px).click(() {
+    //               if (widget.modifier!.valueOnImage != null) {
+    //                 widget.modifier!.valueOnImage!(index);
+    //               } else {
+    //                 mLogger.d("Click the image but not set the valueOnImage.");
+    //               }
+    //             }),
+    //           );
+    //         }),
+    //       ),
+    //     ),
+    //   );
+    // }
   }
 }
 
 final MAddButtonModifier = DefineMAddButtonModifier();
+
+typedef OnImage = Function(int index);
 
 /// Please do not use it, just use `MAddButtonModifier`.
 class DefineMAddButtonModifier extends MGeneralModifier {
@@ -121,6 +164,8 @@ class DefineMAddButtonModifier extends MGeneralModifier {
   final double? valueCloseButtonSize;
   final double? valueMarginCloseTop;
   final VoidCallback? valueClickClose;
+  final int? valueMaxImagesLength;
+  final OnImage? valueOnImage;
 
   const DefineMAddButtonModifier({
     this.iconSizeValue,
@@ -131,6 +176,8 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     this.valueCloseButtonSize,
     this.valueMarginCloseTop,
     this.valueClickClose,
+    this.valueMaxImagesLength,
+    this.valueOnImage,
 
     /// Main.
     super.valueKey,
@@ -203,6 +250,8 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     double? valueCloseButtonSize,
     double? valueMarginCloseTop,
     VoidCallback? valueClickClose,
+    int? valueMaxImagesLength,
+    final OnImage? valueOnImage,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -273,6 +322,8 @@ class DefineMAddButtonModifier extends MGeneralModifier {
       valueCloseButtonSize: valueCloseButtonSize ?? this.valueCloseButtonSize,
       valueMarginCloseTop: valueMarginCloseTop ?? this.valueMarginCloseTop,
       valueClickClose: valueClickClose ?? this.valueClickClose,
+      valueMaxImagesLength: valueMaxImagesLength ?? this.valueMaxImagesLength,
+      valueOnImage: valueOnImage ?? this.valueOnImage,
 
       /// The following properties are inherited from MGeneralModifier.
       /// Main.
@@ -374,6 +425,14 @@ extension MAddButtonModifierPropertys on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier clickClose(VoidCallback? value) {
     return this.copyWith(valueClickClose: value);
+  }
+
+  DefineMAddButtonModifier maxImagesLength(int? value) {
+    return this.copyWith(valueMaxImagesLength: value);
+  }
+
+  DefineMAddButtonModifier onImage(OnImage value) {
+    return this.copyWith(valueOnImage: value);
   }
 
   DefineMAddButtonModifier styleSquareCorner() {
