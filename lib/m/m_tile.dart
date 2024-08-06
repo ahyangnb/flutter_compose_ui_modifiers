@@ -59,7 +59,7 @@ class _MTileState extends ModifierState<MTile> with ObxImplementation {
                 .setSize(30.px)
                 .marginRight(10.px),
           Text(widget.label ?? "Label")
-              .color(Colors.white)
+              .color(widget.modifier?.valueLabelColor ?? Colors.white)
               .fontSize(fontSize)
 
               /// If use it will not center of the item.
@@ -86,12 +86,14 @@ class DefineMTileModifier extends MGeneralModifier {
   final TextAlign? valueTextAlign;
   final String? valueIcon;
   final Widget? valueWidgetRight;
+  final Color? valueLabelColor;
 
   const DefineMTileModifier({
     this.valueStyle = const TextStyle(),
     this.valueTextAlign,
     this.valueIcon,
     this.valueWidgetRight,
+    this.valueLabelColor,
 
     /// Main.
     super.valueKey,
@@ -159,6 +161,7 @@ class DefineMTileModifier extends MGeneralModifier {
     TextAlign? valueTextAlign,
     String? valueIcon,
     Widget? valueWidgetRight,
+    Color? valueLabelColor,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -225,6 +228,7 @@ class DefineMTileModifier extends MGeneralModifier {
       valueTextAlign: valueTextAlign ?? this.valueTextAlign,
       valueIcon: valueIcon ?? this.valueIcon,
       valueWidgetRight: valueWidgetRight ?? this.valueWidgetRight,
+      valueLabelColor: valueLabelColor ?? this.valueLabelColor,
 
       /// Container
       /// Main.
@@ -392,6 +396,12 @@ extension MTileModifierPropertys on DefineMTileModifier {
   DefineMTileModifier widgetRight([Widget? value]) {
     final DefineMTileModifier newModifierValue =
         this.copyWith(valueWidgetRight: value);
+    return newModifierValue;
+  }
+
+  DefineMTileModifier labelColor(Color? value) {
+    final DefineMTileModifier newModifierValue =
+        this.copyWith(valueLabelColor: value);
     return newModifierValue;
   }
 
