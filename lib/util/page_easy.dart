@@ -45,6 +45,7 @@ class MEasyRefresh extends StatelessWidget {
   final RxList<dynamic> dataList;
   final Future<easy.IndicatorResult> Function() onGetData;
   final Widget child;
+  final bool justReturnChild;
 
   const MEasyRefresh({
     this.mainColor = Colors.white,
@@ -52,6 +53,7 @@ class MEasyRefresh extends StatelessWidget {
     required this.dataList,
     required this.onGetData,
     required this.child,
+    this.justReturnChild = false,
     super.key,
   });
 
@@ -91,18 +93,20 @@ class MEasyRefresh extends StatelessWidget {
       ),
       onRefresh: () => handleRefresh(),
       onLoad: () => handleLoadMore(),
-      child: Obx(() {
-        if (mPageState.isLoading.value) {
-          return Container();
-        } else if (mPageState.error.value && dataList.isEmpty) {
-          return MErrorData(() => onGetData());
-        } else {
-          if (dataList.isEmpty) {
-            return MNoData(() => onGetData());
-          }
-          return child;
-        }
-      }),
+      child: justReturnChild
+          ? child
+          : Obx(() {
+              if (mPageState.isLoading.value) {
+                return Container();
+              } else if (mPageState.error.value && dataList.isEmpty) {
+                return MErrorData(() => onGetData());
+              } else {
+                if (dataList.isEmpty) {
+                  return MNoData(() => onGetData());
+                }
+                return child;
+              }
+            }),
     );
   }
 }

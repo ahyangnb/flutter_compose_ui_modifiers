@@ -46,9 +46,15 @@ Future<MIndicatorResult> mGetPageData<T>({
 mixin class MPageState<T> {
   RxBool error = false.obs;
   RxBool isLoading = true.obs;
-  int goPage = 1;
+
+  static final int goPageDef = 1;
+  int goPage = goPageDef;
 
   RxList<T> dataList = <T>[].obs;
+
+  void resetGoPage() {
+    goPage = goPageDef;
+  }
 }
 
 class MRefreshController {
