@@ -46,6 +46,7 @@ class MEasyRefresh extends StatelessWidget {
   final Future<easy.IndicatorResult> Function() onGetData;
   final Widget child;
   final bool justReturnChild;
+  final ScrollController? scrollController;
 
   const MEasyRefresh({
     this.mainColor = Colors.white,
@@ -53,6 +54,7 @@ class MEasyRefresh extends StatelessWidget {
     required this.dataList,
     required this.onGetData,
     required this.child,
+    this.scrollController,
     this.justReturnChild = false,
     super.key,
   });
@@ -77,6 +79,7 @@ class MEasyRefresh extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return easy.EasyRefresh(
+      scrollController: scrollController ?? ScrollController(),
       header: easy.OverrideHeader(
         safeArea: false,
         header: easy.ClassicHeader(
