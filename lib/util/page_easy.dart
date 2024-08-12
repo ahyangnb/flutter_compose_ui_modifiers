@@ -1,5 +1,6 @@
 import 'package:easy_refresh/easy_refresh.dart' as easy;
 import 'package:flutter/material.dart';
+import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/other/m_nodata.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
@@ -40,7 +41,7 @@ Future<easy.IndicatorResult> mEasyGetPageData<T>({
 }
 
 class MEasyRefresh extends StatelessWidget {
-  final Color mainColor;
+  final Color? mainColor;
   final MPageState mPageState;
   final RxList<dynamic> dataList;
   final Future<easy.IndicatorResult> Function() onGetData;
@@ -49,7 +50,7 @@ class MEasyRefresh extends StatelessWidget {
   final ScrollController? scrollController;
 
   const MEasyRefresh({
-    this.mainColor = Colors.white,
+    this.mainColor,
     required this.mPageState,
     required this.dataList,
     required this.onGetData,
@@ -78,21 +79,25 @@ class MEasyRefresh extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mainColorUse = mainColor ??
+        (Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black);
     return easy.EasyRefresh(
       scrollController: scrollController ?? ScrollController(),
       header: easy.OverrideHeader(
         safeArea: false,
         header: easy.ClassicHeader(
-          textStyle: TextStyle(color: mainColor),
-          messageStyle: TextStyle(color: mainColor),
-          iconTheme: IconThemeData(color: mainColor),
+          textStyle: TextStyle(color: mainColorUse),
+          messageStyle: TextStyle(color: mainColorUse),
+          iconTheme: IconThemeData(color: mainColorUse),
         ),
         triggerWhenReach: true,
       ),
       footer: easy.ClassicFooter(
-        textStyle: TextStyle(color: mainColor),
-        messageStyle: TextStyle(color: mainColor),
-        iconTheme: IconThemeData(color: mainColor),
+        textStyle: TextStyle(color: mainColorUse),
+        messageStyle: TextStyle(color: mainColorUse),
+        iconTheme: IconThemeData(color: mainColorUse),
       ),
       onRefresh: () => handleRefresh(),
       onLoad: () => handleLoadMore(),
