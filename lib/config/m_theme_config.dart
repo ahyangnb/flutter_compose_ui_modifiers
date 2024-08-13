@@ -23,7 +23,12 @@ class MConfig {
   static String refreshText = "Refresh";
 
   static VoidCallback? onShowDialog;
+
+  static Rx<MKeyZeroEvent> mKeyZeroEvent =
+      Rx<MKeyZeroEvent>(MKeyZeroEvent());
 }
+
+class MKeyZeroEvent {}
 
 void mShowCustomToast(String value) {
   if (MConfig.showCustomToastValue == null) {

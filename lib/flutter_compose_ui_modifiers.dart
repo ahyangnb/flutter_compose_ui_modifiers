@@ -38,6 +38,7 @@ export 'other/m_sliver.dart';
 export 'other/m_tab.dart';
 export 'other/m_state.dart';
 export 'other/m_nodata.dart';
+export 'other/m_material_app.dart';
 export 'other/m_confirm_dialog.dart';
 export 'util/m_imgaes_upload.dart';
 export 'util/screen_fit.dart';
