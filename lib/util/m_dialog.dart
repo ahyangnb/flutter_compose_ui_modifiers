@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
+
+import 'm_date.dart';
 
 class TimeStartToEndModel {
   // millisecondsSinceEpoch
@@ -9,13 +10,14 @@ class TimeStartToEndModel {
   // millisecondsSinceEpoch
   final int endTime;
 
-  //
-  final String timeStr;
+  String get timeStr {
+    return mFormatTimeRange(DateTime.fromMillisecondsSinceEpoch(startTime),
+        DateTime.fromMillisecondsSinceEpoch(endTime));
+  }
 
   TimeStartToEndModel({
     required this.startTime,
     required this.endTime,
-    required this.timeStr,
   });
 }
 
@@ -59,19 +61,13 @@ Future<TimeStartToEndModel?> selectDateTimePicker() async {
       }
     } while (pickedEndTime == null);
 
-    final dateFormat = DateFormat('yyyy/MM/dd HH:mm');
-    final timeFormat = DateFormat('HH:mm');
-
     final newStartTime = DateTime(pickedDate.year, pickedDate.month,
         pickedDate.day, pickedStartTime.hour, pickedStartTime.minute);
-    final startTimeStrFormat = dateFormat.format(newStartTime);
 
     final endNewTime = DateTime(pickedDate.year, pickedDate.month,
         pickedDate.day, pickedEndTime.hour, pickedEndTime.minute);
-    final endTimeStrFormat = timeFormat.format(endNewTime);
 
     return TimeStartToEndModel(
-        timeStr: '$startTimeStrFormat-$endTimeStrFormat',
         startTime: newStartTime.millisecondsSinceEpoch,
         endTime: endNewTime.millisecondsSinceEpoch);
   }
