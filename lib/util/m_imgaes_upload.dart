@@ -4,15 +4,61 @@ import 'package:get/get.dart';
 
 import 'm_picker_image_util.dart';
 
-class MImagesUpload extends StatelessWidget {
+class MImagesUploadClickUpload {
+  MImagesUploadClickUpload();
+}
+
+class MImagesUpload extends StatefulWidget {
   final RxList<String> images;
   final VoidCallback? onAddImage;
   final bool single;
 
-  const MImagesUpload(
-      {required this.images, this.onAddImage, this.single = false, super.key});
+  /// example:
+  /// ```
+  /// MImagesUpload(
+  //               images: state.images, clickUpload: state.clickUploadImage),
 
-  void addImage() {}
+  ///
+  // Rx<MImagesUploadClickUpload> clickUploadImage =
+  //     MImagesUploadClickUpload().obs;
+  /// ```
+  ///
+  /// When you want show the upload dialog.
+  ///
+  ///```
+  /// if (state.images.isEmpty) {
+  //       showCustomToast('Please select images.');
+  //       state.clickUploadImage.value = MImagesUploadClickUpload();
+  //       return;
+  //     }
+  /// ```
+  final Rx<MImagesUploadClickUpload>? clickUpload;
+
+  const MImagesUpload(
+      {required this.images,
+      this.onAddImage,
+      this.single = false,
+      this.clickUpload,
+      super.key});
+
+  @override
+  State<MImagesUpload> createState() => _MImagesUploadState();
+}
+
+class _MImagesUploadState extends ModifierState<MImagesUpload> {
+  @override
+  void initState() {
+    super.initState();
+    if (widget.clickUpload != null) {
+      everAndAutoClose(widget.clickUpload!, (callback) {
+        addImage();
+      });
+    }
+  }
+
+  void addImage() {
+    toSelectImage();
+  }
 
   Future<void> toSelectImage() async {
     await MButtonController.to.run(() async {
@@ -20,10 +66,10 @@ class MImagesUpload extends StatelessWidget {
       if (result == null) {
         return;
       }
-      if (images.isNotEmpty && single) {
-        images[0] = result;
+      if (widget.images.isNotEmpty && widget.single) {
+        widget.images[0] = result;
       } else {
-        images.add(result);
+        widget.images.add(result);
       }
     });
   }
@@ -41,12 +87,14 @@ class MImagesUpload extends StatelessWidget {
             crossAxisSpacing: 4.0.px,
             mainAxisSpacing: 4.0.px,
           ),
-          itemCount: images.length < 3 ? images.length + 1 : images.length,
+          itemCount: widget.images.length < 3
+              ? widget.images.length + 1
+              : widget.images.length,
           itemBuilder: (BuildContext context, int index) {
-            if (index == images.length && images.length < 3) {
+            if (index == widget.images.length && widget.images.length < 3) {
               return MAddButton(
                 modifier: MAddButtonModifier.styleSquareCorner().onClick(() {
-                  onAddImage ?? addImage();
+                  widget.onAddImage ?? addImage();
                 }),
               );
             } else {
@@ -54,9 +102,9 @@ class MImagesUpload extends StatelessWidget {
                 modifier: MAddButtonModifier.styleSquareCorner()
                     .onClick(() {})
                     .clickClose(() {
-                  images.removeAt(index);
+                  widget.images.removeAt(index);
                 }),
-                value: images[index].obs,
+                value: widget.images[index].obs,
               );
             }
           },
