@@ -103,18 +103,34 @@ class MEasyRefresh extends StatelessWidget {
       onLoad: () => handleLoadMore(),
       child: justReturnChild
           ? child
-          : Obx(() {
-              if (mPageState.isLoading.value) {
-                return Container();
-              } else if (mPageState.error.value && dataList.isEmpty) {
-                return MErrorData(() => onGetData());
-              } else {
-                if (dataList.isEmpty) {
-                  return MNoData(() => onGetData());
-                }
-                return child;
-              }
-            }),
+          : MEasyRefreshNoData(mPageState, onGetData: onGetData, child: child),
     );
+  }
+}
+
+class MEasyRefreshNoData extends StatelessWidget {
+  final MPageState mPageState;
+  final Widget? child;
+  final Future<easy.IndicatorResult> Function() onGetData;
+  final RxList<dynamic>? dataList;
+
+  MEasyRefreshNoData(this.mPageState,
+      {this.child, required this.onGetData, this.dataList});
+
+  @override
+  Widget build(BuildContext context) {
+    final useDataList = this.dataList ?? mPageState.dataList;
+    return Obx(() {
+      if (mPageState.isLoading.value) {
+        return Container();
+      } else if (mPageState.error.value && useDataList.isEmpty) {
+        return MErrorData(() => onGetData());
+      } else {
+        if (useDataList.isEmpty) {
+          return MNoData(() => onGetData());
+        }
+        return child ?? Container();
+      }
+    });
   }
 }
