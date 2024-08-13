@@ -15,7 +15,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_compose_ui_modifiers/assistant/m_dragble.dart';
+import 'package:flutter_compose_ui_modifiers/custom/m_dragble.dart';
 import 'package:flutter_compose_ui_modifiers/custom/gradient_box_border.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:get/get.dart';
