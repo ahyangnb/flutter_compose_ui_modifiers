@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
-import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
+import 'package:flutter_compose_ui_modifiers/util/toast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
@@ -122,7 +122,7 @@ class MButtonController extends GetxController {
 
       /// Some event is isProcessing.
       if (showToast) {
-        mShowCustomToast("in process.");
+        mShowCustomToast("in process.".tr);
       }
     }
   }

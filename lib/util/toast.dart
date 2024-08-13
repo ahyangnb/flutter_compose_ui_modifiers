@@ -6,12 +6,12 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:oktoast/oktoast.dart';
 
 void mShowToastMessage(
-    String message, {
-      IconData? icon,
-      Color? color,
-      Duration? duration,
-      ToastPosition? position,
-    }) {
+  String message, {
+  IconData? icon,
+  Color? color,
+  Duration? duration,
+  ToastPosition? position,
+}) {
   showToastWidget(
     Container(
       constraints: BoxConstraints(maxWidth: 320.px),
@@ -44,29 +44,35 @@ void mShowToastMessage(
   );
 }
 
-void showSuccessToast(String message) {
+void mShowSuccessToast(String message) {
   mLogger.d('showSuccessToast::$message');
-  mShowToastMessage(message, icon: Icons.check, color: MThemeConfig.primaryColor);
+  mShowToastMessage(message,
+      icon: Icons.check, color: MThemeConfig.primaryColor);
 }
 
-void showErrorToast(String message) {
+void mShowErrorToast(String message) {
   mLogger.d('showErrorToast::$message');
-  mShowToastMessage(message, icon: Icons.close, color: MThemeConfig.primaryColor);
+  mShowToastMessage(message,
+      icon: Icons.close, color: MThemeConfig.primaryColor);
 }
 
 String lastMsg = '';
 int lastTime = 0;
 
-void showCustomToast(String message,
+void mShowCustomToast(String message,
     {Duration? duration, ToastPosition? position}) {
-  if (DateTime.now().millisecondsSinceEpoch - 800 < lastTime &&
-      lastMsg == message) {
-    return;
+  if (MConfig.showCustomToastValue == null) {
+    if (DateTime.now().millisecondsSinceEpoch - 800 < lastTime &&
+        lastMsg == message) {
+      return;
+    }
+    lastMsg = message;
+    lastTime = DateTime.now().millisecondsSinceEpoch;
+    mLogger.d('🍞showCustomToast::$message, duration: ${duration.toString()}');
+    mShowToastMessage(message, duration: duration, position: position);
+  } else {
+    MConfig.showCustomToastValue!(message);
   }
-  lastMsg = message;
-  lastTime = DateTime.now().millisecondsSinceEpoch;
-  mLogger.d('🍞showCustomToast::$message, duration: ${duration.toString()}');
-  mShowToastMessage(message, duration: duration, position: position);
 }
 
 int showCustomToastInFiveSecondValue = 0;
@@ -102,9 +108,10 @@ Future<void> mShowSmartDialog({
     return;
   }
   lastDialogTag = tag;
+
   /// Hide keyboard.
   WidgetsBinding.instance.focusManager.primaryFocus?.unfocus();
-  if(MConfig.onShowDialog != null) MConfig.onShowDialog!();
+  if (MConfig.onShowDialog != null) MConfig.onShowDialog!();
   return SmartDialog.show(
     builder: builder,
     controller: controller,

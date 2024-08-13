@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
-import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:get/get.dart';
 
 class MConfig {
@@ -29,14 +28,6 @@ class MConfig {
 }
 
 class MKeyZeroEvent {}
-
-void mShowCustomToast(String value) {
-  if (MConfig.showCustomToastValue == null) {
-    mLogger.e("Please set MConfig.showCustomToastValue");
-  } else {
-    MConfig.showCustomToastValue!(value);
-  }
-}
 
 class MThemeConfig {
   static Color imageDefBgColor = Colors.grey[200]!;
