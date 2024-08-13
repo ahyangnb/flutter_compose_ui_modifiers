@@ -1,6 +1,5 @@
 import 'package:easy_refresh/easy_refresh.dart' as easy;
 import 'package:flutter/material.dart';
-import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/other/m_nodata.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';

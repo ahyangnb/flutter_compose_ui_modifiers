@@ -19,3 +19,7 @@ class MStr {
 
   static String get ok => en ? "OK" : "确定";
 }
+
+class MAppDialogKey {
+  static const String confirmPicturePermission = 'confirmPicturePermission';
+}

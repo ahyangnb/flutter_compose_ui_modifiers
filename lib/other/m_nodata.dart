@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:get/get.dart';
 
@@ -37,10 +36,10 @@ class _MNoDataState extends State<MNoData> {
           SizedBox(height: 15.px),
           Text(
             widget.noDataText ?? MConfig.noDataText,
-            style: MColor.noDataTextStyle ??
+            style: MThemeConfig.noDataTextStyle ??
                 TextStyle(
                   fontSize: 33.px,
-                  color: MColor.noDataTextColor,
+                  color: MThemeConfig.noDataTextColor,
                 ),
             textAlign: TextAlign.center,
           ),

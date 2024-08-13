@@ -585,9 +585,9 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
     return this.copyWith(
       decorationValue: (this.decorationValue ?? InputDecoration()).copyWith(
           hintText: hintText ?? 'Please enter your name...',
-          hintStyle: MConfig.textFieldHintStyle),
-      valueStyle: MConfig.textFieldStyle,
-      valueBackgroundColor: MConfig.bgWhite22,
+          hintStyle: MThemeConfig.textFieldHintStyle),
+      valueStyle: MThemeConfig.textFieldStyle,
+      valueBackgroundColor: MThemeConfig.bgWhite22,
       valueBorderRadius: BorderRadius.circular(8),
       valueHeight: 52,
     );

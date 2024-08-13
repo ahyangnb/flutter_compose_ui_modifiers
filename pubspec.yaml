@@ -38,6 +38,10 @@ dependencies:
   flutter_svg: ^2.0.10+1
   #Json to dart.
   json_annotation: ^4.8.1
+  #The toast and dialog manager.
+  flutter_smart_dialog: ^4.9.5+1
+  #Show toast.
+  oktoast: ^3.4.0
 
 dev_dependencies:
   flutter_test:

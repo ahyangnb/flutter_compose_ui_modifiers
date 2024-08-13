@@ -3,16 +3,17 @@ import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_compose_ui_modifiers/config/m_str.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
-import 'package:flutter_compose_ui_modifiers/custom/custom_confirm_dialog.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class MUtilPickerImage {
+import '../config/m_str.dart';
+import '../other/m_confirm_dialog.dart';
+
+class MPickerImageUtil {
   ///
   /// Question: why the application ID in the local path is different every time I launch the app use flutter in ios?
   ///
@@ -67,16 +68,16 @@ class MUtilPickerImage {
       final String newPath =
           '${directory.path}/${DateTime.now().toIso8601String()}.jpg';
 
-      mLogger.d("PickerImageUtil::saveImage::newPath::$newPath");
+      mLogger.d('MUtilPickerImage::saveImage::newPath::$newPath');
 
       // Copy the image file to the new path
       final File newImageFile = await imageFile.copy(newPath);
 
       // Return the new image path
       return newImageFile.path;
-    } catch (e, stacktrace) {
-      mLogger.e("error::${e.toString()},\n ${stacktrace.toString()}");
-      mShowCustomToast("Failed to save image, please check the permission");
+    } catch (e, s) {
+      mLogger.e('saveImage::error::$e,\n', stackTrace: s, error: e);
+      mShowCustomToast('Failed to save image, please check the permission'.tr);
       return null;
     }
   }
@@ -96,39 +97,49 @@ class MUtilPickerImage {
         } else {
           // User canceled the picker
         }
-      } catch (e) {
-        mLogger.e("pickImage::e::${e.toString()}");
-        mCustomConfirmDialog(MStr.notice, MStr.picturePermission, () async {
+      } catch (e, s) {
+        mLogger.e('pickImage::e::$e', stackTrace: s, error: e);
+        unawaited(mConfirmDialog('Notice'.tr, MStr.picturePermission,
+            () async {
           await openAppSettings();
-        });
+        }, tag: MAppDialogKey.confirmPicturePermission));
       }
     } else {
-      mCustomConfirmDialog(MStr.notice, MStr.picturePermission, () async {
+      unawaited(mConfirmDialog('Notice'.tr, MStr.picturePermission,
+          () async {
         await openAppSettings();
-      });
+      }, tag: MAppDialogKey.confirmPicturePermission));
     }
     return null;
   }
 
   static Future<PermissionStatus?> _requestPermissionsPhoto() async {
     if (Platform.isAndroid) {
-      final androidInfo = await DeviceInfoPlugin().androidInfo;
+      final AndroidDeviceInfo androidInfo =
+          await DeviceInfoPlugin().androidInfo;
       if (androidInfo.version.sdkInt <= 32) {
-        return await Permission.storage.request();
+        return Permission.storage.request();
       } else {
-        return await Permission.photos.request();
+        return Permission.photos.request();
       }
     } else if (Platform.isIOS) {
-      final valueOfPhotos = await Permission.photos.request();
+      PermissionStatus? valueOfPhotos;
+      PermissionStatus? valueOfStorage;
+      try {
+        valueOfPhotos = await Permission.photos.request();
 
-      /// The storage permission we must get else that will be error in different ios version
-      /// when pick a image and save to local.
-      final valueOfStorage = await Permission.storage.request();
-
+        /// The storage permission we must get else that will be error in different ios version
+        /// when pick a image and save to local.
+        valueOfStorage = await Permission.storage.request();
+      } catch (e, s) {
+        mShowCustomToast('Try it again.'.tr);
+        mLogger.d('Error::_requestPermissionsPhoto::$e',
+            error: e, stackTrace: s);
+      }
       mLogger.d(
-        "Permission Handle: \n"
-        "_requestPermissionsPhoto::valueOfPhotos::$valueOfPhotos\n"
-        "_requestPermissionsPhoto::valueOfStorage::$valueOfStorage\n",
+        'Permission Handle: \n'
+        '_requestPermissionsPhoto::valueOfPhotos::$valueOfPhotos\n'
+        '_requestPermissionsPhoto::valueOfStorage::$valueOfStorage\n',
       );
       return (valueOfPhotos == PermissionStatus.granted ||
                   valueOfStorage == PermissionStatus.granted) ||
@@ -146,10 +157,10 @@ class MUtilPickerImage {
   /// The video call will be used it on started on April 17, 2024.
   static Future<PermissionStatus?> requestPermissionsCamera() async {
     if (Platform.isAndroid) {
-      return await Permission.camera.request();
+      return Permission.camera.request();
     } else if (Platform.isIOS) {
-      final valueOfCamera = await Permission.camera.request();
-      mLogger.d("_requestPermissions::valueOfCamera::$valueOfCamera");
+      final PermissionStatus valueOfCamera = await Permission.camera.request();
+      mLogger.d('_requestPermissions::valueOfCamera::$valueOfCamera');
 
       return (valueOfCamera == PermissionStatus.granted) ||
               (valueOfCamera == PermissionStatus.limited) ||
@@ -164,10 +175,11 @@ class MUtilPickerImage {
   /// Actually, just that Implement for video call.
   static Future<PermissionStatus?> requestPermissionsMicrophone() async {
     if (Platform.isAndroid) {
-      return await Permission.microphone.request();
+      return Permission.microphone.request();
     } else if (Platform.isIOS) {
-      final valueOfMicrophone = await Permission.microphone.request();
-      mLogger.d("_requestPermissions::valueOfMicrophone::$valueOfMicrophone");
+      final PermissionStatus valueOfMicrophone =
+          await Permission.microphone.request();
+      mLogger.d('_requestPermissions::valueOfMicrophone::$valueOfMicrophone');
 
       return (valueOfMicrophone == PermissionStatus.granted) ||
               (valueOfMicrophone == PermissionStatus.limited) ||
@@ -195,19 +207,19 @@ class MUtilPickerImage {
             children: <Widget>[
               ListTile(
                 leading: const Icon(Icons.photo_library),
-                title: Text(MStr.selectFromGallery),
+                title: Text('Select from Gallery'.tr),
                 onTap: () async {
                   // Logic to select image from gallery
-                  final result = await pickImage(ImageSource.gallery);
+                  final String? result = await pickImage(ImageSource.gallery);
                   Get.back(result: result);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.camera),
-                title: Text(MStr.openCamera),
+                title: Text('Open Camera'.tr),
                 onTap: () async {
                   // Logic to open camera
-                  final result = await pickImage(ImageSource.camera);
+                  final String? result = await pickImage(ImageSource.camera);
                   Get.back(result: result);
                 },
               ),

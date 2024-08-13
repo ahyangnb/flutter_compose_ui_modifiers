@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_compose_ui_modifiers/config/m_color.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
@@ -756,7 +755,7 @@ extension MTextModifierPropertys on DefineMTextModifier {
     return chipWhite()
         .backgroundColor(Colors.black)
         .border(Border.all(color: Colors.transparent, width: borderWidth))
-        .gradient(MColor.button.primaryBackgroundGradient);
+        .gradient(MThemeConfig.button.primaryBackgroundGradient);
   }
 
   DefineMTextModifier maxLines(int value) {

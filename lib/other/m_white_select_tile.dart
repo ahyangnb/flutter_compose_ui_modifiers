@@ -24,15 +24,15 @@ class MWhiteSelectTile extends StatelessWidget {
           MRowModifier.borderBottom(color: Colors.white.withOpacity(0.29)),
       children: [
         MText(
-          modifier: MTextModifier.style(MConfig.userInfoTitleStyle2),
+          modifier: MTextModifier.style(MThemeConfig.userInfoTitleStyle2),
           data: label,
         ),
         MTextField(
           modifier: MTextFieldModifier.expanded()
               .hintText('Please select')
               .enable(false)
-              .hintStyle(MConfig.textFieldHintStyle)
-              .style(MConfig.textFieldStyle)
+              .hintStyle(MThemeConfig.textFieldHintStyle)
+              .style(MThemeConfig.textFieldStyle)
               .textAlign(
                   MLanUtil.arabicLan ? TextAlign.left : TextAlign.right)
               .contentPadding(EdgeInsets.zero)

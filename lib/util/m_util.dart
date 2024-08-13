@@ -1,5 +1,8 @@
 import 'package:flutter/services.dart';
+import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class MUtil {
   static int smartToInt(value) {
@@ -84,5 +87,43 @@ extension MCopyUtilExtension on Object {
   Future<void> copy() {
     /// Copy the value to the clipboard.
     return Clipboard.setData(ClipboardData(text: this.toString()));
+  }
+}
+
+class MButtonController extends GetxController {
+  static MButtonController get to => Get.find<MButtonController>();
+  final RxBool _isProcessing = false.obs;
+
+  bool get isProcessing => _isProcessing.value;
+
+  set isProcessing(bool value) => _isProcessing.value = value;
+
+  /// Any event who needs to request api or delay must use it.
+  Future<void> run(final Future<void> Function() onPressed,
+      {String? event, bool showToast = true}) async {
+    mLogger.d('[ButtonController] [$event] Start call run().');
+
+    // Check if any button is currently being processed
+    if (!MButtonController.to.isProcessing) {
+      mLogger.d('[ButtonController] [$event] The event is free.');
+      MButtonController.to.isProcessing = true;
+
+      /// The event start.
+      try {
+        await onPressed();
+      }
+      // We must use the fan else will be not execute set is a isProcessing to false when error.
+      finally {
+        /// The event done.
+        MButtonController.to.isProcessing = false;
+      }
+    } else {
+      mLogger.d('[ButtonController] The event $event inProcess.');
+
+      /// Some event is isProcessing.
+      if (showToast) {
+        mShowCustomToast("in process.");
+      }
+    }
   }
 }

@@ -2,14 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:get/get.dart';
 
+import 'm_picker_image_util.dart';
+
 class MImagesUpload extends StatelessWidget {
   final RxList<String> images;
   final VoidCallback? onAddImage;
+  final bool single;
 
-  const MImagesUpload({required this.images, this.onAddImage, super.key});
+  const MImagesUpload(
+      {required this.images, this.onAddImage, this.single = false, super.key});
 
-  void addImage() {
-    images.add('https://via.placeholder.com/150');
+  void addImage() {}
+
+  Future<void> toSelectImage() async {
+    await MButtonController.to.run(() async {
+      final String? result = await MPickerImageUtil.changeAvatar();
+      if (result == null) {
+        return;
+      }
+      if (images.isNotEmpty && single) {
+        images[0] = result;
+      } else {
+        images.add(result);
+      }
+    });
   }
 
   @override

@@ -169,7 +169,7 @@ class _MImageState extends ModifierState<MImage> with ObxImplementation {
               height: widget.modifier?.valueHeight ?? useImageWidth,
               decoration: BoxDecoration(
                 color: widget.modifier?.valueImageBackgroundColor ??
-                    MConfig.imageDefBgColor,
+                    MThemeConfig.imageDefBgColor,
                 borderRadius: widget.modifier?.valueBorderRadius,
                 border: widget.modifier?.valueBorder,
                 shape: widget.modifier?.valueShape ?? BoxShape.rectangle,
