@@ -54,6 +54,7 @@ export 'util/m_picker_image_util.dart';
 export 'util/m_lan_util.dart';
 export 'util/toast.dart';
 export 'util/m_pick_image_logic.dart';
+export 'util/m_dialog.dart';
 export 'custom/custom_confirm_dialog.dart';
 export 'config/m_theme_config.dart';
 
