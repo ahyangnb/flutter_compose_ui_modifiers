@@ -1,4 +1,5 @@
 import 'package:easy_refresh/easy_refresh.dart' as easy;
+import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/other/m_nodata.dart';
@@ -133,3 +134,52 @@ class MEasyRefreshNoData extends StatelessWidget {
     });
   }
 }
+
+
+class MChatFooter extends BuilderFooter {
+  MChatFooter(bool noMore)
+      : super(
+    triggerOffset: noMore ? 0 : 60,
+    clamping: false,
+    position: IndicatorPosition.above,
+    infiniteOffset: null,
+    processedDuration: Duration.zero,
+    builder: (BuildContext context, IndicatorState state) {
+      return Stack(
+        children: <Widget>[
+          SizedBox(
+            height: state.offset,
+            width: double.infinity,
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: () {
+              if (noMore) {
+                return Container();
+              } else {
+                return Container(
+                  alignment: Alignment.center,
+                  width: double.infinity,
+                  height: 40,
+                  child: const CircularProgressIndicator(),
+                );
+              }
+            }(),
+          )
+        ],
+      );
+    },
+  );
+}
+
+class MChatHeader extends ListenerHeader {
+  MChatHeader()
+      : super(
+    listenable: IndicatorStateListenable(),
+    triggerOffset: 100000,
+    clamping: false,
+  );
+}
+
