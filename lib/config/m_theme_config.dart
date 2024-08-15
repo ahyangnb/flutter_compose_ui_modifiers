@@ -51,6 +51,11 @@ class MThemeConfig {
 
   static const Color assistantColor = Color(0xffF86895);
 
+  static final TextStyle yesTextStyle =
+      TextStyle(color: mainColor, fontSize: 17.px, fontWeight: FontWeight.w600);
+  static final TextStyle noTextStyle = TextStyle(
+      color: assistantColor, fontSize: 17.px, fontWeight: FontWeight.w600);
+
   static Color grey = const Color(0xff999999);
 
   static Color? dialogBgColor;
