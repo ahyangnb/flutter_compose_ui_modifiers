@@ -196,18 +196,25 @@ class _MRefreshState extends State<MRefresh> {
 
 class MLoadingIcon extends StatelessWidget {
   final double? size;
+  final bool? center;
+  final EdgeInsetsGeometry? margin;
 
-  const MLoadingIcon({this.size, super.key});
+  const MLoadingIcon({this.size, this.center, this.margin, super.key});
 
   @override
   Widget build(BuildContext context) {
     final sizeUse = size ?? 25.px;
-    return SizedBox(
+    final body = Container(
+      margin: margin,
       width: sizeUse,
       height: sizeUse,
       child: CircularProgressIndicator(
         strokeWidth: 3.px,
       ),
     );
+    if (center ?? false) {
+      return Center(child: body);
+    }
+    return body;
   }
 }
