@@ -23,8 +23,7 @@ class MConfig {
 
   static VoidCallback? onShowDialog;
 
-  static Rx<MKeyZeroEvent> mKeyZeroEvent =
-      Rx<MKeyZeroEvent>(MKeyZeroEvent());
+  static Rx<MKeyZeroEvent> mKeyZeroEvent = Rx<MKeyZeroEvent>(MKeyZeroEvent());
 }
 
 class MKeyZeroEvent {}
@@ -53,6 +52,10 @@ class MThemeConfig {
   static const Color assistantColor = Color(0xffF86895);
 
   static Color grey = const Color(0xff999999);
+
+  static Color? dialogBgColor;
+
+  static Color? miniButtonTextColor;
 
   static var textFieldStyle = TextStyle(
     fontSize: 16.px,

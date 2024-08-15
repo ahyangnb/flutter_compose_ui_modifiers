@@ -15,6 +15,8 @@ Future<void> mConfirmDialog(
   final bool showCancel = true,
   required final String tag,
   VoidCallback? onDismiss,
+  Color? buttonColor,
+  Color? bgColor,
   bool? clickMaskDismiss,
 }) {
   return mShowSmartDialog(
@@ -33,6 +35,8 @@ Future<void> mConfirmDialog(
           desWidget: desWidget,
           okText: okText,
           showCancel: showCancel,
+          buttonColor: buttonColor,
+          bgColor: bgColor,
           tag: tag,
         ),
       );
@@ -52,6 +56,8 @@ class ConfirmDialogWidget extends StatefulWidget {
     required this.centerWidget,
     required this.desWidget,
     required this.okText,
+    required this.buttonColor,
+    required this.bgColor,
     required this.showCancel,
     required this.tag,
   });
@@ -63,6 +69,8 @@ class ConfirmDialogWidget extends StatefulWidget {
   final Widget? centerWidget;
   final Widget? desWidget;
   final String? okText;
+  final Color? buttonColor;
+  final Color? bgColor;
   final bool showCancel;
   final String tag;
 
@@ -90,7 +98,9 @@ class _ConfirmDialogWidgetState extends State<ConfirmDialogWidget> {
             borderRadius: br,
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 20.px, horizontal: 16.px),
-              color: MThemeConfig.primaryColor,
+              color: widget.bgColor ??
+                  MThemeConfig.dialogBgColor ??
+                  MThemeConfig.primaryColor,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
@@ -128,8 +138,7 @@ class _ConfirmDialogWidgetState extends State<ConfirmDialogWidget> {
                             buttonText: 'Cancel'.tr,
                           ),
                         ),
-                      if (widget.showCancel)
-                        SizedBox(width: 20.px),
+                      if (widget.showCancel) SizedBox(width: 20.px),
                       Expanded(
                         child: MMiniButton(
                           onPressed: () async {
@@ -139,6 +148,11 @@ class _ConfirmDialogWidgetState extends State<ConfirmDialogWidget> {
                               await mDismissSmartDialog(tag: widget.tag);
                             }
                           },
+                          buttonColor: widget.buttonColor,
+                          style:           TextStyle(
+                            fontSize: MThemeConfig.miniButtonTextSize,
+                            color: MThemeConfig.miniButtonTextColor?? MThemeConfig.titleColor9,
+                          ),
                           buttonText: widget.okText ?? 'Confirm'.tr,
                         ),
                       ),
