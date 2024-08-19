@@ -60,7 +60,7 @@ class _MImageState extends ModifierState<MImage> with ObxImplementation {
 
     final imgError = widget.modifier?.valueImageWhenErrorWidget ??
         (widget.modifier?.valueImgError != null
-            ? Image.asset(widget.modifier!.valueImgError!,
+            ? MAssetsImage(widget.modifier!.valueImgError!,
                 fit: widget.modifier?.valueImgErrorFit)
             : MImgError(fit: widget.modifier?.valueImgErrorFit));
     final bool isAssets = useData.startsWith("assets/");
@@ -70,7 +70,7 @@ class _MImageState extends ModifierState<MImage> with ObxImplementation {
       } else if (useData.startsWith('http')) {
         final imgLoading = widget.modifier?.valueImageWhenLoadingWidget ??
             (widget.modifier?.valueImgLoading != null
-                ? Image.asset(widget.modifier!.valueImgLoading!,
+                ? MAssetsImage(widget.modifier!.valueImgLoading!,
                     fit: widget.modifier?.valueImgLoadingFit)
                 : MImgLoading(fit: widget.modifier?.valueImgErrorFit));
         imgWidget = CachedNetworkImage(
@@ -105,7 +105,7 @@ class _MImageState extends ModifierState<MImage> with ObxImplementation {
           color: widget.modifier?.valueImageColor,
         );
       } else if (isAssets) {
-        imgWidget = Image.asset(
+        imgWidget = MAssetsImage(
           useData,
           width: useImageWidth,
           height: useImageHeight,
@@ -201,6 +201,47 @@ class _MImageState extends ModifierState<MImage> with ObxImplementation {
 }
 
 final MImageModifier = DefineMImageModifier();
+
+class MAssetsImage extends StatelessWidget {
+  final String useData;
+  final double? width;
+  final double? height;
+  final BoxFit? fit;
+  final ImageErrorWidgetBuilder? errorBuilder;
+  final String? package;
+  final Color? color;
+
+  const MAssetsImage(this.useData,
+      {this.width,
+      this.height,
+      this.fit,
+      this.errorBuilder,
+      this.package,
+      this.color,
+      super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    Widget imgWidget;
+    final assetsImage = Image.asset(
+      useData,
+      width: width,
+      height: height,
+      fit: fit,
+      errorBuilder: errorBuilder,
+      // cacheWidth: cacheWidth,
+      // cacheHeight: cacheHeight,
+      package: package,
+      color: color,
+    );
+    if (MConfig.customAssetsImage != null) {
+      imgWidget = MConfig.customAssetsImage!(assetsImage);
+    } else {
+      imgWidget = assetsImage;
+    }
+    return imgWidget;
+  }
+}
 
 /// Please do not use it, just use `MImageModifier`.
 class DefineMImageModifier extends MGeneralModifier {
@@ -628,7 +669,7 @@ class MImgError extends StatelessWidget {
     if (GetUtils.isNullOrBlank(MConfig.assetImageWhenError)!) {
       return Icon(Icons.error);
     }
-    return Image.asset(MConfig.assetImageWhenError!, fit: fit);
+    return MAssetsImage(MConfig.assetImageWhenError!, fit: fit);
   }
 }
 
@@ -642,6 +683,6 @@ class MImgLoading extends StatelessWidget {
     if (GetUtils.isNullOrBlank(MConfig.assetImageWhenLoading)!) {
       return Container();
     }
-    return Image.asset(MConfig.assetImageWhenLoading!, fit: fit);
+    return MAssetsImage(MConfig.assetImageWhenLoading!, fit: fit);
   }
 }

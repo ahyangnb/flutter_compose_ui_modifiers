@@ -149,9 +149,10 @@ class _ConfirmDialogWidgetState extends State<ConfirmDialogWidget> {
                             }
                           },
                           buttonColor: widget.buttonColor,
-                          style:           TextStyle(
+                          style: TextStyle(
                             fontSize: MThemeConfig.miniButtonTextSize,
-                            color: MThemeConfig.miniButtonTextColor?? MThemeConfig.titleColor9,
+                            color: MThemeConfig.miniButtonTextColor ??
+                                MThemeConfig.titleColor9,
                           ),
                           buttonText: widget.okText ?? 'Confirm'.tr,
                         ),

@@ -7,6 +7,8 @@ class MConfig {
   static Function(String message, String content, Function() onConfirm)?
       mCustomConfirmDialogValue;
 
+  static Widget Function(Image)? customAssetsImage;
+
   static Widget? defNoDataImage;
 
   static String? assetImageWhenError;

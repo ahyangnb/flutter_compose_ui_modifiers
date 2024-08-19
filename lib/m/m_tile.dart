@@ -55,8 +55,8 @@ class _MTileState extends ModifierState<MTile> with ObxImplementation {
             .marginHorizontal(16.px),
         children: [
           if (widget.modifier?.valueIcon != null)
-            Image.asset(widget.modifier!.valueIcon!)
-                .setSize(30.px)
+            MAssetsImage(widget.modifier!.valueIcon!,
+                    width: 30.px, height: 30.px)
                 .marginRight(10.px),
           Text(widget.label ?? "Label")
               .color(widget.modifier?.valueLabelColor ?? Colors.white)
