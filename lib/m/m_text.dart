@@ -695,7 +695,8 @@ extension MTextModifierPropertys on DefineMTextModifier {
   /// such as ["150", "1"].
   DefineMTextModifier highlightText(List<String> value) {
     final DefineMTextModifier newModifierValue = this
-        // todo 用了RegExp.escape，可能“或者”符号的意思已经失效了，需要去测试下如果文本里面存在多个高亮会不会失效.
+        // 需要测试：用了RegExp.escape，可能“或者”符号的意思已经失效了，需要去测试下如果文本里面存在多个高亮会不会失效.
+        // 第一次测试，【“用户协议”和“隐私政策”】传递value数组包含多个“用户协议”，以及内容包含多个value。
         .copyWith(valueHighlightRegExp: RegExp(RegExp.escape(value.join("|"))));
     return newModifierValue;
   }
@@ -731,7 +732,6 @@ extension MTextModifierPropertys on DefineMTextModifier {
   /// The long text put on the head.
   /// such as ["150", "1"].
   ///
-  /// 如果包含问号或者其他特殊符号将可能会报错。
   DefineMTextModifier lightText(List<String> value) {
     return highlightText(value);
   }
