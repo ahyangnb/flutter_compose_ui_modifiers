@@ -39,9 +39,15 @@ class _MAddButtonState extends State<MAddButton> {
     final height = widget.modifier?.valueHeight ??
         widget.modifier?.valueImageHeight ??
         86.px;
-    final addButton = Icon(CupertinoIcons.add,
-        size: widget.modifier?.iconSizeValue ?? 25.px,
-        color: widget.modifier?.imageColorValue ?? const Color(0xff949494));
+    final addButton = widget.modifier?.valueImageIcon != null
+        ? MImage(
+            data: widget.modifier!.valueImageIcon!,
+            modifier: MImageModifier.width(widget.modifier?.valueImageWidth)
+                .height(widget.modifier?.valueImageHeight),
+          )
+        : Icon(CupertinoIcons.add,
+            size: widget.modifier?.iconSizeValue ?? 25.px,
+            color: widget.modifier?.imageColorValue ?? const Color(0xff949494));
     final BorderRadiusGeometry radius =
         widget.modifier?.valueBorderRadius ?? BorderRadius.circular(43.0);
     final double marginCloseTop = widget.modifier?.valueMarginCloseTop ?? 0.px;
@@ -117,7 +123,7 @@ class _MAddButtonState extends State<MAddButton> {
       ),
     );
     // if (widget.images == null) {
-      return content;
+    return content;
     // } else {
     //   final int maxImagesLength = widget.modifier?.valueMaxImagesLength ?? 9;
     //   return SizedBox(
@@ -158,7 +164,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
   final double? iconSizeValue;
   final Color? imageColorValue;
 
-  // final String? valueImageIcon;
+  final String? valueImageIcon;
   final double? valueImageWidth;
   final double? valueImageHeight;
   final double? valueCloseButtonSize;
@@ -170,7 +176,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
   const DefineMAddButtonModifier({
     this.iconSizeValue,
     this.imageColorValue,
-    // this.valueImageIcon,
+    this.valueImageIcon,
     this.valueImageWidth,
     this.valueImageHeight,
     this.valueCloseButtonSize,
@@ -244,7 +250,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
   DefineMAddButtonModifier copyWith({
     double? iconSizeValue,
     Color? imageColorValue,
-    // String? valueImageIcon,
+    String? valueImageIcon,
     double? valueImageWidth,
     double? valueImageHeight,
     double? valueCloseButtonSize,
@@ -316,7 +322,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     return DefineMAddButtonModifier(
       iconSizeValue: iconSizeValue ?? this.iconSizeValue,
       imageColorValue: imageColorValue ?? this.imageColorValue,
-      // valueImageIcon: valueImageIcon ?? this.valueImageIcon,
+      valueImageIcon: valueImageIcon ?? this.valueImageIcon,
       valueImageWidth: valueImageWidth ?? this.valueImageWidth,
       valueImageHeight: valueImageHeight ?? this.valueImageHeight,
       valueCloseButtonSize: valueCloseButtonSize ?? this.valueCloseButtonSize,
@@ -403,9 +409,9 @@ extension MAddButtonModifierPropertys on DefineMAddButtonModifier {
     return this.copyWith(imageColorValue: value);
   }
 
-  // DefineMAddButtonModifier imageIcon(String value) {
-  //   return this.copyWith(valueImageIcon: value);
-  // }
+  DefineMAddButtonModifier imageIcon(String value) {
+    return this.copyWith(valueImageIcon: value);
+  }
 
   DefineMAddButtonModifier imageSize(double? value) {
     return this.copyWith(valueImageWidth: value, valueImageHeight: value);
