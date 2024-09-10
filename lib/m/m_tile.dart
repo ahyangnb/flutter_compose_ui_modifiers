@@ -471,8 +471,8 @@ extension MTileModifierPropertys on DefineMTileModifier {
         3.px.space,
         MReverseWidget(
           child: MImage(
-            modifier: MImageModifier.height(20.98.px)
-                .package('flutter_compose_ui_modifiers'),
+            modifier:
+                MImageModifier.height(20.98.px).package(MConfig.packageName),
             data: 'assets/images/label_arrow.png',
           ).widthSet(22.px).center(),
         ),

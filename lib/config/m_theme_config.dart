@@ -26,6 +26,8 @@ class MConfig {
   static VoidCallback? onShowDialog;
 
   static Rx<MKeyZeroEvent> mKeyZeroEvent = Rx<MKeyZeroEvent>(MKeyZeroEvent());
+
+  static const String packageName = 'flutter_compose_ui_modifiers';
 }
 
 class MKeyZeroEvent {}
