@@ -43,7 +43,7 @@ dependencies:
   #Show toast.
   oktoast: ^3.4.0
   #Date format.
-  intl: 0.19.0
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
