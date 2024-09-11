@@ -1,3 +1,6 @@
+## 0.4.5
+* new config.
+
 ## 0.4.4
 * add some comments.
 
