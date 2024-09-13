@@ -1,3 +1,6 @@
+## 0.4.6
+* add handleData to mEasyGetPageData.
+
 ## 0.4.5
 * new config.
 
