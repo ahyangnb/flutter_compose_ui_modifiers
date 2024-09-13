@@ -9,19 +9,23 @@ import 'package:get/get.dart';
 Future<easy.IndicatorResult> mEasyGetPageData<T>({
   required Future<List<T>?> reqData,
   required MPageState<T> mPageState,
+  List<T>? Function(List<T> value)? handleData,
 }) async {
   easy.IndicatorResult result = easy.IndicatorResult.success;
 
   try {
-    final value = await reqData;
+    List<T>? value = await reqData;
     if (value == null) {
       mPageState.error.value = true;
       result = easy.IndicatorResult.fail;
     } else {
+      if (handleData != null) {
+        value = handleData(value);
+      }
       if (mPageState.goPage == 1) {
-        mPageState.dataList.value = value;
+        mPageState.dataList.value = value!;
       } else {
-        mPageState.dataList.addAll(value);
+        mPageState.dataList.addAll(value!);
       }
       if (mPageState.goPage > 1) {
         // Check if there is no more data
@@ -48,6 +52,7 @@ class MEasyRefresh extends StatelessWidget {
   final Widget child;
   final bool justReturnChild;
   final ScrollController? scrollController;
+  final easy.ClassicFooter? footer;
 
   const MEasyRefresh({
     this.mainColor,
@@ -57,6 +62,7 @@ class MEasyRefresh extends StatelessWidget {
     required this.child,
     this.scrollController,
     this.justReturnChild = false,
+    this.footer,
     super.key,
   });
 
@@ -94,11 +100,12 @@ class MEasyRefresh extends StatelessWidget {
         ),
         triggerWhenReach: true,
       ),
-      footer: easy.ClassicFooter(
-        textStyle: TextStyle(color: mainColorUse),
-        messageStyle: TextStyle(color: mainColorUse),
-        iconTheme: IconThemeData(color: mainColorUse),
-      ),
+      footer: footer ??
+          easy.ClassicFooter(
+            textStyle: TextStyle(color: mainColorUse),
+            messageStyle: TextStyle(color: mainColorUse),
+            iconTheme: IconThemeData(color: mainColorUse),
+          ),
       onRefresh: () => handleRefresh(),
       onLoad: () => handleLoadMore(),
       child: justReturnChild
@@ -135,51 +142,49 @@ class MEasyRefreshNoData extends StatelessWidget {
   }
 }
 
-
 class MChatFooter extends BuilderFooter {
   MChatFooter(bool noMore)
       : super(
-    triggerOffset: noMore ? 0 : 60,
-    clamping: false,
-    position: IndicatorPosition.above,
-    infiniteOffset: null,
-    processedDuration: Duration.zero,
-    builder: (BuildContext context, IndicatorState state) {
-      return Stack(
-        children: <Widget>[
-          SizedBox(
-            height: state.offset,
-            width: double.infinity,
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: () {
-              if (noMore) {
-                return Container();
-              } else {
-                return Container(
-                  alignment: Alignment.center,
+          triggerOffset: noMore ? 0 : 60,
+          clamping: false,
+          position: IndicatorPosition.above,
+          infiniteOffset: null,
+          processedDuration: Duration.zero,
+          builder: (BuildContext context, IndicatorState state) {
+            return Stack(
+              children: <Widget>[
+                SizedBox(
+                  height: state.offset,
                   width: double.infinity,
-                  height: 40,
-                  child: const CircularProgressIndicator(),
-                );
-              }
-            }(),
-          )
-        ],
-      );
-    },
-  );
+                ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: () {
+                    if (noMore) {
+                      return Container();
+                    } else {
+                      return Container(
+                        alignment: Alignment.center,
+                        width: double.infinity,
+                        height: 40,
+                        child: const CircularProgressIndicator(),
+                      );
+                    }
+                  }(),
+                )
+              ],
+            );
+          },
+        );
 }
 
 class MChatHeader extends ListenerHeader {
   MChatHeader()
       : super(
-    listenable: IndicatorStateListenable(),
-    triggerOffset: 100000,
-    clamping: false,
-  );
+          listenable: IndicatorStateListenable(),
+          triggerOffset: 100000,
+          clamping: false,
+        );
 }
-
