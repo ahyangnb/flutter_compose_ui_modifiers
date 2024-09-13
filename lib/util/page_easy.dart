@@ -10,6 +10,7 @@ Future<easy.IndicatorResult> mEasyGetPageData<T>({
   required Future<List<T>?> reqData,
   required MPageState<T> mPageState,
   List<T>? Function(List<T> value)? handleData,
+  EasyRefreshController? easyRefreshController,
 }) async {
   easy.IndicatorResult result = easy.IndicatorResult.success;
 
@@ -41,6 +42,9 @@ Future<easy.IndicatorResult> mEasyGetPageData<T>({
   } finally {
     mPageState.isLoading.value = false;
   }
+  if (easyRefreshController != null && mPageState.goPage > 1) {
+    easyRefreshController.finishLoad(result, true);
+  }
   return result;
 }
 
@@ -53,6 +57,7 @@ class MEasyRefresh extends StatelessWidget {
   final bool justReturnChild;
   final ScrollController? scrollController;
   final easy.ClassicFooter? footer;
+  final EasyRefreshController? easyRefreshController;
 
   const MEasyRefresh({
     this.mainColor,
@@ -63,6 +68,7 @@ class MEasyRefresh extends StatelessWidget {
     this.scrollController,
     this.justReturnChild = false,
     this.footer,
+    this.easyRefreshController,
     super.key,
   });
 
@@ -91,6 +97,7 @@ class MEasyRefresh extends StatelessWidget {
             : Colors.black);
     return easy.EasyRefresh(
       scrollController: scrollController ?? ScrollController(),
+      controller: easyRefreshController ?? EasyRefreshController(),
       header: easy.OverrideHeader(
         safeArea: false,
         header: easy.ClassicHeader(
