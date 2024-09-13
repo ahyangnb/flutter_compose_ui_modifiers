@@ -15,6 +15,8 @@ class MConfig {
 
   static String? assetImageWhenLoading;
 
+  static String? assetImageLabelArrow;
+
   static RxBool isChildDataLoading = false.obs;
 
   static int pageLimit = 20;
@@ -27,7 +29,7 @@ class MConfig {
 
   static Rx<MKeyZeroEvent> mKeyZeroEvent = Rx<MKeyZeroEvent>(MKeyZeroEvent());
 
-  static const String packageName = 'flutter_compose_ui_modifiers';
+  static String? assetImageIcCloseImage;
 }
 
 class MKeyZeroEvent {}

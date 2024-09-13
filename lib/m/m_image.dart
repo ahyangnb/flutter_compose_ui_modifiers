@@ -234,7 +234,8 @@ class MAssetsImage extends StatelessWidget {
       package: package,
       color: color,
     );
-    if (MConfig.customAssetsImage != null && package != MConfig.packageName) {
+    if (MConfig.customAssetsImage != null) {
+      //&& package != MConfig.packageName
       imgWidget = MConfig.customAssetsImage!(assetsImage);
     } else {
       imgWidget = assetsImage;

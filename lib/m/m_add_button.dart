@@ -94,7 +94,7 @@ class _MAddButtonState extends State<MAddButton> {
               Obx(() {
                 if (GetUtils.isNullOrBlank(widget.value!.value)!.not()) {
                   return MImage(
-                    data: 'assets/images/ic_close_image.png',
+                    data: MConfig.assetImageIcCloseImage,
                     modifier: MImageModifier.sizeImageAll(
                             widget.modifier?.valueCloseButtonSize ?? 18.px)
                         .right(0)

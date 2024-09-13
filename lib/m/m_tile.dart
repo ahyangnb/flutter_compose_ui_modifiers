@@ -471,9 +471,8 @@ extension MTileModifierPropertys on DefineMTileModifier {
         3.px.space,
         MReverseWidget(
           child: MImage(
-            modifier:
-                MImageModifier.height(20.98.px).package(MConfig.packageName),
-            data: 'assets/images/label_arrow.png',
+            modifier: MImageModifier.height(20.98.px),
+            data: MConfig.assetImageLabelArrow,
           ).widthSet(22.px).center(),
         ),
       ]),
