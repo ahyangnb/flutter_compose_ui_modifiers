@@ -1,3 +1,6 @@
+## 0.4.7
+* delete all the assets image.
+
 ## 0.4.6
 * add handleData to mEasyGetPageData.
 
