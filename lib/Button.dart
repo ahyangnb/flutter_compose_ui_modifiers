@@ -114,7 +114,7 @@ class Button extends TextButton {
       style: style ?? this.style,
       focusNode: focusNode ?? this.focusNode,
       autofocus: autofocus ?? this.autofocus,
-      clipBehavior: clipBehavior ?? this.clipBehavior,
+      clipBehavior: clipBehavior ?? this.clipBehavior!,
       child: child ?? this.child ?? const SizedBox(),
     );
   }
