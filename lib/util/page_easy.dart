@@ -42,8 +42,12 @@ Future<easy.IndicatorResult> mEasyGetPageData<T>({
   } finally {
     mPageState.isLoading.value = false;
   }
-  if (easyRefreshController != null && mPageState.goPage > 1) {
-    easyRefreshController.finishLoad(result, true);
+  if (easyRefreshController != null) {
+    if (mPageState.goPage > 1) {
+      easyRefreshController.finishLoad(result, true);
+    } else if (mPageState.goPage <= 1) {
+      easyRefreshController.finishRefresh(result, true);
+    }
   }
   return result;
 }
@@ -56,6 +60,7 @@ class MEasyRefresh extends StatelessWidget {
   final Widget child;
   final bool justReturnChild;
   final ScrollController? scrollController;
+  final easy.Header? header;
   final easy.ClassicFooter? footer;
   final EasyRefreshController? easyRefreshController;
 
@@ -67,6 +72,7 @@ class MEasyRefresh extends StatelessWidget {
     required this.child,
     this.scrollController,
     this.justReturnChild = false,
+    this.header,
     this.footer,
     this.easyRefreshController,
     super.key,
@@ -98,15 +104,16 @@ class MEasyRefresh extends StatelessWidget {
     return easy.EasyRefresh(
       scrollController: scrollController ?? ScrollController(),
       controller: easyRefreshController ?? EasyRefreshController(),
-      header: easy.OverrideHeader(
-        safeArea: false,
-        header: easy.ClassicHeader(
-          textStyle: TextStyle(color: mainColorUse),
-          messageStyle: TextStyle(color: mainColorUse),
-          iconTheme: IconThemeData(color: mainColorUse),
-        ),
-        triggerWhenReach: true,
-      ),
+      header: header ??
+          easy.OverrideHeader(
+            safeArea: false,
+            header: easy.ClassicHeader(
+              textStyle: TextStyle(color: mainColorUse),
+              messageStyle: TextStyle(color: mainColorUse),
+              iconTheme: IconThemeData(color: mainColorUse),
+            ),
+            triggerWhenReach: true,
+          ),
       footer: footer ??
           easy.ClassicFooter(
             textStyle: TextStyle(color: mainColorUse),
