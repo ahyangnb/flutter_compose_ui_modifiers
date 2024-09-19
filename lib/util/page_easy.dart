@@ -6,6 +6,13 @@ import 'package:flutter_compose_ui_modifiers/other/m_nodata.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:get/get.dart';
 
+/// 如果子组件有包含可滑动组件。
+/// 要套一个EasyRefresh来隔绝其他的EasyRefresh，防止EasyRefresh的 child 里面有滑动的内容造成层级错误。
+/// ```dart
+// return EasyRefresh(
+// controller: EasyRefreshController(),
+// child:
+/// ```
 Future<easy.IndicatorResult> mEasyGetPageData<T>({
   required Future<List<T>?> reqData,
   required MPageState<T> mPageState,
@@ -47,6 +54,7 @@ Future<easy.IndicatorResult> mEasyGetPageData<T>({
       easyRefreshController.finishLoad(result, true);
     } else if (mPageState.goPage <= 1) {
       easyRefreshController.finishRefresh(result, true);
+      easyRefreshController.resetFooter();
     }
   }
   return result;
