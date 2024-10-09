@@ -15,7 +15,6 @@ dependencies:
   get: ^4.6.5
   #Refresh the page data.
   easy_refresh: ^3.3.4
-  pull_to_refresh: ^2.0.0
   #Log print.
   logger: ^2.0.2
   keyboard_height_plugin: ^0.0.2 # pre height of keyboard.
