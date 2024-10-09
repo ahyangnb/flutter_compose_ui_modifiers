@@ -2,7 +2,6 @@ import 'package:easy_refresh/easy_refresh.dart' as easy;
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
-import 'package:flutter_compose_ui_modifiers/other/m_nodata.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:get/get.dart';
 
