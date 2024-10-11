@@ -723,6 +723,26 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 
+  DefineMTextFieldModifier outSideAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMTextFieldModifier alignmentOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMTextFieldModifier alignOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMTextFieldModifier alignOutSideCenter() {
+    return this.copyWith(valueOutSideAlignment: Alignment.center);
+  }
+
+  DefineMTextFieldModifier alignOutSideRight() {
+    return this.copyWith(valueOutSideAlignment: Alignment.centerRight);
+  }
+
   DefineMTextFieldModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
@@ -1414,6 +1434,26 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier alignRight() {
     return this.copyWith(valueContainerAlignment: Alignment.centerRight);
+  }
+
+  DefineMTextModifier outSideAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMTextModifier alignmentOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMTextModifier alignOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMTextModifier alignOutSideCenter() {
+    return this.copyWith(valueOutSideAlignment: Alignment.center);
+  }
+
+  DefineMTextModifier alignOutSideRight() {
+    return this.copyWith(valueOutSideAlignment: Alignment.centerRight);
   }
 
   DefineMTextModifier scrollable([bool value = true]) {
@@ -2201,6 +2241,26 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 
+  DefineMRowModifier outSideAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMRowModifier alignmentOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMRowModifier alignOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMRowModifier alignOutSideCenter() {
+    return this.copyWith(valueOutSideAlignment: Alignment.center);
+  }
+
+  DefineMRowModifier alignOutSideRight() {
+    return this.copyWith(valueOutSideAlignment: Alignment.centerRight);
+  }
+
   DefineMRowModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
@@ -2751,6 +2811,26 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier alignRight() {
     return this.copyWith(valueContainerAlignment: Alignment.centerRight);
+  }
+
+  DefineMListViewModifier outSideAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMListViewModifier alignmentOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMListViewModifier alignOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMListViewModifier alignOutSideCenter() {
+    return this.copyWith(valueOutSideAlignment: Alignment.center);
+  }
+
+  DefineMListViewModifier alignOutSideRight() {
+    return this.copyWith(valueOutSideAlignment: Alignment.centerRight);
   }
 
   // DefineMListViewModifier scrollable([bool value = true]) {
@@ -3741,6 +3821,26 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 
+  DefineMColumnModifier outSideAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMColumnModifier alignmentOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMColumnModifier alignOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMColumnModifier alignOutSideCenter() {
+    return this.copyWith(valueOutSideAlignment: Alignment.center);
+  }
+
+  DefineMColumnModifier alignOutSideRight() {
+    return this.copyWith(valueOutSideAlignment: Alignment.centerRight);
+  }
+
   DefineMColumnModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
@@ -4506,6 +4606,26 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 
+  DefineMAddButtonModifier outSideAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMAddButtonModifier alignmentOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMAddButtonModifier alignOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMAddButtonModifier alignOutSideCenter() {
+    return this.copyWith(valueOutSideAlignment: Alignment.center);
+  }
+
+  DefineMAddButtonModifier alignOutSideRight() {
+    return this.copyWith(valueOutSideAlignment: Alignment.centerRight);
+  }
+
   DefineMAddButtonModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
@@ -5264,6 +5384,26 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier alignContainerRight() {
     return this.copyWith(valueContainerAlignment: Alignment.centerRight);
+  }
+
+  DefineMStackModifier outSideAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMStackModifier alignmentOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMStackModifier alignOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMStackModifier alignOutSideCenter() {
+    return this.copyWith(valueOutSideAlignment: Alignment.center);
+  }
+
+  DefineMStackModifier alignOutSideRight() {
+    return this.copyWith(valueOutSideAlignment: Alignment.centerRight);
   }
 
   DefineMStackModifier scrollable([bool value = true]) {
@@ -6030,6 +6170,26 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 
+  DefineMImageModifier outSideAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMImageModifier alignmentOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMImageModifier alignOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMImageModifier alignOutSideCenter() {
+    return this.copyWith(valueOutSideAlignment: Alignment.center);
+  }
+
+  DefineMImageModifier alignOutSideRight() {
+    return this.copyWith(valueOutSideAlignment: Alignment.centerRight);
+  }
+
   DefineMImageModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
@@ -6789,6 +6949,26 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 
+  DefineMTileModifier outSideAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMTileModifier alignmentOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMTileModifier alignOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMTileModifier alignOutSideCenter() {
+    return this.copyWith(valueOutSideAlignment: Alignment.center);
+  }
+
+  DefineMTileModifier alignOutSideRight() {
+    return this.copyWith(valueOutSideAlignment: Alignment.centerRight);
+  }
+
   DefineMTileModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
@@ -7546,6 +7726,26 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier alignRight() {
     return this.copyWith(valueContainerAlignment: Alignment.centerRight);
+  }
+
+  DefineMContainerModifier outSideAlignment(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMContainerModifier alignmentOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMContainerModifier alignOutSide(AlignmentGeometry? value) {
+    return this.copyWith(valueOutSideAlignment: value);
+  }
+
+  DefineMContainerModifier alignOutSideCenter() {
+    return this.copyWith(valueOutSideAlignment: Alignment.center);
+  }
+
+  DefineMContainerModifier alignOutSideRight() {
+    return this.copyWith(valueOutSideAlignment: Alignment.centerRight);
   }
 
   DefineMContainerModifier scrollable([bool value = true]) {
