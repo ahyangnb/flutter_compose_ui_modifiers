@@ -596,7 +596,7 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
     return this.copyWith(valueFocusNode: value);
   }
 
-  DefineMTextFieldModifier onEditingComplete([VoidCallback? value]) {
+  DefineMTextFieldModifier onEditingComplete(VoidCallback value) {
     return this.copyWith(valueOnEditingComplete: value);
   }
 

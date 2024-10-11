@@ -58,6 +58,7 @@ export 'util/m_pick_image_logic.dart';
 export 'util/m_dialog.dart';
 export 'util/m_date.dart';
 export 'custom/custom_confirm_dialog.dart';
+export 'custom/m_text.dart';
 export 'config/m_theme_config.dart';
 
 /// Contains the modifier members of the [Widget] class.
