@@ -14,9 +14,11 @@ class MTextField extends StatelessWidget {
   ///  ```
   final DefineMTextFieldModifier? modifier;
   final TextEditingController? controller;
+  final FocusNode? focusNode;
 
   MTextField({
     this.controller,
+    this.focusNode,
     this.modifier,
   }) : super(key: modifier?.valueKey ?? null);
 
@@ -44,7 +46,7 @@ class MTextField extends StatelessWidget {
       child: TextField(
         autofocus: modifier?.valueAutoFocus ?? false,
         controller: controller ?? TextEditingController(),
-        focusNode: modifier?.valueFocusNode ?? FocusNode(),
+        focusNode: focusNode ?? FocusNode(),
         decoration: inputDecoration,
         style: modifier?.valueStyle,
         expands: modifier?.expandsValue ?? false,
@@ -81,7 +83,6 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   final ValueChanged<String>? valueOnSubmitted;
   final TextInputType? valueKeyboardType;
   final TextInputAction? valueTextInputAction;
-  final FocusNode? valueFocusNode;
   final VoidCallback? valueOnEditingComplete;
   final TextAlign? valueTextAlign;
   final bool? valueEnable;
@@ -104,7 +105,6 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     this.valueOnSubmitted,
     this.valueKeyboardType,
     this.valueTextInputAction,
-    this.valueFocusNode,
     this.valueOnEditingComplete,
     this.valueTextAlign,
     this.valueEnable,
@@ -270,7 +270,6 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueOnSubmitted: valueOnSubmitted ?? this.valueOnSubmitted,
       valueKeyboardType: valueKeyboardType ?? this.valueKeyboardType,
       valueTextInputAction: valueTextInputAction ?? this.valueTextInputAction,
-      valueFocusNode: valueFocusNode ?? this.valueFocusNode,
       valueOnEditingComplete:
           valueOnEditingComplete ?? this.valueOnEditingComplete,
       valueTextAlign: valueTextAlign ?? this.valueTextAlign,
