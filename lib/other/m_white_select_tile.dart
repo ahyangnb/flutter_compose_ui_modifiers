@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 class MWhiteSelectTile extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
-  final TextEditingController controller;
+  final MTextController controller;
   final String? arrowImg;
 
   const MWhiteSelectTile(

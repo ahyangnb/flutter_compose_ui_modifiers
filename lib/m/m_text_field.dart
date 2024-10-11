@@ -13,12 +13,10 @@ class MTextField extends StatelessWidget {
   ///  )
   ///  ```
   final DefineMTextFieldModifier? modifier;
-  final TextEditingController? controller;
-  final FocusNode? focusNode;
+  final MTextController? controller;
 
   MTextField({
     this.controller,
-    this.focusNode,
     this.modifier,
   }) : super(key: modifier?.valueKey ?? null);
 
@@ -46,7 +44,7 @@ class MTextField extends StatelessWidget {
       child: TextField(
         autofocus: modifier?.valueAutoFocus ?? false,
         controller: controller ?? TextEditingController(),
-        focusNode: focusNode ?? FocusNode(),
+        focusNode: controller?.focusNode ?? FocusNode(),
         decoration: inputDecoration,
         style: modifier?.valueStyle,
         expands: modifier?.expandsValue ?? false,
