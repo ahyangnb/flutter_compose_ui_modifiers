@@ -837,4 +837,11 @@ extension MTextModifierPropertys on DefineMTextModifier {
         this.copyWith(valueClickTextTo: value);
     return newModifierValue;
   }
+
+  DefineMTextModifier whiteTitle() {
+    final DefineMTextModifier newModifierValue = this.copyWith(
+        valueStyle:
+            this.valueStyle.copyWith(color: Colors.white, fontSize: 24.px));
+    return newModifierValue;
+  }
 }
