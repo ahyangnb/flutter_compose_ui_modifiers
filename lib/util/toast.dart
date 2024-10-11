@@ -59,6 +59,10 @@ void mShowErrorToast(String message) {
 String lastMsg = '';
 int lastTime = 0;
 
+void mToast(String message, {Duration? duration, ToastPosition? position}) {
+  return mShowCustomToast(message, duration: duration, position: position);
+}
+
 void mShowCustomToast(String message,
     {Duration? duration, ToastPosition? position}) {
   if (MConfig.showCustomToastValue == null) {
