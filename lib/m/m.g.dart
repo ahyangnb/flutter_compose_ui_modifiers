@@ -711,12 +711,16 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueContainerAlignment: value);
   }
 
-  DefineMTextFieldModifier align(AlignmentGeometry? value) {
+  DefineMTextFieldModifier alignContainer(AlignmentGeometry? value) {
     return this.copyWith(valueContainerAlignment: value);
   }
 
-  DefineMTextFieldModifier alignCenter() {
+  DefineMTextFieldModifier alignContainerCenter() {
     return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMTextFieldModifier alignContainerRight() {
+    return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 
   DefineMTextFieldModifier scrollable([bool value = true]) {
@@ -1406,6 +1410,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier alignCenter() {
     return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMTextModifier alignRight() {
+    return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 
   DefineMTextModifier scrollable([bool value = true]) {
@@ -2189,6 +2197,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueContainerAlignment: Alignment.center);
   }
 
+  DefineMRowModifier alignRight() {
+    return this.copyWith(valueContainerAlignment: Alignment.centerRight);
+  }
+
   DefineMRowModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
@@ -2735,6 +2747,10 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier alignCenter() {
     return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMListViewModifier alignRight() {
+    return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 
   // DefineMListViewModifier scrollable([bool value = true]) {
@@ -3721,6 +3737,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueContainerAlignment: Alignment.center);
   }
 
+  DefineMColumnModifier alignRight() {
+    return this.copyWith(valueContainerAlignment: Alignment.centerRight);
+  }
+
   DefineMColumnModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
@@ -4482,6 +4502,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueContainerAlignment: Alignment.center);
   }
 
+  DefineMAddButtonModifier alignRight() {
+    return this.copyWith(valueContainerAlignment: Alignment.centerRight);
+  }
+
   DefineMAddButtonModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
@@ -5236,6 +5260,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier alignCenter() {
     return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMStackModifier alignRight() {
+    return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 
   DefineMStackModifier scrollable([bool value = true]) {
@@ -5998,6 +6026,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueContainerAlignment: Alignment.center);
   }
 
+  DefineMImageModifier alignRight() {
+    return this.copyWith(valueContainerAlignment: Alignment.centerRight);
+  }
+
   DefineMImageModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
@@ -6753,6 +6785,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     return this.copyWith(valueContainerAlignment: Alignment.center);
   }
 
+  DefineMTileModifier alignRight() {
+    return this.copyWith(valueContainerAlignment: Alignment.centerRight);
+  }
+
   DefineMTileModifier scrollable([bool value = true]) {
     return this.copyWith(valueScrollable: value);
   }
@@ -7506,6 +7542,10 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier alignCenter() {
     return this.copyWith(valueContainerAlignment: Alignment.center);
+  }
+
+  DefineMContainerModifier alignRight() {
+    return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 
   DefineMContainerModifier scrollable([bool value = true]) {
