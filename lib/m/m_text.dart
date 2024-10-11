@@ -844,4 +844,10 @@ extension MTextModifierPropertys on DefineMTextModifier {
             this.valueStyle.copyWith(color: Colors.white, fontSize: 24.px));
     return newModifierValue;
   }
+
+  DefineMTextModifier colorWhite() {
+    final DefineMTextModifier newModifierValue = this
+        .copyWith(valueStyle: this.valueStyle.copyWith(color: Colors.white));
+    return newModifierValue;
+  }
 }
