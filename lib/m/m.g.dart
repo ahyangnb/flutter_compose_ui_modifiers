@@ -780,6 +780,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMTextFieldModifier cancelFocusWhenClick([bool value = true]) {
+    return this.copyWith(valueCancelFocusWhenClick: value);
+  }
+
   DefineMTextFieldModifier obxListener(Rx<dynamic> value) {
     return this.copyWith(valueObxListener: value);
   }
@@ -1491,6 +1495,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMTextModifier cancelFocusWhenClick([bool value = true]) {
+    return this.copyWith(valueCancelFocusWhenClick: value);
   }
 
   DefineMTextModifier obxListener(Rx<dynamic> value) {
@@ -2298,6 +2306,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMRowModifier cancelFocusWhenClick([bool value = true]) {
+    return this.copyWith(valueCancelFocusWhenClick: value);
+  }
+
   DefineMRowModifier obxListener(Rx<dynamic> value) {
     return this.copyWith(valueObxListener: value);
   }
@@ -2864,6 +2876,10 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMListViewModifier cancelFocusWhenClick([bool value = true]) {
+    return this.copyWith(valueCancelFocusWhenClick: value);
   }
 
   DefineMListViewModifier obxListener(Rx<dynamic> value) {
@@ -3882,6 +3898,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMColumnModifier cancelFocusWhenClick([bool value = true]) {
+    return this.copyWith(valueCancelFocusWhenClick: value);
+  }
+
   DefineMColumnModifier obxListener(Rx<dynamic> value) {
     return this.copyWith(valueObxListener: value);
   }
@@ -4663,6 +4683,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMAddButtonModifier cancelFocusWhenClick([bool value = true]) {
+    return this.copyWith(valueCancelFocusWhenClick: value);
+  }
+
   DefineMAddButtonModifier obxListener(Rx<dynamic> value) {
     return this.copyWith(valueObxListener: value);
   }
@@ -5441,6 +5465,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMStackModifier cancelFocusWhenClick([bool value = true]) {
+    return this.copyWith(valueCancelFocusWhenClick: value);
   }
 
   DefineMStackModifier obxListener(Rx<dynamic> value) {
@@ -6227,6 +6255,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMImageModifier cancelFocusWhenClick([bool value = true]) {
+    return this.copyWith(valueCancelFocusWhenClick: value);
+  }
+
   DefineMImageModifier obxListener(Rx<dynamic> value) {
     return this.copyWith(valueObxListener: value);
   }
@@ -7006,6 +7038,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMTileModifier cancelFocusWhenClick([bool value = true]) {
+    return this.copyWith(valueCancelFocusWhenClick: value);
+  }
+
   DefineMTileModifier obxListener(Rx<dynamic> value) {
     return this.copyWith(valueObxListener: value);
   }
@@ -7783,6 +7819,10 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMContainerModifier cancelFocusWhenClick([bool value = true]) {
+    return this.copyWith(valueCancelFocusWhenClick: value);
   }
 
   DefineMContainerModifier obxListener(Rx<dynamic> value) {
