@@ -113,6 +113,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     super.valueFullWidth,
     super.valueFullHeight,
     super.valueContainerAlignment,
+    super.valueOutSideAlignment,
 
     /// Position Widget
     super.valueLeft,
@@ -182,6 +183,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     double? valueFullWidth,
     double? valueFullHeight,
     AlignmentGeometry? valueContainerAlignment,
+    AlignmentGeometry? valueOutSideAlignment,
 
     /// Position Widget
     double? valueLeft,
@@ -255,6 +257,8 @@ class DefineMColumnModifier extends MGeneralModifier {
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
       valueContainerAlignment:
           valueContainerAlignment ?? this.valueContainerAlignment,
+      valueOutSideAlignment:
+          valueOutSideAlignment ?? this.valueOutSideAlignment,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,

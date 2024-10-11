@@ -110,6 +110,7 @@ class DefineMStackModifier extends MGeneralModifier {
     super.valueFullWidth,
     super.valueFullHeight,
     super.valueContainerAlignment,
+    super.valueOutSideAlignment,
 
     /// Position Widget
     super.valueLeft,
@@ -177,6 +178,7 @@ class DefineMStackModifier extends MGeneralModifier {
     double? valueFullWidth,
     double? valueFullHeight,
     AlignmentGeometry? valueContainerAlignment,
+    AlignmentGeometry? valueOutSideAlignment,
 
     /// Position Widget
     double? valueLeft,
@@ -246,6 +248,8 @@ class DefineMStackModifier extends MGeneralModifier {
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
       valueContainerAlignment:
           valueContainerAlignment ?? this.valueContainerAlignment,
+      valueOutSideAlignment:
+          valueOutSideAlignment ?? this.valueOutSideAlignment,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -280,7 +284,7 @@ extension MStackModifierPropertys on DefineMStackModifier {
   }
 
   DefineMStackModifier alignStack(AlignmentGeometry? value) {
-    return this.copyWith(valueContainerAlignment: value);
+    return this.copyWith(valueAlignment: value);
   }
 
   DefineMStackModifier centerAlignStack() {

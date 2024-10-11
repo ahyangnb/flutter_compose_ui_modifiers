@@ -5254,15 +5254,15 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(valueContainerAlignment: value);
   }
 
-  DefineMStackModifier align(AlignmentGeometry? value) {
+  DefineMStackModifier alignContainer(AlignmentGeometry? value) {
     return this.copyWith(valueContainerAlignment: value);
   }
 
-  DefineMStackModifier alignCenter() {
+  DefineMStackModifier alignContainerCenter() {
     return this.copyWith(valueContainerAlignment: Alignment.center);
   }
 
-  DefineMStackModifier alignRight() {
+  DefineMStackModifier alignContainerRight() {
     return this.copyWith(valueContainerAlignment: Alignment.centerRight);
   }
 

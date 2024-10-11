@@ -56,6 +56,7 @@ class MGeneralModifier {
   final BoxFit? valueBackgroundImageFit;
   final MGravity? valueGravity;
   final AlignmentGeometry? valueContainerAlignment;
+  final AlignmentGeometry? valueOutSideAlignment;
 
   // If it doesn't work, set the fullWidth or fullHeight.
   final Gradient? valueGradientBorder;
@@ -128,6 +129,7 @@ class MGeneralModifier {
     this.valueFullWidth,
     this.valueFullHeight,
     this.valueContainerAlignment,
+    this.valueOutSideAlignment,
 
     /// Use the Positioned widget.
     this.valueLeft,
@@ -243,6 +245,13 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
             : generalModifier?.valuePadding,
         margin: generalModifier?.valueMargin,
         duration: Duration(milliseconds: 300),
+        child: child,
+      );
+    }
+
+    if (generalModifier?.valueOutSideAlignment != null) {
+      child = Container(
+        alignment: generalModifier?.valueOutSideAlignment,
         child: child,
       );
     }

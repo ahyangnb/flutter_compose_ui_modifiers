@@ -310,6 +310,7 @@ class DefineMImageModifier extends MGeneralModifier {
     super.valueFullWidth,
     super.valueFullHeight,
     super.valueContainerAlignment,
+    super.valueOutSideAlignment,
 
     /// Position Widget
     super.valueLeft,
@@ -385,6 +386,7 @@ class DefineMImageModifier extends MGeneralModifier {
     double? valueFullWidth,
     double? valueFullHeight,
     AlignmentGeometry? valueContainerAlignment,
+    AlignmentGeometry? valueOutSideAlignment,
 
     /// Position Widget
     double? valueLeft,
@@ -465,6 +467,8 @@ class DefineMImageModifier extends MGeneralModifier {
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
       valueContainerAlignment:
           valueContainerAlignment ?? this.valueContainerAlignment,
+      valueOutSideAlignment:
+          valueOutSideAlignment ?? this.valueOutSideAlignment,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
