@@ -168,6 +168,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     super.valueFullHeight,
     super.valueContainerAlignment,
     super.valueOutSideAlignment,
+    super.valueCancelFocusWhenClick,
 
     /// Position Widget
     super.valueLeft,
@@ -239,6 +240,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     double? valueFullHeight,
     AlignmentGeometry? valueContainerAlignment,
     AlignmentGeometry? valueOutSideAlignment,
+    bool? valueCancelFocusWhenClick,
 
     /// Position Widget
     double? valueLeft,
@@ -313,6 +315,8 @@ class DefineMListViewModifier extends MGeneralModifier {
           valueContainerAlignment ?? this.valueContainerAlignment,
       valueOutSideAlignment:
           valueOutSideAlignment ?? this.valueOutSideAlignment,
+      valueCancelFocusWhenClick:
+          valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,
 
       valueLeft: valueLeft ?? this.valueLeft,
       valueRight: valueRight ?? this.valueRight,

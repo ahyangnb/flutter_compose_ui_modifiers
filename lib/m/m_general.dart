@@ -57,6 +57,7 @@ class MGeneralModifier {
   final MGravity? valueGravity;
   final AlignmentGeometry? valueContainerAlignment;
   final AlignmentGeometry? valueOutSideAlignment;
+  final bool? valueCancelFocusWhenClick;
 
   // If it doesn't work, set the fullWidth or fullHeight.
   final Gradient? valueGradientBorder;
@@ -130,6 +131,7 @@ class MGeneralModifier {
     this.valueFullHeight,
     this.valueContainerAlignment,
     this.valueOutSideAlignment,
+    this.valueCancelFocusWhenClick,
 
     /// Use the Positioned widget.
     this.valueLeft,
@@ -270,10 +272,19 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     if (generalModifier?.valueOnTap != null ||
         generalModifier?.valueOnLongPress != null ||
         generalModifier?.valueOnLongPressMoveUpdate != null ||
-        generalModifier?.valueOnLongPressUp != null) {
+        generalModifier?.valueOnLongPressUp != null ||
+        generalModifier?.valueCancelFocusWhenClick != null) {
       child = GestureDetector(
         behavior: HitTestBehavior.translucent,
-        onTap: generalModifier?.valueOnTap,
+        onTap: () {
+          if (generalModifier?.valueCancelFocusWhenClick != null &&
+              generalModifier!.valueCancelFocusWhenClick!) {
+            FocusScope.of(context).requestFocus(FocusNode());
+          }
+          if (generalModifier?.valueOnTap != null) {
+            generalModifier!.valueOnTap!();
+          }
+        },
         onLongPress: generalModifier?.valueOnLongPress,
         onLongPressMoveUpdate: generalModifier?.valueOnLongPressMoveUpdate,
         onLongPressUp: generalModifier?.valueOnLongPressUp,
