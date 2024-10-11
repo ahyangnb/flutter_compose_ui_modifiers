@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
+import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/util/screen_fit.dart';
 import 'package:get/get.dart';
 
@@ -64,6 +65,7 @@ class MButton extends StatelessWidget {
     this.border,
     this.disabledBackgroundColor,
     this.textAlign,
+    this.canNotClick = false,
   });
 
   final void Function()? onTap;
@@ -85,6 +87,7 @@ class MButton extends StatelessWidget {
   final Border? border;
   final Color? disabledBackgroundColor;
   final TextAlign? textAlign;
+  final bool canNotClick;
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +95,7 @@ class MButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: br,
-        color: onTap == null
+        color: onTap == null && canNotClick.not()
             ? MThemeConfig.button.disableColor
             : backgroundColor ?? MThemeConfig.primaryColor,
         gradient: backgroundGradient ??
@@ -116,8 +119,9 @@ class MButton extends StatelessWidget {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           disabledBackgroundColor:
               disabledBackgroundColor ?? MThemeConfig.button.disableColor,
+          splashFactory: canNotClick ? NoSplash.splashFactory : null,
         ),
-        onPressed: onTap,
+        onPressed: canNotClick ? () {} : onTap,
         child: child ??
             Text(
               text ?? "",
@@ -195,13 +199,13 @@ class MCommonConfirmButton extends StatelessWidget {
         backgroundColor: buttonColor != null
             ? MaterialStateProperty.all<Color>(buttonColor!)
             : MaterialStateProperty.resolveWith<Color?>(
-              (Set<MaterialState> states) {
-            if (states.contains(MaterialState.pressed)) {
-              return null; // Use the component's default.
-            }
-            return null; // Use the component's default.
-          },
-        ),
+                (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.pressed)) {
+                    return null; // Use the component's default.
+                  }
+                  return null; // Use the component's default.
+                },
+              ),
         fixedSize: MaterialStateProperty.all<Size>(useSize),
         padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -218,15 +222,15 @@ class MCommonConfirmButton extends StatelessWidget {
       child: buttonColor != null
           ? container
           : Container(
-        width: useSize.width,
-        height: useSize.height,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          gradient: gradient ?? MThemeConfig.gradientMain,
-          borderRadius: borderRadius,
-        ),
-        child: container,
-      ),
+              width: useSize.width,
+              height: useSize.height,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                gradient: gradient ?? MThemeConfig.gradientMain,
+                borderRadius: borderRadius,
+              ),
+              child: container,
+            ),
     );
   }
 }
@@ -301,7 +305,8 @@ class MMiniCancelButton extends StatelessWidget {
     this.buttonColor,
     this.size,
     this.fontSize,
-  }) ;
+  });
+
   final Future<void> Function() onPressed;
   final String? buttonText;
   final Color? buttonColor;
