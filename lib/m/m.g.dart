@@ -73,53 +73,53 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueShadow: valueShadow);
   }
 
-  DefineMTextFieldModifier padding(double value) {
-    return setPaddingEdge(EdgeInsets.all(value));
+  DefineMTextFieldModifier paddingContainer(double value) {
+    return setPaddingContainerEdge(EdgeInsets.all(value));
   }
 
-  DefineMTextFieldModifier paddingSet(EdgeInsets value) {
-    return setPaddingEdge(value);
+  DefineMTextFieldModifier paddingContainerSet(EdgeInsets value) {
+    return setPaddingContainerEdge(value);
   }
 
-  DefineMTextFieldModifier setPaddingEdge(EdgeInsets? value) {
+  DefineMTextFieldModifier setPaddingContainerEdge(EdgeInsets? value) {
     return this.copyWith(
       valuePadding: value ?? this.valuePadding ?? EdgeInsets.zero,
     );
   }
 
-  DefineMTextFieldModifier paddingTop(double value) {
-    return setPaddingTop(value);
+  DefineMTextFieldModifier paddingContainerTop(double value) {
+    return setPaddingContainerTop(value);
   }
 
-  DefineMTextFieldModifier setPaddingTop(double value) {
+  DefineMTextFieldModifier setPaddingContainerTop(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(top: value),
     );
   }
 
-  DefineMTextFieldModifier paddingHorizontal(double value) {
-    return setPaddingHorizontal(value);
+  DefineMTextFieldModifier paddingContainerHorizontal(double value) {
+    return setPaddingContainerHorizontal(value);
   }
 
-  DefineMTextFieldModifier setPaddingHorizontal(double value) {
+  DefineMTextFieldModifier setPaddingContainerHorizontal(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(left: value, right: value),
     );
   }
 
-  DefineMTextFieldModifier paddingVertical(double value) {
-    return setPaddingVertical(value);
+  DefineMTextFieldModifier paddingContainerVertical(double value) {
+    return setPaddingContainerVertical(value);
   }
 
-  DefineMTextFieldModifier setPaddingVertical(double value) {
+  DefineMTextFieldModifier setPaddingContainerVertical(double value) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero)
           .copyWith(top: value, bottom: value),
     );
   }
 
-  DefineMTextFieldModifier paddingSymmetric(
+  DefineMTextFieldModifier paddingContainerSymmetric(
       {double? horizontal, double? vertical}) {
     return this.copyWith(
       valuePadding: (this.valuePadding ?? EdgeInsets.zero).copyWith(
@@ -137,7 +137,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
         valueTop: top, valueBottom: bottom, valueLeft: left, valueRight: right);
   }
 
-  DefineMTextFieldModifier paddingBottom(double value) {
+  DefineMTextFieldModifier paddingContainerBottom(double value) {
     return this.copyWith(
       valuePadding:
           (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
