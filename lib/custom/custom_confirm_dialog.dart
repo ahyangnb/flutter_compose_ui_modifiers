@@ -5,6 +5,7 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:get/get.dart';
 
+/// Other dialog please see `mConfirmDialog`.
 mCustomConfirmDialog(String title, String content, Function() onConfirm) {
   if (MConfig.mCustomConfirmDialogValue != null) {
     MConfig.mCustomConfirmDialogValue!(title, content, onConfirm);
