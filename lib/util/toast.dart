@@ -5,8 +5,7 @@ import 'package:flutter_compose_ui_modifiers/util/log.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:oktoast/oktoast.dart';
 
-void mShowToastMessage(
-  String message, {
+void mShowToastMessage(String message, {
   IconData? icon,
   Color? color,
   Duration? duration,
@@ -59,6 +58,10 @@ void mShowErrorToast(String message) {
 String lastMsg = '';
 int lastTime = 0;
 
+void mYToast(String message, {Duration? duration, ToastPosition? position}) {
+  return mShowCustomToast(message, duration: duration, position: position);
+}
+
 void mToast(String message, {Duration? duration, ToastPosition? position}) {
   return mShowCustomToast(message, duration: duration, position: position);
 }
@@ -66,12 +69,16 @@ void mToast(String message, {Duration? duration, ToastPosition? position}) {
 void mShowCustomToast(String message,
     {Duration? duration, ToastPosition? position}) {
   if (MConfig.showCustomToastValue == null) {
-    if (DateTime.now().millisecondsSinceEpoch - 800 < lastTime &&
+    if (DateTime
+        .now()
+        .millisecondsSinceEpoch - 800 < lastTime &&
         lastMsg == message) {
       return;
     }
     lastMsg = message;
-    lastTime = DateTime.now().millisecondsSinceEpoch;
+    lastTime = DateTime
+        .now()
+        .millisecondsSinceEpoch;
     mLogger.d('🍞showCustomToast::$message, duration: ${duration.toString()}');
     mShowToastMessage(message, duration: duration, position: position);
   } else {
@@ -84,11 +91,15 @@ int showCustomToastInFiveSecondValue = 0;
 void showCustomToastInFiveSecond(String message,
     {Duration? duration, ToastPosition? position}) {
   if (showCustomToastInFiveSecondValue != 0 &&
-      DateTime.now().millisecondsSinceEpoch - showCustomToastInFiveSecondValue <
+      DateTime
+          .now()
+          .millisecondsSinceEpoch - showCustomToastInFiveSecondValue <
           5000) {
     return;
   }
-  showCustomToastInFiveSecondValue = DateTime.now().millisecondsSinceEpoch;
+  showCustomToastInFiveSecondValue = DateTime
+      .now()
+      .millisecondsSinceEpoch;
   mLogger.d('showCustomToast::$message, duration: ${duration.toString()}');
   mShowToastMessage(message, duration: duration, position: position);
 }
