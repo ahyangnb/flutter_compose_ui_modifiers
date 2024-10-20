@@ -62,6 +62,10 @@ void mYToast(String message, {Duration? duration, ToastPosition? position}) {
   return mShowCustomToast(message, duration: duration, position: position);
 }
 
+void myToast(String message, {Duration? duration, ToastPosition? position}) {
+  return mShowCustomToast(message, duration: duration, position: position);
+}
+
 void mToast(String message, {Duration? duration, ToastPosition? position}) {
   return mShowCustomToast(message, duration: duration, position: position);
 }
