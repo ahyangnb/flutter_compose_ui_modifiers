@@ -89,6 +89,11 @@ extension ModifierStringCheck on String? {
     if (mEmpty()) return false;
     return int.tryParse(this!) != null;
   }
+
+  bool isNet() {
+    if (mEmpty()) return false;
+    return this!.startsWith('http') || this!.startsWith('https');
+  }
 }
 
 bool mIntStr(String? value) => value.mIntStr();
