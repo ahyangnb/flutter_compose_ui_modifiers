@@ -1,3 +1,6 @@
+## 0.4.8
+* update new feature. [MTextController, mToast, isNet, ...]
+
 ## 0.4.7
 * delete all the assets image.
 
