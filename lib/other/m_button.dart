@@ -5,21 +5,44 @@ import 'package:flutter_compose_ui_modifiers/util/screen_fit.dart';
 import 'package:get/get.dart';
 
 class MButtonGrey extends StatelessWidget {
-  const MButtonGrey({super.key});
+  MButtonGrey({
+    this.backgroundColor,
+    this.borderRadius,
+    this.width,
+    this.height,
+    this.textStyle,
+    this.text,
+    this.onTap,
+  });
+
+  final Color? backgroundColor;
+  final BorderRadiusGeometry? borderRadius;
+  final double? width;
+  final double? height;
+  final TextStyle? textStyle;
+  final String? text;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return MButton(
-      text: "Cancel",
-      textStyle: TextStyle(
-        color: const Color(0xff999999),
-        fontSize: 18.px,
-      ),
-      backgroundColor: const Color(0xffF5F5F5),
-      borderRadius: BorderRadius.circular(27.px),
-      width: 127.px,
-      height: 44.px,
-      onTap: () => Get.back(),
+      text: text ?? "Cancel",
+      textStyle: textStyle ??
+          TextStyle(
+            color: const Color(0xff999999),
+            fontSize: 18.px,
+          ),
+      backgroundColor: backgroundColor ?? const Color(0xffF5F5F5),
+      borderRadius: borderRadius ?? BorderRadius.circular(27.px),
+      width: width ?? 127.px,
+      height: height ?? 44.px,
+      onTap: () {
+        if (onTap != null) {
+          onTap!();
+        } else {
+          Get.back();
+        }
+      },
     );
   }
 }

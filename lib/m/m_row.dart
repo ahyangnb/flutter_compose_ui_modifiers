@@ -334,6 +334,11 @@ extension MRowModifierPropertys on DefineMRowModifier {
     return this.copyWith(valueMainAxisAlignment: MainAxisAlignment.end);
   }
 
+  DefineMRowModifier mainAxisSpaceBetween() {
+    return this
+        .copyWith(valueMainAxisAlignment: MainAxisAlignment.spaceBetween);
+  }
+
   DefineMRowModifier crossAxisCenter() {
     return this.copyWith(valueCrossAxisAlignment: CrossAxisAlignment.center);
   }
@@ -356,5 +361,10 @@ extension MRowModifierPropertys on DefineMRowModifier {
 
   DefineMRowModifier mainCenter() {
     return this.copyWith(valueMainAxisAlignment: MainAxisAlignment.center);
+  }
+
+  DefineMRowModifier mainSpaceBetween() {
+    return this
+        .copyWith(valueMainAxisAlignment: MainAxisAlignment.spaceBetween);
   }
 }

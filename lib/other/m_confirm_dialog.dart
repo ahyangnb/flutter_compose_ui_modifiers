@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/other/m_button.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -506,26 +507,120 @@ Future<T?> mDialogCupertinoConfirm<T>({
   );
 }
 
-// Future<void> mDialogDarkConfirm({
-//   required String? title,
-//   required String content,
-//   String? okText,
-// }) {
-//   return showCupertinoDialog(
-//     context: Get.context!,
-//     builder: (BuildContext context) {
-//       return CupertinoAlertDialog(
-//         title: Text(title),
-//         content: Text(content),
-//         actions: <Widget>[
-//           CupertinoDialogAction(
-//             child: Text(okText ?? 'OK'),
-//             onPressed: () {
-//               Navigator.of(context).pop();
-//             },
-//           ),
-//         ],
-//       );
-//     },
-//   );
-// }
+Future<void> mDialogDarkConfirm(
+  String content, {
+  String? title,
+  String? okText,
+  String? bgImage,
+  double? width,
+  double? height,
+  required String tag,
+  required VoidCallback onConfirm,
+}) {
+  return mShowSmartDialog(
+    builder: (BuildContext context) {
+      return MDialogDarkConfirm(
+        tag,
+        content,
+        onConfirm: onConfirm,
+        bgImage: bgImage,
+        width: width,
+        height: height,
+        okText: okText,
+      );
+    },
+    tag: tag,
+  );
+}
+
+class MDialogDarkConfirm extends StatefulWidget {
+  const MDialogDarkConfirm(
+    this.tag,
+    this.content, {
+    required this.onConfirm,
+    this.bgImage,
+    this.width,
+    this.height,
+    this.okText,
+    super.key,
+  });
+
+  final String tag;
+  final String content;
+  final VoidCallback onConfirm;
+  final String? bgImage;
+  final double? width;
+  final double? height;
+  final String? okText;
+
+  @override
+  State<MDialogDarkConfirm> createState() => _MDialogDarkConfirmState();
+}
+
+class _MDialogDarkConfirmState extends State<MDialogDarkConfirm> {
+  void dismiss() => mDismissSmartDialog(tag: widget.tag);
+
+  @override
+  Widget build(BuildContext context) {
+    final spaceVertical = 28.px;
+    return MStack(
+      modifier: MStackModifier.backgroundColor(Colors.black)
+          .borderAll()
+          .gravity(MGravity.center)
+          .borderRadius(6.px),
+      children: [
+        if (widget.bgImage != null)
+          MImage(
+            modifier: MImageModifier.width(widget.width).height(widget.height),
+            data: widget.bgImage,
+          ),
+        MColumn(
+          modifier: MColumnModifier.width(widget.width ?? 323.px)
+              .height(widget.height),
+          children: [
+            spaceVertical.space,
+            MText(
+              modifier: MTextModifier.colorWhite()
+                  .fontSize(16.px)
+                  .heightSize(50.px - 28.px + 66.px)
+                  .marginHorizontal(30.px)
+                  .textCenter()
+                  .centerText()
+                  .align(Alignment.center),
+              data: widget.content,
+            ),
+            spaceVertical.space,
+            MRow(
+              modifier: MRowModifier.mainCenter(),
+              children: [
+                MButtonGrey(
+                  backgroundColor: Colors.white.withOpacity(0.6),
+                  width: 118.px,
+                  height: 46.px,
+                  textStyle:
+                      TextStyle(color: Color(0xff020202), fontSize: 18.px),
+                  borderRadius: BorderRadius.all(Radius.circular(4.px)),
+                  onTap: () => dismiss(),
+                ),
+                27.px.space,
+                MButton(
+                  width: 118.px,
+                  height: 46.px,
+                  backgroundGradient: MThemeConfig.gradientMain,
+                  text: widget.okText ?? "Confirm",
+                  textStyle:
+                      TextStyle(color: Color(0xff020202), fontSize: 18.px),
+                  borderRadius: BorderRadius.all(Radius.circular(4.px)),
+                  onTap: () {
+                    dismiss();
+                    widget.onConfirm();
+                  },
+                )
+              ],
+            )
+          ],
+        ),
+      ],
+    );
+  }
+}
