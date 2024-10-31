@@ -67,6 +67,10 @@ class _MTextState extends ModifierState<MText> with ObxImplementation {
       throw OnlyBuilderException("data");
     }
     String text = widget.data ?? widget.modifier?.valueData ?? "";
+    if (widget.modifier?.valueMaxLength != null &&
+        text.length > widget.modifier!.valueMaxLength!) {
+      text = text.substring(0, widget.modifier!.valueMaxLength!);
+    }
     final useStyle = widget.modifier?.valueStyle ?? TextStyle();
     final useValueSelectable = widget.modifier?.valueSelectable ?? false;
     final useValueLinkDisplay = widget.modifier?.valueLinkDisplay ?? false;
@@ -200,6 +204,7 @@ class DefineMTextModifier extends MGeneralModifier {
   final TextAlign? valueTextAlign;
   final RegExp? valueHighlightRegExp;
   final int? valueMaxLines;
+  final int? valueMaxLength;
   final TextOverflow? valueOverflow;
   final String? valueData;
   final bool? valueSelectable;
@@ -213,6 +218,7 @@ class DefineMTextModifier extends MGeneralModifier {
     this.valueTextAlign,
     this.valueHighlightRegExp,
     this.valueMaxLines,
+    this.valueMaxLength,
     this.valueOverflow,
     this.valueData,
     this.valueSelectable,
@@ -290,6 +296,7 @@ class DefineMTextModifier extends MGeneralModifier {
     TextAlign? valueTextAlign,
     RegExp? valueHighlightRegExp,
     final int? valueMaxLines,
+    final int? valueMaxLength,
     final TextOverflow? valueOverflow,
     String? valueData,
     bool? valueSelectable,
@@ -366,6 +373,7 @@ class DefineMTextModifier extends MGeneralModifier {
       valueTextAlign: valueTextAlign ?? this.valueTextAlign,
       valueHighlightRegExp: valueHighlightRegExp ?? this.valueHighlightRegExp,
       valueMaxLines: valueMaxLines ?? this.valueMaxLines,
+      valueMaxLength: valueMaxLength ?? this.valueMaxLength,
       valueOverflow: valueOverflow ?? this.valueOverflow,
       valueData: valueData ?? this.valueData,
       valueSelectable: valueSelectable ?? this.valueSelectable,
@@ -775,6 +783,12 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier maxLines(int value) {
     final DefineMTextModifier newModifierValue =
         this.copyWith(valueMaxLines: value);
+    return newModifierValue;
+  }
+
+  DefineMTextModifier maxLength(int value) {
+    final DefineMTextModifier newModifierValue =
+        this.copyWith(valueMaxLength: value);
     return newModifierValue;
   }
 
