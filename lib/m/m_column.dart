@@ -209,7 +209,8 @@ class DefineMColumnModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     VoidCallback? valueOnScrollStop,
     SafeArea? valueSafeArea,
-    bool? valueVisible, int? valueTabLength,
+    bool? valueVisible,
+    int? valueTabLength,
     Rx<dynamic>? valueObxListener,
   }) {
     return DefineMColumnModifier(
@@ -288,7 +289,8 @@ class DefineMColumnModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueOnScrollStop: valueOnScrollStop ?? this.valueOnScrollStop,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
+      valueVisible: valueVisible ?? this.valueVisible,
+      valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
@@ -358,6 +360,10 @@ extension MColumnModifierPropertys on DefineMColumnModifier {
 
   DefineMColumnModifier crossAxisEnd() {
     return this.copyWith(valueCrossAxisAlignment: CrossAxisAlignment.end);
+  }
+
+  DefineMColumnModifier crossAxisStart() {
+    return this.copyWith(valueCrossAxisAlignment: CrossAxisAlignment.start);
   }
 
   DefineMColumnModifier crossStart() {
