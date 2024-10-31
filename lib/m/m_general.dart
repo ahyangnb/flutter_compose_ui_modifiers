@@ -403,19 +403,6 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
       );
     }
 
-    if (generalModifier?.valueLeft != null ||
-        generalModifier?.valueRight != null ||
-        generalModifier?.valueTop != null ||
-        generalModifier?.valueBottom != null) {
-      child = Positioned(
-        left: generalModifier?.valueLeft,
-        right: generalModifier?.valueRight,
-        top: generalModifier?.valueTop,
-        bottom: generalModifier?.valueBottom,
-        child: child,
-      );
-    }
-
     /// Must use it in last one.
     if (generalModifier?.valueFlex != null ||
         generalModifier?.valueOutSizeFlex != null) {
@@ -430,6 +417,20 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
       }
       child = Expanded(flex: generalModifier?.valueFlex ?? 1, child: child);
     }
+
+    if (generalModifier?.valueLeft != null ||
+        generalModifier?.valueRight != null ||
+        generalModifier?.valueTop != null ||
+        generalModifier?.valueBottom != null) {
+      child = Positioned(
+        left: generalModifier?.valueLeft,
+        right: generalModifier?.valueRight,
+        top: generalModifier?.valueTop,
+        bottom: generalModifier?.valueBottom,
+        child: child,
+      );
+    }
+
     return child;
   }
 }
