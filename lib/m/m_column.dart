@@ -41,6 +41,7 @@ class _MColumnState extends ModifierState<MColumn> with ObxImplementation {
     final List<Widget> valueChildrenResult = <Widget>[
       ...widget.children ?? [],
       ...widget.modifier?.children ?? [],
+      ...widget.builder != null ? widget.builder!() : [],
     ];
     return MGeneralLayoutModifierWidget(
       // key: modifier?.valueKey ?? key,

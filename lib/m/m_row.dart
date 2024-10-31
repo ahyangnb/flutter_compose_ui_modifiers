@@ -41,6 +41,7 @@ class _MRowState extends ModifierState<MRow> with ObxImplementation {
     final List<Widget> valueChildrenResult = <Widget>[
       ...widget.children ?? [],
       ...widget.modifier?.children ?? [],
+      ...widget.builder != null ? widget.builder!() : [],
     ];
     return MGeneralLayoutModifierWidget(
       // key: modifier?.valueKey ?? key,
@@ -135,7 +136,8 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueScrollable,
     super.valueScrollController,
     super.valueSafeArea,
-    super.valueVisible,super.valueTabLength,
+    super.valueVisible,
+    super.valueTabLength,
     super.valueObxListener,
   });
 
@@ -205,7 +207,8 @@ class DefineMRowModifier extends MGeneralModifier {
     bool? valueScrollable,
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
-    bool? valueVisible, int? valueTabLength,
+    bool? valueVisible,
+    int? valueTabLength,
     Rx<dynamic>? valueObxListener,
   }) {
     return DefineMRowModifier(
@@ -283,7 +286,8 @@ class DefineMRowModifier extends MGeneralModifier {
       valueScrollController:
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
+      valueVisible: valueVisible ?? this.valueVisible,
+      valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
