@@ -132,7 +132,7 @@ class DefineMStackModifier extends MGeneralModifier {
     super.valueScrollable,
     super.valueScrollController,
     super.valueSafeArea,
-    super.valueVisible,
+    super.valueVisible,super.valueTabLength,
     super.valueObxListener,
   });
 
@@ -201,7 +201,7 @@ class DefineMStackModifier extends MGeneralModifier {
     bool? valueScrollable,
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
-    bool? valueVisible,
+    bool? valueVisible, int? valueTabLength,
     Rx<dynamic>? valueObxListener,
   }) {
     return DefineMStackModifier(
@@ -276,7 +276,7 @@ class DefineMStackModifier extends MGeneralModifier {
       valueScrollController:
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible,
+      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }

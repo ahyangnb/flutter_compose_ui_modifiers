@@ -780,6 +780,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMTextFieldModifier tabLength(int value) {
+    return this.copyWith(valueTabLength: value);
+  }
+
   DefineMTextFieldModifier cancelFocusWhenClick([bool value = true]) {
     return this.copyWith(valueCancelFocusWhenClick: value);
   }
@@ -1495,6 +1499,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMTextModifier tabLength(int value) {
+    return this.copyWith(valueTabLength: value);
   }
 
   DefineMTextModifier cancelFocusWhenClick([bool value = true]) {
@@ -2306,6 +2314,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMRowModifier tabLength(int value) {
+    return this.copyWith(valueTabLength: value);
+  }
+
   DefineMRowModifier cancelFocusWhenClick([bool value = true]) {
     return this.copyWith(valueCancelFocusWhenClick: value);
   }
@@ -2876,6 +2888,10 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMListViewModifier tabLength(int value) {
+    return this.copyWith(valueTabLength: value);
   }
 
   DefineMListViewModifier cancelFocusWhenClick([bool value = true]) {
@@ -3898,6 +3914,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMColumnModifier tabLength(int value) {
+    return this.copyWith(valueTabLength: value);
+  }
+
   DefineMColumnModifier cancelFocusWhenClick([bool value = true]) {
     return this.copyWith(valueCancelFocusWhenClick: value);
   }
@@ -4683,6 +4703,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMAddButtonModifier tabLength(int value) {
+    return this.copyWith(valueTabLength: value);
+  }
+
   DefineMAddButtonModifier cancelFocusWhenClick([bool value = true]) {
     return this.copyWith(valueCancelFocusWhenClick: value);
   }
@@ -5465,6 +5489,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMStackModifier tabLength(int value) {
+    return this.copyWith(valueTabLength: value);
   }
 
   DefineMStackModifier cancelFocusWhenClick([bool value = true]) {
@@ -6255,6 +6283,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMImageModifier tabLength(int value) {
+    return this.copyWith(valueTabLength: value);
+  }
+
   DefineMImageModifier cancelFocusWhenClick([bool value = true]) {
     return this.copyWith(valueCancelFocusWhenClick: value);
   }
@@ -7038,6 +7070,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     return this.copyWith(valueVisible: value);
   }
 
+  DefineMTileModifier tabLength(int value) {
+    return this.copyWith(valueTabLength: value);
+  }
+
   DefineMTileModifier cancelFocusWhenClick([bool value = true]) {
     return this.copyWith(valueCancelFocusWhenClick: value);
   }
@@ -7819,6 +7855,10 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier visible(bool value) {
     return this.copyWith(valueVisible: value);
+  }
+
+  DefineMContainerModifier tabLength(int value) {
+    return this.copyWith(valueTabLength: value);
   }
 
   DefineMContainerModifier cancelFocusWhenClick([bool value = true]) {

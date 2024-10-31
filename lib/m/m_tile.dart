@@ -155,6 +155,7 @@ class DefineMTileModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
+    super.valueTabLength,
     super.valueObxListener,
   });
 
@@ -225,6 +226,7 @@ class DefineMTileModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
+    int? valueTabLength,
     Rx<dynamic>? valueObxListener,
   }) {
     return DefineMTileModifier(
@@ -302,6 +304,7 @@ class DefineMTileModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
+      valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }

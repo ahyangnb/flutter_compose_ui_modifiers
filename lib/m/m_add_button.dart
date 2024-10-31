@@ -244,7 +244,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     super.valueScrollable,
     super.valueScrollController,
     super.valueSafeArea,
-    super.valueVisible,
+    super.valueVisible,super.valueTabLength,
     super.valueObxListener,
   });
 
@@ -320,7 +320,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     bool? valueScrollable,
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
-    bool? valueVisible,
+    bool? valueVisible, int? valueTabLength,
     Rx<dynamic>? valueObxListener,
   }) {
     return DefineMAddButtonModifier(
@@ -402,7 +402,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
       valueScrollController:
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible,
+      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }

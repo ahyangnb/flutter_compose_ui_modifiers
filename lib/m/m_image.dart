@@ -332,7 +332,7 @@ class DefineMImageModifier extends MGeneralModifier {
     super.valueScrollable,
     super.valueScrollController,
     super.valueSafeArea,
-    super.valueVisible,
+    super.valueVisible,super.valueTabLength,
     super.valueObxListener,
   });
 
@@ -409,7 +409,7 @@ class DefineMImageModifier extends MGeneralModifier {
     bool? valueScrollable,
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
-    bool? valueVisible,
+    bool? valueVisible, int? valueTabLength,
     Rx<dynamic>? valueObxListener,
   }) {
     return DefineMImageModifier(
@@ -495,7 +495,7 @@ class DefineMImageModifier extends MGeneralModifier {
       valueScrollController:
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible,
+      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }

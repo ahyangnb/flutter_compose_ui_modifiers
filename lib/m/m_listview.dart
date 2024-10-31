@@ -188,7 +188,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     /// Other
     // super.valueScrollable,
     super.valueSafeArea,
-    super.valueVisible,
+    super.valueVisible,super.valueTabLength,
     super.valueObxListener,
   });
 
@@ -260,7 +260,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     /// Other
     // bool? valueScrollable,
     SafeArea? valueSafeArea,
-    bool? valueVisible,
+    bool? valueVisible, int? valueTabLength,
     Rx<dynamic>? valueObxListener,
   }) {
     return DefineMListViewModifier(
@@ -336,7 +336,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       // Other
       // valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible,
+      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }

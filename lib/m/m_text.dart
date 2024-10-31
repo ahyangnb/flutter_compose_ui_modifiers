@@ -280,6 +280,7 @@ class DefineMTextModifier extends MGeneralModifier {
     super.valueScrollController,
     super.valueSafeArea,
     super.valueVisible,
+    super.valueTabLength,
     super.valueObxListener,
   });
 
@@ -356,6 +357,7 @@ class DefineMTextModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
     bool? valueVisible,
+    int? valueTabLength,
     Rx<dynamic>? valueObxListener,
   }) {
     return DefineMTextModifier(
@@ -438,6 +440,7 @@ class DefineMTextModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
+      valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }

@@ -137,6 +137,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     super.valueOnScrollStop,
     super.valueSafeArea,
     super.valueVisible,
+    super.valueTabLength,
     super.valueObxListener,
   });
 
@@ -207,7 +208,7 @@ class DefineMColumnModifier extends MGeneralModifier {
     ScrollController? valueScrollController,
     VoidCallback? valueOnScrollStop,
     SafeArea? valueSafeArea,
-    bool? valueVisible,
+    bool? valueVisible, int? valueTabLength,
     Rx<dynamic>? valueObxListener,
   }) {
     return DefineMColumnModifier(
@@ -286,7 +287,7 @@ class DefineMColumnModifier extends MGeneralModifier {
           valueScrollController ?? this.valueScrollController,
       valueOnScrollStop: valueOnScrollStop ?? this.valueOnScrollStop,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible,
+      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
