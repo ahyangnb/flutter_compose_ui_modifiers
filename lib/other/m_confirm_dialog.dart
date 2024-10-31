@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../util/toast.dart';
 
-Future<void> mConfirmDialog(
+Future<void> mDialogConfirm(
   String title,
   String? description,
   final Future<void> Function() onPressed, {
@@ -169,7 +169,7 @@ class _ConfirmDialogWidgetState extends State<ConfirmDialogWidget> {
   }
 }
 
-void mCustomConfirmGradientDialog(
+void mDialogCustomConfirmGradient(
   String description,
   final Future<void> Function() onPressed, {
   final Future<void> Function()? onCancel,
@@ -307,7 +307,7 @@ class _MCustomConfirmGradientDialogState
   }
 }
 
-void mCustomGradientAlarm({
+void mDialogAlarmCustomGradient({
   required String description,
   required final Future<void> Function() onPressed,
   String? title,

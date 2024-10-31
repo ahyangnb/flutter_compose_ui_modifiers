@@ -99,14 +99,12 @@ class MPickerImageUtil {
         }
       } catch (e, s) {
         mLogger.e('pickImage::e::$e', stackTrace: s, error: e);
-        unawaited(mConfirmDialog('Notice'.tr, MStr.picturePermission,
-            () async {
+        unawaited(mDialogConfirm('Notice'.tr, MStr.picturePermission, () async {
           await openAppSettings();
         }, tag: MAppDialogKey.confirmPicturePermission));
       }
     } else {
-      unawaited(mConfirmDialog('Notice'.tr, MStr.picturePermission,
-          () async {
+      unawaited(mDialogConfirm('Notice'.tr, MStr.picturePermission, () async {
         await openAppSettings();
       }, tag: MAppDialogKey.confirmPicturePermission));
     }
