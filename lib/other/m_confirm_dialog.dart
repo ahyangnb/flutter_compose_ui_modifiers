@@ -125,7 +125,7 @@ class _ConfirmDialogWidgetState extends State<ConfirmDialogWidget> {
                     children: <Widget>[
                       if (widget.showCancel)
                         Expanded(
-                          child: MMiniCancelButton(
+                          child: MButtonMiniCancel(
                             onPressed: () async {
                               try {
                                 if (widget.onCancel != null) {
@@ -140,7 +140,7 @@ class _ConfirmDialogWidgetState extends State<ConfirmDialogWidget> {
                         ),
                       if (widget.showCancel) SizedBox(width: 20.px),
                       Expanded(
-                        child: MMiniButton(
+                        child: MButtonMini1(
                           onPressed: () async {
                             try {
                               await widget.onPressed();
@@ -260,7 +260,7 @@ class _MCustomConfirmGradientDialogState
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             Expanded(
-                              child: MMiniCancelGreyButton(
+                              child: MButtonMiniCancelGrey(
                                 onPressed: () async {
                                   await mDismissSmartDialog(tag: widget.tag);
                                   if (widget.onCancel != null) {
@@ -274,7 +274,7 @@ class _MCustomConfirmGradientDialogState
                             ),
                             SizedBox(width: 41.px),
                             Expanded(
-                              child: MMiniGradientButton(
+                              child: MButtonMiniGradient(
                                 onPressed: () async {
                                   await mDismissSmartDialog(tag: widget.tag);
                                   await widget.onPressed();
@@ -406,7 +406,7 @@ class _MCustomGradientAlarmState extends State<MCustomGradientAlarm> {
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: 20.px),
-                        MMiniGradientButton(
+                        MButtonMiniGradient(
                           size: Size(235.px, 44.px),
                           onPressed: () async {
                             await mDismissSmartDialog(tag: widget.tag);

@@ -24,11 +24,11 @@ class MButtonGrey extends StatelessWidget {
   }
 }
 
-class MButtonMini extends StatelessWidget {
+class MButtonMini2 extends StatelessWidget {
   final String text;
   final void Function()? onTap;
 
-  const MButtonMini(this.text, {this.onTap, super.key});
+  const MButtonMini2(this.text, {this.onTap, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -249,7 +249,7 @@ class MOppositeColorMiniButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MMiniButton(
+    return MButtonMini1(
       buttonText: buttonText ?? '',
       size: size,
       onPressed: onPressed,
@@ -262,8 +262,8 @@ class MOppositeColorMiniButton extends StatelessWidget {
   }
 }
 
-class MMiniButton extends StatelessWidget {
-  const MMiniButton({
+class MButtonMini1 extends StatelessWidget {
+  const MButtonMini1({
     super.key,
     required this.onPressed,
     this.buttonText,
@@ -297,8 +297,8 @@ class MMiniButton extends StatelessWidget {
   }
 }
 
-class MMiniCancelButton extends StatelessWidget {
-  const MMiniCancelButton({
+class MButtonMiniCancel extends StatelessWidget {
+  const MButtonMiniCancel({
     super.key,
     required this.onPressed,
     this.buttonText,
@@ -329,8 +329,8 @@ class MMiniCancelButton extends StatelessWidget {
   }
 }
 
-class MMiniCancelGreyButton extends StatelessWidget {
-  const MMiniCancelGreyButton({
+class MButtonMiniCancelGrey extends StatelessWidget {
+  const MButtonMiniCancelGrey({
     super.key,
     required this.onPressed,
     this.buttonText,
@@ -361,8 +361,8 @@ class MMiniCancelGreyButton extends StatelessWidget {
   }
 }
 
-class MMiniGradientButton extends StatelessWidget {
-  const MMiniGradientButton({
+class MButtonMiniGradient extends StatelessWidget {
+  const MButtonMiniGradient({
     super.key,
     required this.onPressed,
     this.buttonText,
@@ -390,6 +390,25 @@ class MMiniGradientButton extends StatelessWidget {
       width: size?.width ?? MThemeConfig.miniButtonSizeInDialog.width,
       text: buttonText ?? 'Confirm'.tr,
       borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(27.px)),
+    );
+  }
+}
+
+class MButtonSoMiniGradient extends StatelessWidget {
+  const MButtonSoMiniGradient(
+      {required this.onPressed, this.buttonText = 'button', super.key});
+
+  final String buttonText;
+  final Future<void> Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return MButtonMiniGradient(
+      onPressed: onPressed,
+      buttonText: buttonText,
+      style: TextStyle(fontSize: 14.px, color: const Color(0xff020202)),
+      size: Size(55.px, 28.px),
+      borderRadius: BorderRadius.all(Radius.circular(4.px)),
     );
   }
 }
