@@ -69,7 +69,7 @@ class _MTextState extends ModifierState<MText> with ObxImplementation {
     String text = widget.data ?? widget.modifier?.valueData ?? "";
     if (widget.modifier?.valueMaxLength != null &&
         text.length > widget.modifier!.valueMaxLength!) {
-      text = text.substring(0, widget.modifier!.valueMaxLength!);
+      text = text.substring(0, widget.modifier!.valueMaxLength!) + '...';
     }
     final useStyle = widget.modifier?.valueStyle ?? TextStyle();
     final useValueSelectable = widget.modifier?.valueSelectable ?? false;
