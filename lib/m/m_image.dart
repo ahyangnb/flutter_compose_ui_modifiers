@@ -517,6 +517,7 @@ extension MImageModifierPropertys on DefineMImageModifier {
       valueHeight: size,
       valueBorderRadius: BorderRadius.circular(radiusUse ??
           (size ?? math.max(this.valueWidth ?? 0, this.valueHeight ?? 0)) / 2),
+      valueFit: BoxFit.cover,
     );
   }
 
