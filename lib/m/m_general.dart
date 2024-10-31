@@ -251,6 +251,15 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
       );
     }
 
+    /// Double border radius clip can really makes ui perfect.
+    if (generalModifier?.valueBorderRadius != null &&
+        ignoreList.contains(IgnoreModifierInGeneral.borderRadius).not()) {
+      child = ClipRRect(
+        borderRadius: generalModifier!.valueBorderRadius!,
+        child: child,
+      );
+    }
+
     if (generalModifier?.valueOutSideAlignment != null) {
       child = Container(
         alignment: generalModifier?.valueOutSideAlignment,
