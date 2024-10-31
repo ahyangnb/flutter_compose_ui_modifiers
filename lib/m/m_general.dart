@@ -88,6 +88,7 @@ class MGeneralModifier {
   /// Other
   final SafeArea? valueSafeArea;
   final bool? valueVisible;
+  final int? valueTabLength;
 
   /// Only refresh `builder` content.
   final Rx<dynamic>? valueObxListener;
@@ -156,6 +157,7 @@ class MGeneralModifier {
     /// Other
     this.valueSafeArea,
     this.valueVisible,
+    this.valueTabLength,
     this.valueObxListener,
   });
 }
@@ -410,6 +412,11 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
             : CrossFadeState.showSecond,
         duration: Duration(milliseconds: 300),
       );
+    }
+
+    if (generalModifier?.valueTabLength != null) {
+      child = DefaultTabController(
+          length: generalModifier!.valueTabLength!, child: child);
     }
 
     /// Must use it in last one.
