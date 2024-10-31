@@ -276,3 +276,15 @@ extension WidgetMultiple on Widget {
 double paddingTop() => Get.mediaQuery.padding.top;
 
 double paddingBottom() => Get.mediaQuery.padding.bottom;
+
+double paTop() => Get.mediaQuery.padding.top;
+
+double pdBottom() => Get.mediaQuery.padding.bottom;
+
+double screenHeight() => Get.height;
+
+double scHeight() => Get.height;
+
+double screenWidth() => Get.width;
+
+double scWidth() => Get.width;
