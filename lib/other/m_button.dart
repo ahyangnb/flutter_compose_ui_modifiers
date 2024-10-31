@@ -174,7 +174,7 @@ class MCommonConfirmButton extends StatelessWidget {
             : buttonColor ?? MThemeConfig.assistantColor,
         borderRadius = borderRadius ?? MThemeConfig.buttonBorderRadius8;
   final String buttonText;
-  final Future<void> Function() onPressed;
+  final Future<void> Function()? onPressed;
   final Color? buttonColor;
   final Color textColor;
   final Size? size;
@@ -217,7 +217,9 @@ class MCommonConfirmButton extends StatelessWidget {
         elevation: MaterialStateProperty.all(0),
       ),
       onPressed: () async {
-        await onPressed();
+        if (onPressed != null) {
+          await onPressed!();
+        }
       },
       child: buttonColor != null
           ? container
@@ -243,7 +245,7 @@ class MOppositeColorMiniButton extends StatelessWidget {
     this.size,
   });
 
-  final Future<void> Function() onPressed;
+  final Future<void> Function()? onPressed;
   final String? buttonText;
   final Size? size;
 
@@ -273,7 +275,7 @@ class MButtonMini1 extends StatelessWidget {
     this.borderRadius,
   });
 
-  final Future<void> Function() onPressed;
+  final Future<void> Function()? onPressed;
   final String? buttonText;
   final Color? buttonColor;
   final TextStyle? style;
@@ -307,7 +309,7 @@ class MButtonMiniCancel extends StatelessWidget {
     this.fontSize,
   });
 
-  final Future<void> Function() onPressed;
+  final Future<void> Function()? onPressed;
   final String? buttonText;
   final Color? buttonColor;
   final Size? size;
@@ -339,7 +341,7 @@ class MButtonMiniCancelGrey extends StatelessWidget {
     this.fontSize,
   });
 
-  final Future<void> Function() onPressed;
+  final Future<void> Function()? onPressed;
   final String? buttonText;
   final Color? buttonColor;
   final Size? size;
@@ -371,7 +373,7 @@ class MButtonMiniGradient extends StatelessWidget {
     this.borderRadius,
   });
 
-  final Future<void> Function() onPressed;
+  final Future<void> Function()? onPressed;
   final String? buttonText;
   final TextStyle? style;
   final Size? size;
@@ -399,7 +401,7 @@ class MButtonSoMiniGradient extends StatelessWidget {
       {required this.onPressed, this.buttonText = 'button', super.key});
 
   final String buttonText;
-  final Future<void> Function() onPressed;
+  final Future<void> Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
