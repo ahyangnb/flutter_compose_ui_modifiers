@@ -371,6 +371,8 @@ class MButtonMiniGradient extends StatelessWidget {
     this.style,
     this.size,
     this.borderRadius,
+    this.backgroundGradient,
+    this.backgroundColor,
   });
 
   final Future<void> Function()? onPressed;
@@ -378,11 +380,15 @@ class MButtonMiniGradient extends StatelessWidget {
   final TextStyle? style;
   final Size? size;
   final BorderRadius? borderRadius;
+  final Gradient? backgroundGradient;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return MButton(
-      backgroundGradient: MThemeConfig.primaryGradient,
+      backgroundGradient: backgroundGradient ??
+          (backgroundColor == null ? MThemeConfig.primaryGradient : null),
+      backgroundColor: backgroundColor,
       textStyle: style ??
           TextStyle(
               color: Colors.white,
@@ -398,10 +404,16 @@ class MButtonMiniGradient extends StatelessWidget {
 
 class MButtonSoMiniGradient extends StatelessWidget {
   const MButtonSoMiniGradient(
-      {required this.onPressed, this.buttonText = 'button', super.key});
+      {required this.onPressed,
+      this.buttonText = 'button',
+      this.backgroundGradient,
+      this.backgroundColor,
+      super.key});
 
   final String buttonText;
   final Future<void> Function()? onPressed;
+  final Gradient? backgroundGradient;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -410,6 +422,8 @@ class MButtonSoMiniGradient extends StatelessWidget {
       buttonText: buttonText,
       style: TextStyle(fontSize: 14.px, color: const Color(0xff020202)),
       size: Size(55.px, 28.px),
+      backgroundGradient: backgroundGradient,
+      backgroundColor: backgroundColor,
       borderRadius: BorderRadius.all(Radius.circular(4.px)),
     );
   }
