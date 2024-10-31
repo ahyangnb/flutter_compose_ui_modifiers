@@ -272,3 +272,7 @@ extension WidgetMultiple on Widget {
     return result;
   }
 }
+
+double paddingTop() => Get.mediaQuery.padding.top;
+
+double paddingBottom() => Get.mediaQuery.padding.bottom;
