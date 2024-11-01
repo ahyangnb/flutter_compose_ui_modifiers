@@ -385,28 +385,6 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
       child = Center(child: child);
     }
 
-    if (generalModifier?.valueGravity != null &&
-        generalModifier!.valueGravity!.isVertical) {
-      final gravityValue =
-          generalModifier!.valueGravity == MGravity.centerVertical
-              ? MainAxisAlignment.center
-              : generalModifier!.valueGravity == MGravity.top
-                  ? MainAxisAlignment.start
-                  : MainAxisAlignment.end;
-      child = Column(mainAxisAlignment: gravityValue, children: [child]);
-    }
-
-    if (generalModifier?.valueGravity != null &&
-        generalModifier!.valueGravity!.isVertical.not()) {
-      final gravityValue =
-          generalModifier!.valueGravity == MGravity.centerHorizontal
-              ? MainAxisAlignment.center
-              : generalModifier!.valueGravity == MGravity.left
-                  ? MainAxisAlignment.start
-                  : MainAxisAlignment.end;
-      child = Row(mainAxisAlignment: gravityValue, children: [child]);
-    }
-
     if (generalModifier?.valueDragOutToStatusBar != null) {
       if (generalModifier?.valueHeight == null) {
         throw Exception("generalModifier?.valueHeight must not be null.");
@@ -470,6 +448,27 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
           child: child,
         );
       }
+    }
+    if (generalModifier?.valueGravity != null &&
+        generalModifier!.valueGravity!.isVertical) {
+      final gravityValue =
+          generalModifier!.valueGravity == MGravity.centerVertical
+              ? MainAxisAlignment.center
+              : generalModifier!.valueGravity == MGravity.top
+                  ? MainAxisAlignment.start
+                  : MainAxisAlignment.end;
+      child = Column(mainAxisAlignment: gravityValue, children: [child]);
+    }
+
+    if (generalModifier?.valueGravity != null &&
+        generalModifier!.valueGravity!.isVertical.not()) {
+      final gravityValue =
+          generalModifier!.valueGravity == MGravity.centerHorizontal
+              ? MainAxisAlignment.center
+              : generalModifier!.valueGravity == MGravity.left
+                  ? MainAxisAlignment.start
+                  : MainAxisAlignment.end;
+      child = Row(mainAxisAlignment: gravityValue, children: [child]);
     }
 
     /// Must use it in last one.
