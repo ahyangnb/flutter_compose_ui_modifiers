@@ -13,11 +13,11 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   }) {
     return this.copyWith(
         valueShadow: BoxShadow(
-      offset: offset,
-      blurRadius: blurRadius,
-      spreadRadius: spreadRadius,
-      color: color,
-    ));
+          offset: offset,
+          blurRadius: blurRadius,
+          spreadRadius: spreadRadius,
+          color: color,
+        ));
   }
 
   DefineMTextFieldModifier shadowDef({Color? color}) {
@@ -140,7 +140,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier paddingContainerBottom(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -153,7 +153,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
-          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -315,7 +315,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier borderBottom({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
     );
@@ -323,7 +323,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier borderTop({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(top: borderSide),
     );
@@ -331,7 +331,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier borderLeft({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(left: borderSide),
     );
@@ -339,7 +339,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier borderRight({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(right: borderSide),
     );
@@ -357,7 +357,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier borderColor(Color value) {
     return this.copyWith(
         valueBorder:
-            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+        Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMTextFieldModifier borderColorHex(int value) {
@@ -395,11 +395,11 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [(color ?? Colors.blue), Colors.white],
-      stops: [0, 0.3],
-    ));
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [(color ?? Colors.blue), Colors.white],
+          stops: [0, 0.3],
+        ));
   }
 
   DefineMTextFieldModifier top(double? value) {
@@ -476,8 +476,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         topRight: Radius.circular(value),
       ),
@@ -487,8 +487,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier radiusBottom(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -498,8 +498,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier radiusLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         bottomLeft: Radius.circular(value),
       ),
@@ -509,8 +509,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier radiusRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -520,8 +520,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier radiusTopLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
       ),
     );
@@ -530,8 +530,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier radiusTopRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
       ),
     );
@@ -540,8 +540,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier radiusBottomLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
       ),
     );
@@ -550,8 +550,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   DefineMTextFieldModifier radiusBottomRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomRight: Radius.circular(value),
       ),
     );
@@ -686,7 +686,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   }) {
     return this.copyWith(
       valueGradientBorder:
-          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
       valueWidth: width,
     );
   }
@@ -803,7 +803,7 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -875,7 +875,7 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
-          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -1036,7 +1036,7 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier borderBottom({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
     );
@@ -1044,7 +1044,7 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier borderTop({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(top: borderSide),
     );
@@ -1052,7 +1052,7 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier borderLeft({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(left: borderSide),
     );
@@ -1060,7 +1060,7 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier borderRight({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(right: borderSide),
     );
@@ -1078,7 +1078,7 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier borderColor(Color value) {
     return this.copyWith(
         valueBorder:
-            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+        Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMTextModifier borderColorHex(int value) {
@@ -1116,11 +1116,11 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [(color ?? Colors.blue), Colors.white],
-      stops: [0, 0.3],
-    ));
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [(color ?? Colors.blue), Colors.white],
+          stops: [0, 0.3],
+        ));
   }
 
   DefineMTextModifier top(double? value) {
@@ -1197,8 +1197,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         topRight: Radius.circular(value),
       ),
@@ -1208,8 +1208,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier radiusBottom(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -1219,8 +1219,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier radiusLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         bottomLeft: Radius.circular(value),
       ),
@@ -1230,8 +1230,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier radiusRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -1241,8 +1241,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier radiusTopLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
       ),
     );
@@ -1251,8 +1251,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier radiusTopRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
       ),
     );
@@ -1261,8 +1261,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier radiusBottomLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
       ),
     );
@@ -1271,8 +1271,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   DefineMTextModifier radiusBottomRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomRight: Radius.circular(value),
       ),
     );
@@ -1407,7 +1407,7 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   }) {
     return this.copyWith(
       valueGradientBorder:
-          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
       valueWidth: width,
     );
   }
@@ -1523,11 +1523,11 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   }) {
     return this.copyWith(
         valueShadow: BoxShadow(
-      offset: offset,
-      blurRadius: blurRadius,
-      spreadRadius: spreadRadius,
-      color: color,
-    ));
+          offset: offset,
+          blurRadius: blurRadius,
+          spreadRadius: spreadRadius,
+          color: color,
+        ));
   }
 
   DefineMRowModifier shadowDef({Color? color}) {
@@ -1618,7 +1618,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier setPaddingLeft(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(left: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(left: value),
     );
   }
 
@@ -1629,7 +1629,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier setPaddingRight(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(right: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(right: value),
     );
   }
 
@@ -1675,7 +1675,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -1688,7 +1688,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
-          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -1849,7 +1849,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier borderBottom({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
     );
@@ -1857,7 +1857,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier borderTop({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(top: borderSide),
     );
@@ -1865,7 +1865,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier borderLeft({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(left: borderSide),
     );
@@ -1873,7 +1873,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier borderRight({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(right: borderSide),
     );
@@ -1891,7 +1891,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier borderColor(Color value) {
     return this.copyWith(
         valueBorder:
-            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+        Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMRowModifier borderColorHex(int value) {
@@ -1929,11 +1929,11 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [(color ?? Colors.blue), Colors.white],
-      stops: [0, 0.3],
-    ));
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [(color ?? Colors.blue), Colors.white],
+          stops: [0, 0.3],
+        ));
   }
 
   DefineMRowModifier top(double? value) {
@@ -2010,8 +2010,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         topRight: Radius.circular(value),
       ),
@@ -2021,8 +2021,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier radiusBottom(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -2032,8 +2032,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier radiusLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         bottomLeft: Radius.circular(value),
       ),
@@ -2043,8 +2043,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier radiusRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -2054,8 +2054,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier radiusTopLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
       ),
     );
@@ -2064,8 +2064,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier radiusTopRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
       ),
     );
@@ -2074,8 +2074,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier radiusBottomLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
       ),
     );
@@ -2084,8 +2084,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   DefineMRowModifier radiusBottomRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomRight: Radius.circular(value),
       ),
     );
@@ -2220,7 +2220,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   }) {
     return this.copyWith(
       valueGradientBorder:
-          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
       valueWidth: width,
     );
   }
@@ -2399,7 +2399,7 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier setPaddingLeft(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(left: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(left: value),
     );
   }
 
@@ -2410,14 +2410,14 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier setPaddingRight(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(right: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(right: value),
     );
   }
 
   DefineMListViewModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -2429,7 +2429,7 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier borderBottom({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
     );
@@ -2437,7 +2437,7 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier borderTop({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(top: borderSide),
     );
@@ -2445,7 +2445,7 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier borderLeft({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(left: borderSide),
     );
@@ -2453,7 +2453,7 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier borderRight({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(right: borderSide),
     );
@@ -2471,7 +2471,7 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier borderColor(Color value) {
     return this.copyWith(
         valueBorder:
-            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+        Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMListViewModifier borderColorHex(int value) {
@@ -2509,11 +2509,11 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [(color ?? Colors.blue), Colors.white],
-      stops: [0, 0.3],
-    ));
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [(color ?? Colors.blue), Colors.white],
+          stops: [0, 0.3],
+        ));
   }
 
   DefineMListViewModifier top(double? value) {
@@ -2590,8 +2590,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         topRight: Radius.circular(value),
       ),
@@ -2601,8 +2601,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier radiusBottom(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -2612,8 +2612,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier radiusLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         bottomLeft: Radius.circular(value),
       ),
@@ -2623,8 +2623,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier radiusRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -2634,8 +2634,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier radiusTopLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
       ),
     );
@@ -2644,8 +2644,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier radiusTopRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
       ),
     );
@@ -2654,8 +2654,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier radiusBottomLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
       ),
     );
@@ -2664,8 +2664,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier radiusBottomRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomRight: Radius.circular(value),
       ),
     );
@@ -2800,7 +2800,7 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   }) {
     return this.copyWith(
       valueGradientBorder:
-          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
       valueWidth: width,
     );
   }
@@ -2910,11 +2910,11 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   }) {
     return this.copyWith(
         valueShadow: BoxShadow(
-      offset: offset,
-      blurRadius: blurRadius,
-      spreadRadius: spreadRadius,
-      color: color,
-    ));
+          offset: offset,
+          blurRadius: blurRadius,
+          spreadRadius: spreadRadius,
+          color: color,
+        ));
   }
 
   DefineMListViewModifier shadowDef({Color? color}) {
@@ -2979,7 +2979,7 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   DefineMListViewModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
-          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -3143,11 +3143,11 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   }) {
     return this.copyWith(
         valueShadow: BoxShadow(
-      offset: offset,
-      blurRadius: blurRadius,
-      spreadRadius: spreadRadius,
-      color: color,
-    ));
+          offset: offset,
+          blurRadius: blurRadius,
+          spreadRadius: spreadRadius,
+          color: color,
+        ));
   }
 
   DefineMColumnModifier shadowDef({Color? color}) {
@@ -3270,7 +3270,7 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -3283,7 +3283,7 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
-          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -3445,7 +3445,7 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier borderBottom({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
     );
@@ -3453,7 +3453,7 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier borderTop({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(top: borderSide),
     );
@@ -3461,7 +3461,7 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier borderLeft({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(left: borderSide),
     );
@@ -3469,7 +3469,7 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier borderRight({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(right: borderSide),
     );
@@ -3487,7 +3487,7 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier borderColor(Color value) {
     return this.copyWith(
         valueBorder:
-            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+        Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMColumnModifier borderColorHex(int value) {
@@ -3525,11 +3525,11 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [(color ?? Colors.blue), Colors.white],
-      stops: [0, 0.3],
-    ));
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [(color ?? Colors.blue), Colors.white],
+          stops: [0, 0.3],
+        ));
   }
 
   DefineMColumnModifier top(double? value) {
@@ -3599,6 +3599,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
 
+  DefineMColumnModifier radiusAll(double value) {
+    return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
+  }
+
   DefineMColumnModifier corner(double value) {
     return this.copyWith(valueBorderRadius: BorderRadius.circular(value));
   }
@@ -3606,8 +3610,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         topRight: Radius.circular(value),
       ),
@@ -3617,8 +3621,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier radiusBottom(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -3628,8 +3632,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier radiusLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         bottomLeft: Radius.circular(value),
       ),
@@ -3639,8 +3643,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier radiusRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -3650,8 +3654,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier radiusTopLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
       ),
     );
@@ -3660,8 +3664,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier radiusTopRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
       ),
     );
@@ -3670,8 +3674,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier radiusBottomLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
       ),
     );
@@ -3680,8 +3684,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   DefineMColumnModifier radiusBottomRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomRight: Radius.circular(value),
       ),
     );
@@ -3816,7 +3820,7 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   }) {
     return this.copyWith(
       valueGradientBorder:
-          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
       valueWidth: width,
     );
   }
@@ -3936,11 +3940,11 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   }) {
     return this.copyWith(
         valueShadow: BoxShadow(
-      offset: offset,
-      blurRadius: blurRadius,
-      spreadRadius: spreadRadius,
-      color: color,
-    ));
+          offset: offset,
+          blurRadius: blurRadius,
+          spreadRadius: spreadRadius,
+          color: color,
+        ));
   }
 
   DefineMAddButtonModifier shadowDef({Color? color}) {
@@ -4063,7 +4067,7 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -4076,7 +4080,7 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
-          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -4238,7 +4242,7 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier borderBottom({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
     );
@@ -4246,7 +4250,7 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier borderTop({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(top: borderSide),
     );
@@ -4254,7 +4258,7 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier borderLeft({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(left: borderSide),
     );
@@ -4262,7 +4266,7 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier borderRight({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(right: borderSide),
     );
@@ -4280,7 +4284,7 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier borderColor(Color value) {
     return this.copyWith(
         valueBorder:
-            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+        Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMAddButtonModifier borderColorHex(int value) {
@@ -4318,11 +4322,11 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [(color ?? Colors.blue), Colors.white],
-      stops: [0, 0.3],
-    ));
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [(color ?? Colors.blue), Colors.white],
+          stops: [0, 0.3],
+        ));
   }
 
   DefineMAddButtonModifier top(double? value) {
@@ -4399,8 +4403,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         topRight: Radius.circular(value),
       ),
@@ -4410,8 +4414,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier radiusBottom(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -4421,8 +4425,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier radiusLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         bottomLeft: Radius.circular(value),
       ),
@@ -4432,8 +4436,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier radiusRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -4443,8 +4447,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier radiusTopLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
       ),
     );
@@ -4453,8 +4457,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier radiusTopRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
       ),
     );
@@ -4463,8 +4467,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier radiusBottomLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
       ),
     );
@@ -4473,8 +4477,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   DefineMAddButtonModifier radiusBottomRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomRight: Radius.circular(value),
       ),
     );
@@ -4609,7 +4613,7 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   }) {
     return this.copyWith(
       valueGradientBorder:
-          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
       valueWidth: width,
     );
   }
@@ -4725,11 +4729,11 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   }) {
     return this.copyWith(
         valueShadow: BoxShadow(
-      offset: offset,
-      blurRadius: blurRadius,
-      spreadRadius: spreadRadius,
-      color: color,
-    ));
+          offset: offset,
+          blurRadius: blurRadius,
+          spreadRadius: spreadRadius,
+          color: color,
+        ));
   }
 
   DefineMStackModifier shadowDef({Color? color}) {
@@ -4852,7 +4856,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -4865,7 +4869,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
-          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -5026,7 +5030,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier borderBottom({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
     );
@@ -5034,7 +5038,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier borderTop({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(top: borderSide),
     );
@@ -5042,7 +5046,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier borderLeft({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(left: borderSide),
     );
@@ -5050,7 +5054,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier borderRight({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(right: borderSide),
     );
@@ -5068,7 +5072,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier borderColor(Color value) {
     return this.copyWith(
         valueBorder:
-            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+        Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMStackModifier borderColorHex(int value) {
@@ -5106,11 +5110,11 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [(color ?? Colors.blue), Colors.white],
-      stops: [0, 0.3],
-    ));
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [(color ?? Colors.blue), Colors.white],
+          stops: [0, 0.3],
+        ));
   }
 
   DefineMStackModifier top(double? value) {
@@ -5187,8 +5191,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         topRight: Radius.circular(value),
       ),
@@ -5198,8 +5202,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier radiusBottom(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -5209,8 +5213,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier radiusLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         bottomLeft: Radius.circular(value),
       ),
@@ -5220,8 +5224,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier radiusRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -5231,8 +5235,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier radiusTopLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
       ),
     );
@@ -5241,8 +5245,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier radiusTopRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
       ),
     );
@@ -5251,8 +5255,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier radiusBottomLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
       ),
     );
@@ -5261,8 +5265,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   DefineMStackModifier radiusBottomRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomRight: Radius.circular(value),
       ),
     );
@@ -5397,7 +5401,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   }) {
     return this.copyWith(
       valueGradientBorder:
-          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
       valueWidth: width,
     );
   }
@@ -5513,11 +5517,11 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   }) {
     return this.copyWith(
         valueShadow: BoxShadow(
-      offset: offset,
-      blurRadius: blurRadius,
-      spreadRadius: spreadRadius,
-      color: color,
-    ));
+          offset: offset,
+          blurRadius: blurRadius,
+          spreadRadius: spreadRadius,
+          color: color,
+        ));
   }
 
   DefineMImageModifier shadowDef({Color? color}) {
@@ -5640,7 +5644,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -5653,7 +5657,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
-          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -5818,7 +5822,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier borderBottom({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
     );
@@ -5826,7 +5830,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier borderTop({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(top: borderSide),
     );
@@ -5834,7 +5838,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier borderLeft({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(left: borderSide),
     );
@@ -5842,7 +5846,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier borderRight({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(right: borderSide),
     );
@@ -5860,7 +5864,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier borderColor(Color value) {
     return this.copyWith(
         valueBorder:
-            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+        Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMImageModifier borderColorHex(int value) {
@@ -5898,11 +5902,11 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [(color ?? Colors.blue), Colors.white],
-      stops: [0, 0.3],
-    ));
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [(color ?? Colors.blue), Colors.white],
+          stops: [0, 0.3],
+        ));
   }
 
   DefineMImageModifier top(double? value) {
@@ -5979,8 +5983,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         topRight: Radius.circular(value),
       ),
@@ -5990,8 +5994,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier radiusBottom(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -6001,8 +6005,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier radiusLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         bottomLeft: Radius.circular(value),
       ),
@@ -6012,8 +6016,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier radiusRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -6023,8 +6027,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier radiusTopLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
       ),
     );
@@ -6033,8 +6037,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier radiusTopRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
       ),
     );
@@ -6043,8 +6047,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier radiusBottomLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
       ),
     );
@@ -6053,8 +6057,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   DefineMImageModifier radiusBottomRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomRight: Radius.circular(value),
       ),
     );
@@ -6189,7 +6193,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   }) {
     return this.copyWith(
       valueGradientBorder:
-          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
       valueWidth: width,
     );
   }
@@ -6305,11 +6309,11 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   }) {
     return this.copyWith(
         valueShadow: BoxShadow(
-      offset: offset,
-      blurRadius: blurRadius,
-      spreadRadius: spreadRadius,
-      color: color,
-    ));
+          offset: offset,
+          blurRadius: blurRadius,
+          spreadRadius: spreadRadius,
+          color: color,
+        ));
   }
 
   DefineMTileModifier shadowDef({Color? color}) {
@@ -6431,7 +6435,7 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -6444,7 +6448,7 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
-          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -6605,7 +6609,7 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier borderBottom({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
     );
@@ -6613,7 +6617,7 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier borderTop({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(top: borderSide),
     );
@@ -6621,7 +6625,7 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier borderLeft({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(left: borderSide),
     );
@@ -6629,7 +6633,7 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier borderRight({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(right: borderSide),
     );
@@ -6647,7 +6651,7 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier borderColor(Color value) {
     return this.copyWith(
         valueBorder:
-            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+        Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMTileModifier borderColorHex(int value) {
@@ -6685,11 +6689,11 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [(color ?? Colors.blue), Colors.white],
-      stops: [0, 0.3],
-    ));
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [(color ?? Colors.blue), Colors.white],
+          stops: [0, 0.3],
+        ));
   }
 
   DefineMTileModifier top(double? value) {
@@ -6766,8 +6770,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         topRight: Radius.circular(value),
       ),
@@ -6777,8 +6781,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier radiusBottom(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -6788,8 +6792,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier radiusLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         bottomLeft: Radius.circular(value),
       ),
@@ -6799,8 +6803,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier radiusRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -6810,8 +6814,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier radiusTopLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
       ),
     );
@@ -6820,8 +6824,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier radiusTopRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
       ),
     );
@@ -6830,8 +6834,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier radiusBottomLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
       ),
     );
@@ -6840,8 +6844,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   DefineMTileModifier radiusBottomRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomRight: Radius.circular(value),
       ),
     );
@@ -6976,7 +6980,7 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   }) {
     return this.copyWith(
       valueGradientBorder:
-          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
       valueWidth: width,
     );
   }
@@ -7092,11 +7096,11 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   }) {
     return this.copyWith(
         valueShadow: BoxShadow(
-      offset: offset,
-      blurRadius: blurRadius,
-      spreadRadius: spreadRadius,
-      color: color,
-    ));
+          offset: offset,
+          blurRadius: blurRadius,
+          spreadRadius: spreadRadius,
+          color: color,
+        ));
   }
 
   DefineMContainerModifier shadowDef({Color? color}) {
@@ -7161,7 +7165,7 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier paddingBottom(double value) {
     return this.copyWith(
       valuePadding:
-          (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valuePadding ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -7234,7 +7238,7 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier marginBottom(double value) {
     return this.copyWith(
       valueMargin:
-          (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
+      (this.valueMargin ?? EdgeInsets.zero).copyWith(bottom: value),
     );
   }
 
@@ -7400,7 +7404,7 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier borderBottom({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
     );
@@ -7408,7 +7412,7 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier borderTop({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(top: borderSide),
     );
@@ -7416,7 +7420,7 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier borderLeft({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(left: borderSide),
     );
@@ -7424,7 +7428,7 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier borderRight({Color? color, double? width}) {
     final borderSide =
-        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(right: borderSide),
     );
@@ -7442,7 +7446,7 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier borderColor(Color value) {
     return this.copyWith(
         valueBorder:
-            Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
+        Border.all(color: value, width: this.valueBorder?.left.width ?? 1));
   }
 
   DefineMContainerModifier borderColorHex(int value) {
@@ -7472,11 +7476,11 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [(color ?? Colors.blue), Colors.white],
-      stops: [0, 0.3],
-    ));
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [(color ?? Colors.blue), Colors.white],
+          stops: [0, 0.3],
+        ));
   }
 
   DefineMContainerModifier top(double? value) {
@@ -7553,8 +7557,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier radiusTop(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         topRight: Radius.circular(value),
       ),
@@ -7564,8 +7568,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier radiusBottom(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -7575,8 +7579,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier radiusLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
         bottomLeft: Radius.circular(value),
       ),
@@ -7586,8 +7590,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier radiusRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
         bottomRight: Radius.circular(value),
       ),
@@ -7597,8 +7601,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier radiusTopLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topLeft: Radius.circular(value),
       ),
     );
@@ -7607,8 +7611,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier radiusTopRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         topRight: Radius.circular(value),
       ),
     );
@@ -7617,8 +7621,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier radiusBottomLeft(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomLeft: Radius.circular(value),
       ),
     );
@@ -7627,8 +7631,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   DefineMContainerModifier radiusBottomRight(double value) {
     return this.copyWith(
       valueBorderRadius:
-          ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
-              .copyWith(
+      ((this.valueBorderRadius as BorderRadius?) ?? BorderRadius.zero)
+          .copyWith(
         bottomRight: Radius.circular(value),
       ),
     );
@@ -7763,7 +7767,7 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   }) {
     return this.copyWith(
       valueGradientBorder:
-          value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
+      value ?? LinearGradient(colors: [Colors.red, Colors.blue]),
       valueWidth: width,
     );
   }

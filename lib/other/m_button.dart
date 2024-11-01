@@ -451,3 +451,56 @@ class MButtonSoMiniGradient extends StatelessWidget {
     );
   }
 }
+
+class MButtonGradientBig extends StatelessWidget {
+  final void Function()? onTap;
+  final String? text;
+  final double? width;
+  final double? height;
+  final TextStyle? textStyle;
+  final EdgeInsetsGeometry? padding;
+  final BorderRadiusGeometry? borderRadius;
+  final Color? backgroundColor;
+  final Gradient? backgroundGradient;
+  final Widget? child;
+  final List<BoxShadow>? boxShadow;
+  final Border? border;
+  final Color? disabledBackgroundColor;
+
+  MButtonGradientBig({
+    this.onTap,
+    this.text,
+    this.width,
+    this.height,
+    this.textStyle,
+    this.padding,
+    this.borderRadius,
+    this.backgroundColor,
+    this.backgroundGradient,
+    this.child,
+    this.boxShadow,
+    this.border,
+    this.disabledBackgroundColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return MButton(
+      backgroundGradient: backgroundGradient ??
+          (backgroundColor == null ? MThemeConfig.gradientMain : null),
+      width: width ?? double.infinity,
+      height: height ?? 48.px,
+      borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(4.px)),
+      onTap: onTap,
+      text: text ?? 'Button',
+      textStyle:
+          textStyle ?? TextStyle(color: Color(0xff020202), fontSize: 18.px),
+      disabledBackgroundColor: disabledBackgroundColor,
+      border: border,
+      boxShadow: boxShadow,
+      child: child,
+      backgroundColor: backgroundColor,
+      padding: padding,
+    );
+  }
+}
