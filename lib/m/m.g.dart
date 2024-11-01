@@ -851,6 +851,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueGravity: MGravity.centerVertical);
   }
 
+  DefineMTextFieldModifier gravityCenterHorizontal() {
+    return this.copyWith(valueGravity: MGravity.centerHorizontal);
+  }
+
   DefineMTextFieldModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
   }
@@ -1829,6 +1833,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier gravityCenterVertical() {
     return this.copyWith(valueGravity: MGravity.centerVertical);
+  }
+
+  DefineMTextModifier gravityCenterHorizontal() {
+    return this.copyWith(valueGravity: MGravity.centerHorizontal);
   }
 
   DefineMTextModifier gravity(MGravity value) {
@@ -2903,6 +2911,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueGravity: MGravity.centerVertical);
   }
 
+  DefineMRowModifier gravityCenterHorizontal() {
+    return this.copyWith(valueGravity: MGravity.centerHorizontal);
+  }
+
   DefineMRowModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
   }
@@ -3696,6 +3708,10 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier gravityCenterVertical() {
     return this.copyWith(valueGravity: MGravity.centerVertical);
+  }
+
+  DefineMListViewModifier gravityCenterHorizontal() {
+    return this.copyWith(valueGravity: MGravity.centerHorizontal);
   }
 
   DefineMListViewModifier gravity(MGravity value) {
@@ -5022,6 +5038,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueGravity: MGravity.centerVertical);
   }
 
+  DefineMColumnModifier gravityCenterHorizontal() {
+    return this.copyWith(valueGravity: MGravity.centerHorizontal);
+  }
+
   DefineMColumnModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
   }
@@ -6076,6 +6096,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueGravity: MGravity.centerVertical);
   }
 
+  DefineMAddButtonModifier gravityCenterHorizontal() {
+    return this.copyWith(valueGravity: MGravity.centerHorizontal);
+  }
+
   DefineMAddButtonModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
   }
@@ -7121,6 +7145,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier gravityCenterVertical() {
     return this.copyWith(valueGravity: MGravity.centerVertical);
+  }
+
+  DefineMStackModifier gravityCenterHorizontal() {
+    return this.copyWith(valueGravity: MGravity.centerHorizontal);
   }
 
   DefineMStackModifier gravity(MGravity value) {
@@ -8174,6 +8202,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueGravity: MGravity.centerVertical);
   }
 
+  DefineMImageModifier gravityCenterHorizontal() {
+    return this.copyWith(valueGravity: MGravity.centerHorizontal);
+  }
+
   DefineMImageModifier gravity(MGravity value) {
     return this.copyWith(valueGravity: value);
   }
@@ -9218,6 +9250,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier gravityCenterVertical() {
     return this.copyWith(valueGravity: MGravity.centerVertical);
+  }
+
+  DefineMTileModifier gravityCenterHorizontal() {
+    return this.copyWith(valueGravity: MGravity.centerHorizontal);
   }
 
   DefineMTileModifier gravity(MGravity value) {
@@ -10266,6 +10302,10 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier gravityCenterVertical() {
     return this.copyWith(valueGravity: MGravity.centerVertical);
+  }
+
+  DefineMContainerModifier gravityCenterHorizontal() {
+    return this.copyWith(valueGravity: MGravity.centerHorizontal);
   }
 
   DefineMContainerModifier gravity(MGravity value) {
