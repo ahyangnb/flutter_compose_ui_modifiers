@@ -73,8 +73,9 @@ class MGeneralModifier {
   final AlignmentGeometry? valueContainerAlignment;
   final AlignmentGeometry? valueOutSideAlignment;
   final bool? valueCancelFocusWhenClick;
-  final Color? valueOutSideBackgroundColor;
-  final BorderRadiusGeometry? valueOutSideBorderRadius;
+  final Color? valueOutsideBackgroundColor;
+  final BorderRadiusGeometry? valueOutsideBorderRadius;
+  final Border? valueOutsideBorder;
 
   // If it doesn't work, set the fullWidth or fullHeight.
   final Gradient? valueGradientBorder;
@@ -150,8 +151,9 @@ class MGeneralModifier {
     this.valueContainerAlignment,
     this.valueOutSideAlignment,
     this.valueCancelFocusWhenClick,
-    this.valueOutSideBackgroundColor,
-    this.valueOutSideBorderRadius,
+    this.valueOutsideBackgroundColor,
+    this.valueOutsideBorderRadius,
+    this.valueOutsideBorder,
 
     /// Use the Positioned widget.
     this.valueLeft,
@@ -451,18 +453,20 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
           length: generalModifier!.valueTabLength!, child: child);
     }
 
-    if (generalModifier?.valueOutSideBackgroundColor != null ||
-        generalModifier?.valueOutSideBorderRadius != null) {
+    if (generalModifier?.valueOutsideBackgroundColor != null ||
+        generalModifier?.valueOutsideBorderRadius != null ||
+        generalModifier?.valueOutsideBorder != null) {
       child = Container(
         decoration: BoxDecoration(
-          color: generalModifier?.valueOutSideBackgroundColor,
-          borderRadius: generalModifier?.valueOutSideBorderRadius,
+          color: generalModifier?.valueOutsideBackgroundColor,
+          borderRadius: generalModifier?.valueOutsideBorderRadius,
+          border: generalModifier?.valueOutsideBorder,
         ),
         child: child,
       );
-      if (generalModifier?.valueOutSideBorderRadius != null) {
+      if (generalModifier?.valueOutsideBorderRadius != null) {
         child = ClipRRect(
-          borderRadius: generalModifier!.valueOutSideBorderRadius!,
+          borderRadius: generalModifier!.valueOutsideBorderRadius!,
           child: child,
         );
       }

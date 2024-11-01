@@ -335,8 +335,8 @@ class DefineMImageModifier extends MGeneralModifier {
     super.valueVisible,
     super.valueTabLength,
     super.valueObxListener,
-    super.valueOutSideBackgroundColor,
-    super.valueOutSideBorderRadius,
+    super.valueOutsideBackgroundColor,
+    super.valueOutsideBorderRadius,
   });
 
   DefineMImageModifier copyWith({
@@ -415,8 +415,8 @@ class DefineMImageModifier extends MGeneralModifier {
     bool? valueVisible,
     int? valueTabLength,
     Rx<dynamic>? valueObxListener,
-    Color? valueOutSideBackgroundColor,
-    BorderRadiusGeometry? valueOutSideBorderRadius,
+    Color? valueOutsideBackgroundColor,
+    BorderRadiusGeometry? valueOutsideBorderRadius,
   }) {
     return DefineMImageModifier(
       valueFit: valueFit ?? this.valueFit,
@@ -504,10 +504,10 @@ class DefineMImageModifier extends MGeneralModifier {
       valueVisible: valueVisible ?? this.valueVisible,
       valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
-      valueOutSideBackgroundColor:
-          valueOutSideBackgroundColor ?? this.valueOutSideBackgroundColor,
-      valueOutSideBorderRadius:
-          valueOutSideBorderRadius ?? this.valueOutSideBorderRadius,
+      valueOutsideBackgroundColor:
+          valueOutsideBackgroundColor ?? this.valueOutsideBackgroundColor,
+      valueOutsideBorderRadius:
+          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius,
     );
   }
 }

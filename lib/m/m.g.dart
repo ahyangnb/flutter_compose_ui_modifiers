@@ -222,25 +222,25 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
   }
 
   DefineMTextFieldModifier outsideBackgroundColor(Color? value) {
-    return this.copyWith(valueOutSideBackgroundColor: value);
+    return this.copyWith(valueOutsideBackgroundColor: value);
   }
 
   DefineMTextFieldModifier outsideBackgroundColorHex(int value) {
-    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+    return this.copyWith(valueOutsideBackgroundColor: Color(value));
   }
 
   DefineMTextFieldModifier outsideBorderRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMTextFieldModifier outsideBorderRadiusSet(BorderRadius value) {
-    return this.copyWith(valueOutSideBorderRadius: value);
+    return this.copyWith(valueOutsideBorderRadius: value);
   }
 
   DefineMTextFieldModifier outsideBorderRadiusVertical(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.vertical(
+        valueOutsideBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
@@ -251,7 +251,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     double bottomRight = 0,
   }) {
     return this.copyWith(
-      valueOutSideBorderRadius: BorderRadius.only(
+      valueOutsideBorderRadius: BorderRadius.only(
         topLeft: Radius.circular(topLeft),
         topRight: Radius.circular(topRight),
         bottomLeft: Radius.circular(bottomLeft),
@@ -262,7 +262,7 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier outsideBorderRadiusHorizontal(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.horizontal(
+        valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
@@ -620,18 +620,18 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier outsideRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMTextFieldModifier outsideCorner(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMTextFieldModifier outsideRadiusTop(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -642,8 +642,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier outsideRadiusBottom(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -654,8 +654,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier outsideRadiusLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -666,8 +666,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier outsideRadiusRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -678,8 +678,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier outsideRadiusTopLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -689,8 +689,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier outsideRadiusTopRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -700,8 +700,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier outsideRadiusBottomLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -711,8 +711,8 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier outsideRadiusBottomRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomRight: Radius.circular(value),
@@ -1114,25 +1114,25 @@ extension MTextGeneralGenerator on DefineMTextModifier {
   }
 
   DefineMTextModifier outsideBackgroundColor(Color? value) {
-    return this.copyWith(valueOutSideBackgroundColor: value);
+    return this.copyWith(valueOutsideBackgroundColor: value);
   }
 
   DefineMTextModifier outsideBackgroundColorHex(int value) {
-    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+    return this.copyWith(valueOutsideBackgroundColor: Color(value));
   }
 
   DefineMTextModifier outsideBorderRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMTextModifier outsideBorderRadiusSet(BorderRadius value) {
-    return this.copyWith(valueOutSideBorderRadius: value);
+    return this.copyWith(valueOutsideBorderRadius: value);
   }
 
   DefineMTextModifier outsideBorderRadiusVertical(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.vertical(
+        valueOutsideBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
@@ -1143,7 +1143,7 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     double bottomRight = 0,
   }) {
     return this.copyWith(
-      valueOutSideBorderRadius: BorderRadius.only(
+      valueOutsideBorderRadius: BorderRadius.only(
         topLeft: Radius.circular(topLeft),
         topRight: Radius.circular(topRight),
         bottomLeft: Radius.circular(bottomLeft),
@@ -1154,7 +1154,7 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier outsideBorderRadiusHorizontal(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.horizontal(
+        valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
@@ -1512,18 +1512,18 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier outsideRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMTextModifier outsideCorner(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMTextModifier outsideRadiusTop(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -1534,8 +1534,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier outsideRadiusBottom(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -1546,8 +1546,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier outsideRadiusLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -1558,8 +1558,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier outsideRadiusRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -1570,8 +1570,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier outsideRadiusTopLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -1581,8 +1581,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier outsideRadiusTopRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -1592,8 +1592,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier outsideRadiusBottomLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -1603,8 +1603,8 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier outsideRadiusBottomRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomRight: Radius.circular(value),
@@ -2098,25 +2098,25 @@ extension MRowGeneralGenerator on DefineMRowModifier {
   }
 
   DefineMRowModifier outsideBackgroundColor(Color? value) {
-    return this.copyWith(valueOutSideBackgroundColor: value);
+    return this.copyWith(valueOutsideBackgroundColor: value);
   }
 
   DefineMRowModifier outsideBackgroundColorHex(int value) {
-    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+    return this.copyWith(valueOutsideBackgroundColor: Color(value));
   }
 
   DefineMRowModifier outsideBorderRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMRowModifier outsideBorderRadiusSet(BorderRadius value) {
-    return this.copyWith(valueOutSideBorderRadius: value);
+    return this.copyWith(valueOutsideBorderRadius: value);
   }
 
   DefineMRowModifier outsideBorderRadiusVertical(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.vertical(
+        valueOutsideBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
@@ -2127,7 +2127,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     double bottomRight = 0,
   }) {
     return this.copyWith(
-      valueOutSideBorderRadius: BorderRadius.only(
+      valueOutsideBorderRadius: BorderRadius.only(
         topLeft: Radius.circular(topLeft),
         topRight: Radius.circular(topRight),
         bottomLeft: Radius.circular(bottomLeft),
@@ -2138,7 +2138,7 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier outsideBorderRadiusHorizontal(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.horizontal(
+        valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
@@ -2496,18 +2496,18 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier outsideRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMRowModifier outsideCorner(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMRowModifier outsideRadiusTop(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -2518,8 +2518,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier outsideRadiusBottom(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -2530,8 +2530,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier outsideRadiusLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -2542,8 +2542,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier outsideRadiusRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -2554,8 +2554,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier outsideRadiusTopLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -2565,8 +2565,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier outsideRadiusTopRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -2576,8 +2576,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier outsideRadiusBottomLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -2587,8 +2587,8 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier outsideRadiusBottomRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomRight: Radius.circular(value),
@@ -3202,18 +3202,18 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier outsideRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMListViewModifier outsideCorner(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMListViewModifier outsideRadiusTop(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -3224,8 +3224,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier outsideRadiusBottom(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -3236,8 +3236,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier outsideRadiusLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -3248,8 +3248,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier outsideRadiusRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -3260,8 +3260,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier outsideRadiusTopLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -3271,8 +3271,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier outsideRadiusTopRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -3282,8 +3282,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier outsideRadiusBottomLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -3293,8 +3293,8 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier outsideRadiusBottomRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomRight: Radius.circular(value),
@@ -3687,25 +3687,25 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
   }
 
   DefineMListViewModifier outsideBackgroundColor(Color? value) {
-    return this.copyWith(valueOutSideBackgroundColor: value);
+    return this.copyWith(valueOutsideBackgroundColor: value);
   }
 
   DefineMListViewModifier outsideBackgroundColorHex(int value) {
-    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+    return this.copyWith(valueOutsideBackgroundColor: Color(value));
   }
 
   DefineMListViewModifier outsideBorderRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMListViewModifier outsideBorderRadiusSet(BorderRadius value) {
-    return this.copyWith(valueOutSideBorderRadius: value);
+    return this.copyWith(valueOutsideBorderRadius: value);
   }
 
   DefineMListViewModifier outsideBorderRadiusVertical(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.vertical(
+        valueOutsideBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
@@ -3716,7 +3716,7 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     double bottomRight = 0,
   }) {
     return this.copyWith(
-      valueOutSideBorderRadius: BorderRadius.only(
+      valueOutsideBorderRadius: BorderRadius.only(
         topLeft: Radius.circular(topLeft),
         topRight: Radius.circular(topRight),
         bottomLeft: Radius.circular(bottomLeft),
@@ -3727,7 +3727,7 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier outsideBorderRadiusHorizontal(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.horizontal(
+        valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
@@ -4036,25 +4036,25 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
   }
 
   DefineMColumnModifier outsideBackgroundColor(Color? value) {
-    return this.copyWith(valueOutSideBackgroundColor: value);
+    return this.copyWith(valueOutsideBackgroundColor: value);
   }
 
   DefineMColumnModifier outsideBackgroundColorHex(int value) {
-    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+    return this.copyWith(valueOutsideBackgroundColor: Color(value));
   }
 
   DefineMColumnModifier outsideBorderRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMColumnModifier outsideBorderRadiusSet(BorderRadius value) {
-    return this.copyWith(valueOutSideBorderRadius: value);
+    return this.copyWith(valueOutsideBorderRadius: value);
   }
 
   DefineMColumnModifier outsideBorderRadiusVertical(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.vertical(
+        valueOutsideBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
@@ -4065,7 +4065,7 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     double bottomRight = 0,
   }) {
     return this.copyWith(
-      valueOutSideBorderRadius: BorderRadius.only(
+      valueOutsideBorderRadius: BorderRadius.only(
         topLeft: Radius.circular(topLeft),
         topRight: Radius.circular(topRight),
         bottomLeft: Radius.circular(bottomLeft),
@@ -4076,7 +4076,7 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier outsideBorderRadiusHorizontal(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.horizontal(
+        valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
@@ -4438,18 +4438,18 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier outsideRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMColumnModifier outsideCorner(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMColumnModifier outsideRadiusTop(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -4460,8 +4460,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier outsideRadiusBottom(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -4472,8 +4472,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier outsideRadiusLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -4484,8 +4484,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier outsideRadiusRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -4496,8 +4496,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier outsideRadiusTopLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -4507,8 +4507,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier outsideRadiusTopRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -4518,8 +4518,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier outsideRadiusBottomLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -4529,8 +4529,8 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier outsideRadiusBottomRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomRight: Radius.circular(value),
@@ -5004,25 +5004,25 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
   }
 
   DefineMAddButtonModifier outsideBackgroundColor(Color? value) {
-    return this.copyWith(valueOutSideBackgroundColor: value);
+    return this.copyWith(valueOutsideBackgroundColor: value);
   }
 
   DefineMAddButtonModifier outsideBackgroundColorHex(int value) {
-    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+    return this.copyWith(valueOutsideBackgroundColor: Color(value));
   }
 
   DefineMAddButtonModifier outsideBorderRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMAddButtonModifier outsideBorderRadiusSet(BorderRadius value) {
-    return this.copyWith(valueOutSideBorderRadius: value);
+    return this.copyWith(valueOutsideBorderRadius: value);
   }
 
   DefineMAddButtonModifier outsideBorderRadiusVertical(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.vertical(
+        valueOutsideBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
@@ -5033,7 +5033,7 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     double bottomRight = 0,
   }) {
     return this.copyWith(
-      valueOutSideBorderRadius: BorderRadius.only(
+      valueOutsideBorderRadius: BorderRadius.only(
         topLeft: Radius.circular(topLeft),
         topRight: Radius.circular(topRight),
         bottomLeft: Radius.circular(bottomLeft),
@@ -5044,7 +5044,7 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier outsideBorderRadiusHorizontal(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.horizontal(
+        valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
@@ -5402,18 +5402,18 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier outsideRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMAddButtonModifier outsideCorner(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMAddButtonModifier outsideRadiusTop(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -5424,8 +5424,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier outsideRadiusBottom(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -5436,8 +5436,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier outsideRadiusLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -5448,8 +5448,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier outsideRadiusRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -5460,8 +5460,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier outsideRadiusTopLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -5471,8 +5471,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier outsideRadiusTopRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -5482,8 +5482,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier outsideRadiusBottomLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -5493,8 +5493,8 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
 
   DefineMAddButtonModifier outsideRadiusBottomRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomRight: Radius.circular(value),
@@ -5963,25 +5963,25 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
   }
 
   DefineMStackModifier outsideBackgroundColor(Color? value) {
-    return this.copyWith(valueOutSideBackgroundColor: value);
+    return this.copyWith(valueOutsideBackgroundColor: value);
   }
 
   DefineMStackModifier outsideBackgroundColorHex(int value) {
-    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+    return this.copyWith(valueOutsideBackgroundColor: Color(value));
   }
 
   DefineMStackModifier outsideBorderRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMStackModifier outsideBorderRadiusSet(BorderRadius value) {
-    return this.copyWith(valueOutSideBorderRadius: value);
+    return this.copyWith(valueOutsideBorderRadius: value);
   }
 
   DefineMStackModifier outsideBorderRadiusVertical(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.vertical(
+        valueOutsideBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
@@ -5992,7 +5992,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     double bottomRight = 0,
   }) {
     return this.copyWith(
-      valueOutSideBorderRadius: BorderRadius.only(
+      valueOutsideBorderRadius: BorderRadius.only(
         topLeft: Radius.circular(topLeft),
         topRight: Radius.circular(topRight),
         bottomLeft: Radius.circular(bottomLeft),
@@ -6003,7 +6003,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier outsideBorderRadiusHorizontal(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.horizontal(
+        valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
@@ -6361,18 +6361,18 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier outsideRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMStackModifier outsideCorner(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMStackModifier outsideRadiusTop(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -6383,8 +6383,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier outsideRadiusBottom(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -6395,8 +6395,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier outsideRadiusLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -6407,8 +6407,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier outsideRadiusRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -6419,8 +6419,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier outsideRadiusTopLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -6430,8 +6430,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier outsideRadiusTopRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -6441,8 +6441,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier outsideRadiusBottomLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -6452,8 +6452,8 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier outsideRadiusBottomRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomRight: Radius.circular(value),
@@ -6926,25 +6926,25 @@ extension MImageGeneralGenerator on DefineMImageModifier {
   }
 
   DefineMImageModifier outsideBackgroundColor(Color? value) {
-    return this.copyWith(valueOutSideBackgroundColor: value);
+    return this.copyWith(valueOutsideBackgroundColor: value);
   }
 
   DefineMImageModifier outsideBackgroundColorHex(int value) {
-    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+    return this.copyWith(valueOutsideBackgroundColor: Color(value));
   }
 
   DefineMImageModifier outsideBorderRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMImageModifier outsideBorderRadiusSet(BorderRadius value) {
-    return this.copyWith(valueOutSideBorderRadius: value);
+    return this.copyWith(valueOutsideBorderRadius: value);
   }
 
   DefineMImageModifier outsideBorderRadiusVertical(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.vertical(
+        valueOutsideBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
@@ -6955,7 +6955,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     double bottomRight = 0,
   }) {
     return this.copyWith(
-      valueOutSideBorderRadius: BorderRadius.only(
+      valueOutsideBorderRadius: BorderRadius.only(
         topLeft: Radius.circular(topLeft),
         topRight: Radius.circular(topRight),
         bottomLeft: Radius.circular(bottomLeft),
@@ -6966,7 +6966,7 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier outsideBorderRadiusHorizontal(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.horizontal(
+        valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
@@ -7324,18 +7324,18 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier outsideRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMImageModifier outsideCorner(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMImageModifier outsideRadiusTop(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -7346,8 +7346,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier outsideRadiusBottom(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -7358,8 +7358,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier outsideRadiusLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -7370,8 +7370,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier outsideRadiusRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -7382,8 +7382,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier outsideRadiusTopLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -7393,8 +7393,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier outsideRadiusTopRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -7404,8 +7404,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier outsideRadiusBottomLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -7415,8 +7415,8 @@ extension MImageGeneralGenerator on DefineMImageModifier {
 
   DefineMImageModifier outsideRadiusBottomRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomRight: Radius.circular(value),
@@ -7884,25 +7884,25 @@ extension MTileGeneralGenerator on DefineMTileModifier {
   }
 
   DefineMTileModifier outsideBackgroundColor(Color? value) {
-    return this.copyWith(valueOutSideBackgroundColor: value);
+    return this.copyWith(valueOutsideBackgroundColor: value);
   }
 
   DefineMTileModifier outsideBackgroundColorHex(int value) {
-    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+    return this.copyWith(valueOutsideBackgroundColor: Color(value));
   }
 
   DefineMTileModifier outsideBorderRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMTileModifier outsideBorderRadiusSet(BorderRadius value) {
-    return this.copyWith(valueOutSideBorderRadius: value);
+    return this.copyWith(valueOutsideBorderRadius: value);
   }
 
   DefineMTileModifier outsideBorderRadiusVertical(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.vertical(
+        valueOutsideBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
@@ -7913,7 +7913,7 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     double bottomRight = 0,
   }) {
     return this.copyWith(
-      valueOutSideBorderRadius: BorderRadius.only(
+      valueOutsideBorderRadius: BorderRadius.only(
         topLeft: Radius.circular(topLeft),
         topRight: Radius.circular(topRight),
         bottomLeft: Radius.circular(bottomLeft),
@@ -7924,7 +7924,7 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier outsideBorderRadiusHorizontal(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.horizontal(
+        valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
@@ -8282,18 +8282,18 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier outsideRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMTileModifier outsideCorner(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMTileModifier outsideRadiusTop(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -8304,8 +8304,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier outsideRadiusBottom(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -8316,8 +8316,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier outsideRadiusLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -8328,8 +8328,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier outsideRadiusRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -8340,8 +8340,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier outsideRadiusTopLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -8351,8 +8351,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier outsideRadiusTopRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -8362,8 +8362,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier outsideRadiusBottomLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -8373,8 +8373,8 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier outsideRadiusBottomRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomRight: Radius.circular(value),
@@ -8846,25 +8846,25 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
   }
 
   DefineMContainerModifier outsideBackgroundColor(Color? value) {
-    return this.copyWith(valueOutSideBackgroundColor: value);
+    return this.copyWith(valueOutsideBackgroundColor: value);
   }
 
   DefineMContainerModifier outsideBackgroundColorHex(int value) {
-    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+    return this.copyWith(valueOutsideBackgroundColor: Color(value));
   }
 
   DefineMContainerModifier outsideBorderRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMContainerModifier outsideBorderRadiusSet(BorderRadius value) {
-    return this.copyWith(valueOutSideBorderRadius: value);
+    return this.copyWith(valueOutsideBorderRadius: value);
   }
 
   DefineMContainerModifier outsideBorderRadiusVertical(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.vertical(
+        valueOutsideBorderRadius: BorderRadius.vertical(
             top: Radius.circular(value), bottom: Radius.circular(value)));
   }
 
@@ -8875,7 +8875,7 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
     double bottomRight = 0,
   }) {
     return this.copyWith(
-      valueOutSideBorderRadius: BorderRadius.only(
+      valueOutsideBorderRadius: BorderRadius.only(
         topLeft: Radius.circular(topLeft),
         topRight: Radius.circular(topRight),
         bottomLeft: Radius.circular(bottomLeft),
@@ -8886,7 +8886,7 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier outsideBorderRadiusHorizontal(double value) {
     return this.copyWith(
-        valueOutSideBorderRadius: BorderRadius.horizontal(
+        valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
@@ -9240,18 +9240,18 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier outsideRadius(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMContainerModifier outsideCorner(double value) {
     return this
-        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+        .copyWith(valueOutsideBorderRadius: BorderRadius.circular(value));
   }
 
   DefineMContainerModifier outsideRadiusTop(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -9262,8 +9262,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier outsideRadiusBottom(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -9274,8 +9274,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier outsideRadiusLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -9286,8 +9286,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier outsideRadiusRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -9298,8 +9298,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier outsideRadiusTopLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topLeft: Radius.circular(value),
@@ -9309,8 +9309,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier outsideRadiusTopRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         topRight: Radius.circular(value),
@@ -9320,8 +9320,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier outsideRadiusBottomLeft(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomLeft: Radius.circular(value),
@@ -9331,8 +9331,8 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier outsideRadiusBottomRight(double value) {
     return this.copyWith(
-      valueOutSideBorderRadius:
-          ((this.valueOutSideBorderRadius as BorderRadius?) ??
+      valueOutsideBorderRadius:
+          ((this.valueOutsideBorderRadius as BorderRadius?) ??
                   BorderRadius.zero)
               .copyWith(
         bottomRight: Radius.circular(value),

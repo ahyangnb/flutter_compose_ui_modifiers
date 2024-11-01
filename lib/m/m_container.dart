@@ -118,8 +118,8 @@ class DefineMContainerModifier extends MGeneralModifier {
     super.valueVisible,
     super.valueTabLength,
     super.valueObxListener,
-    super.valueOutSideBackgroundColor,
-    super.valueOutSideBorderRadius,
+    super.valueOutsideBackgroundColor,
+    super.valueOutsideBorderRadius,
   });
 
   DefineMContainerModifier copyWith({
@@ -186,8 +186,8 @@ class DefineMContainerModifier extends MGeneralModifier {
     bool? valueVisible,
     int? valueTabLength,
     Rx<dynamic>? valueObxListener,
-    Color? valueOutSideBackgroundColor,
-    BorderRadiusGeometry? valueOutSideBorderRadius,
+    Color? valueOutsideBackgroundColor,
+    BorderRadiusGeometry? valueOutsideBorderRadius,
   }) {
     return DefineMContainerModifier(
       /// Main.
@@ -260,10 +260,10 @@ class DefineMContainerModifier extends MGeneralModifier {
       valueVisible: valueVisible ?? this.valueVisible,
       valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
-      valueOutSideBackgroundColor:
-          valueOutSideBackgroundColor ?? this.valueOutSideBackgroundColor,
-      valueOutSideBorderRadius:
-          valueOutSideBorderRadius ?? this.valueOutSideBorderRadius,
+      valueOutsideBackgroundColor:
+          valueOutsideBackgroundColor ?? this.valueOutsideBackgroundColor,
+      valueOutsideBorderRadius:
+          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius,
     );
   }
 }
