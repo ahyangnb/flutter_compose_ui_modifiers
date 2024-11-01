@@ -58,7 +58,7 @@ class MTextField extends StatelessWidget {
             focusNode: controller?.focusNode ?? FocusNode(),
             decoration: inputDecoration,
             style: modifier?.valueStyle,
-            expands: modifier?.expandsValue ?? false,
+            expands: modifier?.valueExpands ?? false,
             maxLines: modifier?.maxLinesValue,
             maxLength: modifier?.valueMaxLength,
             onSubmitted: modifier?.valueOnSubmitted,
@@ -88,7 +88,7 @@ final MTextFieldModifier = DefineMTextFieldModifier();
 class DefineMTextFieldModifier extends MGeneralModifier {
   final InputDecoration? decorationValue;
   final TextStyle? valueStyle;
-  final bool? expandsValue;
+  final bool? valueExpands;
   final int? maxLinesValue;
   final int? valueMaxLength;
   final bool? valueAutoFocus;
@@ -112,7 +112,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   const DefineMTextFieldModifier({
     this.decorationValue,
     this.valueStyle,
-    this.expandsValue,
+    this.valueExpands,
     this.maxLinesValue,
     this.valueMaxLength,
     this.valueAutoFocus,
@@ -202,7 +202,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   DefineMTextFieldModifier copyWith({
     final InputDecoration? decorationValue,
     final TextStyle? valueStyle,
-    final bool? expandsValue,
+    final bool? valueExpands,
     final int? maxLinesValue,
     final int? valueMaxLength,
     final bool? valueAutoFocus,
@@ -291,7 +291,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     return DefineMTextFieldModifier(
       decorationValue: decorationValue ?? this.decorationValue,
       valueStyle: valueStyle ?? this.valueStyle,
-      expandsValue: expandsValue ?? this.expandsValue,
+      valueExpands: valueExpands ?? this.valueExpands,
       maxLinesValue: maxLinesValue ?? this.maxLinesValue,
       valueMaxLength: valueMaxLength ?? this.valueMaxLength,
       valueAutoFocus: valueAutoFocus ?? this.valueAutoFocus,
@@ -593,7 +593,7 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
   }
 
   DefineMTextFieldModifier expands(bool? value) {
-    return this.copyWith(expandsValue: value);
+    return this.copyWith(valueExpands: value);
   }
 
   DefineMTextFieldModifier maxLines(int? value) {
