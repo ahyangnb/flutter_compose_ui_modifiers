@@ -42,6 +42,7 @@ export 'other/m_material_app.dart';
 export 'other/m_confirm_dialog.dart';
 export 'other/m_water_ripples.dart';
 export 'other/m_banner.dart';
+export 'other/m_chat.dart';
 export 'util/m_imgaes_upload.dart';
 export 'util/screen_fit.dart';
 export 'util/extension.dart';
