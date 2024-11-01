@@ -20,7 +20,22 @@ import 'package:flutter_compose_ui_modifiers/custom/gradient_box_border.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:get/get.dart';
 
-enum MGravity { top, center, bottom }
+enum MGravity {
+  top,
+  centerVertical,
+  bottom,
+  left,
+  centerHorizontal,
+  right,
+}
+
+extension ExtensionMGravity on MGravity {
+  bool get isVertical {
+    return this == MGravity.top ||
+        this == MGravity.centerVertical ||
+        this == MGravity.bottom;
+  }
+}
 
 class MGeneralModifier {
   /// Main key.
@@ -364,13 +379,26 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
       child = Center(child: child);
     }
 
-    if (generalModifier?.valueGravity != null) {
-      final gravityValue = generalModifier!.valueGravity == MGravity.center
-          ? MainAxisAlignment.center
-          : generalModifier!.valueGravity == MGravity.top
-              ? MainAxisAlignment.start
-              : MainAxisAlignment.end;
+    if (generalModifier?.valueGravity != null &&
+        generalModifier!.valueGravity!.isVertical) {
+      final gravityValue =
+          generalModifier!.valueGravity == MGravity.centerVertical
+              ? MainAxisAlignment.center
+              : generalModifier!.valueGravity == MGravity.top
+                  ? MainAxisAlignment.start
+                  : MainAxisAlignment.end;
       child = Column(mainAxisAlignment: gravityValue, children: [child]);
+    }
+
+    if (generalModifier?.valueGravity != null &&
+        generalModifier!.valueGravity!.isVertical.not()) {
+      final gravityValue =
+          generalModifier!.valueGravity == MGravity.centerHorizontal
+              ? MainAxisAlignment.center
+              : generalModifier!.valueGravity == MGravity.left
+                  ? MainAxisAlignment.start
+                  : MainAxisAlignment.end;
+      child = Row(mainAxisAlignment: gravityValue, children: [child]);
     }
 
     if (generalModifier?.valueDragOutToStatusBar != null) {

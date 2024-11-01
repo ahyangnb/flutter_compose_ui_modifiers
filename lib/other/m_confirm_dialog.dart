@@ -572,7 +572,7 @@ class _MDialogDarkConfirmState extends State<MDialogDarkConfirm> {
   Widget build(BuildContext context) {
     final spaceVertical = 28.px;
     DefineMStackModifier modifier =
-        MStackModifier.gravity(MGravity.center).borderRadius(6.px);
+        MStackModifier.gravity(MGravity.centerVertical).borderRadius(6.px);
     if (widget.bgImage == null) {
       modifier = modifier.backgroundColor(Colors.black).borderAll();
     }
