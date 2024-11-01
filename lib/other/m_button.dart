@@ -573,3 +573,54 @@ class MButtonMediumGrey extends StatelessWidget {
     );
   }
 }
+
+class MButtonMediumThemeBorder extends StatelessWidget {
+  final void Function()? onTap;
+  final String? text;
+  final double? width;
+  final double? height;
+  final TextStyle? textStyle;
+  final BorderRadiusGeometry? borderRadius;
+  final Color? backgroundColor;
+  final Gradient? backgroundGradient;
+  final Widget? child;
+  final List<BoxShadow>? boxShadow;
+  final Border? border;
+  final Color? disabledBackgroundColor;
+  final EdgeInsetsGeometry? padding;
+
+  MButtonMediumThemeBorder({
+    this.onTap,
+    this.text,
+    this.width,
+    this.height,
+    this.textStyle,
+    this.borderRadius,
+    this.backgroundColor,
+    this.backgroundGradient,
+    this.child,
+    this.boxShadow,
+    this.border,
+    this.disabledBackgroundColor,
+    this.padding,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return MButtonGrey(
+      text: text ?? 'Button',
+      width: width ?? 126.px,
+      height: height ?? 32.px,
+      textStyle: textStyle ?? TextStyle(color: Colors.black, fontSize: 14.px),
+      backgroundColor: backgroundColor ?? MThemeConfig.primaryColor,
+      borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(4.px)),
+      onTap: onTap,
+      disabledBackgroundColor: disabledBackgroundColor,
+      border: border ?? Border.all(color: Colors.black, width: 1.px),
+      boxShadow: boxShadow,
+      child: child,
+      backgroundGradient: backgroundGradient,
+      padding: padding,
+    );
+  }
+}

@@ -90,7 +90,8 @@ class _MTextState extends ModifierState<MText> with ObxImplementation {
               style: widget.modifier?.valueHighlightStyle != null
                   ? widget.modifier?.valueHighlightStyle
                   : useStyle.copyWith(color: Colors.red),
-              recognizer: TapGestureRecognizer()..onTap = matchingText.onClick,
+              recognizer: TapGestureRecognizer()
+                ..onTap = matchingText.onClick,
             ),
           );
           return m.group(0)!;
@@ -110,22 +111,22 @@ class _MTextState extends ModifierState<MText> with ObxImplementation {
     } else if (useValueSelectable) {
       textWidget = useValueLinkDisplay
           ? SelectableLinkify(
-              text: text,
-              style: useStyle,
-              textAlign: widget.modifier?.valueTextAlign,
-              maxLines: widget.modifier?.valueMaxLines,
-              // overflow: modifier?.valueOverflow,
-              onOpen: onOpen,
-              linkifiers: linkFilters,
-              options: linkOption,
-            )
+        text: text,
+        style: useStyle,
+        textAlign: widget.modifier?.valueTextAlign,
+        maxLines: widget.modifier?.valueMaxLines,
+        // overflow: modifier?.valueOverflow,
+        onOpen: onOpen,
+        linkifiers: linkFilters,
+        options: linkOption,
+      )
           : SelectableText(
-              text,
-              style: useStyle,
-              textAlign: widget.modifier?.valueTextAlign,
-              maxLines: widget.modifier?.valueMaxLines,
-              // overflow: modifier?.valueOverflow,
-            );
+        text,
+        style: useStyle,
+        textAlign: widget.modifier?.valueTextAlign,
+        maxLines: widget.modifier?.valueMaxLines,
+        // overflow: modifier?.valueOverflow,
+      );
     } else if (widget.modifier?.valueHighlightRegExp != null) {
       List<TextSpan> textSpans = [];
 
@@ -150,38 +151,38 @@ class _MTextState extends ModifierState<MText> with ObxImplementation {
 
       textWidget = useValueSelectable
           ? SelectableText.rich(
-              TextSpan(style: useStyle, children: textSpans),
-              textAlign: widget.modifier?.valueTextAlign ?? TextAlign.start,
-              maxLines: widget.modifier?.valueMaxLines,
-              // overflow: modifier?.valueOverflow ??
-              //     RichText(text: TextSpan()).overflow,
-            )
+        TextSpan(style: useStyle, children: textSpans),
+        textAlign: widget.modifier?.valueTextAlign ?? TextAlign.start,
+        maxLines: widget.modifier?.valueMaxLines,
+        // overflow: modifier?.valueOverflow ??
+        //     RichText(text: TextSpan()).overflow,
+      )
           : RichText(
-              text: TextSpan(style: useStyle, children: textSpans),
-              textAlign: widget.modifier?.valueTextAlign ?? TextAlign.start,
-              maxLines: widget.modifier?.valueMaxLines,
-              overflow: widget.modifier?.valueOverflow ??
-                  RichText(text: TextSpan()).overflow,
-            );
+        text: TextSpan(style: useStyle, children: textSpans),
+        textAlign: widget.modifier?.valueTextAlign ?? TextAlign.start,
+        maxLines: widget.modifier?.valueMaxLines,
+        overflow: widget.modifier?.valueOverflow ??
+            RichText(text: TextSpan()).overflow,
+      );
     } else {
       textWidget = useValueLinkDisplay
           ? Linkify(
-              text: text,
-              style: useStyle,
-              textAlign: widget.modifier?.valueTextAlign ?? TextAlign.start,
-              maxLines: widget.modifier?.valueMaxLines,
-              overflow: widget.modifier?.valueOverflow,
-              onOpen: onOpen,
-              linkifiers: linkFilters,
-              options: linkOption,
-            )
+        text: text,
+        style: useStyle,
+        textAlign: widget.modifier?.valueTextAlign ?? TextAlign.start,
+        maxLines: widget.modifier?.valueMaxLines,
+        overflow: widget.modifier?.valueOverflow,
+        onOpen: onOpen,
+        linkifiers: linkFilters,
+        options: linkOption,
+      )
           : Text(
-              text,
-              style: useStyle,
-              textAlign: widget.modifier?.valueTextAlign,
-              maxLines: widget.modifier?.valueMaxLines,
-              overflow: widget.modifier?.valueOverflow,
-            );
+        text,
+        style: useStyle,
+        textAlign: widget.modifier?.valueTextAlign,
+        maxLines: widget.modifier?.valueMaxLines,
+        overflow: widget.modifier?.valueOverflow,
+      );
     }
 
     return MGeneralLayoutModifierWidget(
@@ -390,10 +391,10 @@ class DefineMTextModifier extends MGeneralModifier {
       valueOnTap: valueOnTap ?? this.valueOnTap,
       valueOnLongPress: valueOnLongPress ?? this.valueOnLongPress,
       valueOnLongPressMoveUpdate:
-          valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
+      valueOnLongPressMoveUpdate ?? this.valueOnLongPressMoveUpdate,
       valueOnLongPressUp: valueOnLongPressUp ?? this.valueOnLongPressUp,
       valueDragOutToStatusBar:
-          valueDragOutToStatusBar ?? this.valueDragOutToStatusBar,
+      valueDragOutToStatusBar ?? this.valueDragOutToStatusBar,
       valueBackgroundColor: valueBackgroundColor ?? this.valueBackgroundColor,
       valueBorderRadius: valueBorderRadius ?? this.valueBorderRadius,
       valueCenterAlign: valueCenterAlign ?? this.valueCenterAlign,
@@ -414,17 +415,17 @@ class DefineMTextModifier extends MGeneralModifier {
       valueShape: valueShape ?? this.valueShape,
       valueBackgroundImage: valueBackgroundImage ?? this.valueBackgroundImage,
       valueBackgroundImageFit:
-          valueBackgroundImageFit ?? this.valueBackgroundImageFit,
+      valueBackgroundImageFit ?? this.valueBackgroundImageFit,
       valueGravity: valueGravity ?? this.valueGravity,
       valueGradientBorder: valueGradientBorder ?? this.valueGradientBorder,
       valueFullWidth: valueFullWidth ?? this.valueFullWidth,
       valueFullHeight: valueFullHeight ?? this.valueFullHeight,
       valueContainerAlignment:
-          valueContainerAlignment ?? this.valueContainerAlignment,
+      valueContainerAlignment ?? this.valueContainerAlignment,
       valueOutSideAlignment:
-          valueOutSideAlignment ?? this.valueOutSideAlignment,
+      valueOutSideAlignment ?? this.valueOutSideAlignment,
       valueCancelFocusWhenClick:
-          valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,
+      valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -440,12 +441,12 @@ class DefineMTextModifier extends MGeneralModifier {
       // Material
       valueMaterialType: valueMaterialType ?? this.valueMaterialType,
       valueMaterialElevation:
-          valueMaterialElevation ?? this.valueMaterialElevation,
+      valueMaterialElevation ?? this.valueMaterialElevation,
 
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueScrollController:
-          valueScrollController ?? this.valueScrollController,
+      valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
       valueVisible: valueVisible ?? this.valueVisible,
       valueTabLength: valueTabLength ?? this.valueTabLength,
@@ -499,7 +500,7 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier setColor(Color color) {
     final newStyle = this.valueStyle.copyWith(color: color);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -518,7 +519,7 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier setTextColor(Color color) {
     final newStyle = this.valueStyle.copyWith(color: color);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -529,21 +530,21 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier setFontSize(double fontSize) {
     final newStyle = this.valueStyle.copyWith(fontSize: fontSize);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTextModifier letterSpacing(double value) {
     final newStyle = this.valueStyle.copyWith(letterSpacing: value);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTextModifier fontFamily(String value) {
     final newStyle = this.valueStyle.copyWith(fontFamily: value);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -558,37 +559,37 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier heightLine(double value) {
     final newStyle = this.valueStyle.copyWith(height: value);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
   DefineMTextModifier textAlign(TextAlign value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueTextAlign: value);
+    this.copyWith(valueTextAlign: value);
     return newModifierValue;
   }
 
   DefineMTextModifier textAlignCenter() {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueTextAlign: TextAlign.center);
+    this.copyWith(valueTextAlign: TextAlign.center);
     return newModifierValue;
   }
 
   DefineMTextModifier centerText() {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueTextAlign: TextAlign.center);
+    this.copyWith(valueTextAlign: TextAlign.center);
     return newModifierValue;
   }
 
   DefineMTextModifier alignCenter() {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueTextAlign: TextAlign.center);
+    this.copyWith(valueTextAlign: TextAlign.center);
     return newModifierValue;
   }
 
   DefineMTextModifier textCenter() {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueTextAlign: TextAlign.center);
+    this.copyWith(valueTextAlign: TextAlign.center);
     return newModifierValue;
   }
 
@@ -599,7 +600,7 @@ extension MTextModifierPropertys on DefineMTextModifier {
   DefineMTextModifier setFontWeight(FontWeight fontWeight) {
     final newStyle = this.valueStyle.copyWith(fontWeight: fontWeight);
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueStyle: newStyle);
+    this.copyWith(valueStyle: newStyle);
     return newModifierValue;
   }
 
@@ -609,54 +610,54 @@ extension MTextModifierPropertys on DefineMTextModifier {
 
   DefineMTextModifier style(TextStyle value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueStyle: value);
+    this.copyWith(valueStyle: value);
     return newModifierValue;
   }
 
   DefineMTextModifier deleteLine() {
     final DefineMTextModifier newModifierValue = this.copyWith(
         valueStyle:
-            this.valueStyle.copyWith(decoration: TextDecoration.lineThrough));
+        this.valueStyle.copyWith(decoration: TextDecoration.lineThrough));
     return newModifierValue;
   }
 
   DefineMTextModifier lineThrough() {
     final DefineMTextModifier newModifierValue = this.copyWith(
         valueStyle:
-            this.valueStyle.copyWith(decoration: TextDecoration.lineThrough));
+        this.valueStyle.copyWith(decoration: TextDecoration.lineThrough));
     return newModifierValue;
   }
 
   DefineMTextModifier throughLine() {
     final DefineMTextModifier newModifierValue = this.copyWith(
         valueStyle:
-            this.valueStyle.copyWith(decoration: TextDecoration.lineThrough));
+        this.valueStyle.copyWith(decoration: TextDecoration.lineThrough));
     return newModifierValue;
   }
 
   DefineMTextModifier underLine() {
     final DefineMTextModifier newModifierValue = this.copyWith(
         valueStyle:
-            this.valueStyle.copyWith(decoration: TextDecoration.underline));
+        this.valueStyle.copyWith(decoration: TextDecoration.underline));
     return newModifierValue;
   }
 
   DefineMTextModifier under() {
     final DefineMTextModifier newModifierValue = this.copyWith(
         valueStyle:
-            this.valueStyle.copyWith(decoration: TextDecoration.underline));
+        this.valueStyle.copyWith(decoration: TextDecoration.underline));
     return newModifierValue;
   }
 
   DefineMTextModifier textDecoration(TextDecoration value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueStyle: this.valueStyle.copyWith(decoration: value));
+    this.copyWith(valueStyle: this.valueStyle.copyWith(decoration: value));
     return newModifierValue;
   }
 
   DefineMTextModifier space(double value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueStyle: this.valueStyle.copyWith(wordSpacing: value));
+    this.copyWith(valueStyle: this.valueStyle.copyWith(wordSpacing: value));
     return newModifierValue;
   }
 
@@ -682,14 +683,14 @@ extension MTextModifierPropertys on DefineMTextModifier {
   /// High light
   DefineMTextModifier styleHighlight(TextStyle value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueHighlightStyle: value);
+    this.copyWith(valueHighlightStyle: value);
     return newModifierValue;
   }
 
   DefineMTextModifier highLightColor(Color value) {
     final DefineMTextModifier newModifierValue = this.copyWith(
         valueHighlightStyle:
-            (this.valueHighlightStyle ?? TextStyle()).copyWith(color: value));
+        (this.valueHighlightStyle ?? TextStyle()).copyWith(color: value));
     return newModifierValue;
   }
 
@@ -706,7 +707,7 @@ extension MTextModifierPropertys on DefineMTextModifier {
 
   DefineMTextModifier highlightRegExp(RegExp value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueHighlightRegExp: value);
+    this.copyWith(valueHighlightRegExp: value);
     return newModifierValue;
   }
 
@@ -714,22 +715,22 @@ extension MTextModifierPropertys on DefineMTextModifier {
   /// such as ["150", "1"].
   DefineMTextModifier highlightText(List<String> value) {
     final DefineMTextModifier newModifierValue = this
-        // 需要测试：用了RegExp.escape，可能“或者”符号的意思已经失效了，需要去测试下如果文本里面存在多个高亮会不会失效.
-        // 第一次测试，【“用户协议”和“隐私政策”】传递value数组包含多个“用户协议”，以及内容包含多个value。
+    // 需要测试：用了RegExp.escape，可能“或者”符号的意思已经失效了，需要去测试下如果文本里面存在多个高亮会不会失效.
+    // 第一次测试，【“用户协议”和“隐私政策”】传递value数组包含多个“用户协议”，以及内容包含多个value。
         .copyWith(valueHighlightRegExp: RegExp(RegExp.escape(value.join("|"))));
     return newModifierValue;
   }
 
   DefineMTextModifier styleLight(TextStyle value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueHighlightStyle: value);
+    this.copyWith(valueHighlightStyle: value);
     return newModifierValue;
   }
 
   DefineMTextModifier lightColor(Color value) {
     final DefineMTextModifier newModifierValue = this.copyWith(
         valueHighlightStyle:
-            (this.valueHighlightStyle ?? TextStyle()).copyWith(color: value));
+        (this.valueHighlightStyle ?? TextStyle()).copyWith(color: value));
     return newModifierValue;
   }
 
@@ -782,67 +783,67 @@ extension MTextModifierPropertys on DefineMTextModifier {
 
   DefineMTextModifier maxLines(int value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueMaxLines: value);
+    this.copyWith(valueMaxLines: value).overflowEllipsis();
     return newModifierValue;
   }
 
   DefineMTextModifier maxLength(int value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueMaxLength: value);
+    this.copyWith(valueMaxLength: value);
     return newModifierValue;
   }
 
   DefineMTextModifier overflow(TextOverflow value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueOverflow: value);
+    this.copyWith(valueOverflow: value);
     return newModifierValue;
   }
 
   DefineMTextModifier overflowEllipsis() {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueOverflow: TextOverflow.ellipsis);
+    this.copyWith(valueOverflow: TextOverflow.ellipsis);
     return newModifierValue;
   }
 
   DefineMTextModifier overflowClip() {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueOverflow: TextOverflow.clip);
+    this.copyWith(valueOverflow: TextOverflow.clip);
     return newModifierValue;
   }
 
   DefineMTextModifier textOverflow(TextOverflow value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueOverflow: value);
+    this.copyWith(valueOverflow: value);
     return newModifierValue;
   }
 
   DefineMTextModifier textOverflowEllipsis() {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueOverflow: TextOverflow.ellipsis);
+    this.copyWith(valueOverflow: TextOverflow.ellipsis);
     return newModifierValue;
   }
 
   DefineMTextModifier textOverflowClip() {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueOverflow: TextOverflow.clip);
+    this.copyWith(valueOverflow: TextOverflow.clip);
     return newModifierValue;
   }
 
   DefineMTextModifier data(String value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueData: value);
+    this.copyWith(valueData: value);
     return newModifierValue;
   }
 
   DefineMTextModifier selectable([bool value = true]) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueSelectable: value);
+    this.copyWith(valueSelectable: value);
     return newModifierValue;
   }
 
   DefineMTextModifier linkDisplay([bool value = true]) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueLinkDisplay: value);
+    this.copyWith(valueLinkDisplay: value);
     return newModifierValue;
   }
 
@@ -853,20 +854,20 @@ extension MTextModifierPropertys on DefineMTextModifier {
   //     : [const HttpUrlLinkifier()])
   DefineMTextModifier linkifiers(List<Linkifier>? value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueLinkifiers: value);
+    this.copyWith(valueLinkifiers: value);
     return newModifierValue;
   }
 
   DefineMTextModifier clickTextTo(List<MClickText> value) {
     final DefineMTextModifier newModifierValue =
-        this.copyWith(valueClickTextTo: value);
+    this.copyWith(valueClickTextTo: value);
     return newModifierValue;
   }
 
   DefineMTextModifier whiteTitle() {
     final DefineMTextModifier newModifierValue = this.copyWith(
         valueStyle:
-            this.valueStyle.copyWith(color: Colors.white, fontSize: 24.px));
+        this.valueStyle.copyWith(color: Colors.white, fontSize: 24.px));
     return newModifierValue;
   }
 
