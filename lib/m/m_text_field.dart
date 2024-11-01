@@ -592,6 +592,7 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
     return this.copyWith(valueStyle: value);
   }
 
+  /// The expands property of TextField.
   DefineMTextFieldModifier expands(bool? value) {
     return this.copyWith(valueExpands: value);
   }
