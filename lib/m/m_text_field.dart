@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 class MTextField extends StatelessWidget {
   /// Please do not use DefineMTextFieldModifier, just use `MTextFieldModifier`.
@@ -25,8 +26,16 @@ class MTextField extends StatelessWidget {
     if (modifier?.valueObxListener != null) {
       throw NotSupportObxListenerException();
     }
-    InputDecoration inputDecoration =
-        modifier?.decorationValue ?? InputDecoration();
+
+    final defHint = "Please input ${controller?.name}";
+    InputDecoration inputDecoration = modifier?.decorationValue != null
+        ? modifier!.decorationValue!.copyWith(
+            hintText:
+                (GetUtils.isNullOrBlank(modifier!.decorationValue?.hintText) ??
+                        true)
+                    ? defHint
+                    : modifier!.decorationValue!.hintText)
+        : InputDecoration(hintText: defHint);
     if (modifier?.valueFilled != null) {
       inputDecoration = inputDecoration.copyWith(filled: modifier?.valueFilled);
     }
@@ -173,7 +182,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     /// Other
     super.valueScrollable,
     super.valueSafeArea,
-    super.valueVisible,super.valueTabLength,
+    super.valueVisible,
+    super.valueTabLength,
     super.valueObxListener,
   });
 
@@ -259,7 +269,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     /// Other
     bool? valueScrollable,
     SafeArea? valueSafeArea,
-    bool? valueVisible, int? valueTabLength,
+    bool? valueVisible,
+    int? valueTabLength,
     Rx<dynamic>? valueObxListener,
   }) {
     return DefineMTextFieldModifier(
@@ -351,7 +362,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       // Other
       valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
+      valueVisible: valueVisible ?? this.valueVisible,
+      valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
@@ -646,6 +658,14 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier showCursor(bool? value) {
     return this.copyWith(valueShowCursor: value);
+  }
+
+  DefineMTextFieldModifier darkStyle1() {
+    return this
+        .backgroundColor(Colors.black.withOpacity(0.7))
+        .borderRadius(3.px)
+        .color(Colors.white)
+        .hintColor(Colors.white.withOpacity(0.3));
   }
 
   /// Will be contain it in m.g.dart
