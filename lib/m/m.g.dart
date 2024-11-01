@@ -221,6 +221,51 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueBackgroundColor: Color(value));
   }
 
+  DefineMTextFieldModifier outsideBackgroundColor(Color? value) {
+    return this.copyWith(valueOutSideBackgroundColor: value);
+  }
+
+  DefineMTextFieldModifier outsideBackgroundColorHex(int value) {
+    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+  }
+
+  DefineMTextFieldModifier outsideBorderRadius(double value) {
+    return this
+        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMTextFieldModifier outsideBorderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueOutSideBorderRadius: value);
+  }
+
+  DefineMTextFieldModifier outsideBorderRadiusVertical(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMTextFieldModifier outsideBorderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueOutSideBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMTextFieldModifier outsideBorderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
   DefineMTextFieldModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -964,6 +1009,51 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier backgroundColorHex(int value) {
     return this.copyWith(valueBackgroundColor: Color(value));
+  }
+
+  DefineMTextModifier outsideBackgroundColor(Color? value) {
+    return this.copyWith(valueOutSideBackgroundColor: value);
+  }
+
+  DefineMTextModifier outsideBackgroundColorHex(int value) {
+    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+  }
+
+  DefineMTextModifier outsideBorderRadius(double value) {
+    return this
+        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMTextModifier outsideBorderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueOutSideBorderRadius: value);
+  }
+
+  DefineMTextModifier outsideBorderRadiusVertical(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMTextModifier outsideBorderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueOutSideBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMTextModifier outsideBorderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
   }
 
   DefineMTextModifier center([bool value = true]) {
@@ -1801,6 +1891,51 @@ extension MRowGeneralGenerator on DefineMRowModifier {
 
   DefineMRowModifier backgroundColorHex(int value) {
     return this.copyWith(valueBackgroundColor: Color(value));
+  }
+
+  DefineMRowModifier outsideBackgroundColor(Color? value) {
+    return this.copyWith(valueOutSideBackgroundColor: value);
+  }
+
+  DefineMRowModifier outsideBackgroundColorHex(int value) {
+    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+  }
+
+  DefineMRowModifier outsideBorderRadius(double value) {
+    return this
+        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMRowModifier outsideBorderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueOutSideBorderRadius: value);
+  }
+
+  DefineMRowModifier outsideBorderRadiusVertical(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMRowModifier outsideBorderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueOutSideBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMRowModifier outsideBorderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
   }
 
   DefineMRowModifier center([bool value = true]) {
@@ -3143,6 +3278,51 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     return this.copyWith(valueBackgroundColor: Color(value));
   }
 
+  DefineMListViewModifier outsideBackgroundColor(Color? value) {
+    return this.copyWith(valueOutSideBackgroundColor: value);
+  }
+
+  DefineMListViewModifier outsideBackgroundColorHex(int value) {
+    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+  }
+
+  DefineMListViewModifier outsideBorderRadius(double value) {
+    return this
+        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMListViewModifier outsideBorderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueOutSideBorderRadius: value);
+  }
+
+  DefineMListViewModifier outsideBorderRadiusVertical(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMListViewModifier outsideBorderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueOutSideBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMListViewModifier outsideBorderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
   DefineMListViewModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -3445,6 +3625,51 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
 
   DefineMColumnModifier backgroundColorHex(int value) {
     return this.copyWith(valueBackgroundColor: Color(value));
+  }
+
+  DefineMColumnModifier outsideBackgroundColor(Color? value) {
+    return this.copyWith(valueOutSideBackgroundColor: value);
+  }
+
+  DefineMColumnModifier outsideBackgroundColorHex(int value) {
+    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+  }
+
+  DefineMColumnModifier outsideBorderRadius(double value) {
+    return this
+        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMColumnModifier outsideBorderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueOutSideBorderRadius: value);
+  }
+
+  DefineMColumnModifier outsideBorderRadiusVertical(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMColumnModifier outsideBorderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueOutSideBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMColumnModifier outsideBorderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
   }
 
   DefineMColumnModifier center([bool value = true]) {
@@ -4268,6 +4493,51 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueBackgroundColor: Color(value));
   }
 
+  DefineMAddButtonModifier outsideBackgroundColor(Color? value) {
+    return this.copyWith(valueOutSideBackgroundColor: value);
+  }
+
+  DefineMAddButtonModifier outsideBackgroundColorHex(int value) {
+    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+  }
+
+  DefineMAddButtonModifier outsideBorderRadius(double value) {
+    return this
+        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMAddButtonModifier outsideBorderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueOutSideBorderRadius: value);
+  }
+
+  DefineMAddButtonModifier outsideBorderRadiusVertical(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMAddButtonModifier outsideBorderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueOutSideBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMAddButtonModifier outsideBorderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
   DefineMAddButtonModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -5078,6 +5348,51 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier backgroundColorHex(int value) {
     return this.copyWith(valueBackgroundColor: Color(value));
+  }
+
+  DefineMStackModifier outsideBackgroundColor(Color? value) {
+    return this.copyWith(valueOutSideBackgroundColor: value);
+  }
+
+  DefineMStackModifier outsideBackgroundColorHex(int value) {
+    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+  }
+
+  DefineMStackModifier outsideBorderRadius(double value) {
+    return this
+        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMStackModifier outsideBorderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueOutSideBorderRadius: value);
+  }
+
+  DefineMStackModifier outsideBorderRadiusVertical(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMStackModifier outsideBorderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueOutSideBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMStackModifier outsideBorderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
   }
 
   DefineMStackModifier center([bool value = true]) {
@@ -5896,6 +6211,51 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueBackgroundColor: Color(value));
   }
 
+  DefineMImageModifier outsideBackgroundColor(Color? value) {
+    return this.copyWith(valueOutSideBackgroundColor: value);
+  }
+
+  DefineMImageModifier outsideBackgroundColorHex(int value) {
+    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+  }
+
+  DefineMImageModifier outsideBorderRadius(double value) {
+    return this
+        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMImageModifier outsideBorderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueOutSideBorderRadius: value);
+  }
+
+  DefineMImageModifier outsideBorderRadiusVertical(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMImageModifier outsideBorderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueOutSideBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMImageModifier outsideBorderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
   DefineMImageModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -6705,6 +7065,51 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier backgroundColorHex(int value) {
     return this.copyWith(valueBackgroundColor: Color(value));
+  }
+
+  DefineMTileModifier outsideBackgroundColor(Color? value) {
+    return this.copyWith(valueOutSideBackgroundColor: value);
+  }
+
+  DefineMTileModifier outsideBackgroundColorHex(int value) {
+    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+  }
+
+  DefineMTileModifier outsideBorderRadius(double value) {
+    return this
+        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMTileModifier outsideBorderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueOutSideBorderRadius: value);
+  }
+
+  DefineMTileModifier outsideBorderRadiusVertical(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMTileModifier outsideBorderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueOutSideBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMTileModifier outsideBorderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
   }
 
   DefineMTileModifier center([bool value = true]) {
@@ -7520,6 +7925,51 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier backgroundColorHex(int value) {
     return this.copyWith(valueBackgroundColor: Color(value));
+  }
+
+  DefineMContainerModifier outsideBackgroundColor(Color? value) {
+    return this.copyWith(valueOutSideBackgroundColor: value);
+  }
+
+  DefineMContainerModifier outsideBackgroundColorHex(int value) {
+    return this.copyWith(valueOutSideBackgroundColor: Color(value));
+  }
+
+  DefineMContainerModifier outsideBorderRadius(double value) {
+    return this
+        .copyWith(valueOutSideBorderRadius: BorderRadius.circular(value));
+  }
+
+  DefineMContainerModifier outsideBorderRadiusSet(BorderRadius value) {
+    return this.copyWith(valueOutSideBorderRadius: value);
+  }
+
+  DefineMContainerModifier outsideBorderRadiusVertical(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.vertical(
+            top: Radius.circular(value), bottom: Radius.circular(value)));
+  }
+
+  DefineMContainerModifier outsideBorderRadiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return this.copyWith(
+      valueOutSideBorderRadius: BorderRadius.only(
+        topLeft: Radius.circular(topLeft),
+        topRight: Radius.circular(topRight),
+        bottomLeft: Radius.circular(bottomLeft),
+        bottomRight: Radius.circular(bottomRight),
+      ),
+    );
+  }
+
+  DefineMContainerModifier outsideBorderRadiusHorizontal(double value) {
+    return this.copyWith(
+        valueOutSideBorderRadius: BorderRadius.horizontal(
+            left: Radius.circular(value), right: Radius.circular(value)));
   }
 
   DefineMContainerModifier center([bool value = true]) {
