@@ -115,7 +115,8 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueFullHeight,
     super.valueContainerAlignment,
     super.valueOutSideAlignment,
-    super.valueCancelFocusWhenClick, super.valueOutsideBorder,
+    super.valueCancelFocusWhenClick,
+    super.valueOutsideBorder,
 
     /// Position Widget
     super.valueLeft,
@@ -188,7 +189,8 @@ class DefineMRowModifier extends MGeneralModifier {
     double? valueFullHeight,
     AlignmentGeometry? valueContainerAlignment,
     AlignmentGeometry? valueOutSideAlignment,
-    bool? valueCancelFocusWhenClick, Border? valueOutsideBorder,
+    bool? valueCancelFocusWhenClick,
+    Border? valueOutsideBorder,
 
     /// Position Widget
     double? valueLeft,
@@ -267,8 +269,8 @@ class DefineMRowModifier extends MGeneralModifier {
       valueOutSideAlignment:
           valueOutSideAlignment ?? this.valueOutSideAlignment,
       valueCancelFocusWhenClick:
-          valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,valueOutsideBorder:
-          valueOutsideBorder ?? valueOutsideBorder,
+          valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,
+      valueOutsideBorder: valueOutsideBorder ?? valueOutsideBorder,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -375,5 +377,13 @@ extension MRowModifierPropertys on DefineMRowModifier {
   DefineMRowModifier mainSpaceBetween() {
     return this
         .copyWith(valueMainAxisAlignment: MainAxisAlignment.spaceBetween);
+  }
+
+  DefineMRowModifier mainSpaceAround() {
+    return this.copyWith(valueMainAxisAlignment: MainAxisAlignment.spaceAround);
+  }
+
+  DefineMRowModifier mainSpaceEvenly() {
+    return this.copyWith(valueMainAxisAlignment: MainAxisAlignment.spaceEvenly);
   }
 }
