@@ -539,6 +539,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     return this.copyWith(valueGradient: value);
   }
 
+  DefineMTextFieldModifier gradientMain() {
+    return this.copyWith(valueGradient: MThemeConfig.gradientMain);
+  }
+
   DefineMTextFieldModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
@@ -1513,6 +1517,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
 
   DefineMTextModifier gradient([Gradient? value]) {
     return this.copyWith(valueGradient: value);
+  }
+
+  DefineMTextModifier gradientMain() {
+    return this.copyWith(valueGradient: MThemeConfig.gradientMain);
   }
 
   DefineMTextModifier gradientDef([Color? color]) {
@@ -2583,6 +2591,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(valueGradient: value);
   }
 
+  DefineMRowModifier gradientMain() {
+    return this.copyWith(valueGradient: MThemeConfig.gradientMain);
+  }
+
   DefineMRowModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
@@ -3372,6 +3384,10 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
 
   DefineMListViewModifier gradient([Gradient? value]) {
     return this.copyWith(valueGradient: value);
+  }
+
+  DefineMListViewModifier gradientMain() {
+    return this.copyWith(valueGradient: MThemeConfig.gradientMain);
   }
 
   DefineMListViewModifier gradientDef([Color? color]) {
@@ -4690,6 +4706,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(valueGradient: value);
   }
 
+  DefineMColumnModifier gradientMain() {
+    return this.copyWith(valueGradient: MThemeConfig.gradientMain);
+  }
+
   DefineMColumnModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
@@ -5744,6 +5764,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     return this.copyWith(valueGradient: value);
   }
 
+  DefineMAddButtonModifier gradientMain() {
+    return this.copyWith(valueGradient: MThemeConfig.gradientMain);
+  }
+
   DefineMAddButtonModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
@@ -6785,6 +6809,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
 
   DefineMStackModifier gradient([Gradient? value]) {
     return this.copyWith(valueGradient: value);
+  }
+
+  DefineMStackModifier gradientMain() {
+    return this.copyWith(valueGradient: MThemeConfig.gradientMain);
   }
 
   DefineMStackModifier gradientDef([Color? color]) {
@@ -7834,6 +7862,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     return this.copyWith(valueGradient: value);
   }
 
+  DefineMImageModifier gradientMain() {
+    return this.copyWith(valueGradient: MThemeConfig.gradientMain);
+  }
+
   DefineMImageModifier gradientDef([Color? color]) {
     return this.copyWith(
         valueGradient: LinearGradient(
@@ -8874,6 +8906,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
 
   DefineMTileModifier gradient([Gradient? value]) {
     return this.copyWith(valueGradient: value);
+  }
+
+  DefineMTileModifier gradientMain() {
+    return this.copyWith(valueGradient: MThemeConfig.gradientMain);
   }
 
   DefineMTileModifier gradientDef([Color? color]) {
@@ -9918,6 +9954,10 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
 
   DefineMContainerModifier gradient([Gradient? value]) {
     return this.copyWith(valueGradient: value);
+  }
+
+  DefineMContainerModifier gradientMain() {
+    return this.copyWith(valueGradient: MThemeConfig.gradientMain);
   }
 
   DefineMContainerModifier gradientDef([Color? color]) {
