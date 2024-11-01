@@ -115,8 +115,11 @@ class DefineMContainerModifier extends MGeneralModifier {
     super.valueScrollable,
     super.valueScrollController,
     super.valueSafeArea,
-    super.valueVisible,super.valueTabLength,
+    super.valueVisible,
+    super.valueTabLength,
     super.valueObxListener,
+    super.valueOutSideBackgroundColor,
+    super.valueOutSideBorderRadius,
   });
 
   DefineMContainerModifier copyWith({
@@ -180,8 +183,11 @@ class DefineMContainerModifier extends MGeneralModifier {
     bool? valueScrollable,
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
-    bool? valueVisible, int? valueTabLength,
+    bool? valueVisible,
+    int? valueTabLength,
     Rx<dynamic>? valueObxListener,
+    Color? valueOutSideBackgroundColor,
+    BorderRadiusGeometry? valueOutSideBorderRadius,
   }) {
     return DefineMContainerModifier(
       /// Main.
@@ -251,8 +257,13 @@ class DefineMContainerModifier extends MGeneralModifier {
       valueScrollController:
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
+      valueVisible: valueVisible ?? this.valueVisible,
+      valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
+      valueOutSideBackgroundColor:
+          valueOutSideBackgroundColor ?? this.valueOutSideBackgroundColor,
+      valueOutSideBorderRadius:
+          valueOutSideBorderRadius ?? this.valueOutSideBorderRadius,
     );
   }
 }

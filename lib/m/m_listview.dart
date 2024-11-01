@@ -188,8 +188,11 @@ class DefineMListViewModifier extends MGeneralModifier {
     /// Other
     // super.valueScrollable,
     super.valueSafeArea,
-    super.valueVisible,super.valueTabLength,
+    super.valueVisible,
+    super.valueTabLength,
     super.valueObxListener,
+    super.valueOutSideBackgroundColor,
+    super.valueOutSideBorderRadius,
   });
 
   /// Create a copyWith().
@@ -260,8 +263,11 @@ class DefineMListViewModifier extends MGeneralModifier {
     /// Other
     // bool? valueScrollable,
     SafeArea? valueSafeArea,
-    bool? valueVisible, int? valueTabLength,
+    bool? valueVisible,
+    int? valueTabLength,
     Rx<dynamic>? valueObxListener,
+    Color? valueOutSideBackgroundColor,
+    BorderRadiusGeometry? valueOutSideBorderRadius,
   }) {
     return DefineMListViewModifier(
       valueReverse: valueReverse ?? this.valueReverse,
@@ -336,8 +342,13 @@ class DefineMListViewModifier extends MGeneralModifier {
       // Other
       // valueScrollable: valueScrollable ?? this.valueScrollable,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
+      valueVisible: valueVisible ?? this.valueVisible,
+      valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
+      valueOutSideBackgroundColor:
+          valueOutSideBackgroundColor ?? this.valueOutSideBackgroundColor,
+      valueOutSideBorderRadius:
+          valueOutSideBorderRadius ?? this.valueOutSideBorderRadius,
     );
   }
 }

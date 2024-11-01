@@ -244,8 +244,11 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     super.valueScrollable,
     super.valueScrollController,
     super.valueSafeArea,
-    super.valueVisible,super.valueTabLength,
+    super.valueVisible,
+    super.valueTabLength,
     super.valueObxListener,
+    super.valueOutSideBackgroundColor,
+    super.valueOutSideBorderRadius,
   });
 
   /// Create a copyWith().
@@ -320,8 +323,11 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     bool? valueScrollable,
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
-    bool? valueVisible, int? valueTabLength,
+    bool? valueVisible,
+    int? valueTabLength,
     Rx<dynamic>? valueObxListener,
+    Color? valueOutSideBackgroundColor,
+    BorderRadiusGeometry? valueOutSideBorderRadius,
   }) {
     return DefineMAddButtonModifier(
       iconSizeValue: iconSizeValue ?? this.iconSizeValue,
@@ -402,8 +408,13 @@ class DefineMAddButtonModifier extends MGeneralModifier {
       valueScrollController:
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
+      valueVisible: valueVisible ?? this.valueVisible,
+      valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
+      valueOutSideBackgroundColor:
+          valueOutSideBackgroundColor ?? this.valueOutSideBackgroundColor,
+      valueOutSideBorderRadius:
+          valueOutSideBorderRadius ?? this.valueOutSideBorderRadius,
     );
   }
 }

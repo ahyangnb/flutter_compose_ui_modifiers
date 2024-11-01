@@ -332,8 +332,11 @@ class DefineMImageModifier extends MGeneralModifier {
     super.valueScrollable,
     super.valueScrollController,
     super.valueSafeArea,
-    super.valueVisible,super.valueTabLength,
+    super.valueVisible,
+    super.valueTabLength,
     super.valueObxListener,
+    super.valueOutSideBackgroundColor,
+    super.valueOutSideBorderRadius,
   });
 
   DefineMImageModifier copyWith({
@@ -409,8 +412,11 @@ class DefineMImageModifier extends MGeneralModifier {
     bool? valueScrollable,
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
-    bool? valueVisible, int? valueTabLength,
+    bool? valueVisible,
+    int? valueTabLength,
     Rx<dynamic>? valueObxListener,
+    Color? valueOutSideBackgroundColor,
+    BorderRadiusGeometry? valueOutSideBorderRadius,
   }) {
     return DefineMImageModifier(
       valueFit: valueFit ?? this.valueFit,
@@ -495,8 +501,13 @@ class DefineMImageModifier extends MGeneralModifier {
       valueScrollController:
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
+      valueVisible: valueVisible ?? this.valueVisible,
+      valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
+      valueOutSideBackgroundColor:
+          valueOutSideBackgroundColor ?? this.valueOutSideBackgroundColor,
+      valueOutSideBorderRadius:
+          valueOutSideBorderRadius ?? this.valueOutSideBorderRadius,
     );
   }
 }

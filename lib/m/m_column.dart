@@ -140,6 +140,8 @@ class DefineMColumnModifier extends MGeneralModifier {
     super.valueVisible,
     super.valueTabLength,
     super.valueObxListener,
+    super.valueOutSideBackgroundColor,
+    super.valueOutSideBorderRadius,
   });
 
   /// Create a copyWith().
@@ -212,6 +214,8 @@ class DefineMColumnModifier extends MGeneralModifier {
     bool? valueVisible,
     int? valueTabLength,
     Rx<dynamic>? valueObxListener,
+    Color? valueOutSideBackgroundColor,
+    BorderRadiusGeometry? valueOutSideBorderRadius,
   }) {
     return DefineMColumnModifier(
       children: children ?? this.children,
@@ -292,6 +296,8 @@ class DefineMColumnModifier extends MGeneralModifier {
       valueVisible: valueVisible ?? this.valueVisible,
       valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
+      valueOutSideBackgroundColor: valueOutSideBackgroundColor ?? this.valueOutSideBackgroundColor,
+      valueOutSideBorderRadius: valueOutSideBorderRadius ?? this.valueOutSideBorderRadius,
     );
   }
 }

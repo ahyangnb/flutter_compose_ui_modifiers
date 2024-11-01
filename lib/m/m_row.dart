@@ -139,6 +139,8 @@ class DefineMRowModifier extends MGeneralModifier {
     super.valueVisible,
     super.valueTabLength,
     super.valueObxListener,
+    super.valueOutSideBackgroundColor,
+    super.valueOutSideBorderRadius,
   });
 
   /// Create a copyWith().
@@ -210,6 +212,8 @@ class DefineMRowModifier extends MGeneralModifier {
     bool? valueVisible,
     int? valueTabLength,
     Rx<dynamic>? valueObxListener,
+    Color? valueOutSideBackgroundColor,
+    BorderRadiusGeometry? valueOutSideBorderRadius,
   }) {
     return DefineMRowModifier(
       children: children ?? this.children,
@@ -289,6 +293,10 @@ class DefineMRowModifier extends MGeneralModifier {
       valueVisible: valueVisible ?? this.valueVisible,
       valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
+      valueOutSideBackgroundColor:
+          valueOutSideBackgroundColor ?? this.valueOutSideBackgroundColor,
+      valueOutSideBorderRadius:
+          valueOutSideBorderRadius ?? this.valueOutSideBorderRadius,
     );
   }
 }
