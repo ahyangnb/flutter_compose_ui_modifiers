@@ -311,7 +311,7 @@ class DefineMImageModifier extends MGeneralModifier {
     super.valueFullHeight,
     super.valueContainerAlignment,
     super.valueOutSideAlignment,
-    super.valueCancelFocusWhenClick,
+    super.valueCancelFocusWhenClick, super.valueOutsideBorder,
 
     /// Position Widget
     super.valueLeft,
@@ -391,7 +391,7 @@ class DefineMImageModifier extends MGeneralModifier {
     double? valueFullHeight,
     AlignmentGeometry? valueContainerAlignment,
     AlignmentGeometry? valueOutSideAlignment,
-    bool? valueCancelFocusWhenClick,
+    bool? valueCancelFocusWhenClick, Border? valueOutsideBorder,
 
     /// Position Widget
     double? valueLeft,
@@ -478,7 +478,8 @@ class DefineMImageModifier extends MGeneralModifier {
       valueOutSideAlignment:
           valueOutSideAlignment ?? this.valueOutSideAlignment,
       valueCancelFocusWhenClick:
-          valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,
+          valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,valueOutsideBorder:
+          valueOutsideBorder ?? valueOutsideBorder,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,

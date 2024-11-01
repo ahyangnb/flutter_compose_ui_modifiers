@@ -224,6 +224,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     super.valueContainerAlignment,
     super.valueOutSideAlignment,
     super.valueCancelFocusWhenClick,
+    super.valueOutsideBorder,
 
     /// Position Widget
     super.valueLeft,
@@ -303,6 +304,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     AlignmentGeometry? valueContainerAlignment,
     AlignmentGeometry? valueOutSideAlignment,
     bool? valueCancelFocusWhenClick,
+    Border? valueOutsideBorder,
 
     /// Position Widget
     double? valueLeft,
@@ -386,6 +388,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
           valueOutSideAlignment ?? this.valueOutSideAlignment,
       valueCancelFocusWhenClick:
           valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,
+      valueOutsideBorder: valueOutsideBorder ?? valueOutsideBorder,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
