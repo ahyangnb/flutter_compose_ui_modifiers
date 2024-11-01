@@ -133,7 +133,8 @@ class DefineMTileModifier extends MGeneralModifier {
     super.valueFullHeight,
     super.valueContainerAlignment,
     super.valueOutSideAlignment,
-    super.valueCancelFocusWhenClick, super.valueOutsideBorder,
+    super.valueCancelFocusWhenClick,
+    super.valueOutsideBorder,
 
     /// Position Widget
     super.valueLeft,
@@ -206,7 +207,8 @@ class DefineMTileModifier extends MGeneralModifier {
     double? valueFullHeight,
     AlignmentGeometry? valueContainerAlignment,
     AlignmentGeometry? valueOutSideAlignment,
-    bool? valueCancelFocusWhenClick, Border? valueOutsideBorder,
+    bool? valueCancelFocusWhenClick,
+    Border? valueOutsideBorder,
 
     /// Position Widget
     double? valueLeft,
@@ -284,8 +286,8 @@ class DefineMTileModifier extends MGeneralModifier {
       valueOutSideAlignment:
           valueOutSideAlignment ?? this.valueOutSideAlignment,
       valueCancelFocusWhenClick:
-          valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,valueOutsideBorder:
-          valueOutsideBorder ?? valueOutsideBorder,
+          valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,
+      valueOutsideBorder: valueOutsideBorder ?? valueOutsideBorder,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -311,8 +313,10 @@ class DefineMTileModifier extends MGeneralModifier {
       valueVisible: valueVisible ?? this.valueVisible,
       valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
-      valueOutsideBackgroundColor: valueOutsideBackgroundColor ?? this.valueOutsideBackgroundColor,
-      valueOutsideBorderRadius: valueOutsideBorderRadius ?? this.valueOutsideBorderRadius,
+      valueOutsideBackgroundColor:
+          valueOutsideBackgroundColor ?? this.valueOutsideBackgroundColor,
+      valueOutsideBorderRadius:
+          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius,
     );
   }
 }

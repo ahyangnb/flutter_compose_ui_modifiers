@@ -433,6 +433,92 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
             color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
+  DefineMTextFieldModifier outsideBorderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueOutsideBorder:
+          Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMTextFieldModifier outsideBorderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMTextFieldModifier outsideBorderVertical(
+      {Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMTextFieldModifier outsideBorderHorizontal(
+      {Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
+  DefineMTextFieldModifier outsideBorderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMTextFieldModifier outsideBorderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMTextFieldModifier outsideBorderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMTextFieldModifier outsideBorder(Border? value) {
+    return this.copyWith(valueOutsideBorder: value);
+  }
+
+  DefineMTextFieldModifier outsideBorderWhite() {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMTextFieldModifier outsideBorderColor(Color value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: value, width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMTextFieldModifier outsideBorderColorHex(int value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: Color(value),
+            width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMTextFieldModifier outsideBorderWidth(double value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: this.valueOutsideBorder?.left.color ?? Colors.white,
+            width: value));
+  }
+
   DefineMTextFieldModifier flex([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
@@ -1323,6 +1409,90 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     return this.copyWith(
         valueBorder: Border.all(
             color: this.valueBorder?.left.color ?? Colors.white, width: value));
+  }
+
+  DefineMTextModifier outsideBorderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueOutsideBorder:
+          Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMTextModifier outsideBorderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMTextModifier outsideBorderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMTextModifier outsideBorderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
+  DefineMTextModifier outsideBorderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMTextModifier outsideBorderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMTextModifier outsideBorderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMTextModifier outsideBorder(Border? value) {
+    return this.copyWith(valueOutsideBorder: value);
+  }
+
+  DefineMTextModifier outsideBorderWhite() {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMTextModifier outsideBorderColor(Color value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: value, width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMTextModifier outsideBorderColorHex(int value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: Color(value),
+            width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMTextModifier outsideBorderWidth(double value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: this.valueOutsideBorder?.left.color ?? Colors.white,
+            width: value));
   }
 
   DefineMTextModifier flex([int? value = 1]) {
@@ -2309,6 +2479,90 @@ extension MRowGeneralGenerator on DefineMRowModifier {
             color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
+  DefineMRowModifier outsideBorderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueOutsideBorder:
+          Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMRowModifier outsideBorderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMRowModifier outsideBorderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMRowModifier outsideBorderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
+  DefineMRowModifier outsideBorderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMRowModifier outsideBorderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMRowModifier outsideBorderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMRowModifier outsideBorder(Border? value) {
+    return this.copyWith(valueOutsideBorder: value);
+  }
+
+  DefineMRowModifier outsideBorderWhite() {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMRowModifier outsideBorderColor(Color value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: value, width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMRowModifier outsideBorderColorHex(int value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: Color(value),
+            width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMRowModifier outsideBorderWidth(double value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: this.valueOutsideBorder?.left.color ?? Colors.white,
+            width: value));
+  }
+
   DefineMRowModifier flex([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
@@ -3013,6 +3267,91 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
     return this.copyWith(
         valueBorder: Border.all(
             color: this.valueBorder?.left.color ?? Colors.white, width: value));
+  }
+
+  DefineMListViewModifier outsideBorderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueOutsideBorder:
+          Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMListViewModifier outsideBorderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMListViewModifier outsideBorderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMListViewModifier outsideBorderHorizontal(
+      {Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
+  DefineMListViewModifier outsideBorderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMListViewModifier outsideBorderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMListViewModifier outsideBorderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMListViewModifier outsideBorder(Border? value) {
+    return this.copyWith(valueOutsideBorder: value);
+  }
+
+  DefineMListViewModifier outsideBorderWhite() {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMListViewModifier outsideBorderColor(Color value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: value, width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMListViewModifier outsideBorderColorHex(int value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: Color(value),
+            width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMListViewModifier outsideBorderWidth(double value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: this.valueOutsideBorder?.left.color ?? Colors.white,
+            width: value));
   }
 
   DefineMListViewModifier flex([int value = 1]) {
@@ -4247,6 +4586,90 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
             color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
+  DefineMColumnModifier outsideBorderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueOutsideBorder:
+          Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMColumnModifier outsideBorderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMColumnModifier outsideBorderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMColumnModifier outsideBorderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
+  DefineMColumnModifier outsideBorderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMColumnModifier outsideBorderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMColumnModifier outsideBorderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMColumnModifier outsideBorder(Border? value) {
+    return this.copyWith(valueOutsideBorder: value);
+  }
+
+  DefineMColumnModifier outsideBorderWhite() {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMColumnModifier outsideBorderColor(Color value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: value, width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMColumnModifier outsideBorderColorHex(int value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: Color(value),
+            width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMColumnModifier outsideBorderWidth(double value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: this.valueOutsideBorder?.left.color ?? Colors.white,
+            width: value));
+  }
+
   DefineMColumnModifier flex([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
@@ -5215,6 +5638,92 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
             color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
+  DefineMAddButtonModifier outsideBorderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueOutsideBorder:
+          Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMAddButtonModifier outsideBorderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMAddButtonModifier outsideBorderVertical(
+      {Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMAddButtonModifier outsideBorderHorizontal(
+      {Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
+  DefineMAddButtonModifier outsideBorderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMAddButtonModifier outsideBorderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMAddButtonModifier outsideBorderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMAddButtonModifier outsideBorder(Border? value) {
+    return this.copyWith(valueOutsideBorder: value);
+  }
+
+  DefineMAddButtonModifier outsideBorderWhite() {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMAddButtonModifier outsideBorderColor(Color value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: value, width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMAddButtonModifier outsideBorderColorHex(int value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: Color(value),
+            width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMAddButtonModifier outsideBorderWidth(double value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: this.valueOutsideBorder?.left.color ?? Colors.white,
+            width: value));
+  }
+
   DefineMAddButtonModifier flex([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
@@ -6172,6 +6681,90 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(
         valueBorder: Border.all(
             color: this.valueBorder?.left.color ?? Colors.white, width: value));
+  }
+
+  DefineMStackModifier outsideBorderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueOutsideBorder:
+          Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMStackModifier outsideBorderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMStackModifier outsideBorderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMStackModifier outsideBorderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
+  DefineMStackModifier outsideBorderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMStackModifier outsideBorderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMTextFieldModifier outsideBorderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMStackModifier outsideBorder(Border? value) {
+    return this.copyWith(valueOutsideBorder: value);
+  }
+
+  DefineMStackModifier outsideBorderWhite() {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMStackModifier outsideBorderColor(Color value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: value, width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMStackModifier outsideBorderColorHex(int value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: Color(value),
+            width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMStackModifier outsideBorderWidth(double value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: this.valueOutsideBorder?.left.color ?? Colors.white,
+            width: value));
   }
 
   DefineMStackModifier flex([int value = 1]) {
@@ -7137,6 +7730,90 @@ extension MImageGeneralGenerator on DefineMImageModifier {
             color: this.valueBorder?.left.color ?? Colors.white, width: value));
   }
 
+  DefineMImageModifier outsideBorderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueOutsideBorder:
+          Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMImageModifier outsideBorderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMImageModifier outsideBorderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMImageModifier outsideBorderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
+  DefineMImageModifier outsideBorderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMImageModifier outsideBorderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMImageModifier outsideBorderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMImageModifier outsideBorder(Border? value) {
+    return this.copyWith(valueOutsideBorder: value);
+  }
+
+  DefineMImageModifier outsideBorderWhite() {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMImageModifier outsideBorderColor(Color value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: value, width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMImageModifier outsideBorderColorHex(int value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: Color(value),
+            width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMImageModifier outsideBorderWidth(double value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: this.valueOutsideBorder?.left.color ?? Colors.white,
+            width: value));
+  }
+
   DefineMImageModifier flex([int value = 1]) {
     return this.copyWith(valueFlex: value);
   }
@@ -8093,6 +8770,90 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     return this.copyWith(
         valueBorder: Border.all(
             color: this.valueBorder?.left.color ?? Colors.white, width: value));
+  }
+
+  DefineMTileModifier outsideBorderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueOutsideBorder:
+          Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMTileModifier outsideBorderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMTileModifier outsideBorderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMTileModifier outsideBorderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
+  DefineMTileModifier outsideBorderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMTileModifier outsideBorderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMTileModifier outsideBorderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMTextFieldModifier outsideBorder(Border? value) {
+    return this.copyWith(valueOutsideBorder: value);
+  }
+
+  DefineMTextFieldModifier outsideBorderWhite() {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMTileModifier outsideBorderColor(Color value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: value, width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMTileModifier outsideBorderColorHex(int value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: Color(value),
+            width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMTileModifier outsideBorderWidth(double value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: this.valueOutsideBorder?.left.color ?? Colors.white,
+            width: value));
   }
 
   DefineMTileModifier flex([int value = 1]) {
@@ -9059,6 +9820,92 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
     return this.copyWith(
         valueBorder: Border.all(
             color: this.valueBorder?.left.color ?? Colors.white, width: value));
+  }
+
+  DefineMContainerModifier outsideBorderAll({Color? color, double? width}) {
+    return this.copyWith(
+      valueOutsideBorder:
+          Border.all(color: color ?? Colors.white, width: width ?? 1),
+    );
+  }
+
+  DefineMContainerModifier outsideBorderBottom({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMContainerModifier outsideBorderVertical(
+      {Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMContainerModifier outsideBorderHorizontal(
+      {Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
+  DefineMContainerModifier outsideBorderTop({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(top: borderSide),
+    );
+  }
+
+  DefineMContainerModifier outsideBorderLeft({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(left: borderSide),
+    );
+  }
+
+  DefineMContainerModifier outsideBorderRight({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueOutsideBorder: Border(right: borderSide),
+    );
+  }
+
+  DefineMContainerModifier outsideBorder(Border? value) {
+    return this.copyWith(valueOutsideBorder: value);
+  }
+
+  DefineMContainerModifier outsideBorderWhite() {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(color: Colors.white, width: 1));
+  }
+
+  DefineMContainerModifier outsideBorderColor(Color value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: value, width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMContainerModifier outsideBorderColorHex(int value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: Color(value),
+            width: this.valueOutsideBorder?.left.width ?? 1));
+  }
+
+  DefineMContainerModifier outsideBorderWidth(double value) {
+    return this.copyWith(
+        valueOutsideBorder: Border.all(
+            color: this.valueOutsideBorder?.left.color ?? Colors.white,
+            width: value));
   }
 
   DefineMContainerModifier flex([int? value = 1]) {
