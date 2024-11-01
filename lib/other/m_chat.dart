@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -323,12 +324,14 @@ class _DetailImageScreenState extends State<_DetailImageScreen> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-          child: Hero(
-            tag: widget.tag,
-            child: widget.image,
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.dark,
+        child: Scaffold(
+          body: Center(
+            child: Hero(
+              tag: widget.tag,
+              child: widget.image,
+            ),
           ),
         ),
       ),
