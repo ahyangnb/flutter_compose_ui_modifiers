@@ -6730,7 +6730,7 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     );
   }
 
-  DefineMTextFieldModifier outsideBorderRight({Color? color, double? width}) {
+  DefineMStackModifier outsideBorderRight({Color? color, double? width}) {
     final borderSide =
         BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
@@ -8827,11 +8827,11 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     );
   }
 
-  DefineMTextFieldModifier outsideBorder(Border? value) {
+  DefineMTileModifier outsideBorder(Border? value) {
     return this.copyWith(valueOutsideBorder: value);
   }
 
-  DefineMTextFieldModifier outsideBorderWhite() {
+  DefineMTileModifier outsideBorderWhite() {
     return this.copyWith(
         valueOutsideBorder: Border.all(color: Colors.white, width: 1));
   }
