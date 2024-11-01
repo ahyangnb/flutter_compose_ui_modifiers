@@ -51,6 +51,7 @@ class MTextField extends StatelessWidget {
       // key: modifier?.valueKey ?? key,
       generalModifier: modifier,
       child: Row(children: [
+        if (modifier?.valueLeading != null) modifier!.valueLeading!,
         Expanded(
           child: TextField(
             autofocus: modifier?.valueAutoFocus ?? false,
@@ -108,6 +109,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   final ScrollController? valueScrollController;
   final Widget? valueRightWidget;
   final bool? valueAlwaysShowRightWidget;
+  final Widget? valueLeading;
 
   const DefineMTextFieldModifier({
     this.decorationValue,
@@ -132,6 +134,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     this.valueScrollController,
     this.valueRightWidget,
     this.valueAlwaysShowRightWidget,
+    this.valueLeading,
 
     /// Main.
     super.valueKey,
@@ -223,6 +226,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     final ScrollController? valueScrollController,
     final Widget? valueRightWidget,
     final bool? valueAlwaysShowRightWidget,
+    final Widget? valueLeading,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -314,6 +318,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueRightWidget: valueRightWidget ?? this.valueRightWidget,
       valueAlwaysShowRightWidget:
           valueAlwaysShowRightWidget ?? this.valueAlwaysShowRightWidget,
+      valueLeading: valueLeading ?? this.valueLeading,
 
       /// The following properties are inherited from MGeneralModifier.
       /// Main.
@@ -689,6 +694,14 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier rightWidget(Widget? value) {
     return this.copyWith(valueRightWidget: value);
+  }
+
+  DefineMTextFieldModifier trailing(Widget? value) {
+    return this.copyWith(valueRightWidget: value);
+  }
+
+  DefineMTextFieldModifier leading(Widget? value) {
+    return this.copyWith(valueLeading: value);
   }
 
   DefineMTextFieldModifier darkStyle1() {
