@@ -665,7 +665,10 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
         .backgroundColor(Colors.black.withOpacity(0.7))
         .borderRadius(3.px)
         .color(Colors.white)
-        .hintColor(Colors.white.withOpacity(0.3));
+        .hintColor(Colors.white.withOpacity(0.3))
+        .fontSize(12.px)
+        .contentPaddingVertical(10.px)
+        .contentPaddingHorizontal(12.px);
   }
 
   /// Will be contain it in m.g.dart
