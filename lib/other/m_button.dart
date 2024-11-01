@@ -13,6 +13,12 @@ class MButtonGrey extends StatelessWidget {
     this.textStyle,
     this.text,
     this.onTap,
+    this.backgroundGradient,
+    this.child,
+    this.boxShadow,
+    this.border,
+    this.disabledBackgroundColor,
+    this.padding,
   });
 
   final Color? backgroundColor;
@@ -22,6 +28,12 @@ class MButtonGrey extends StatelessWidget {
   final TextStyle? textStyle;
   final String? text;
   final void Function()? onTap;
+  final Gradient? backgroundGradient;
+  final Widget? child;
+  final List<BoxShadow>? boxShadow;
+  final Border? border;
+  final Color? disabledBackgroundColor;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +55,12 @@ class MButtonGrey extends StatelessWidget {
           Get.back();
         }
       },
+      backgroundGradient: backgroundGradient,
+      child: child,
+      boxShadow: boxShadow,
+      border: border,
+      disabledBackgroundColor: disabledBackgroundColor,
+      padding: padding,
     );
   }
 }
@@ -500,6 +518,57 @@ class MButtonGradientBig extends StatelessWidget {
       boxShadow: boxShadow,
       child: child,
       backgroundColor: backgroundColor,
+      padding: padding,
+    );
+  }
+}
+
+class MButtonMediumGrey extends StatelessWidget {
+  final void Function()? onTap;
+  final String? text;
+  final double? width;
+  final double? height;
+  final TextStyle? textStyle;
+  final BorderRadiusGeometry? borderRadius;
+  final Color? backgroundColor;
+  final Gradient? backgroundGradient;
+  final Widget? child;
+  final List<BoxShadow>? boxShadow;
+  final Border? border;
+  final Color? disabledBackgroundColor;
+  final EdgeInsetsGeometry? padding;
+
+  MButtonMediumGrey({
+    this.onTap,
+    this.text,
+    this.width,
+    this.height,
+    this.textStyle,
+    this.borderRadius,
+    this.backgroundColor,
+    this.backgroundGradient,
+    this.child,
+    this.boxShadow,
+    this.border,
+    this.disabledBackgroundColor,
+    this.padding,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return MButtonGrey(
+      text: text ?? 'Button',
+      width: width ?? 126.px,
+      height: height ?? 32.px,
+      textStyle: textStyle ?? TextStyle(color: Colors.black, fontSize: 14.px),
+      backgroundColor: backgroundColor ?? Colors.white.withOpacity(0.6),
+      borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(4.px)),
+      onTap: onTap,
+      disabledBackgroundColor: disabledBackgroundColor,
+      border: border,
+      boxShadow: boxShadow,
+      child: child,
+      backgroundGradient: backgroundGradient,
       padding: padding,
     );
   }
