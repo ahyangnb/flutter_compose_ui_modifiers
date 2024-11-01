@@ -73,6 +73,8 @@ class MGeneralModifier {
   final AlignmentGeometry? valueContainerAlignment;
   final AlignmentGeometry? valueOutSideAlignment;
   final bool? valueCancelFocusWhenClick;
+  final Color? valueOutSideBackgroundColor;
+  final BorderRadiusGeometry? valueOutSideBorderRadius;
 
   // If it doesn't work, set the fullWidth or fullHeight.
   final Gradient? valueGradientBorder;
@@ -148,6 +150,8 @@ class MGeneralModifier {
     this.valueContainerAlignment,
     this.valueOutSideAlignment,
     this.valueCancelFocusWhenClick,
+    this.valueOutSideBackgroundColor,
+    this.valueOutSideBorderRadius,
 
     /// Use the Positioned widget.
     this.valueLeft,
@@ -445,6 +449,23 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
     if (generalModifier?.valueTabLength != null) {
       child = DefaultTabController(
           length: generalModifier!.valueTabLength!, child: child);
+    }
+
+    if (generalModifier?.valueOutSideBackgroundColor != null ||
+        generalModifier?.valueOutSideBorderRadius != null) {
+      child = Container(
+        decoration: BoxDecoration(
+          color: generalModifier?.valueOutSideBackgroundColor,
+          borderRadius: generalModifier?.valueOutSideBorderRadius,
+        ),
+        child: child,
+      );
+      if (generalModifier?.valueOutSideBorderRadius != null) {
+        child = ClipRRect(
+          borderRadius: generalModifier!.valueOutSideBorderRadius!,
+          child: child,
+        );
+      }
     }
 
     /// Must use it in last one.
