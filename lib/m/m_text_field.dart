@@ -50,29 +50,34 @@ class MTextField extends StatelessWidget {
     return MGeneralLayoutModifierWidget(
       // key: modifier?.valueKey ?? key,
       generalModifier: modifier,
-      child: TextField(
-        autofocus: modifier?.valueAutoFocus ?? false,
-        controller: controller ?? TextEditingController(),
-        focusNode: controller?.focusNode ?? FocusNode(),
-        decoration: inputDecoration,
-        style: modifier?.valueStyle,
-        expands: modifier?.expandsValue ?? false,
-        maxLines: modifier?.maxLinesValue,
-        maxLength: modifier?.valueMaxLength,
-        onSubmitted: modifier?.valueOnSubmitted,
-        keyboardType: modifier?.valueKeyboardType,
-        textInputAction: modifier?.valueTextInputAction,
-        onEditingComplete: modifier?.valueOnEditingComplete,
-        textAlign: modifier?.valueTextAlign ?? TextAlign.start,
-        enabled: modifier?.valueEnable ?? true,
-        scrollPadding:
-            modifier?.valueScrollPadding ?? const EdgeInsets.all(20.0),
-        canRequestFocus:
-            modifier?.valueCanRequestFocus ?? TextField().canRequestFocus,
-        readOnly: modifier?.valueReadOnly ?? TextField().readOnly,
-        showCursor: modifier?.valueShowCursor ?? TextField().showCursor,
-        scrollController: modifier?.valueScrollController,
-      ),
+      child: Row(children: [
+        Expanded(
+          child: TextField(
+            autofocus: modifier?.valueAutoFocus ?? false,
+            controller: controller ?? TextEditingController(),
+            focusNode: controller?.focusNode ?? FocusNode(),
+            decoration: inputDecoration,
+            style: modifier?.valueStyle,
+            expands: modifier?.expandsValue ?? false,
+            maxLines: modifier?.maxLinesValue,
+            maxLength: modifier?.valueMaxLength,
+            onSubmitted: modifier?.valueOnSubmitted,
+            keyboardType: modifier?.valueKeyboardType,
+            textInputAction: modifier?.valueTextInputAction,
+            onEditingComplete: modifier?.valueOnEditingComplete,
+            textAlign: modifier?.valueTextAlign ?? TextAlign.start,
+            enabled: modifier?.valueEnable ?? true,
+            scrollPadding:
+                modifier?.valueScrollPadding ?? const EdgeInsets.all(20.0),
+            canRequestFocus:
+                modifier?.valueCanRequestFocus ?? TextField().canRequestFocus,
+            readOnly: modifier?.valueReadOnly ?? TextField().readOnly,
+            showCursor: modifier?.valueShowCursor ?? TextField().showCursor,
+            scrollController: modifier?.valueScrollController,
+          ),
+        ),
+        if (modifier?.valueRightWidget != null) modifier!.valueRightWidget!,
+      ]),
     );
   }
 }
@@ -101,6 +106,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   final bool? valueReadOnly;
   final bool? valueShowCursor;
   final ScrollController? valueScrollController;
+  final Widget? valueRightWidget;
+  final bool? valueAlwaysShowRightWidget;
 
   const DefineMTextFieldModifier({
     this.decorationValue,
@@ -123,6 +130,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     this.valueReadOnly,
     this.valueShowCursor,
     this.valueScrollController,
+    this.valueRightWidget,
+    this.valueAlwaysShowRightWidget,
 
     /// Main.
     super.valueKey,
@@ -212,6 +221,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     final bool? valueReadOnly,
     final bool? valueShowCursor,
     final ScrollController? valueScrollController,
+    final Widget? valueRightWidget,
+    final bool? valueAlwaysShowRightWidget,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -300,6 +311,9 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueShowCursor: valueShowCursor ?? this.valueShowCursor,
       valueScrollController:
           valueScrollController ?? this.valueScrollController,
+      valueRightWidget: valueRightWidget ?? this.valueRightWidget,
+      valueAlwaysShowRightWidget:
+          valueAlwaysShowRightWidget ?? this.valueAlwaysShowRightWidget,
 
       /// The following properties are inherited from MGeneralModifier.
       /// Main.
@@ -369,8 +383,10 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueVisible: valueVisible ?? this.valueVisible,
       valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
-      valueOutSideBackgroundColor: valueOutSideBackgroundColor ?? this.valueOutSideBackgroundColor,
-      valueOutSideBorderRadius: valueOutSideBorderRadius ?? this.valueOutSideBorderRadius,
+      valueOutSideBackgroundColor:
+          valueOutSideBackgroundColor ?? this.valueOutSideBackgroundColor,
+      valueOutSideBorderRadius:
+          valueOutSideBorderRadius ?? this.valueOutSideBorderRadius,
     );
   }
 }
@@ -664,6 +680,14 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier showCursor(bool? value) {
     return this.copyWith(valueShowCursor: value);
+  }
+
+  DefineMTextFieldModifier alwaysShowRightWidget(bool? value) {
+    return this.copyWith(valueAlwaysShowRightWidget: value);
+  }
+
+  DefineMTextFieldModifier rightWidget(Widget? value) {
+    return this.copyWith(valueRightWidget: value);
   }
 
   DefineMTextFieldModifier darkStyle1() {
