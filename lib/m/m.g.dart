@@ -321,6 +321,22 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
     );
   }
 
+  DefineMTextFieldModifier borderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMTextFieldModifier borderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
   DefineMTextFieldModifier borderTop({Color? color, double? width}) {
     final borderSide =
         BorderSide(color: color ?? Colors.white, width: width ?? 1);
@@ -1047,6 +1063,22 @@ extension MTextGeneralGenerator on DefineMTextModifier {
         BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMTextModifier borderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMTextModifier borderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide, right: borderSide),
     );
   }
 
@@ -1871,6 +1903,22 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     );
   }
 
+  DefineMRowModifier borderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMRowModifier borderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
   DefineMRowModifier borderTop({Color? color, double? width}) {
     final borderSide =
         BorderSide(color: color ?? Colors.white, width: width ?? 1);
@@ -2456,6 +2504,22 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
         BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMListViewModifier borderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMListViewModifier borderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide, right: borderSide),
     );
   }
 
@@ -3483,6 +3547,22 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     );
   }
 
+  DefineMColumnModifier borderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMColumnModifier borderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
   DefineMColumnModifier borderTop({Color? color, double? width}) {
     final borderSide =
         BorderSide(color: color ?? Colors.white, width: width ?? 1);
@@ -4288,6 +4368,22 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
     );
   }
 
+  DefineMAddButtonModifier borderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMAddButtonModifier borderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
   DefineMAddButtonModifier borderTop({Color? color, double? width}) {
     final borderSide =
         BorderSide(color: color ?? Colors.white, width: width ?? 1);
@@ -5081,6 +5177,22 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
         BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMStackModifier borderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMStackModifier borderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide, right: borderSide),
     );
   }
 
@@ -5884,6 +5996,22 @@ extension MImageGeneralGenerator on DefineMImageModifier {
     );
   }
 
+  DefineMImageModifier borderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMImageModifier borderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide, right: borderSide),
+    );
+  }
+
   DefineMImageModifier borderTop({Color? color, double? width}) {
     final borderSide =
         BorderSide(color: color ?? Colors.white, width: width ?? 1);
@@ -6676,6 +6804,22 @@ extension MTileGeneralGenerator on DefineMTileModifier {
         BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMTileModifier borderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMTileModifier borderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide, right: borderSide),
     );
   }
 
@@ -7479,6 +7623,22 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
         BorderSide(color: color ?? Colors.white, width: width ?? 1);
     return this.copyWith(
       valueBorder: Border(bottom: borderSide),
+    );
+  }
+
+  DefineMContainerModifier borderVertical({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(bottom: borderSide, top: borderSide),
+    );
+  }
+
+  DefineMContainerModifier borderHorizontal({Color? color, double? width}) {
+    final borderSide =
+        BorderSide(color: color ?? Colors.white, width: width ?? 1);
+    return this.copyWith(
+      valueBorder: Border(left: borderSide, right: borderSide),
     );
   }
 
