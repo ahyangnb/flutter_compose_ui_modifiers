@@ -19,6 +19,7 @@ class MButtonGrey extends StatelessWidget {
     this.border,
     this.disabledBackgroundColor,
     this.padding,
+    this.margin,
   });
 
   final Color? backgroundColor;
@@ -34,6 +35,7 @@ class MButtonGrey extends StatelessWidget {
   final Border? border;
   final Color? disabledBackgroundColor;
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +63,7 @@ class MButtonGrey extends StatelessWidget {
       border: border,
       disabledBackgroundColor: disabledBackgroundColor,
       padding: padding,
+      margin: margin,
     );
   }
 }
@@ -107,6 +110,7 @@ class MButton extends StatelessWidget {
     this.disabledBackgroundColor,
     this.textAlign,
     this.canNotClick = false,
+    this.margin,
   });
 
   final void Function()? onTap;
@@ -129,6 +133,7 @@ class MButton extends StatelessWidget {
   final Color? disabledBackgroundColor;
   final TextAlign? textAlign;
   final bool canNotClick;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
@@ -147,6 +152,7 @@ class MButton extends StatelessWidget {
         boxShadow: boxShadow,
         border: border,
       ),
+      margin: margin,
       child: TextButton(
         style: TextButton.styleFrom(
           padding: padding,
@@ -484,6 +490,7 @@ class MButtonGradientBig extends StatelessWidget {
   final List<BoxShadow>? boxShadow;
   final Border? border;
   final Color? disabledBackgroundColor;
+  final EdgeInsetsGeometry? margin;
 
   MButtonGradientBig({
     this.onTap,
@@ -499,6 +506,7 @@ class MButtonGradientBig extends StatelessWidget {
     this.boxShadow,
     this.border,
     this.disabledBackgroundColor,
+    this.margin,
   });
 
   @override
@@ -519,6 +527,7 @@ class MButtonGradientBig extends StatelessWidget {
       child: child,
       backgroundColor: backgroundColor,
       padding: padding,
+      margin: margin,
     );
   }
 }
@@ -537,6 +546,7 @@ class MButtonMediumGrey extends StatelessWidget {
   final Border? border;
   final Color? disabledBackgroundColor;
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   MButtonMediumGrey({
     this.onTap,
@@ -552,6 +562,7 @@ class MButtonMediumGrey extends StatelessWidget {
     this.border,
     this.disabledBackgroundColor,
     this.padding,
+    this.margin,
   });
 
   @override
@@ -570,6 +581,7 @@ class MButtonMediumGrey extends StatelessWidget {
       child: child,
       backgroundGradient: backgroundGradient,
       padding: padding,
+      margin: margin,
     );
   }
 }
@@ -589,6 +601,7 @@ class MButtonMediumGreyBorder extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final Color? borderColor;
   final double? borderWidth;
+  final EdgeInsetsGeometry? margin;
 
   MButtonMediumGreyBorder({
     this.onTap,
@@ -605,6 +618,7 @@ class MButtonMediumGreyBorder extends StatelessWidget {
     this.padding,
     this.borderColor,
     this.borderWidth,
+    this.margin,
   });
 
   @override
@@ -624,6 +638,7 @@ class MButtonMediumGreyBorder extends StatelessWidget {
       boxShadow: boxShadow,
       disabledBackgroundColor: disabledBackgroundColor,
       padding: padding,
+      margin: margin,
     );
   }
 }
@@ -642,6 +657,7 @@ class MButtonMediumThemeBorder extends StatelessWidget {
   final Border? border;
   final Color? disabledBackgroundColor;
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   MButtonMediumThemeBorder({
     this.onTap,
@@ -657,6 +673,7 @@ class MButtonMediumThemeBorder extends StatelessWidget {
     this.border,
     this.disabledBackgroundColor,
     this.padding,
+    this.margin,
   });
 
   @override
@@ -675,6 +692,7 @@ class MButtonMediumThemeBorder extends StatelessWidget {
       child: child,
       backgroundGradient: backgroundGradient,
       padding: padding,
+      margin: margin,
     );
   }
 }
