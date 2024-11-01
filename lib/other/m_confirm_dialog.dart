@@ -514,6 +514,8 @@ Future<void> mDialogDarkConfirm(
   String? bgImage,
   double? width,
   double? height,
+  double? textTopSpace,
+  double? textBottomSpace,
   required String tag,
   required VoidCallback onConfirm,
 }) {
@@ -527,6 +529,8 @@ Future<void> mDialogDarkConfirm(
         width: width,
         height: height,
         okText: okText,
+        textTopSpace: textTopSpace,
+        textBottomSpace: textBottomSpace,
       );
     },
     tag: tag,
@@ -542,6 +546,8 @@ class MDialogDarkConfirm extends StatefulWidget {
     this.width,
     this.height,
     this.okText,
+    this.textTopSpace,
+    this.textBottomSpace,
     super.key,
   });
 
@@ -552,6 +558,8 @@ class MDialogDarkConfirm extends StatefulWidget {
   final double? width;
   final double? height;
   final String? okText;
+  final double? textTopSpace;
+  final double? textBottomSpace;
 
   @override
   State<MDialogDarkConfirm> createState() => _MDialogDarkConfirmState();
@@ -563,33 +571,40 @@ class _MDialogDarkConfirmState extends State<MDialogDarkConfirm> {
   @override
   Widget build(BuildContext context) {
     final spaceVertical = 28.px;
+    DefineMStackModifier modifier =
+        MStackModifier.gravity(MGravity.center).borderRadius(6.px);
+    if (widget.bgImage == null) {
+      modifier = modifier.backgroundColor(Colors.black).borderAll();
+    }
     return MStack(
-      modifier: MStackModifier.backgroundColor(Colors.black)
-          .borderAll()
-          .gravity(MGravity.center)
-          .borderRadius(6.px),
+      modifier: modifier,
       children: [
         if (widget.bgImage != null)
           MImage(
-            modifier: MImageModifier.width(widget.width).height(widget.height),
+            modifier: MImageModifier.width(widget.width)
+                .height(widget.height)
+                .fit(BoxFit.cover),
             data: widget.bgImage,
           ),
         MColumn(
           modifier: MColumnModifier.width(widget.width ?? 323.px)
               .height(widget.height),
           children: [
-            spaceVertical.space,
+            (widget.textTopSpace ?? spaceVertical).space,
             MText(
               modifier: MTextModifier.colorWhite()
                   .fontSize(16.px)
-                  .heightSize(50.px - 28.px + 66.px)
+                  .heightSize(widget.textTopSpace != null ||
+                          widget.textBottomSpace != null
+                      ? null
+                      : 50.px - 28.px + 66.px)
                   .marginHorizontal(30.px)
                   .textCenter()
                   .centerText()
                   .align(Alignment.center),
               data: widget.content,
             ),
-            spaceVertical.space,
+            (widget.textBottomSpace ?? spaceVertical).space,
             MRow(
               modifier: MRowModifier.mainCenter(),
               children: [

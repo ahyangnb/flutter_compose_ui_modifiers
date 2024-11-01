@@ -39,6 +39,10 @@ class _MStackState extends ModifierState<MStack> with ObxImplementation {
       throw OnlyBuilderException("children");
     }
 
+    final widgets = <Widget>[
+      ...widget.children ?? [],
+      ...widget.builder != null ? widget.builder!() : [],
+    ];
     return MGeneralLayoutModifierWidget(
       // key: modifier?.valueKey ?? key,
       generalModifier: widget.modifier,
@@ -49,7 +53,7 @@ class _MStackState extends ModifierState<MStack> with ObxImplementation {
         textDirection: widget.modifier?.valueTextDirection,
         fit: widget.modifier?.valueFit ?? StackFit.loose,
         clipBehavior: widget.modifier?.valueClipBehavior ?? Clip.hardEdge,
-        children: widget.children ?? <Widget>[],
+        children: widgets,
       ),
     );
   }
@@ -132,7 +136,8 @@ class DefineMStackModifier extends MGeneralModifier {
     super.valueScrollable,
     super.valueScrollController,
     super.valueSafeArea,
-    super.valueVisible,super.valueTabLength,
+    super.valueVisible,
+    super.valueTabLength,
     super.valueObxListener,
   });
 
@@ -201,7 +206,8 @@ class DefineMStackModifier extends MGeneralModifier {
     bool? valueScrollable,
     ScrollController? valueScrollController,
     SafeArea? valueSafeArea,
-    bool? valueVisible, int? valueTabLength,
+    bool? valueVisible,
+    int? valueTabLength,
     Rx<dynamic>? valueObxListener,
   }) {
     return DefineMStackModifier(
@@ -276,7 +282,8 @@ class DefineMStackModifier extends MGeneralModifier {
       valueScrollController:
           valueScrollController ?? this.valueScrollController,
       valueSafeArea: valueSafeArea ?? this.valueSafeArea,
-      valueVisible: valueVisible ?? this.valueVisible, valueTabLength: valueTabLength ?? this.valueTabLength,
+      valueVisible: valueVisible ?? this.valueVisible,
+      valueTabLength: valueTabLength ?? this.valueTabLength,
       valueObxListener: valueObxListener ?? this.valueObxListener,
     );
   }
