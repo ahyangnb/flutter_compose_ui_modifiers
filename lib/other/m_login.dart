@@ -14,6 +14,7 @@ class MLoginAgreementText extends StatefulWidget {
     this.sizeCheckBox,
     this.interface,
     this.isWhiteAgreementText,
+    this.lightAgreementColor,
     super.key,
   });
 
@@ -23,6 +24,7 @@ class MLoginAgreementText extends StatefulWidget {
   final double? sizeCheckBox;
   final LoginAgreeHandleInterface? interface;
   final bool? isWhiteAgreementText;
+  final Color? lightAgreementColor;
 
   static const String isAgreeTermsKey = "isAgreeTermsKey";
 
@@ -112,7 +114,8 @@ class _MLoginAgreementTextState extends State<MLoginAgreementText> {
                 ),
               ),
               ...mAgreementsTextSpanList(widget.interface,
-                  isWhiteAgreementText: widget.isWhiteAgreementText),
+                  isWhiteAgreementText: widget.isWhiteAgreementText,
+                  lightAgreementColor: widget.lightAgreementColor),
             ],
           ),
         ),
@@ -133,6 +136,7 @@ class MLoginBase extends StatefulWidget {
   final double? sizeCheckBox;
   final LoginAgreeHandleInterface? interface;
   final bool? isWhiteAgreementText;
+  final Color? lightAgreementColor;
 
   MLoginBase({
     this.imgAppLogo,
@@ -146,6 +150,7 @@ class MLoginBase extends StatefulWidget {
     this.sizeCheckBox,
     required this.interface,
     this.isWhiteAgreementText,
+    this.lightAgreementColor,
   });
 
   @override
@@ -211,6 +216,7 @@ class _MLoginBaseState extends State<MLoginBase> {
           imgSelected: widget.imgSelected,
           interface: widget.interface,
           isWhiteAgreementText: widget.isWhiteAgreementText,
+          lightAgreementColor: widget.lightAgreementColor,
         ),
         58.pxH,
         paddingBottom().spaceH,
@@ -220,9 +226,9 @@ class _MLoginBaseState extends State<MLoginBase> {
 }
 
 List<TextSpan> mAgreementsTextSpanList(LoginAgreeHandleInterface? interface,
-    {bool? isWhiteAgreementText}) {
+    {bool? isWhiteAgreementText, Color? lightAgreementColor}) {
   final TextStyle lightStyle = TextStyle(
-    color: MThemeConfig.mainColor,
+    color: lightAgreementColor ?? MThemeConfig.mainColor.withOpacity(0.7),
     fontSize: 12,
     fontWeight: FontWeight.w600,
   );
@@ -275,16 +281,22 @@ mixin LoginAgreeHandle on LoginAgreeHandleInterface {
   RxBool isAgreeTerms = false.obs;
 
   Future<void> mLoginCheckAgree(FutureCallback then,
-      {bool? isWhiteAgreementText}) async {
+      {bool? isWhiteAgreementText, Color? lightAgreementColor}) async {
     if (isAgreeTerms.value) {
       await then();
     } else {
       // Do something
       await mShowTipsDialog<void>(
         Get.context!,
-        centerWidget: Text.rich(TextSpan(
-            children: mAgreementsTextSpanList(this,
-                isWhiteAgreementText: isWhiteAgreementText))),
+        centerWidget: Text.rich(
+          TextSpan(
+            children: mAgreementsTextSpanList(
+              this,
+              isWhiteAgreementText: isWhiteAgreementText,
+              lightAgreementColor: lightAgreementColor,
+            ),
+          ),
+        ),
         onTap: () async {
           isAgreeTerms.value = true;
           Get.back();
