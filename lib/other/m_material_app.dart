@@ -1,9 +1,11 @@
+import 'package:ansicolor/ansicolor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_theme_config.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
 import 'package:oktoast/oktoast.dart';
 
 class ModifierMaterialApp extends StatelessWidget {
@@ -133,6 +135,12 @@ class ModifierMaterialApp extends StatelessWidget {
     return OKToast(
       dismissOtherOnShow: true,
       child: GetMaterialApp(
+        logWriterCallback: (String text, {bool? isError}) {
+          if (logWriterCallback != null) {
+            logWriterCallback!(text);
+          }
+          mLogWriterCallback(text);
+        },
         navigatorKey: navigatorKey,
         scaffoldMessengerKey: scaffoldMessengerKey,
         home: home,
@@ -177,7 +185,6 @@ class ModifierMaterialApp extends StatelessWidget {
         onReady: onReady,
         onDispose: onDispose,
         enableLog: enableLog,
-        logWriterCallback: logWriterCallback,
         popGesture: popGesture,
         smartManagement: smartManagement,
         initialBinding: MGlobalBinding(initialBinding: initialBinding),
@@ -216,5 +223,32 @@ class MGlobalBinding extends Bindings {
       MConfig.mKeyZeroEvent.value = MKeyZeroEvent();
     }), permanent: true);
     Get.put(MPickImageLogic(), permanent: true);
+  }
+}
+
+void mLogWriterCallback(String text, {bool? isError}) {
+  if (kDebugMode) {
+    final AnsiPen pen = AnsiPen()..yellow();
+    print(pen('[GetX] $text'));
+  }
+
+  /// Add it to logList.
+  mPrintLogs.add(text);
+}
+
+List<String> mPrintLogs = [];
+
+/// Default implementation of [LogOutput].
+///
+/// It sends everything to the system console.
+class MConsoleOutput extends LogOutput {
+  @override
+  void output(OutputEvent event) {
+    for (final String e in event.lines) {
+      if (kDebugMode) {
+        print(e);
+      }
+      mPrintLogs.add(e);
+    }
   }
 }
