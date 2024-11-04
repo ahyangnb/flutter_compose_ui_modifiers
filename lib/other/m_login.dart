@@ -12,8 +12,8 @@ class MLoginAgreementText extends StatefulWidget {
     this.imgSelected,
     this.imgUnSelect,
     this.sizeCheckBox,
-    this.onTerms,
-    this.onPrivacy,
+    this.interface,
+    this.isWhiteAgreementText,
     super.key,
   });
 
@@ -21,8 +21,8 @@ class MLoginAgreementText extends StatefulWidget {
   final String? imgSelected;
   final String? imgUnSelect;
   final double? sizeCheckBox;
-  final VoidCallback? onTerms;
-  final VoidCallback? onPrivacy;
+  final LoginAgreeHandleInterface? interface;
+  final bool? isWhiteAgreementText;
 
   static const String isAgreeTermsKey = "isAgreeTermsKey";
 
@@ -75,16 +75,12 @@ class _MLoginAgreementTextState extends State<MLoginAgreementText> {
       },
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 28.px, vertical: 10.px),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(left: 31.5.px, right: 5.px),
-              child: Container(
-                height: 18.5.px,
-                width: 12.px,
-                padding: EdgeInsets.only(top: 4.px),
-                child: Center(
+        child: RichText(
+          text: TextSpan(
+            children: <InlineSpan>[
+              WidgetSpan(
+                child: Container(
+                  margin: EdgeInsets.only(left: 12.px, right: 3.5.px),
                   child: Obx(
                     () {
                       final sizeUse = widget.sizeCheckBox ?? 12.px;
@@ -115,54 +111,10 @@ class _MLoginAgreementTextState extends State<MLoginAgreementText> {
                   ),
                 ),
               ),
-            ),
-            Expanded(
-              child: RichText(
-                text: TextSpan(
-                  children: <InlineSpan>[
-                    TextSpan(
-                      text: '${'By using our App you agree with our'.tr} \n',
-
-                      /// So many TextStyle code can be reduce.
-                      style: style,
-                    ),
-                    TextSpan(
-                      text: 'Terms Conditions'.tr,
-                      style: blueStyle,
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          if (MButtonController.to.isProcessing) {
-                            mLogger.d(
-                                "It's loading or login processing, ignore the click event.");
-                            return;
-                          }
-                          if (widget.onTerms != null) {
-                            widget.onTerms!();
-                          }
-                        },
-                    ),
-                    TextSpan(text: ' ${'and'.tr} ', style: style),
-                    TextSpan(
-                      text: 'Privacy Statement'.tr,
-                      style: blueStyle,
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          if (MButtonController.to.isProcessing) {
-                            mLogger.d(
-                                "It's loading or login processing, ignore the click event.");
-                            return;
-                          }
-                          if (widget.onPrivacy != null) {
-                            widget.onPrivacy!();
-                          }
-                          // WebViewPage.toPrivacy();
-                        },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
+              ...mAgreementsTextSpanList(widget.interface,
+                  isWhiteAgreementText: widget.isWhiteAgreementText),
+            ],
+          ),
         ),
       ),
     );
@@ -179,8 +131,8 @@ class MLoginBase extends StatefulWidget {
   final String? imgSelected;
   final String? imgUnSelect;
   final double? sizeCheckBox;
-  final VoidCallback? onTerms;
-  final VoidCallback? onPrivacy;
+  final LoginAgreeHandleInterface? interface;
+  final bool? isWhiteAgreementText;
 
   MLoginBase({
     this.imgAppLogo,
@@ -192,8 +144,8 @@ class MLoginBase extends StatefulWidget {
     this.imgSelected,
     this.imgUnSelect,
     this.sizeCheckBox,
-    this.onTerms,
-    this.onPrivacy,
+    required this.interface,
+    this.isWhiteAgreementText,
   });
 
   @override
@@ -257,12 +209,88 @@ class _MLoginBaseState extends State<MLoginBase> {
           isAgreeTerms,
           imgUnSelect: widget.imgUnSelect,
           imgSelected: widget.imgSelected,
-          onTerms: widget.onTerms,
-          onPrivacy: widget.onPrivacy,
+          interface: widget.interface,
+          isWhiteAgreementText: widget.isWhiteAgreementText,
         ),
         58.pxH,
         paddingBottom().spaceH,
       ],
     );
+  }
+}
+
+List<TextSpan> mAgreementsTextSpanList(LoginAgreeHandleInterface? interface,
+    {bool? isWhiteAgreementText}) {
+  final TextStyle lightStyle = TextStyle(
+    color: MThemeConfig.mainColor,
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+  );
+  final TextStyle style = TextStyle(
+    color: (isWhiteAgreementText ?? false)
+        ? Colors.white
+        : const Color(0xff111111),
+    fontSize: 12.px,
+    fontWeight: FontWeight.w600,
+  );
+  return [
+    TextSpan(
+      text: 'By using our App you agree with \nour ',
+      style: style,
+    ),
+    TextSpan(
+      text: 'Terms Conditions',
+      style: lightStyle,
+      recognizer: TapGestureRecognizer()
+        ..onTap = () {
+          // Handle Terms Conditions tap
+          if (interface != null) {
+            interface.toTerms();
+          }
+        },
+    ),
+    TextSpan(text: ' and ', style: style),
+    TextSpan(
+      text: 'Privacy Statement',
+      style: lightStyle,
+      recognizer: TapGestureRecognizer()
+        ..onTap = () {
+          print("interface != null::${interface != null}");
+          // Handle Privacy Statement tap
+          if (interface != null) {
+            interface.toPrivacy();
+          }
+        },
+    ),
+  ];
+}
+
+abstract mixin class LoginAgreeHandleInterface {
+  void toTerms();
+
+  void toPrivacy();
+}
+
+mixin LoginAgreeHandle on LoginAgreeHandleInterface {
+  RxBool isAgreeTerms = false.obs;
+
+  Future<void> mLoginCheckAgree(FutureCallback then,
+      {bool? isWhiteAgreementText}) async {
+    if (isAgreeTerms.value) {
+      await then();
+    } else {
+      // Do something
+      await mShowTipsDialog<void>(
+        Get.context!,
+        centerWidget: Text.rich(TextSpan(
+            children: mAgreementsTextSpanList(this,
+                isWhiteAgreementText: isWhiteAgreementText))),
+        onTap: () async {
+          isAgreeTerms.value = true;
+          Get.back();
+          await then();
+        },
+      );
+    }
   }
 }

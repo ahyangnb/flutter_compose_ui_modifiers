@@ -639,3 +639,143 @@ class _MDialogDarkConfirmState extends State<MDialogDarkConfirm> {
     );
   }
 }
+
+Future<T?> mShowTipsDialog<T>(
+  BuildContext context, {
+  String? centerText,
+  Widget? centerWidget,
+  String confirmText = 'Confirm',
+  required VoidCallback onTap,
+  VoidCallback? onCancel,
+  VoidCallback? onDismiss,
+  bool singleButtonMode = false,
+}) async {
+  final value = await showDialog<T>(
+    context: context,
+    barrierDismissible: !singleButtonMode,
+    // Prevent dismissing when singleButtonMode is true
+    builder: (BuildContext context) {
+      return TipsDialog(
+        centerText: centerText,
+        centerWidget: centerWidget,
+        confirmText: confirmText,
+        onTap: onTap,
+        onCancel: onCancel,
+        singleButtonMode: singleButtonMode,
+      );
+    },
+  );
+  if (value == null && onDismiss != null) {
+    onDismiss();
+  }
+  return value;
+}
+
+class TipsDialog extends StatelessWidget {
+  final String? centerText;
+  final Widget? centerWidget;
+  final String confirmText;
+  final VoidCallback onTap;
+  final VoidCallback? onCancel;
+  final bool singleButtonMode;
+
+  TipsDialog({
+    this.centerText,
+    this.centerWidget,
+    required this.confirmText,
+    required this.onTap,
+    this.onCancel,
+    required this.singleButtonMode,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.px),
+      ),
+      child: Container(
+        width: 270.px,
+        padding: EdgeInsets.all(20.px),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Tips',
+              style: TextStyle(
+                color: Color(0xFF111111),
+                fontSize: 18.px,
+              ),
+            ),
+            SizedBox(height: 20.px),
+            centerWidget ??
+                Text(
+                  centerText ?? '',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFF555555),
+                    fontSize: 16.px,
+                  ),
+                ),
+            SizedBox(height: 20.px),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                if (!singleButtonMode)
+                  InkWell(
+                    onTap: () {
+                      if (onCancel != null) {
+                        onCancel!();
+                      }
+                      Navigator.of(context).pop(false);
+                    },
+                    child: Container(
+                      width: 105.px,
+                      height: 39.px,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border:
+                            Border.all(color: Color(0xFF777777), width: 0.5.px),
+                        borderRadius: BorderRadius.circular(5.px),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Cancel',
+                          style: TextStyle(
+                            color: Color(0xFF777777),
+                            fontSize: 16.px,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                if (!singleButtonMode) SizedBox(width: 10.px),
+                InkWell(
+                  onTap: onTap,
+                  child: Container(
+                    width: 105.px,
+                    height: 39.px,
+                    decoration: BoxDecoration(
+                      gradient: MThemeConfig.gradientMain,
+                      borderRadius: BorderRadius.circular(5.px),
+                    ),
+                    child: Center(
+                      child: Text(
+                        confirmText,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.px,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
