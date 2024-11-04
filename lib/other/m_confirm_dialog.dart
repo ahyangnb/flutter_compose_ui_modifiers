@@ -649,6 +649,7 @@ Future<T?> mShowTipsDialog<T>(
   VoidCallback? onCancel,
   VoidCallback? onDismiss,
   bool singleButtonMode = false,
+  final Color? okButtonTextColor,
 }) async {
   final value = await showDialog<T>(
     context: context,
@@ -662,6 +663,7 @@ Future<T?> mShowTipsDialog<T>(
         onTap: onTap,
         onCancel: onCancel,
         singleButtonMode: singleButtonMode,
+        okButtonTextColor: okButtonTextColor,
       );
     },
   );
@@ -678,6 +680,7 @@ class TipsDialog extends StatelessWidget {
   final VoidCallback onTap;
   final VoidCallback? onCancel;
   final bool singleButtonMode;
+  final Color? okButtonTextColor;
 
   TipsDialog({
     this.centerText,
@@ -686,6 +689,7 @@ class TipsDialog extends StatelessWidget {
     required this.onTap,
     this.onCancel,
     required this.singleButtonMode,
+    required this.okButtonTextColor,
   });
 
   @override
@@ -764,7 +768,7 @@ class TipsDialog extends StatelessWidget {
                       child: Text(
                         confirmText,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: okButtonTextColor ?? Colors.white,
                           fontSize: 16.px,
                         ),
                       ),

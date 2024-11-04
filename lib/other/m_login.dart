@@ -302,6 +302,7 @@ mixin LoginAgreeHandle on LoginAgreeHandleInterface {
           Get.back();
           await then();
         },
+        okButtonTextColor: Colors.black,
       );
     }
   }
