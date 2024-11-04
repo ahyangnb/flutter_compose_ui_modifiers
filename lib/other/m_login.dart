@@ -6,11 +6,11 @@ import 'package:get_storage/get_storage.dart';
 
 import '../util/log.dart';
 
-class MAgreementText extends StatefulWidget {
-  const MAgreementText(
+class MLoginAgreementText extends StatefulWidget {
+  const MLoginAgreementText(
     this.isAgreeTerms, {
-    this.selected,
-    this.unSelect,
+    this.imgSelected,
+    this.imgUnSelect,
     this.sizeCheckBox,
     this.onTerms,
     this.onPrivacy,
@@ -18,8 +18,8 @@ class MAgreementText extends StatefulWidget {
   });
 
   final RxBool isAgreeTerms;
-  final String? selected;
-  final String? unSelect;
+  final String? imgSelected;
+  final String? imgUnSelect;
   final double? sizeCheckBox;
   final VoidCallback? onTerms;
   final VoidCallback? onPrivacy;
@@ -27,10 +27,10 @@ class MAgreementText extends StatefulWidget {
   static const String isAgreeTermsKey = "isAgreeTermsKey";
 
   @override
-  State<MAgreementText> createState() => _MAgreementTextState();
+  State<MLoginAgreementText> createState() => _MLoginAgreementTextState();
 }
 
-class _MAgreementTextState extends State<MAgreementText> {
+class _MLoginAgreementTextState extends State<MLoginAgreementText> {
   @override
   void initState() {
     super.initState();
@@ -39,7 +39,7 @@ class _MAgreementTextState extends State<MAgreementText> {
 
   void init() {
     widget.isAgreeTerms.value =
-        GetStorage().read(MAgreementText.isAgreeTermsKey) ?? false;
+        GetStorage().read(MLoginAgreementText.isAgreeTermsKey) ?? false;
   }
 
   @override
@@ -70,8 +70,8 @@ class _MAgreementTextState extends State<MAgreementText> {
         widget.isAgreeTerms.value = !widget.isAgreeTerms.value;
 
         /// Auto store the isAgreeTerms state to storage [from manually option].
-        GetStorage()
-            .write(MAgreementText.isAgreeTermsKey, widget.isAgreeTerms.value);
+        GetStorage().write(
+            MLoginAgreementText.isAgreeTermsKey, widget.isAgreeTerms.value);
       },
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 28.px, vertical: 10.px),
@@ -88,21 +88,22 @@ class _MAgreementTextState extends State<MAgreementText> {
                   child: Obx(
                     () {
                       final sizeUse = widget.sizeCheckBox ?? 12.px;
-                      if (widget.selected != null && widget.unSelect != null) {
+                      if (widget.imgSelected != null &&
+                          widget.imgUnSelect != null) {
                         return Image.asset(
                           widget.isAgreeTerms.value
-                              ? widget.selected!
-                              : widget.unSelect!,
+                              ? widget.imgSelected!
+                              : widget.imgUnSelect!,
                         ).setSize(sizeUse);
                       }
 
-                      /// Check if selected or unSelect only single one not null
-                      if ((widget.selected != null &&
-                              widget.unSelect == null) ||
-                          (widget.selected == null &&
-                              widget.unSelect != null)) {
+                      /// Check if imgSelected or imgUnSelect only single one not null
+                      if ((widget.imgSelected != null &&
+                              widget.imgUnSelect == null) ||
+                          (widget.imgSelected == null &&
+                              widget.imgUnSelect != null)) {
                         throw Exception(
-                            "please set all the checkbox image[selected and unSelect] or all set null.");
+                            "please set all the checkbox image[imgSelected and imgUnSelect] or all set null.");
                       }
                       if (widget.isAgreeTerms.value) {
                         return Icon(Icons.check_box, size: sizeUse);
@@ -164,6 +165,104 @@ class _MAgreementTextState extends State<MAgreementText> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class MLoginBase extends StatefulWidget {
+  final String? imgAppLogo;
+  final double? widthOfLogo;
+  final String? imgAppName;
+  final double? widthOfName;
+  final void Function()? onTapLogin;
+  final RxBool? isAgreeTerms;
+  final String? imgSelected;
+  final String? imgUnSelect;
+  final double? sizeCheckBox;
+  final VoidCallback? onTerms;
+  final VoidCallback? onPrivacy;
+
+  MLoginBase({
+    this.imgAppLogo,
+    this.widthOfLogo,
+    this.imgAppName,
+    this.widthOfName,
+    this.onTapLogin,
+    this.isAgreeTerms,
+    this.imgSelected,
+    this.imgUnSelect,
+    this.sizeCheckBox,
+    this.onTerms,
+    this.onPrivacy,
+  });
+
+  @override
+  State<MLoginBase> createState() => _MLoginBaseState();
+}
+
+class _MLoginBaseState extends State<MLoginBase> {
+  RxBool get isAgreeTerms => widget.isAgreeTerms ?? RxBool(false);
+
+  double get widthOfLog => widget.widthOfLogo ?? 120.px;
+
+  double get widthOfName => widget.widthOfName ?? 139.px;
+
+  @override
+  Widget build(BuildContext context) {
+    return MColumn(
+      children: [
+        Spacer(),
+        if (widget.imgAppLogo == null)
+          Container(
+            width: widthOfLog,
+            height: widthOfLog,
+            padding: EdgeInsets.all(10.px),
+            decoration: BoxDecoration(
+              color: MThemeConfig.mainColor,
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            child: FlutterLogo(),
+          )
+        else
+          MImage(
+            modifier: MImageModifier.widthImage(widthOfLog),
+            data: widget.imgAppLogo,
+          ),
+        17.pxH,
+        if (widget.imgAppName == null)
+          MText(
+            modifier: MTextModifier.fontSize(17.px).colorWhite(),
+            data: "Flutter",
+          )
+        else
+          MImage(
+            modifier: MImageModifier.width(widthOfName),
+            data: widget.imgAppName,
+          ),
+        Spacer(),
+        MButtonGradientBig(
+          text: 'Login',
+          width: 295.px,
+          height: 48.px,
+          onTap: () {
+            if (widget.onTapLogin != null) {
+              widget.onTapLogin!();
+            } else {
+              myToast("todo");
+            }
+          },
+        ),
+        58.pxH,
+        MLoginAgreementText(
+          isAgreeTerms,
+          imgUnSelect: widget.imgUnSelect,
+          imgSelected: widget.imgSelected,
+          onTerms: widget.onTerms,
+          onPrivacy: widget.onPrivacy,
+        ),
+        58.pxH,
+        paddingBottom().spaceH,
+      ],
     );
   }
 }
