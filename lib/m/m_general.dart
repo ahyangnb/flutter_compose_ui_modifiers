@@ -107,6 +107,7 @@ class MGeneralModifier {
   final SafeArea? valueSafeArea;
   final bool? valueVisible;
   final int? valueTabLength;
+  final Object? valueHeroTag;
 
   /// Only refresh `builder` content.
   final Rx<dynamic>? valueObxListener;
@@ -179,6 +180,7 @@ class MGeneralModifier {
     this.valueSafeArea,
     this.valueVisible,
     this.valueTabLength,
+    this.valueHeroTag,
     this.valueObxListener,
   });
 }
@@ -469,6 +471,10 @@ class MGeneralLayoutModifierWidget extends StatelessWidget {
                   ? MainAxisAlignment.start
                   : MainAxisAlignment.end;
       child = Row(mainAxisAlignment: gravityValue, children: [child]);
+    }
+
+    if (generalModifier?.valueHeroTag != null) {
+      child = Hero(tag: generalModifier!.valueHeroTag!, child: child);
     }
 
     /// Must use it in last one.
