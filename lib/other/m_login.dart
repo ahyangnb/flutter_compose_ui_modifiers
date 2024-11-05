@@ -32,11 +32,17 @@ class MLoginAgreementText extends StatefulWidget {
   State<MLoginAgreementText> createState() => _MLoginAgreementTextState();
 }
 
-class _MLoginAgreementTextState extends State<MLoginAgreementText> {
+class _MLoginAgreementTextState extends ModifierState<MLoginAgreementText> {
   @override
   void initState() {
     super.initState();
     init();
+    /// Save the state whatever how change the state.
+    everAndAutoClose(widget.isAgreeTerms, (callback) {
+      /// Auto store the isAgreeTerms state to storage [from manually option].
+      GetStorage().write(
+          MLoginAgreementText.isAgreeTermsKey, widget.isAgreeTerms.value);
+    });
   }
 
   void init() {
@@ -70,10 +76,6 @@ class _MLoginAgreementTextState extends State<MLoginAgreementText> {
           return;
         }
         widget.isAgreeTerms.value = !widget.isAgreeTerms.value;
-
-        /// Auto store the isAgreeTerms state to storage [from manually option].
-        GetStorage().write(
-            MLoginAgreementText.isAgreeTermsKey, widget.isAgreeTerms.value);
       },
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 28.px, vertical: 10.px),
