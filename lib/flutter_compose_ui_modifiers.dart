@@ -44,6 +44,7 @@ export 'other/m_water_ripples.dart';
 export 'other/m_banner.dart';
 export 'other/m_chat.dart';
 export 'other/m_login.dart';
+export 'other/m_picture.dart';
 export 'util/m_imgaes_upload.dart';
 export 'util/screen_fit.dart';
 export 'util/extension.dart';
