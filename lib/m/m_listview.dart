@@ -192,7 +192,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     super.valueTabLength,
     super.valueObxListener,
     super.valueOutsideBackgroundColor,
-    super.valueOutsideBorderRadius,
+    super.valueOutsideBorderRadius, super.valueHeroTag,
   });
 
   /// Create a copyWith().
@@ -267,7 +267,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     int? valueTabLength,
     Rx<dynamic>? valueObxListener,
     Color? valueOutsideBackgroundColor,
-    BorderRadiusGeometry? valueOutsideBorderRadius,
+    BorderRadiusGeometry? valueOutsideBorderRadius, Object? valueHeroTag,
   }) {
     return DefineMListViewModifier(
       valueReverse: valueReverse ?? this.valueReverse,
@@ -349,7 +349,7 @@ class DefineMListViewModifier extends MGeneralModifier {
       valueOutsideBackgroundColor:
           valueOutsideBackgroundColor ?? this.valueOutsideBackgroundColor,
       valueOutsideBorderRadius:
-          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius,
+          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius, valueHeroTag: valueHeroTag ?? this.valueHeroTag,
     );
   }
 }

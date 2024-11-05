@@ -140,7 +140,7 @@ class DefineMStackModifier extends MGeneralModifier {
     super.valueTabLength,
     super.valueObxListener,
     super.valueOutsideBackgroundColor,
-    super.valueOutsideBorderRadius,
+    super.valueOutsideBorderRadius, super.valueHeroTag,
   });
 
   DefineMStackModifier copyWith({
@@ -212,7 +212,7 @@ class DefineMStackModifier extends MGeneralModifier {
     int? valueTabLength,
     Rx<dynamic>? valueObxListener,
     Color? valueOutsideBackgroundColor,
-    BorderRadiusGeometry? valueOutsideBorderRadius,
+    BorderRadiusGeometry? valueOutsideBorderRadius, Object? valueHeroTag,
   }) {
     return DefineMStackModifier(
       valueAlignment: valueAlignment ?? this.valueAlignment,
@@ -293,7 +293,7 @@ class DefineMStackModifier extends MGeneralModifier {
       valueOutsideBackgroundColor:
           valueOutsideBackgroundColor ?? this.valueOutsideBackgroundColor,
       valueOutsideBorderRadius:
-          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius,
+          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius, valueHeroTag: valueHeroTag ?? this.valueHeroTag,
     );
   }
 }

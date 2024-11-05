@@ -250,6 +250,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     super.valueObxListener,
     super.valueOutsideBackgroundColor,
     super.valueOutsideBorderRadius,
+    super.valueHeroTag,
   });
 
   /// Create a copyWith().
@@ -330,6 +331,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
     Rx<dynamic>? valueObxListener,
     Color? valueOutsideBackgroundColor,
     BorderRadiusGeometry? valueOutsideBorderRadius,
+    Object? valueHeroTag,
   }) {
     return DefineMAddButtonModifier(
       iconSizeValue: iconSizeValue ?? this.iconSizeValue,
@@ -417,7 +419,7 @@ class DefineMAddButtonModifier extends MGeneralModifier {
       valueOutsideBackgroundColor:
           valueOutsideBackgroundColor ?? this.valueOutsideBackgroundColor,
       valueOutsideBorderRadius:
-          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius,
+          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius, valueHeroTag: valueHeroTag ?? this.valueHeroTag,
     );
   }
 }

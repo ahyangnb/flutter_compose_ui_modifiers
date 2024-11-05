@@ -159,7 +159,7 @@ class DefineMTileModifier extends MGeneralModifier {
     super.valueTabLength,
     super.valueObxListener,
     super.valueOutsideBackgroundColor,
-    super.valueOutsideBorderRadius,
+    super.valueOutsideBorderRadius, super.valueHeroTag,
   });
 
   DefineMTileModifier copyWith({
@@ -233,7 +233,7 @@ class DefineMTileModifier extends MGeneralModifier {
     int? valueTabLength,
     Rx<dynamic>? valueObxListener,
     Color? valueOutsideBackgroundColor,
-    BorderRadiusGeometry? valueOutsideBorderRadius,
+    BorderRadiusGeometry? valueOutsideBorderRadius, Object? valueHeroTag,
   }) {
     return DefineMTileModifier(
       valueStyle: valueStyle ?? this.valueStyle,
@@ -316,7 +316,7 @@ class DefineMTileModifier extends MGeneralModifier {
       valueOutsideBackgroundColor:
           valueOutsideBackgroundColor ?? this.valueOutsideBackgroundColor,
       valueOutsideBorderRadius:
-          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius,
+          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius, valueHeroTag: valueHeroTag ?? this.valueHeroTag,
     );
   }
 }
