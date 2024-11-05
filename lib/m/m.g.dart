@@ -266,6 +266,10 @@ extension MTextFiledGenerator on DefineMTextFieldModifier {
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
+  DefineMTextFieldModifier heroTag(Object value) {
+    return this.copyWith(valueHeroTag: value);
+  }
+
   DefineMTextFieldModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -1250,6 +1254,10 @@ extension MTextGeneralGenerator on DefineMTextModifier {
     return this.copyWith(
         valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
+  DefineMTextModifier heroTag(Object value) {
+    return this.copyWith(valueHeroTag: value);
   }
 
   DefineMTextModifier center([bool value = true]) {
@@ -2326,6 +2334,10 @@ extension MRowGeneralGenerator on DefineMRowModifier {
     return this.copyWith(
         valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
+  DefineMRowModifier heroTag(Object value) {
+    return this.copyWith(valueHeroTag: value);
   }
 
   DefineMRowModifier center([bool value = true]) {
@@ -4102,6 +4114,10 @@ extension MListViewGeneralGenerator on DefineMListViewModifier {
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
+  DefineMListViewModifier heroTag(Object value) {
+    return this.copyWith(valueHeroTag: value);
+  }
+
   DefineMListViewModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -4449,6 +4465,10 @@ extension MColumnGeneralGenerator on DefineMColumnModifier {
     return this.copyWith(
         valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
+  DefineMColumnModifier heroTag(Object value) {
+    return this.copyWith(valueHeroTag: value);
   }
 
   DefineMColumnModifier center([bool value = true]) {
@@ -5511,6 +5531,10 @@ extension MAddButtonGeneralGenerator on DefineMAddButtonModifier {
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
+  DefineMAddButtonModifier heroTag(Object value) {
+    return this.copyWith(valueHeroTag: value);
+  }
+
   DefineMAddButtonModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -6562,6 +6586,10 @@ extension MAddStackGeneralGenerator on DefineMStackModifier {
     return this.copyWith(
         valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
+  DefineMStackModifier heroTag(Object value) {
+    return this.copyWith(valueHeroTag: value);
   }
 
   DefineMStackModifier center([bool value = true]) {
@@ -7619,6 +7647,10 @@ extension MImageGeneralGenerator on DefineMImageModifier {
             left: Radius.circular(value), right: Radius.circular(value)));
   }
 
+  DefineMImageModifier heroTag(Object? value) {
+    return this.copyWith(valueHeroTag: value);
+  }
+
   DefineMImageModifier center([bool value = true]) {
     return this.copyWith(valueCenterAlign: value);
   }
@@ -8667,6 +8699,10 @@ extension MTileGeneralGenerator on DefineMTileModifier {
     return this.copyWith(
         valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
+  DefineMTileModifier heroTag(Object value) {
+    return this.copyWith(valueHeroTag: value);
   }
 
   DefineMTileModifier center([bool value = true]) {
@@ -9721,6 +9757,10 @@ extension MContainerGeneralGenerator on DefineMContainerModifier {
     return this.copyWith(
         valueOutsideBorderRadius: BorderRadius.horizontal(
             left: Radius.circular(value), right: Radius.circular(value)));
+  }
+
+  DefineMContainerModifier heroTag(Object value) {
+    return this.copyWith(valueHeroTag: value);
   }
 
   DefineMContainerModifier center([bool value = true]) {

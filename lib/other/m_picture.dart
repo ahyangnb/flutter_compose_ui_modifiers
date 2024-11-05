@@ -5,7 +5,34 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:get/get.dart';
 import 'package:photo_view/photo_view.dart';
 
-Future<void>? mShowBigPicture(String? url, {final Object? heroTag}) async {
+Future<void>? mPictureSampleShowBig(String? url,
+    {final Object? heroTag}) async {
+  Get.to(
+    Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        leading: const MBlockBackButton(),
+        title: Text(
+          'Image view',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+      ),
+      // title: 'Image view',
+      body: MImage(
+        modifier: MImageModifier.width(Get.width)
+            .height(Get.height)
+            .widthImage(Get.width)
+            .heightImage(Get.height)
+            .fit(BoxFit.cover)
+            .heroTag(heroTag),
+        data: url,
+      ),
+    ),
+  );
+}
+
+Future<void>? mPictureShowBig(String? url, {final Object? heroTag}) async {
   if (url!.isEmpty) {
     myToast("The picture url is empty.");
     return;
