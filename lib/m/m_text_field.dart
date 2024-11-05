@@ -54,6 +54,7 @@ class MTextField extends StatelessWidget {
         if (modifier?.valueLeading != null) modifier!.valueLeading!,
         Expanded(
           child: TextField(
+            textAlignVertical: modifier?.valueTextAlignVertical,
             autofocus: modifier?.valueAutoFocus ?? false,
             controller: controller ?? TextEditingController(),
             focusNode: controller?.focusNode ?? FocusNode(),
@@ -110,6 +111,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   final Widget? valueRightWidget;
   final bool? valueAlwaysShowRightWidget;
   final Widget? valueLeading;
+  final TextAlignVertical? valueTextAlignVertical;
 
   const DefineMTextFieldModifier({
     this.decorationValue,
@@ -135,6 +137,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     this.valueRightWidget,
     this.valueAlwaysShowRightWidget,
     this.valueLeading,
+    this.valueTextAlignVertical,
 
     /// Main.
     super.valueKey,
@@ -174,7 +177,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     super.valueFullHeight,
     super.valueContainerAlignment,
     super.valueOutSideAlignment,
-    super.valueCancelFocusWhenClick, super.valueOutsideBorder,
+    super.valueCancelFocusWhenClick,
+    super.valueOutsideBorder,
 
     /// Position Widget
     super.valueLeft,
@@ -198,7 +202,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     super.valueTabLength,
     super.valueObxListener,
     super.valueOutsideBackgroundColor,
-    super.valueOutsideBorderRadius, super.valueHeroTag,
+    super.valueOutsideBorderRadius,
+    super.valueHeroTag,
   });
 
   /// Create a copyWith().
@@ -227,6 +232,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     final Widget? valueRightWidget,
     final bool? valueAlwaysShowRightWidget,
     final Widget? valueLeading,
+    final TextAlignVertical? valueTextAlignVertical,
 
     /// The following properties are inherited from MGeneralModifier.
     /// Main.
@@ -266,7 +272,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     double? valueFullHeight,
     AlignmentGeometry? valueContainerAlignment,
     AlignmentGeometry? valueOutSideAlignment,
-    bool? valueCancelFocusWhenClick, Border? valueOutsideBorder,
+    bool? valueCancelFocusWhenClick,
+    Border? valueOutsideBorder,
 
     /// Position Widget
     double? valueLeft,
@@ -290,7 +297,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     int? valueTabLength,
     Rx<dynamic>? valueObxListener,
     Color? valueOutsideBackgroundColor,
-    BorderRadiusGeometry? valueOutsideBorderRadius, Object? valueHeroTag,
+    BorderRadiusGeometry? valueOutsideBorderRadius,
+    Object? valueHeroTag,
   }) {
     return DefineMTextFieldModifier(
       decorationValue: decorationValue ?? this.decorationValue,
@@ -319,6 +327,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueAlwaysShowRightWidget:
           valueAlwaysShowRightWidget ?? this.valueAlwaysShowRightWidget,
       valueLeading: valueLeading ?? this.valueLeading,
+      valueTextAlignVertical:
+          valueTextAlignVertical ?? this.valueTextAlignVertical,
 
       /// The following properties are inherited from MGeneralModifier.
       /// Main.
@@ -364,8 +374,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueOutSideAlignment:
           valueOutSideAlignment ?? this.valueOutSideAlignment,
       valueCancelFocusWhenClick:
-          valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,valueOutsideBorder:
-          valueOutsideBorder ?? valueOutsideBorder,
+          valueCancelFocusWhenClick ?? this.valueCancelFocusWhenClick,
+      valueOutsideBorder: valueOutsideBorder ?? valueOutsideBorder,
 
       /// Position Widget
       valueLeft: valueLeft ?? this.valueLeft,
@@ -392,7 +402,8 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueOutsideBackgroundColor:
           valueOutsideBackgroundColor ?? this.valueOutsideBackgroundColor,
       valueOutsideBorderRadius:
-          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius, valueHeroTag: valueHeroTag ?? this.valueHeroTag,
+          valueOutsideBorderRadius ?? this.valueOutsideBorderRadius,
+      valueHeroTag: valueHeroTag ?? this.valueHeroTag,
     );
   }
 }
@@ -703,6 +714,10 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier leading(Widget? value) {
     return this.copyWith(valueLeading: value);
+  }
+
+  DefineMTextFieldModifier textAlignVertical(TextAlignVertical? value) {
+    return this.copyWith(valueTextAlignVertical: value);
   }
 
   DefineMTextFieldModifier darkStyle1() {
