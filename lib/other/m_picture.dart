@@ -25,7 +25,8 @@ Future<void>? mPictureSampleShowBig(String? url,
             .widthImage(Get.width)
             .heightImage(Get.height)
             .fit(BoxFit.cover)
-            .heroTag(heroTag),
+            .heroTag(heroTag)
+            .click(() => Get.back()),
         data: url,
       ),
     ),
