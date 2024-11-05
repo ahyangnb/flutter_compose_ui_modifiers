@@ -47,13 +47,13 @@ void mShowToastMessage(
 void mShowSuccessToast(String message) {
   mLogger.d('showSuccessToast::$message');
   mShowToastMessage(message,
-      icon: Icons.check, color: MThemeConfig.primaryColor);
+      icon: Icons.check, color: MThemeConfig.toastSuccessTextColor);
 }
 
 void mShowErrorToast(String message) {
   mLogger.d('showErrorToast::$message');
   mShowToastMessage(message,
-      icon: Icons.close, color: MThemeConfig.primaryColor);
+      icon: Icons.close, color: MThemeConfig.toastErrorTextColor);
 }
 
 String lastMsg = '';

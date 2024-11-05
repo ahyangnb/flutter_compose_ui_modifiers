@@ -91,6 +91,8 @@ class MThemeConfig {
   );
 
   static Color primaryColor = const Color(0xff7DEAFF);
+  static Color? toastSuccessTextColor = primaryColor;
+  static Color? toastErrorTextColor = primaryColor;
 
   static Color get mainColor => primaryColor;
 
