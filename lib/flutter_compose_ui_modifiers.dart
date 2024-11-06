@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/container.dart';
+import 'package:logger/logger.dart';
+
+import 'other/m_material_app.dart';
 
 export 'Button.dart';
 export 'Icon.dart';
@@ -63,6 +66,11 @@ export 'util/m_dialog.dart';
 export 'util/m_date.dart';
 export 'custom/m_text.dart';
 export 'config/m_theme_config.dart';
+
+Logger logger = Logger(
+  printer: PrettyPrinter(methodCount: 0),
+  output: MConsoleOutput(),
+);
 
 /// Contains the modifier members of the [Widget] class.
 ///

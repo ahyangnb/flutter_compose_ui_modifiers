@@ -49,6 +49,8 @@ dependencies:
   card_swiper: ^3.0.1
   #print.
   ansicolor: ^2.0.3
+  #Pick emoji.
+  flutter_emoji_selector_plus: 0.0.9
 
 dev_dependencies:
   flutter_test:

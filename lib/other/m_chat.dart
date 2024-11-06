@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
+import 'package:flutter_compose_ui_modifiers/util/log.dart';
+import 'package:flutter_emoji_selector_plus/flutter_emoji_selector_plus.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -39,6 +41,7 @@ class MChatPanel extends StatefulWidget {
     this.emojiIcon,
     this.moreIcon,
     required this.inputStatus,
+    required this.onSend,
     super.key,
   });
 
@@ -49,6 +52,7 @@ class MChatPanel extends StatefulWidget {
   final String? emojiIcon;
   final String? moreIcon;
   final Rx<MInputStatus> inputStatus;
+  final Function(String content) onSend;
 
   @override
   State<MChatPanel> createState() => _MChatPanelState();
@@ -140,21 +144,27 @@ class _MChatPanelState extends State<MChatPanel> {
                           ),
                   )
                   .trailing(
-                    (GetUtils.isNullOrBlank(widget.sendIcon) ?? true)
-                        ? Icon(Icons.send)
-                        : MImage(
-                            modifier: MImageModifier.sizeAll(34.px)
-                                .marginHorizontal(8.px)
-                                .marginVertical(1.px)
-                                .click(() {
-                              // logic.send();
-                              widget.controller.clear();
-                            }),
-                            data: widget.sendIcon,
-                          ),
-                  )
-              // .focusNode(controller.focusNode)
-              ,
+                    InkWell(
+                      child: (GetUtils.isNullOrBlank(widget.sendIcon) ?? true)
+                          ? Icon(Icons.send)
+                          : MImage(
+                              modifier: MImageModifier.sizeAll(34.px)
+                                  .marginHorizontal(8.px)
+                                  .marginVertical(1.px),
+                              data: widget.sendIcon,
+                            ),
+                      onTap: () {
+                        if (widget.controller.text.trim().isEmpty) {
+                          mShowCustomToast('Please enter a message.'.tr);
+                          widget.controller.focusNode.requestFocus();
+                          return;
+                        }
+                        if (widget.controller.check()) {
+                          widget.onSend(widget.controller.text);
+                        }
+                      },
+                    ),
+                  ),
               controller: widget.controller,
             ),
             if (GetUtils.isNullOrBlank(widget.moreIcon) ?? true)
@@ -172,16 +182,83 @@ class _MChatPanelState extends State<MChatPanel> {
           () {
             final double bottomMargin =
                 getBottomMargin(widget.inputStatus.value);
-            return MRow(
-              modifier: MRowModifier.safeArea(top: false)
-                  .paddingHorizontal(4.px)
-                  .height(bottomMargin),
-              children:
-                  widget.list.map((e) => MPanelItem(e, widget.call)).toList(),
+            return SizedBox(
+              height: bottomMargin,
+              child: () {
+                if (widget.inputStatus.value == MInputStatus.more) {
+                  return MRow(
+                    modifier: MRowModifier.safeArea(top: false)
+                        .paddingHorizontal(4.px),
+                    children: widget.list
+                        .map((e) => MPanelItem(e, widget.call))
+                        .toList(),
+                  );
+                } else if (widget.inputStatus.value == MInputStatus.emoji) {
+                  return MChatEmojiWidget(widget.controller);
+                }
+                return Container();
+              }(),
             );
           },
         )
       ],
+    );
+  }
+}
+
+class MChatEmojiWidget extends StatelessWidget {
+  const MChatEmojiWidget(this.textController, {super.key});
+
+  final TextEditingController textController;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      child: Obx(() {
+        return EmojiSelector(
+          rows: 6,
+          titleStyle:
+              TextStyle(color: MThemeConfig.assistantColor, fontSize: 14.px),
+          padding: EdgeInsets.only(
+              bottom: MMediaLogic.to.maxBottomPaddingHeight.value),
+          onSelected: (EmojiData emoji) {
+            mLogger.d('Selected emoji ${emoji.char}');
+
+            String result = textController.text;
+            // 新增的内容
+            final String content = emoji.char;
+            int selectionBefore = textController.selection.start;
+            if (selectionBefore < 0) {
+              selectionBefore = 0;
+            }
+            // 更新内容后，光标的位置
+            final int selectionAfter = selectionBefore + content.length;
+
+            result =
+                (result.split('')..insert(selectionBefore, content)).join();
+            textController.text = result;
+
+            // 设置光标
+            textController.selection = TextSelection.fromPosition(TextPosition(
+              offset: selectionAfter,
+            ));
+
+            // mLogger.d(
+            //   'textController.text.length::${textController.text.length}, \nselectionAfter::$selectionAfter\n'
+            //   'inVideo:: $inVideo\n'
+            //   'targetId:: $targetId\n',
+            // );
+            // GlobalLogic.to.inputEmojiEvent.value = InputEmojiEvent(
+            //   selectionAfter >= (textController.text.length - 30),
+            //   inVideo,
+            //   targetId,
+            // );
+          },
+        );
+      }),
+      onTap: () {
+        mLogger.d('Space area of the emoji widget is clicked.');
+      },
     );
   }
 }

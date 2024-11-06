@@ -45,6 +45,8 @@ class MThemeConfig {
 
   static BorderRadius miniButtonBorderRadius = buttonBorderRadius8;
 
+  static Color scaffoldBg = Color(0xff00041A);
+
   static Size miniButtonSize = Size(135.px, 44.px);
 
   static Size miniButtonSizeInDialog = Size(127.px, 44.px);
@@ -118,6 +120,18 @@ class MThemeConfig {
 
   static BorderRadius buttonBorderRadius8 = BorderRadius.circular(8.px);
   static double mediumButtonTextSize = 18.px;
+
+  static TextStyle messageTextStyle(bool isSelf) {
+    return TextStyle(
+      /// Will not use the `isSelf` to change the color right now.
+      color: Colors.white,
+      fontSize: 16.0.px,
+      fontWeight: FontWeight.w400,
+
+      /// Will not center look like.
+      height: 22.px / 16.0.px,
+    );
+  }
 }
 
 class _ButtonColor {
