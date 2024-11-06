@@ -68,7 +68,7 @@ class _MListViewState extends ModifierState<MListView>
   }
 
   @override
-  RxNotifier? get valueObxListener => widget.modifier?.valueObxListener;
+  RxInterface? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 mixin AutoOnScrollStop<T extends StatefulWidget> on ModifierState<T> {
@@ -265,7 +265,7 @@ class DefineMListViewModifier extends MGeneralModifier {
     SafeArea? valueSafeArea,
     bool? valueVisible,
     int? valueTabLength,
-    Rx<dynamic>? valueObxListener,
+    RxInterface? valueObxListener,
     Color? valueOutsideBackgroundColor,
     BorderRadiusGeometry? valueOutsideBorderRadius, Object? valueHeroTag,
   }) {

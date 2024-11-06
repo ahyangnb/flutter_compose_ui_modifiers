@@ -59,7 +59,7 @@ class _MRowState extends ModifierState<MRow> with ObxImplementation {
   }
 
   @override
-  RxNotifier? get valueObxListener => widget.modifier?.valueObxListener;
+  RxInterface? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MRowModifier = DefineMRowModifier();
@@ -213,7 +213,7 @@ class DefineMRowModifier extends MGeneralModifier {
     SafeArea? valueSafeArea,
     bool? valueVisible,
     int? valueTabLength,
-    Rx<dynamic>? valueObxListener,
+    RxInterface? valueObxListener,
     Color? valueOutsideBackgroundColor,
     BorderRadiusGeometry? valueOutsideBorderRadius, Object? valueHeroTag,
   }) {

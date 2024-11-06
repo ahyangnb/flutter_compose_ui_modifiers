@@ -300,7 +300,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     SafeArea? valueSafeArea,
     bool? valueVisible,
     int? valueTabLength,
-    Rx<dynamic>? valueObxListener,
+    RxInterface? valueObxListener,
     Color? valueOutsideBackgroundColor,
     BorderRadiusGeometry? valueOutsideBorderRadius,
     Object? valueHeroTag,

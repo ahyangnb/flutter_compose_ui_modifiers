@@ -59,7 +59,7 @@ class _MStackState extends ModifierState<MStack> with ObxImplementation {
   }
 
   @override
-  RxNotifier? get valueObxListener => widget.modifier?.valueObxListener;
+  RxInterface? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MStackModifier = DefineMStackModifier();
@@ -210,7 +210,7 @@ class DefineMStackModifier extends MGeneralModifier {
     SafeArea? valueSafeArea,
     bool? valueVisible,
     int? valueTabLength,
-    Rx<dynamic>? valueObxListener,
+    RxInterface? valueObxListener,
     Color? valueOutsideBackgroundColor,
     BorderRadiusGeometry? valueOutsideBorderRadius, Object? valueHeroTag,
   }) {

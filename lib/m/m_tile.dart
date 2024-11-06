@@ -75,7 +75,7 @@ class _MTileState extends ModifierState<MTile> with ObxImplementation {
   }
 
   @override
-  RxNotifier? get valueObxListener => widget.modifier?.valueObxListener;
+  RxInterface? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MTileModifier = DefineMTileModifier();
@@ -231,7 +231,7 @@ class DefineMTileModifier extends MGeneralModifier {
     SafeArea? valueSafeArea,
     bool? valueVisible,
     int? valueTabLength,
-    Rx<dynamic>? valueObxListener,
+    RxInterface? valueObxListener,
     Color? valueOutsideBackgroundColor,
     BorderRadiusGeometry? valueOutsideBorderRadius, Object? valueHeroTag,
   }) {

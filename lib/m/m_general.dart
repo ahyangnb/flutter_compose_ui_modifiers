@@ -110,7 +110,7 @@ class MGeneralModifier {
   final Object? valueHeroTag;
 
   /// Only refresh `builder` content.
-  final RxNotifier? valueObxListener;
+  final RxInterface? valueObxListener;
 
   const MGeneralModifier({
     /// Main key.
@@ -557,7 +557,7 @@ class _MScrollWidgetState extends ModifierState<MScrollWidget>
 }
 
 mixin ObxImplementation<T extends StatefulWidget> on ModifierState<T> {
-  RxNotifier? get valueObxListener;
+  RxInterface? get valueObxListener;
 
   @override
   void initState() {
