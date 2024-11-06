@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class MConfig {
   static Function(String message)? showCustomToastValue;
   static Function(String message, String content, Function() onConfirm)?
-      mCustomConfirmDialogValue;
+  mCustomConfirmDialogValue;
 
   static Widget Function(Image)? customAssetsImage;
 
@@ -37,11 +37,14 @@ class MKeyZeroEvent {}
 class MThemeConfig {
   static Color imageDefBgColor = Colors.grey[200]!;
   static TextStyle userInfoTitleStyle2 =
-      TextStyle(color: Colors.white, fontSize: 16.px, height: 22.px / 16.px);
+  TextStyle(color: Colors.white, fontSize: 16.px, height: 22.px / 16.px);
 
   static Color white = Colors.white;
 
   static double miniButtonTextSize = 15.px;
+
+  static Color? progressBgColor;
+  static Color? agreementLightColor;
 
   static BorderRadius miniButtonBorderRadius = buttonBorderRadius8;
 
@@ -61,7 +64,7 @@ class MThemeConfig {
   static Color assistantColor = Color(0xffF86895);
 
   static final TextStyle yesTextStyle =
-      TextStyle(color: mainColor, fontSize: 17.px, fontWeight: FontWeight.w600);
+  TextStyle(color: mainColor, fontSize: 17.px, fontWeight: FontWeight.w600);
   static final TextStyle noTextStyle = TextStyle(
       color: assistantColor, fontSize: 17.px, fontWeight: FontWeight.w600);
 
@@ -82,7 +85,7 @@ class MThemeConfig {
 
   static TextStyle textFieldHintStyle = MThemeConfig.textFieldStyle.copyWith(
       color:
-          (MThemeConfig.textFieldStyle.color ?? Colors.white).withOpacity(0.7),
+      (MThemeConfig.textFieldStyle.color ?? Colors.white).withOpacity(0.7),
       fontWeight: FontWeight.w400);
   static TextStyle desStyle = TextStyle(
     color: Colors.white,
@@ -112,8 +115,8 @@ class MThemeConfig {
   static LinearGradient get gradientMain => primaryGradient;
 
   static _ButtonColor button = _ButtonColor();
-
-  static Color noDataTextColor = const Color(0xff9B678F);
+  static Color defButtonTextColor = Colors.white;
+  static Color noDataTextColor = mainColor;
   static Color? cupertinoDialogTextColor;
   static TextStyle? noDataTextStyle;
   static const Color titleSecondColor9 = Color(0xff999999);
@@ -126,6 +129,7 @@ class MThemeConfig {
 
   static TextStyle messageTextStyle(bool isSelf) {
     return TextStyle(
+
       /// Will not use the `isSelf` to change the color right now.
       color: selfTextMsgColor,
       fontSize: 16.0.px,
@@ -146,6 +150,4 @@ class _ButtonColor {
       MThemeConfig.primaryColor.withOpacity(.5);
 
   Color get disableColor => const Color.fromRGBO(255, 255, 255, .3);
-
-  Color get textColor => Colors.white;
 }

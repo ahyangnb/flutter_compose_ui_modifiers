@@ -175,7 +175,7 @@ class MButton extends StatelessWidget {
               style: textStyle ??
                   TextStyle(
                     fontSize: fontSize ?? 18.px,
-                    color: textColor ?? MThemeConfig.button.textColor,
+                    color: textColor ?? MThemeConfig.defButtonTextColor,
                     fontWeight: fontWeight ?? FontWeight.w600,
                   ),
               textAlign: textAlign,
