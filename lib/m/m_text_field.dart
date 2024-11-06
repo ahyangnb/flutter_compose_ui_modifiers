@@ -739,6 +739,24 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
     );
   }
 
+  DefineMTextFieldModifier priceMode() {
+    return this.copyWith(
+      valueInputFormatters: [
+        FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+      ],
+      valueKeyboardType: TextInputType.numberWithOptions(decimal: true),
+    );
+  }
+
+  DefineMTextFieldModifier dateMode() {
+    return this.copyWith(
+      valueInputFormatters: [
+        FilteringTextInputFormatter.allow(RegExp(r'[0-9-]')),
+      ],
+      valueKeyboardType: TextInputType.datetime,
+    );
+  }
+
   DefineMTextFieldModifier darkStyle1() {
     return this
         .backgroundColor(Colors.black.withOpacity(0.7))
