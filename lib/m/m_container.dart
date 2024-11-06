@@ -43,7 +43,7 @@ class _MContainerState extends ModifierState<MContainer>
   }
 
   @override
-  Rx? get valueObxListener => widget.modifier?.valueObxListener;
+  RxNotifier? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MContainerModifier = DefineMContainerModifier();

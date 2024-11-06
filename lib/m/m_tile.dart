@@ -75,7 +75,7 @@ class _MTileState extends ModifierState<MTile> with ObxImplementation {
   }
 
   @override
-  Rx? get valueObxListener => widget.modifier?.valueObxListener;
+  RxNotifier? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MTileModifier = DefineMTileModifier();

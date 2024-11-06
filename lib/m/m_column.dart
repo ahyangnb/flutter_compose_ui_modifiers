@@ -59,7 +59,7 @@ class _MColumnState extends ModifierState<MColumn> with ObxImplementation {
   }
 
   @override
-  Rx? get valueObxListener => widget.modifier?.valueObxListener;
+  RxNotifier? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MColumnModifier = DefineMColumnModifier();

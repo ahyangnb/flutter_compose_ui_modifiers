@@ -192,7 +192,7 @@ class _MTextState extends ModifierState<MText> with ObxImplementation {
   }
 
   @override
-  Rx? get valueObxListener => widget.modifier?.valueObxListener;
+  RxNotifier? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MTextModifier = DefineMTextModifier();

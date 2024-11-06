@@ -197,7 +197,7 @@ class _MImageState extends ModifierState<MImage> with ObxImplementation {
   }
 
   @override
-  Rx? get valueObxListener => widget.modifier?.valueObxListener;
+  RxNotifier? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MImageModifier = DefineMImageModifier();
@@ -414,7 +414,7 @@ class DefineMImageModifier extends MGeneralModifier {
     SafeArea? valueSafeArea,
     bool? valueVisible,
     int? valueTabLength,
-    Rx<dynamic>? valueObxListener,
+    RxNotifier? valueObxListener,
     Color? valueOutsideBackgroundColor,
     BorderRadiusGeometry? valueOutsideBorderRadius, Object? valueHeroTag,
   }) {

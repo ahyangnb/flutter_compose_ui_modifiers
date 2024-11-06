@@ -59,7 +59,7 @@ class _MStackState extends ModifierState<MStack> with ObxImplementation {
   }
 
   @override
-  Rx? get valueObxListener => widget.modifier?.valueObxListener;
+  RxNotifier? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 final MStackModifier = DefineMStackModifier();

@@ -68,7 +68,7 @@ class _MListViewState extends ModifierState<MListView>
   }
 
   @override
-  Rx? get valueObxListener => widget.modifier?.valueObxListener;
+  RxNotifier? get valueObxListener => widget.modifier?.valueObxListener;
 }
 
 mixin AutoOnScrollStop<T extends StatefulWidget> on ModifierState<T> {
