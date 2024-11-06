@@ -420,6 +420,7 @@ class MButtonMiniGradient extends StatelessWidget {
     this.borderRadius,
     this.backgroundGradient,
     this.backgroundColor,
+    this.margin,
   });
 
   final Future<void> Function()? onPressed;
@@ -429,6 +430,7 @@ class MButtonMiniGradient extends StatelessWidget {
   final BorderRadius? borderRadius;
   final Gradient? backgroundGradient;
   final Color? backgroundColor;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
@@ -445,6 +447,7 @@ class MButtonMiniGradient extends StatelessWidget {
       width: size?.width ?? MThemeConfig.miniButtonSizeInDialog.width,
       text: buttonText ?? 'Confirm'.tr,
       borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(27.px)),
+      margin: margin,
     );
   }
 }
@@ -455,12 +458,14 @@ class MButtonSoMiniGradient extends StatelessWidget {
       this.buttonText = 'button',
       this.backgroundGradient,
       this.backgroundColor,
+      this.margin,
       super.key});
 
   final String buttonText;
   final Future<void> Function()? onPressed;
   final Gradient? backgroundGradient;
   final Color? backgroundColor;
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
@@ -472,6 +477,7 @@ class MButtonSoMiniGradient extends StatelessWidget {
       backgroundGradient: backgroundGradient,
       backgroundColor: backgroundColor,
       borderRadius: BorderRadius.all(Radius.circular(4.px)),
+      margin: margin,
     );
   }
 }

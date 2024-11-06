@@ -42,7 +42,7 @@ export 'other/m_tab.dart';
 export 'other/m_state.dart';
 export 'other/m_nodata.dart';
 export 'other/m_material_app.dart';
-export 'other/m_confirm_dialog.dart';
+export 'other/m_dialog.dart';
 export 'other/m_water_ripples.dart';
 export 'other/m_banner.dart';
 export 'other/m_chat.dart';
