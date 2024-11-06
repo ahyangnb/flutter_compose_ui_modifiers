@@ -7,21 +7,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_compose_ui_modifiers/config/m_str.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
 
-Future<void> mDialogConfirm(
-  String title,
-  String? description,
-  final Future<void> Function() onPressed, {
-  final Future<void> Function()? onCancel,
-  Widget? centerWidget,
-  Widget? desWidget,
-  final String? okText,
-  final bool showCancel = true,
-  required final String tag,
-  VoidCallback? onDismiss,
-  Color? buttonColor,
-  Color? bgColor,
-  bool? clickMaskDismiss,
-}) {
+Future<void> mDialogConfirm(String title,
+    String? description,
+    final Future<void> Function() onPressed, {
+      final Future<void> Function()? onCancel,
+      Widget? centerWidget,
+      Widget? desWidget,
+      final String? okText,
+      final bool showCancel = true,
+      required final String tag,
+      VoidCallback? onDismiss,
+      Color? buttonColor,
+      Color? cancelButtonColor,
+      Color? bgColor,
+      bool? clickMaskDismiss,
+    }) {
   return mShowSmartDialog(
     onDismiss: onDismiss,
     clickMaskDismiss: clickMaskDismiss,
@@ -39,6 +39,7 @@ Future<void> mDialogConfirm(
           okText: okText,
           showCancel: showCancel,
           buttonColor: buttonColor,
+          cancelButtonColor: cancelButtonColor,
           bgColor: bgColor,
           tag: tag,
         ),
@@ -60,6 +61,7 @@ class ConfirmDialogWidget extends StatefulWidget {
     required this.desWidget,
     required this.okText,
     required this.buttonColor,
+    required this.cancelButtonColor,
     required this.bgColor,
     required this.showCancel,
     required this.tag,
@@ -73,6 +75,7 @@ class ConfirmDialogWidget extends StatefulWidget {
   final Widget? desWidget;
   final String? okText;
   final Color? buttonColor;
+  final Color? cancelButtonColor;
   final Color? bgColor;
   final bool showCancel;
   final String tag;
@@ -138,6 +141,7 @@ class _ConfirmDialogWidgetState extends State<ConfirmDialogWidget> {
                                 await mDismissSmartDialog(tag: widget.tag);
                               }
                             },
+                            buttonColor: widget.cancelButtonColor,
                             buttonText: 'Cancel'.tr,
                           ),
                         ),
@@ -172,14 +176,13 @@ class _ConfirmDialogWidgetState extends State<ConfirmDialogWidget> {
   }
 }
 
-void mDialogCustomConfirmGradient(
-  String description,
-  final Future<void> Function() onPressed, {
-  final Future<void> Function()? onCancel,
-  final String? okText,
-  required final String tag,
-  bool? bindPage,
-}) {
+void mDialogCustomConfirmGradient(String description,
+    final Future<void> Function() onPressed, {
+      final Future<void> Function()? onCancel,
+      final String? okText,
+      required final String tag,
+      bool? bindPage,
+    }) {
   mShowSmartDialog(
     tag: tag,
     builder: (BuildContext context) {
@@ -483,7 +486,7 @@ Future<T?> mDialogCupertinoConfirm<T>({
         content: Text(
           title,
           style: TextStyle(
-            color: Color(0xff111111),
+            color: MThemeConfig.cupertinoDialogTextColor ?? Color(0xff111111),
             fontSize: 17.px,
             fontWeight: FontWeight.w600,
           ),
@@ -507,8 +510,7 @@ Future<T?> mDialogCupertinoConfirm<T>({
   );
 }
 
-Future<void> mDialogDarkConfirm(
-  String content, {
+Future<void> mDialogDarkConfirm(String content, {
   String? title,
   String? okText,
   String? bgImage,
@@ -538,18 +540,17 @@ Future<void> mDialogDarkConfirm(
 }
 
 class MDialogDarkConfirm extends StatefulWidget {
-  const MDialogDarkConfirm(
-    this.tag,
-    this.content, {
-    required this.onConfirm,
-    this.bgImage,
-    this.width,
-    this.height,
-    this.okText,
-    this.textTopSpace,
-    this.textBottomSpace,
-    super.key,
-  });
+  const MDialogDarkConfirm(this.tag,
+      this.content, {
+        required this.onConfirm,
+        this.bgImage,
+        this.width,
+        this.height,
+        this.okText,
+        this.textTopSpace,
+        this.textBottomSpace,
+        super.key,
+      });
 
   final String tag;
   final String content;
@@ -572,7 +573,7 @@ class _MDialogDarkConfirmState extends State<MDialogDarkConfirm> {
   Widget build(BuildContext context) {
     final spaceVertical = 28.px;
     DefineMStackModifier modifier =
-        MStackModifier.gravity(MGravity.centerVertical).borderRadius(6.px);
+    MStackModifier.gravity(MGravity.centerVertical).borderRadius(6.px);
     if (widget.bgImage == null) {
       modifier = modifier.backgroundColor(Colors.black).borderAll();
     }
@@ -595,9 +596,9 @@ class _MDialogDarkConfirmState extends State<MDialogDarkConfirm> {
               modifier: MTextModifier.colorWhite()
                   .fontSize(16.px)
                   .heightSize(widget.textTopSpace != null ||
-                          widget.textBottomSpace != null
-                      ? null
-                      : 50.px - 28.px + 66.px)
+                  widget.textBottomSpace != null
+                  ? null
+                  : 50.px - 28.px + 66.px)
                   .marginHorizontal(30.px)
                   .textCenter()
                   .centerText()
@@ -613,7 +614,7 @@ class _MDialogDarkConfirmState extends State<MDialogDarkConfirm> {
                   width: 118.px,
                   height: 46.px,
                   textStyle:
-                      TextStyle(color: Color(0xff020202), fontSize: 18.px),
+                  TextStyle(color: Color(0xff020202), fontSize: 18.px),
                   borderRadius: BorderRadius.all(Radius.circular(4.px)),
                   onTap: () => dismiss(),
                 ),
@@ -624,7 +625,7 @@ class _MDialogDarkConfirmState extends State<MDialogDarkConfirm> {
                   backgroundGradient: MThemeConfig.gradientMain,
                   text: widget.okText ?? "Confirm",
                   textStyle:
-                      TextStyle(color: Color(0xff020202), fontSize: 18.px),
+                  TextStyle(color: Color(0xff020202), fontSize: 18.px),
                   borderRadius: BorderRadius.all(Radius.circular(4.px)),
                   onTap: () {
                     dismiss();
@@ -640,8 +641,7 @@ class _MDialogDarkConfirmState extends State<MDialogDarkConfirm> {
   }
 }
 
-Future<T?> mShowTipsDialog<T>(
-  BuildContext context, {
+Future<T?> mShowTipsDialog<T>(BuildContext context, {
   String? centerText,
   Widget? centerWidget,
   String confirmText = 'Confirm',
@@ -740,7 +740,7 @@ class TipsDialog extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border:
-                            Border.all(color: Color(0xFF777777), width: 0.5.px),
+                        Border.all(color: Color(0xFF777777), width: 0.5.px),
                         borderRadius: BorderRadius.circular(5.px),
                       ),
                       child: Center(

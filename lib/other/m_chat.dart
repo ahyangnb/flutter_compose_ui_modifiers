@@ -4,6 +4,8 @@ import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+enum MInputStatus { none, more, input, emoji, voice }
+
 /// Some content form `chat_bubbles` plugin in pub.dev.
 Gradient? _mChatGetGradient(Color? color, bool isSender, Gradient? gradient) {
   if (gradient == null) {
@@ -28,7 +30,7 @@ class PanelListItem {
   PanelListItem(this.icon, this.label);
 }
 
-class MChatPanel extends StatelessWidget {
+class MChatPanel extends StatefulWidget {
   const MChatPanel(
     this.controller,
     this.call, {
@@ -36,6 +38,7 @@ class MChatPanel extends StatelessWidget {
     this.sendIcon,
     this.emojiIcon,
     this.moreIcon,
+    required this.inputStatus,
     super.key,
   });
 
@@ -45,9 +48,65 @@ class MChatPanel extends StatelessWidget {
   final String? sendIcon;
   final String? emojiIcon;
   final String? moreIcon;
+  final Rx<MInputStatus> inputStatus;
+
+  @override
+  State<MChatPanel> createState() => _MChatPanelState();
+}
+
+class _MChatPanelState extends State<MChatPanel> {
+  /// If call it when `onCancelInputFocus` will be more fast scale the keyboard.
+  void setInputStatusNone([bool cancelFocus = false]) {
+    if (cancelFocus) {
+      widget.controller.focusNode.unfocus();
+    }
+
+    widget.inputStatus.value = MInputStatus.none;
+  }
+
+  void clickMore() {
+    print("clickMore inputStatus.value is ${widget.inputStatus.value}");
+    if (widget.inputStatus.value == MInputStatus.more) {
+      setInputStatusNone();
+    } else {
+      widget.controller.focusNode.unfocus();
+      widget.inputStatus.value = MInputStatus.more;
+    }
+  }
+
+  // void clickVoice() {
+  void clickEmoji() {
+    if (widget.inputStatus.value == MInputStatus.emoji) {
+      setInputStatusNone();
+    } else {
+      widget.controller.focusNode.unfocus();
+      widget.inputStatus.value = MInputStatus.emoji;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    widget.controller.focusNode.addListener(() {
+      if (widget.controller.focusNode.hasFocus) {
+        widget.inputStatus.value = MInputStatus.input;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    double getBottomMargin(MInputStatus inputStatus) {
+      double bottomMargin = MMediaLogic.to.maxBottomPaddingHeight.value;
+      if (inputStatus == MInputStatus.input ||
+          inputStatus == MInputStatus.more ||
+          inputStatus == MInputStatus.emoji ||
+          inputStatus == MInputStatus.voice) {
+        bottomMargin = MMediaLogic.to.maxKeyboardHeight.value;
+      }
+      return bottomMargin;
+    }
+
     return MColumn(
       modifier: MColumnModifier.borderTop(color: Colors.white.withOpacity(0.5))
           .backgroundColor(Colors.white.withOpacity(0.1))
@@ -70,20 +129,18 @@ class MChatPanel extends StatelessWidget {
                   .contentPaddingVertical(10.px)
                   .expands(false)
                   .leading(
-                    (GetUtils.isNullOrBlank(emojiIcon) ?? true)
+                    (GetUtils.isNullOrBlank(widget.emojiIcon) ?? true)
                         ? Container()
                         : MImage(
                             modifier: MImageModifier.sizeAll(34.px)
                                 .marginHorizontal(5.px)
                                 .marginVertical(1.px)
-                                .click(() {
-                              myToast('emoji');
-                            }),
-                            data: emojiIcon,
+                                .click(() => clickEmoji()),
+                            data: widget.emojiIcon,
                           ),
                   )
                   .trailing(
-                    (GetUtils.isNullOrBlank(sendIcon) ?? true)
+                    (GetUtils.isNullOrBlank(widget.sendIcon) ?? true)
                         ? Icon(Icons.send)
                         : MImage(
                             modifier: MImageModifier.sizeAll(34.px)
@@ -91,25 +148,38 @@ class MChatPanel extends StatelessWidget {
                                 .marginVertical(1.px)
                                 .click(() {
                               // logic.send();
-                              controller.clear();
+                              widget.controller.clear();
                             }),
-                            data: sendIcon,
+                            data: widget.sendIcon,
                           ),
-                  ),
-              controller: controller,
+                  )
+              // .focusNode(controller.focusNode)
+              ,
+              controller: widget.controller,
             ),
-            if (GetUtils.isNullOrBlank(moreIcon) ?? true)
+            if (GetUtils.isNullOrBlank(widget.moreIcon) ?? true)
               Container()
             else
               MImage(
-                data: moreIcon,
-                modifier: MImageModifier.sizeAll(34.px).marginHorizontal(11.px),
+                data: widget.moreIcon,
+                modifier: MImageModifier.sizeAll(34.px)
+                    .marginHorizontal(11.px)
+                    .click(() => clickMore()),
               ),
           ],
         ),
-        MRow(
-          modifier: MRowModifier.safeArea(top: false).paddingHorizontal(4.px),
-          children: list.map((e) => MPanelItem(e, call)).toList(),
+        Obx(
+          () {
+            final double bottomMargin =
+                getBottomMargin(widget.inputStatus.value);
+            return MRow(
+              modifier: MRowModifier.safeArea(top: false)
+                  .paddingHorizontal(4.px)
+                  .height(bottomMargin),
+              children:
+                  widget.list.map((e) => MPanelItem(e, widget.call)).toList(),
+            );
+          },
         )
       ],
     );

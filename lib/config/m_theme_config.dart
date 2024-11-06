@@ -111,6 +111,7 @@ class MThemeConfig {
   static _ButtonColor button = _ButtonColor();
 
   static Color noDataTextColor = const Color(0xff9B678F);
+  static Color? cupertinoDialogTextColor;
   static TextStyle? noDataTextStyle;
   static const Color titleSecondColor9 = Color(0xff999999);
   static const Color titleColor9 = titleSecondColor9;
