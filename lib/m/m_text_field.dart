@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/util/m_error.dart';
 import 'package:get/get.dart';
@@ -65,6 +66,7 @@ class MTextField extends StatelessWidget {
             maxLength: modifier?.valueMaxLength,
             onSubmitted: modifier?.valueOnSubmitted,
             keyboardType: modifier?.valueKeyboardType,
+            inputFormatters: modifier?.valueInputFormatters,
             textInputAction: modifier?.valueTextInputAction,
             onEditingComplete: modifier?.valueOnEditingComplete,
             textAlign: modifier?.valueTextAlign ?? TextAlign.start,
@@ -96,6 +98,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
   final bool? valueAutoFocus;
   final ValueChanged<String>? valueOnSubmitted;
   final TextInputType? valueKeyboardType;
+  final List<TextInputFormatter>? valueInputFormatters;
   final TextInputAction? valueTextInputAction;
   final VoidCallback? valueOnEditingComplete;
   final TextAlign? valueTextAlign;
@@ -122,6 +125,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     this.valueAutoFocus,
     this.valueOnSubmitted,
     this.valueKeyboardType,
+    this.valueInputFormatters,
     this.valueTextInputAction,
     this.valueOnEditingComplete,
     this.valueTextAlign,
@@ -216,6 +220,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
     final bool? valueAutoFocus,
     final ValueChanged<String>? valueOnSubmitted,
     final TextInputType? valueKeyboardType,
+    final List<TextInputFormatter>? valueInputFormatters,
     final TextInputAction? valueTextInputAction,
     final FocusNode? valueFocusNode,
     final VoidCallback? valueOnEditingComplete,
@@ -309,6 +314,7 @@ class DefineMTextFieldModifier extends MGeneralModifier {
       valueAutoFocus: valueAutoFocus ?? this.valueAutoFocus,
       valueOnSubmitted: valueOnSubmitted ?? this.valueOnSubmitted,
       valueKeyboardType: valueKeyboardType ?? this.valueKeyboardType,
+      valueInputFormatters: valueInputFormatters ?? this.valueInputFormatters,
       valueTextInputAction: valueTextInputAction ?? this.valueTextInputAction,
       valueOnEditingComplete:
           valueOnEditingComplete ?? this.valueOnEditingComplete,
@@ -718,6 +724,19 @@ extension MTextFieldModifierPropertys on DefineMTextFieldModifier {
 
   DefineMTextFieldModifier textAlignVertical(TextAlignVertical? value) {
     return this.copyWith(valueTextAlignVertical: value);
+  }
+
+  DefineMTextFieldModifier inputFormatters(List<TextInputFormatter>? value) {
+    return this.copyWith(valueInputFormatters: value);
+  }
+
+  DefineMTextFieldModifier numberMode() {
+    return this.copyWith(
+      valueInputFormatters: [
+        FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+      ],
+      valueKeyboardType: TextInputType.number,
+    );
   }
 
   DefineMTextFieldModifier darkStyle1() {
