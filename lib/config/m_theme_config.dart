@@ -57,7 +57,8 @@ class MThemeConfig {
 
   static double tabBarHeight = 43.5.px;
 
-  static const Color assistantColor = Color(0xffF86895);
+  /// Some dialog background color use it.
+  static Color assistantColor = Color(0xffF86895);
 
   static final TextStyle yesTextStyle =
       TextStyle(color: mainColor, fontSize: 17.px, fontWeight: FontWeight.w600);
@@ -121,10 +122,12 @@ class MThemeConfig {
   static BorderRadius buttonBorderRadius8 = BorderRadius.circular(8.px);
   static double mediumButtonTextSize = 18.px;
 
+  static Color selfTextMsgColor = Colors.white;
+
   static TextStyle messageTextStyle(bool isSelf) {
     return TextStyle(
       /// Will not use the `isSelf` to change the color right now.
-      color: Colors.white,
+      color: selfTextMsgColor,
       fontSize: 16.0.px,
       fontWeight: FontWeight.w400,
 
