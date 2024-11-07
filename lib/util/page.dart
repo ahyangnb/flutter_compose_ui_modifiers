@@ -1,3 +1,4 @@
+import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compose_ui_modifiers/flutter_compose_ui_modifiers.dart';
 import 'package:flutter_compose_ui_modifiers/util/log.dart';
@@ -53,6 +54,21 @@ mixin class MPageState<T> {
   void resetGoPage() {
     goPage = goPageDef;
   }
+
+  Future<IndicatorResult> singleLoadLogic(FutureCallback handle) async {
+    try {
+      await handle();
+      isLoading.value = false;
+      error.value = false;
+      return IndicatorResult.success;
+    } catch (e) {
+      logger.e(e);
+      myToast('Data error');
+      isLoading.value = false;
+      error.value = true;
+      return IndicatorResult.fail;
+    }
+  }
 }
 
 /// The status returned after the task is completed.
@@ -69,7 +85,6 @@ enum MIndicatorResult {
   /// No more data.
   noMore,
 }
-
 
 class MLoadingIcon extends StatelessWidget {
   final double? size;

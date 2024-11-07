@@ -70,6 +70,7 @@ class MEasyRefresh extends StatelessWidget {
   final easy.Header? header;
   final easy.ClassicFooter? footer;
   final EasyRefreshController? easyRefreshController;
+  final bool? showLoadingWidget;
 
   const MEasyRefresh({
     this.mainColor,
@@ -82,6 +83,7 @@ class MEasyRefresh extends StatelessWidget {
     this.header,
     this.footer,
     this.easyRefreshController,
+    this.showLoadingWidget,
     super.key,
   });
 
@@ -131,7 +133,10 @@ class MEasyRefresh extends StatelessWidget {
       onLoad: () => handleLoadMore(),
       child: justReturnChild
           ? child
-          : MEasyRefreshNoData(mPageState, onGetData: onGetData, child: child),
+          : MEasyRefreshNoData(mPageState,
+              onGetData: onGetData,
+              child: child,
+              showLoadingWidget: showLoadingWidget),
     );
   }
 }
@@ -141,16 +146,24 @@ class MEasyRefreshNoData extends StatelessWidget {
   final Widget? child;
   final Future<easy.IndicatorResult> Function() onGetData;
   final RxList<dynamic>? dataList;
+  final bool? showLoadingWidget;
 
   MEasyRefreshNoData(this.mPageState,
-      {this.child, required this.onGetData, this.dataList});
+      {this.child,
+      required this.onGetData,
+      this.dataList,
+      this.showLoadingWidget});
 
   @override
   Widget build(BuildContext context) {
     final useDataList = this.dataList ?? mPageState.dataList;
     return Obx(() {
       if (mPageState.isLoading.value) {
-        return Container();
+        if (showLoadingWidget != null && showLoadingWidget!) {
+          return MLoadingIcon().centered();
+        } else {
+          return Container();
+        }
       } else if (mPageState.error.value && useDataList.isEmpty) {
         return MErrorData(() => onGetData());
       } else {
