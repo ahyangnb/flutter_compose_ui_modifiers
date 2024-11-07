@@ -790,8 +790,22 @@ class TipsDialog extends StatelessWidget {
   }
 }
 
-Future<T?> mDialogSelectDays<T>() {
+Future<int?> mDialogSelectDays() async {
   final List<int> daysOptions = [30, 60, 90, 180, 360];
+  final String endWith = " days";
+  final List<String> useList = daysOptions.map((e) => "$e$endWith").toList();
+  final value = await mDialogSelectItemsCupertinoPicker(useList);
+  if (value != null) {
+    return daysOptions[useList.indexOf(value)];
+  }
+  return null;
+}
+
+Future<T?>? mDialogSelectItemsCupertinoPicker<T>(List<String> options) {
+  if (options.isEmpty) {
+    myToast('data error');
+    return null;
+  }
   int selectedIndex = 0;
 
   return Get.dialog<T>(
@@ -808,7 +822,7 @@ Future<T?> mDialogSelectDays<T>() {
           children: [
             MButtonSoMiniGradient(
               onPressed: () async {
-                Get.back(result: daysOptions[selectedIndex]);
+                Get.back(result: options[selectedIndex]);
               },
               buttonText: "confirm",
               margin: EdgeInsets.all(10.px),
@@ -821,10 +835,8 @@ Future<T?> mDialogSelectDays<T>() {
             onSelectedItemChanged: (int index) {
               selectedIndex = index;
             },
-            children: daysOptions.map((int days) {
-              return Center(
-                child: Text('$days days'),
-              );
+            children: options.map((String item) {
+              return Center(child: Text(item));
             }).toList(),
           ),
         ),
