@@ -62,7 +62,6 @@ Future<easy.IndicatorResult> mEasyGetPageData<T>({
 class MEasyRefresh extends StatelessWidget {
   final Color? mainColor;
   final MPageState mPageState;
-  final RxList<dynamic> dataList;
   final Future<easy.IndicatorResult> Function() onGetData;
   final Widget child;
   final bool justReturnChild;
@@ -75,7 +74,6 @@ class MEasyRefresh extends StatelessWidget {
   const MEasyRefresh({
     this.mainColor,
     required this.mPageState,
-    required this.dataList,
     required this.onGetData,
     required this.child,
     this.scrollController,
