@@ -14,9 +14,15 @@ class MBanner extends StatelessWidget {
   final BorderRadius? borderRadius;
   final SwiperOnTap? onTap;
 
-  Widget imgBuilder(String img) {
+  Widget imgBuilder(String img, int index) {
     return MImage(
-      modifier: MImageModifier.widthImage(width).heightImage(height),
+      modifier: MImageModifier.widthImage(width).heightImage(height).click(() {
+        if (onTap == null) {
+          mPictureSampleShowBig(img);
+        } else {
+          onTap!(index);
+        }
+      }),
       data: img,
     );
   }
@@ -27,17 +33,16 @@ class MBanner extends StatelessWidget {
       return Container();
     }
     if (data.length == 1) {
-      return imgBuilder(data.first);
+      return imgBuilder(data.first, 0);
     }
     Widget child = SizedBox(
       width: width,
       height: height,
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
-          return imgBuilder(data[index]);
+          return imgBuilder(data[index], index);
         },
         itemCount: data.length,
-        onTap: onTap,
         pagination: const SwiperPagination(),
       ),
     );
