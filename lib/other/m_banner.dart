@@ -43,7 +43,15 @@ class MBanner extends StatelessWidget {
           return imgBuilder(data[index], index);
         },
         itemCount: data.length,
-        pagination: const SwiperPagination(),
+        pagination: SwiperPagination(
+            builder: DotSwiperPaginationBuilder(size: 7.px, activeSize: 7.px)
+            // builder: RectSwiperPaginationBuilder(
+            //   size: Size(8.px, 4.px),
+            //   activeSize: Size(8.px, 4.px),
+            //   activeColor: MThemeConfig.mainColor,
+            //   color: Color(0xffFFFFFF).withOpacity(0.6),
+            // ),
+            ),
       ),
     );
     child = ClipRRect(
